@@ -1,0 +1,18 @@
+.logotext {
+  background: linear-gradient(268.41deg, #ff6b00 6.88%, #c40000 83.65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 107, 0, 0.17) 0%,
+    rgba(255, 0, 0, 0.44) 100%
+  );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  width: 361px;
+  height: 51px;
+}
