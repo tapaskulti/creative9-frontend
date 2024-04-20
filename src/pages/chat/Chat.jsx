@@ -333,7 +333,7 @@ const Chat = () => {
               </div>
             )}
 
-            {/* if chose painting show all paintings list */}
+            {/* if choose painting show all paintings list */}
             {offerselection.offerCreate === "Painting" &&
               offerselection.paymentType &&
               offerselection.art === undefined && (
@@ -365,6 +365,7 @@ const Chat = () => {
                 </div>
               )}
 
+           {/* if choose Illustration show all Illustration list */}
             {offerselection.offerCreate === "Illustration" &&
               offerselection.paymentType &&
               offerselection.illustration === undefined && (
@@ -395,10 +396,222 @@ const Chat = () => {
                   </div>
                 </div>
               )}
-            {(offerselection.art || offerselection.illustration) && (
+
+              {/* form fields for Painting */}
+
+              {(offerselection.art) && (
               <div className=" space-y-2">
                 <div className="py-2">
-                  <div>Description</div>
+                  <div>Description for painting</div>
+                  <textarea
+                    className="border border-slate-300 w-full h-24 rounded-md px-2 py-1 mt-2 text-sm focus:border-slate-400 focus:outline-none"
+                    placeholder="Describe your offer"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        description: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Delivery for painting</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    // placeholder="Enter your delivery days"
+                    type="number"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        deliveryDays: e.target.value,
+                      });
+                    }}
+                  />
+                  <span className="pl-2">Days</span>
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Revisions for painting</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    // placeholder="Enter your revisions"
+                    type="number"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        revisions: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Page Size</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    // placeholder="Figures"
+                    type="number"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        numberOfFigures: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">With Frame</div>
+                  <input
+                    type="checkbox"
+                    className="border border-slate-200 w-5 h-5 px-1.5 rounded-[4px]"
+                    onChange={(e) => {
+                      console.log(e.target.checked);
+                      setofferselection({
+                        ...offerselection,
+                        sourceFile: e.target.checked,
+                      });
+                    }}
+                  />                  
+                </div>
+
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Without Frame</div>
+                  <input
+                    type="checkbox"
+                    className="border border-slate-200 w-5 h-5 px-1.5 rounded-[4px]"
+                    onChange={(e) => {
+                      console.log(e.target.checked);
+                      setofferselection({
+                        ...offerselection,
+                        sourceFile: e.target.checked,
+                      });
+                    }}
+                  />                  
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Colour Illustration for painting</div>
+                  <input
+                    type="checkbox"
+                    className="border border-slate-200 w-5 h-5 px-1.5 rounded-[4px]"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        colourIllustration: e.target.checked,
+                      });
+                    }}
+                  />                
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200  pt-2 pb-4">
+                  <div className="w-52">Black/White Illustration for painting</div>
+                  <input
+                    type="checkbox"
+                    className="border border-slate-200 w-5 h-5 px-1.5 rounded-[4px]"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        blackAndWhiteIllustration: e.target.checked,
+                      });
+                    }}
+                  />
+                  {/* <select
+                  className="border-b-2 "
+                  onChange={(e) => {
+                    setofferselection({
+                      ...offerselection,
+                      blackAndWhiteIllustration: e.target.value,
+                    });
+                  }}
+                >
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select> */}
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Medium for painting</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    type="number"
+                    // placeholder="Enter your total illustration"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        totalIllustration: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                {/* <div className="flex justify-between pr-52 items-center">
+                <div>Black and White Linedrawing </div>
+                <input
+                  type="checkbox"
+                  onChange={(e) => {
+                    setofferselection({
+                      ...offerselection,
+                      blackAndWhitelineDrawing: e.target.checked,
+                    });
+                  }}
+                />
+              </div> */}
+                {/* <div className="flex justify-between pr-52 items-center">
+                <div>Full color Illustration </div>
+                <input
+                  type="checkbox"
+                  className="border border-slate-300 w-16 px-1.5 rounded-sm"
+                  onChange={(e) => {
+                    setofferselection({
+                      ...offerselection,
+                      fullColorIllustration: e.target.checked,
+                    });
+                  }}
+                />
+              </div> */}
+                {/* <div className="flex justify-between pr-52 items-center">
+                <div>Copyright and Ownership </div>
+                <input
+                  type="checkbox"
+                  onChange={(e) => {
+                    setofferselection({
+                      ...offerselection,
+                      copyrightAndOwnership: e.target.checked,
+                    });
+                  }}
+                />
+              </div> */}
+
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Total painting</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    type="number"
+                    // placeholder="Enter your total illustration"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        totalIllustration: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                {/* <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Price per Illustration for painting</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    type="number"
+                    // placeholder="Enter your total illustration"
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        pricePerIllustration: e.target.value,
+                      });
+                    }}
+                  />
+                </div> */}
+              </div>
+            )}
+            {/* form fields for Illustration both single payment and milestone */}
+            {(offerselection.illustration) && (
+              <div className=" space-y-2">
+                <div className="py-2">
+                  <div>Description for Illustation</div>
                   <textarea
                     className="border border-slate-300 w-full h-24 rounded-md px-2 py-1 mt-2 text-sm focus:border-slate-400 focus:outline-none"
                     placeholder="Describe your offer"
