@@ -15,8 +15,8 @@ import {
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// const socket = io("http://localhost:5001");
-const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
+const socket = io("http://localhost:5001");
+// const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
 
 const Chat = () => {
   const dispatch = useDispatch();
@@ -61,6 +61,14 @@ const Chat = () => {
     pricePerIllustration: "",
     totalIllustration: "",
     totalMileStonePrice: 0,
+    // painting fields
+    pageSize:0,
+    canvasSize:"",
+    withFrame:false,
+    withoutFrame:false,
+    medium:"",
+    totalPainting:""
+
   });
   // let totalValue
   console.log("offerselection==========>", offerselection);
@@ -453,7 +461,20 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        numberOfFigures: e.target.value,
+                        pageSize: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
+                  <div className="w-52">Canvas Size</div>
+                  <input
+                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    // placeholder="Figures"                   
+                    onChange={(e) => {
+                      setofferselection({
+                        ...offerselection,
+                        canvasSize: e.target.value,
                       });
                     }}
                   />
@@ -467,7 +488,7 @@ const Chat = () => {
                       console.log(e.target.checked);
                       setofferselection({
                         ...offerselection,
-                        sourceFile: e.target.checked,
+                        withFrame: e.target.checked,
                       });
                     }}
                   />                  
@@ -482,59 +503,22 @@ const Chat = () => {
                       console.log(e.target.checked);
                       setofferselection({
                         ...offerselection,
-                        sourceFile: e.target.checked,
+                        withoutFrame: e.target.checked,
                       });
                     }}
                   />                  
                 </div>
-                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
-                  <div className="w-52">Colour Illustration for painting</div>
-                  <input
-                    type="checkbox"
-                    className="border border-slate-200 w-5 h-5 px-1.5 rounded-[4px]"
-                    onChange={(e) => {
-                      setofferselection({
-                        ...offerselection,
-                        colourIllustration: e.target.checked,
-                      });
-                    }}
-                  />                
-                </div>
-                <div className="flex items-center border-b text-sm border-slate-200  pt-2 pb-4">
-                  <div className="w-52">Black/White Illustration for painting</div>
-                  <input
-                    type="checkbox"
-                    className="border border-slate-200 w-5 h-5 px-1.5 rounded-[4px]"
-                    onChange={(e) => {
-                      setofferselection({
-                        ...offerselection,
-                        blackAndWhiteIllustration: e.target.checked,
-                      });
-                    }}
-                  />
-                  {/* <select
-                  className="border-b-2 "
-                  onChange={(e) => {
-                    setofferselection({
-                      ...offerselection,
-                      blackAndWhiteIllustration: e.target.value,
-                    });
-                  }}
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select> */}
-                </div>
+                              
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
                   <div className="w-52">Medium for painting</div>
                   <input
                     className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
-                    type="number"
+                   
                     // placeholder="Enter your total illustration"
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        totalIllustration: e.target.value,
+                        medium: e.target.value,
                       });
                     }}
                   />
@@ -586,27 +570,15 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        totalIllustration: e.target.value,
+                        totalPainting: e.target.value,
                       });
                     }}
                   />
-                </div>
-                {/* <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
-                  <div className="w-52">Price per Illustration for painting</div>
-                  <input
-                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
-                    type="number"
-                    // placeholder="Enter your total illustration"
-                    onChange={(e) => {
-                      setofferselection({
-                        ...offerselection,
-                        pricePerIllustration: e.target.value,
-                      });
-                    }}
-                  />
-                </div> */}
+                </div>             
               </div>
             )}
+
+
             {/* form fields for Illustration both single payment and milestone */}
             {(offerselection.illustration) && (
               <div className=" space-y-2">
@@ -1333,6 +1305,64 @@ const Chat = () => {
                                     </span>
                                   )}
                                   <br />
+
+                                  {/* painting Fields  */}
+                                  {msg?.offer?.pageSize && (
+                                    <span className="text-gray-600">
+                                       Page Size {" "}{" "}
+                                      <b>{msg?.offer?.pageSize} </b>
+                                    </span>
+                                  )}
+                                  <br />
+
+                                  {msg?.offer?.pageSize && (
+                                    <span className="text-gray-600">                                    
+                                       Canvas Size {" "}
+                                      <b>{msg?.offer?.canvasSize} </b>
+                                    </span>
+                                  )}
+                                  <br />
+
+                                  {msg?.offer?.withFrame === true && (
+                                    <span className="text-gray-600">
+                                      With Frame{" "}
+                                      <span className="font-bold">
+                                        {msg?.offer?.withFrame === true && (
+                                          <input type="checkbox" checked />
+                                        )}
+                                      </span>
+                                    </span>
+                                  )}
+                                  <br />
+                                  {msg?.offer?.withoutFrame === true && (
+                                    <span className="text-gray-600">
+                                      Without Frame{" "}
+                                      <span className="font-bold">
+                                        {msg?.offer?.withoutFrame === true && (
+                                          <input type="checkbox" checked />
+                                        )}
+                                      </span>
+                                    </span>
+                                  )}
+                                  
+                                  <br/>
+                                  {msg?.offer?.medium && (
+                                    <span className="text-gray-600">                                    
+                                       Medium {" "}
+                                      <b>{msg?.offer?.medium} </b>
+                                    </span>
+                                  )}
+                                  <br />
+
+                                  {msg?.offer?.totalPainting && (
+                                    <span className="text-gray-600">                                    
+                                       Total Painting {" "}
+                                      <b>{msg?.offer?.totalPainting} </b>
+                                    </span>
+                                  )}
+                                  <br />
+
+                                  {/* painting fields */}
 
                                   {msg?.offer?.numberOfFigures && (
                                     <span className="text-gray-600">
