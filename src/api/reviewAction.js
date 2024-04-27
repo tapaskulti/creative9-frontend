@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const createArtsReviewsAction = async (payload) => {
-    const response = await axios.get(
+    const response = await axios.post(
       `${import.meta.env.VITE_APP_BASE_URL}/artReview/creatArtReview`,
       payload.body,
     );
