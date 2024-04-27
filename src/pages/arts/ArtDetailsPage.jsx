@@ -165,7 +165,7 @@ function ArtDetailsPage() {
             </div>
           </div>
         </div>
-        {/* <div className="px-6 pt-6 space-y-5 sm:pt-10 md:px-10">
+        <div className="px-6 pt-6 space-y-5 sm:pt-10 md:px-10">
           <div className="flex items-center space-x-3">
             <div className="font-sans text-xl text-green-600">Ratings: </div>
             <div className="flex">
@@ -187,7 +187,7 @@ function ArtDetailsPage() {
               <ReviewCard />
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
