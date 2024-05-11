@@ -107,12 +107,12 @@ const Chat = () => {
     msg,
   }) => {
     try {
-      // const response = await axios.post(
-      //   "http://localhost:5001/create-payment-intent",
-      //   {
-          const response = await axios.post(
-            "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-            {
+      const response = await axios.post(
+        "http://localhost:5001/create-payment-intent",
+        {
+          // const response = await axios.post(
+          //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+          //   {
           artId: Math.random(),
           price: price,
           product_type: product_type,
@@ -137,12 +137,12 @@ const Chat = () => {
     keyOfMilestone,
   }) => {
     try {
-      // const response = await axios.post(
-      //   "http://localhost:5001/create-payment-intent",
-      //   {
-          const response = await axios.post(
-            "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-            {
+      const response = await axios.post(
+        "http://localhost:5001/create-payment-intent",
+        {
+          // const response = await axios.post(
+          //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+          //   {
           artId: Math.random(),
           price: price,
           product_type: product_type,
@@ -410,7 +410,7 @@ const Chat = () => {
               {(offerselection.art) && (
               <div className=" space-y-2">
                 <div className="py-2">
-                  <div>Description for painting</div>
+                  <div>Description for Painting</div>
                   <textarea
                     className="border border-slate-300 w-full h-24 rounded-md px-2 py-1 mt-2 text-sm focus:border-slate-400 focus:outline-none"
                     placeholder="Describe your offer"
@@ -424,7 +424,7 @@ const Chat = () => {
                 </div>
                 
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
-                  <div className="w-52">Delivery for painting</div>
+                  <div className="w-52">Delivery days for Painting</div>
                   <input
                     className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
                     // placeholder="Enter your delivery days"
@@ -439,7 +439,7 @@ const Chat = () => {
                   <span className="pl-2">Days</span>
                 </div>
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
-                  <div className="w-52">Revisions for painting</div>
+                  <div className="w-52">Revisions for Painting</div>
                   <input
                     className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
                     // placeholder="Enter your revisions"
@@ -455,9 +455,9 @@ const Chat = () => {
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
                   <div className="w-52">Page Size</div>
                   <input
-                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    className="border border-slate-300 w-40 px-1.5 py-1.5 rounded-[4px]"
                     // placeholder="Figures"
-                    type="number"
+                    // type="number"
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
@@ -469,7 +469,7 @@ const Chat = () => {
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
                   <div className="w-52">Canvas Size</div>
                   <input
-                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    className="border border-slate-300 w-40 px-1.5 py-1.5 rounded-[4px]"
                     // placeholder="Figures"                   
                     onChange={(e) => {
                       setofferselection({
@@ -509,10 +509,10 @@ const Chat = () => {
                   />                  
                 </div>
                               
-                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
-                  <div className="w-52">Medium for painting</div>
+                <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4 w-full">
+                  <div className="w-52">Medium for Painting</div>
                   <input
-                    className="border border-slate-300 w-16 px-1.5 py-1.5 rounded-[4px]"
+                    className="border border-slate-300 w-full px-1.5 py-1.5 rounded-[4px]"
                    
                     // placeholder="Enter your total illustration"
                     onChange={(e) => {
