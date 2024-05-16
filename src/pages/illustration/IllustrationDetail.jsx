@@ -123,8 +123,8 @@ const ServiceCard = ({ service, type }) => {
 
   const handleIllustrationPay = async (service) => {
     try {
-      // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-        const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
+      const response = await axios.post('http://localhost:5001/create-payment-intent', {
+        // const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
         i: service._id,
         price: selectedPriceSection === "basic" ? service?.basicPrice : selectedPriceSection === "standard" ? service?.standardPrice : service?.premiumPrice,
         product_type: "Illustration",
