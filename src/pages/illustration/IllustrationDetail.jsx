@@ -423,7 +423,7 @@ const DetailsWithCard = ({ serviceType, currency, price, sectionName, handleIllu
       <div onClick={handleIllustrationPay} className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize">
         Choose {sectionName}
       </div>
-      {/* <PayPalButton /> */}
+      <PayPalButton />
     </div>
   );
 };
