@@ -12,11 +12,10 @@ const PayPalButton = () => {
     window.location.href = `http://localhost:5173/success`
     }
   },[paid])
-  
+
   const { payingPrice } = useSelector((state) => state.art);
   const initialOptions = {
-    clientId:import.meta.env.VITE_PAYPAL_CLIENT_ID,
-      // "AcA2KJ9ftu-JsUUx95Sx8P2DVdbMGzMXYTcqGNPbbSnNgiLJ0_suCdwJIdX3D_SkHEAzhNEtBL0_xy1k",
+    clientId:import.meta.env.VITE_PAYPAL_CLIENT_ID,     
     currency: "USD",
     intent: "capture",
     };
