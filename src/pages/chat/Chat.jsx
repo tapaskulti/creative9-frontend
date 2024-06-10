@@ -14,6 +14,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import ModalComponent from "../../components/Modal";
+import { getPayingPrice } from "../../redux/art/artSlice";
+const initialOptions = {
+  clientId:
+    "AcA2KJ9ftu-JsUUx95Sx8P2DVdbMGzMXYTcqGNPbbSnNgiLJ0_suCdwJIdX3D_SkHEAzhNEtBL0_xy1k",
+  currency: "USD",
+  intent: "capture",
+};
 
 const socket = io("http://localhost:5001");
 // const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
@@ -62,13 +71,12 @@ const Chat = () => {
     totalIllustration: "",
     totalMileStonePrice: 0,
     // painting fields
-    pageSize:0,
-    canvasSize:"",
-    withFrame:false,
-    withoutFrame:false,
-    medium:"",
-    totalPainting:""
-
+    pageSize: 0,
+    canvasSize: "",
+    withFrame: false,
+    withoutFrame: false,
+    medium: "",
+    totalPainting: "",
   });
   // let totalValue
   console.log("offerselection==========>", offerselection);
@@ -100,6 +108,9 @@ const Chat = () => {
     }
   }, [offerselection.milestone]);
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
+
   const handleCheckout = async ({
     price,
     product_image,
@@ -109,6 +120,7 @@ const Chat = () => {
     try {
       const response = await axios.post(
         "http://localhost:5001/create-payment-intent",
+        // "http://localhost:5001/createPayment",
         {
           // const response = await axios.post(
           //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
@@ -121,9 +133,13 @@ const Chat = () => {
       );
 
       localStorage.setItem("offer_single", JSON.stringify(msg));
-      // console.log('Response:', response.data);
+      console.log("Response:", response.data);
       // Redirect to Stripe checkout URL
       window.location.href = response.data.checkoutUrl;
+      // if(response.status===200 && response.data.checkoutUrl){
+      //   const captureResponse = await axios.post(`http://localhost:5001/captureOrder?orderID=${response.data.orderID}`)
+      //   console.log(captureResponse.data)
+      // }
     } catch (error) {
       console.error("Error processing payment:", error);
     }
@@ -137,24 +153,27 @@ const Chat = () => {
     keyOfMilestone,
   }) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5001/create-payment-intent",
-        {
-          // const response = await axios.post(
-          //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-          //   {
-          artId: Math.random(),
-          price: price,
-          product_type: product_type,
-          product_image: product_image,
-        }
-      );
+      console.log("price===>", price);
+      dispatch(getPayingPrice({ payingPrice: price }));
+      handleOpen();
+      // const response = await axios.post(
+      //   "http://localhost:5001/create-payment-intent",
+      //   {
+      //     // const response = await axios.post(
+      //     //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+      //     //   {
+      //     artId: Math.random(),
+      //     price: price,
+      //     product_type: product_type,
+      //     product_image: product_image,
+      //   }
+      // );
 
       localStorage.setItem("offer_milestone", JSON.stringify(msg));
       localStorage.setItem("milestone_key", keyOfMilestone);
       // console.log('Response:', response.data);
       // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
       console.error("Error processing payment:", error);
     }
@@ -269,6 +288,9 @@ const Chat = () => {
     <div className="w-screen h-screen pt-5">
       <Header />
 
+      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
+        setModalOpen(false)
+      }} />}
       {/* offer create modal */}
       <dialog id="my_modal_2" className="modal ">
         <div className="modal-box rounded-md">
@@ -373,7 +395,7 @@ const Chat = () => {
                 </div>
               )}
 
-           {/* if choose Illustration show all Illustration list */}
+            {/* if choose Illustration show all Illustration list */}
             {offerselection.offerCreate === "Illustration" &&
               offerselection.paymentType &&
               offerselection.illustration === undefined && (
@@ -405,9 +427,9 @@ const Chat = () => {
                 </div>
               )}
 
-              {/* form fields for Painting */}
+            {/* form fields for Painting */}
 
-              {(offerselection.art) && (
+            {offerselection.art && (
               <div className=" space-y-2">
                 <div className="py-2">
                   <div>Description for Painting</div>
@@ -422,7 +444,7 @@ const Chat = () => {
                     }}
                   />
                 </div>
-                
+
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
                   <div className="w-52">Delivery days for Painting</div>
                   <input
@@ -470,7 +492,7 @@ const Chat = () => {
                   <div className="w-52">Canvas Size</div>
                   <input
                     className="border border-slate-300 w-40 px-1.5 py-1.5 rounded-[4px]"
-                    // placeholder="Figures"                   
+                    // placeholder="Figures"
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
@@ -491,7 +513,7 @@ const Chat = () => {
                         withFrame: e.target.checked,
                       });
                     }}
-                  />                  
+                  />
                 </div>
 
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4">
@@ -506,14 +528,13 @@ const Chat = () => {
                         withoutFrame: e.target.checked,
                       });
                     }}
-                  />                  
+                  />
                 </div>
-                              
+
                 <div className="flex items-center border-b text-sm border-slate-200 pt-2 pb-4 w-full">
                   <div className="w-52">Medium for Painting</div>
                   <input
                     className="border border-slate-300 w-full px-1.5 py-1.5 rounded-[4px]"
-                   
                     // placeholder="Enter your total illustration"
                     onChange={(e) => {
                       setofferselection({
@@ -574,13 +595,12 @@ const Chat = () => {
                       });
                     }}
                   />
-                </div>             
+                </div>
               </div>
             )}
 
-
             {/* form fields for Illustration both single payment and milestone */}
-            {(offerselection.illustration) && (
+            {offerselection.illustration && (
               <div className=" space-y-2">
                 <div className="py-2">
                   <div>Description for Illustation</div>
@@ -719,10 +739,19 @@ const Chat = () => {
                                             }
                                             onChange={() => {}}
                                           />
-                                          <div className="mt-2" onClick={()=>{                                                                                        
-                                            const {[milestonek]:omittedKey,...newObject} = offerselection.milestone                                            
-                                            setofferselection({...offerselection,milestone:newObject})
-                                          }}>
+                                          <div
+                                            className="mt-2"
+                                            onClick={() => {
+                                              const {
+                                                [milestonek]: omittedKey,
+                                                ...newObject
+                                              } = offerselection.milestone;
+                                              setofferselection({
+                                                ...offerselection,
+                                                milestone: newObject,
+                                              });
+                                            }}
+                                          >
                                             <FontAwesomeIcon
                                               icon={faCircleXmark}
                                               className="w-5 h-5"
@@ -1002,40 +1031,38 @@ const Chat = () => {
                   Back
                 </div>
                 <div
-                  onClick={
-                      () => {
-                      dispatch({
-                        type: "CREATE_ORDER",
-                        payload: {
-                          body: {
-                            user: receiver?._id,
-                            orderType: offerselection.offerCreate,
-                            art: offerselection.art,
-                            illustration: offerselection.illustration,
-                            singlePaymentPrice: offerselection.singlePaymentPrice,
-                            milestone: offerselection.milestone,
-                            totalMileStonePrice:
-                              offerselection.totalMileStonePrice,
-                          },
+                  onClick={() => {
+                    dispatch({
+                      type: "CREATE_ORDER",
+                      payload: {
+                        body: {
+                          user: receiver?._id,
+                          orderType: offerselection.offerCreate,
+                          art: offerselection.art,
+                          illustration: offerselection.illustration,
+                          singlePaymentPrice: offerselection.singlePaymentPrice,
+                          milestone: offerselection.milestone,
+                          totalMileStonePrice:
+                            offerselection.totalMileStonePrice,
                         },
-                      });
-                      socket.emit("send-message", {
-                        msg: {
-                          message,
-                          offer: offerselection,
-                          sender: user._id,
-                          receiver: receiver?._id,
-                        },
-                      });
+                      },
+                    });
+                    socket.emit("send-message", {
+                      msg: {
+                        message,
+                        offer: offerselection,
+                        sender: user._id,
+                        receiver: receiver?._id,
+                      },
+                    });
 
-                      setMessage("");
-                      // sendSoundplay();
-                      setopenEmojiPicker(false);
+                    setMessage("");
+                    // sendSoundplay();
+                    setopenEmojiPicker(false);
 
-                      setimages();
-                      setSelectedImages([]);
-                    }
-                  }
+                    setimages();
+                    setSelectedImages([]);
+                  }}
                   className="bg-teal-500 hover:bg-teal-700 cursor-pointer px-5 py-2 text-center text-white rounded-md font-semibold"
                 >
                   Send Offer
@@ -1309,15 +1336,14 @@ const Chat = () => {
                                   {/* painting Fields  */}
                                   {msg?.offer?.pageSize && (
                                     <span className="text-gray-600">
-                                       Page Size {" "}{" "}
-                                      <b>{msg?.offer?.pageSize} </b>
+                                      Page Size <b>{msg?.offer?.pageSize} </b>
                                     </span>
                                   )}
                                   <br />
 
                                   {msg?.offer?.pageSize && (
-                                    <span className="text-gray-600">                                    
-                                       Canvas Size {" "}
+                                    <span className="text-gray-600">
+                                      Canvas Size{" "}
                                       <b>{msg?.offer?.canvasSize} </b>
                                     </span>
                                   )}
@@ -1344,19 +1370,18 @@ const Chat = () => {
                                       </span>
                                     </span>
                                   )}
-                                  
-                                  <br/>
+
+                                  <br />
                                   {msg?.offer?.medium && (
-                                    <span className="text-gray-600">                                    
-                                       Medium {" "}
-                                      <b>{msg?.offer?.medium} </b>
+                                    <span className="text-gray-600">
+                                      Medium <b>{msg?.offer?.medium} </b>
                                     </span>
                                   )}
                                   <br />
 
                                   {msg?.offer?.totalPainting && (
-                                    <span className="text-gray-600">                                    
-                                       Total Painting {" "}
+                                    <span className="text-gray-600">
+                                      Total Painting{" "}
                                       <b>{msg?.offer?.totalPainting} </b>
                                     </span>
                                   )}
@@ -1673,7 +1698,7 @@ const Chat = () => {
                                                         price:
                                                           msg?.offer?.milestone[
                                                             m
-                                                          ]["price"],
+                                                          ]["total"],
                                                         product_type:
                                                           msg?.offer
                                                             ?.offerCreate,
@@ -1686,6 +1711,18 @@ const Chat = () => {
                                                     }}
                                                     className="bg-teal-600 hover:bg-teal-700 px-1 py-2 w-20 mt-1  rounded-full cursor-pointer"
                                                   >
+                                                    {/* <PayPalScriptProvider
+                                                      options={initialOptions}
+                                                    >
+                                                      <PayPalButtons
+                                                        style={{
+                                                          shape: "rect",
+                                                          layout: "vertical",
+                                                          color: "gold",
+                                                          label: "paypal",
+                                                        }}
+                                                      />
+                                                    </PayPalScriptProvider> */}
                                                     <h2 className="text-white text-sm text-center">
                                                       Pay
                                                     </h2>
@@ -1731,6 +1768,12 @@ const Chat = () => {
                                           }}
                                           className="bg-teal-600 hover:bg-teal-700 px-1 py-1 text-white w-20 mt-1 text-sm text-center rounded-full cursor-pointer"
                                         >
+                                          {/* <PayPalScriptProvider
+                                                        options={initialOptions}
+                                                      >
+                                                        <PayPalButtons                                                         
+                                                        />
+                                                      </PayPalScriptProvider> */}
                                           Pay Now
                                         </span>
                                       )}

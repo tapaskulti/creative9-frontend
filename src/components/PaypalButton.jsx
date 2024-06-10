@@ -1,24 +1,73 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const PayPalButton = () => {
+  const[paid,setPaid] = useState(false)
+  console.log("paid===>",paid)
+
+  useEffect(()=>{
+    if(paid){
+    window.location.href = `http://localhost:5173/success`
+    }
+  },[paid])
+  
+  const { payingPrice } = useSelector((state) => state.art);
+  const initialOptions = {
+    clientId:import.meta.env.VITE_PAYPAL_CLIENT_ID,
+      // "AcA2KJ9ftu-JsUUx95Sx8P2DVdbMGzMXYTcqGNPbbSnNgiLJ0_suCdwJIdX3D_SkHEAzhNEtBL0_xy1k",
+    currency: "USD",
+    intent: "capture",
+    };
+
+
+  async function createOrder() {
+    console.log("payingPrice=->", payingPrice);
+    return axios
+      .post("http://localhost:5001/api/orders", {
+        price: payingPrice,
+      })
+      // .then((response) => response.json())
+      .then((response) => response.data)
+      .then((order) => order.id)
+      .catch((err) => {
+        console.error("err==>", err);
+      });
+
+      
+  }
+
+  function onApprove(data) {
+    return fetch(`http://localhost:5001/api/orders/${data.orderID}/capture`, {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((orderData) => {
+        // Successful capture!
+        setPaid(true)        
+        console.log(orderData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function onError(error) {
+   
+  }
+
   return (
-    <PayPalScriptProvider options={{ "client-id": "AcA2KJ9ftu-JsUUx95Sx8P2DVdbMGzMXYTcqGNPbbSnNgiLJ0_suCdwJIdX3D_SkHEAzhNEtBL0_xy1k" }}>
+    <PayPalScriptProvider options={initialOptions}>
       <PayPalButtons
-        createOrder={(data, actions) => {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: '10.00'
-              }
-            }]
-          });
+        style={{
+          shape: "rect",
+          layout: "vertical",
+          color: "gold",
+          label: "paypal",
         }}
-        onApprove={(data, actions) => {
-          return actions.order.capture().then(function(details) {
-            console.log(details);
-            // Show success message to the user
-          });
-        }}
+        createOrder={createOrder}
+        onApprove={onApprove}
       />
     </PayPalScriptProvider>
   );
