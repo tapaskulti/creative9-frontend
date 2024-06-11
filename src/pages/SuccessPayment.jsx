@@ -1,16 +1,13 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getPayingPrice } from "../redux/art/artSlice";
 
 const SuccessPayment = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [payToken,setPayToken] = useState("")
-  const { token, PayerID } = useParams()
-  console.log("paypalToken=========>",token,PayerID)
 
   useEffect(() => {
     if (localStorage.getItem("cartItems")) {
@@ -51,6 +48,7 @@ const SuccessPayment = () => {
         },
       });
       localStorage.removeItem("offer_single");
+      dispatch(getPayingPrice({payingPrice:""}))
     }
 
     if (localStorage.getItem("offer_milestone")) {

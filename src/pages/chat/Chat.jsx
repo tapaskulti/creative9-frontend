@@ -118,28 +118,28 @@ const Chat = () => {
     msg,
   }) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5001/create-payment-intent",
-        // "http://localhost:5001/createPayment",
-        {
-          // const response = await axios.post(
-          //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-          //   {
-          artId: Math.random(),
-          price: price,
-          product_type: product_type,
-          product_image: product_image,
-        }
-      );
+      console.log("price===>", price);
+      dispatch(getPayingPrice({ payingPrice: price }));
+      handleOpen();
+
+      // const response = await axios.post(
+      //   "http://localhost:5001/create-payment-intent",
+      //   // "http://localhost:5001/createPayment",
+      //   {
+      //     // const response = await axios.post(
+      //     //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+      //     //   {
+      //     artId: Math.random(),
+      //     price: price,
+      //     product_type: product_type,
+      //     product_image: product_image,
+      //   }
+      // );
 
       localStorage.setItem("offer_single", JSON.stringify(msg));
-      console.log("Response:", response.data);
-      // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
-      // if(response.status===200 && response.data.checkoutUrl){
-      //   const captureResponse = await axios.post(`http://localhost:5001/captureOrder?orderID=${response.data.orderID}`)
-      //   console.log(captureResponse.data)
-      // }
+      // console.log("Response:", response.data);      
+      // window.location.href = response.data.checkoutUrl;
+    
     } catch (error) {
       console.error("Error processing payment:", error);
     }
