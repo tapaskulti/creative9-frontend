@@ -14,6 +14,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { addToCart } from "../../redux/cart/cartSlice";
+import { getPayingPrice } from "../../redux/art/artSlice";
+import ModalComponent from "../../components/Modal";
 
 function ArtDetailsPage() {
   const dispatch = useDispatch();
@@ -21,6 +23,8 @@ function ArtDetailsPage() {
   const [review, setReview] = useState("");
   const { artDetail } = useSelector((state) => state.art);
   const { user, artReview } = useSelector((state) => state.user);
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
 
   useEffect(() => {
     dispatch({
@@ -56,15 +60,18 @@ function ArtDetailsPage() {
 
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-      const response = await axios.post(
-        "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-        {
-          artId: id,
-          price: artDetail?.price,
-          product_type: "Art",
-          product_image: artDetail?.art[0].secure_url,
-        }
-      );
+      // const response = await axios.post(
+      //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+      //   {
+      //     artId: id,
+      //     price: artDetail?.price,
+      //     product_type: "Art",
+      //     product_image: artDetail?.art[0].secure_url,
+      //   }
+      // );
+
+      dispatch(getPayingPrice({ payingPrice: artDetail?.price }));
+      handleOpen();
 
       let cartItems = [
         {
@@ -87,7 +94,7 @@ function ArtDetailsPage() {
 
       // console.log('Response:', response.data);
       // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
       console.error("Error processing payment:", error);
     }
@@ -97,6 +104,10 @@ function ArtDetailsPage() {
 
   return (
     <div className="overflow-y-hidden">
+      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
+        setModalOpen(false)
+      }} />}
+
       <div className="py-2">
         <Header />
       </div>
