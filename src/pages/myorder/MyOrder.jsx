@@ -11,6 +11,8 @@ import {
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { getPayingPrice } from "../../redux/art/artSlice";
+import ModalComponent from "../../components/Modal";
 
 function MyOrder() {
   const dispatch = useDispatch();
@@ -216,26 +218,31 @@ const OrderPaintCard = ({
   id,
   qty,
 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
+
   const dispatch = useDispatch();
   const handleArtPay = async ({ id, price, image }) => {
+    dispatch(getPayingPrice({ payingPrice: price }));
+      handleOpen();
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-      const response = await axios.post(
-        "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-        {
-          artId: id,
-          price: price,
-          product_type: "Art",
-          product_image: image,
-        }
-      );
+      // const response = await axios.post(
+      //   // "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+      //   {
+      //     artId: id,
+      //     price: price,
+      //     product_type: "Art",
+      //     product_image: image,
+      //   }
+      // );
 
-      localStorage.setItem("artId", id);
+      // localStorage.setItem("artId", id);
 
-      console.log("Response:", response);
+      // console.log("Response:", response);
 
-      // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // // Redirect to Stripe checkout URL
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
       console.error("Error processing payment:", error);
     }
@@ -243,6 +250,9 @@ const OrderPaintCard = ({
 
   return (
     <div className="bg-[#f8f7f7] w-full h-min rounded-md hover:shadow-sm px-4 py-3 my-3">
+      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
+        setModalOpen(false)
+      }} />}
       <div className="flex justify-between items-center">
         <div>{title}</div>
         {isPainting ? (
