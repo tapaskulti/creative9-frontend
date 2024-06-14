@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ArtCarousel } from "./ArtDetailsPage";
 import axios from "axios";
-import {Elements,PaymentElement} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+import { Elements, PaymentElement } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { getPayingPrice } from "../../redux/art/artSlice";
+import ModalComponent from "../../components/Modal";
 
-
-const stripePromise = loadStripe('pk_test_51OFdnTSCz4KZaFaZMZhZE8QOzCkhdmrIwiorwXg1QcxSHjaVt6z5gBEInJA5uFCNI5lKGexExCzn45Fi3wUUOkuP00GtUyHfLX');
+const stripePromise = loadStripe(
+  "pk_test_51OFdnTSCz4KZaFaZMZhZE8QOzCkhdmrIwiorwXg1QcxSHjaVt6z5gBEInJA5uFCNI5lKGexExCzn45Fi3wUUOkuP00GtUyHfLX"
+);
 
 function ArtPayment() {
   const dispatch = useDispatch();
@@ -17,13 +20,8 @@ function ArtPayment() {
   const { artDetail } = useSelector((state) => state.art);
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  const options = {
-    // passing the client secret obtained from the server
-    clientSecret: 'sk_test_51OFdnTSCz4KZaFaZr2arvOTZFPNzWRSBo14fcRuSrLRH3fwvDtlMWb1G4Ao40vyBzyWBZsz75TamQxSeSEd7hS5M008QGCl6au',
-  };
-
-  
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
 
   useEffect(() => {
     dispatch({
@@ -34,38 +32,38 @@ function ArtPayment() {
     });
   }, []);
 
-
-
-
- 
-
   const [clientSecret, setClientSecret] = useState("");
 
   const handleCheckout = async (e) => {
     e.preventDefault();
-
+    dispatch(getPayingPrice({ payingPrice: artDetail?.price }));
+    handleOpen();
     try {
-      // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-        const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
-        artId: id,
-        price: artDetail?.price,
-        product_type: "Art",
-        product_image: artDetail?.art[0].secure_url,
-      });
-
-      console.log('Response:', response.data);
-      // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // // const response = await axios.post('http://localhost:5001/create-payment-intent', {
+      //   const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
+      //   artId: id,
+      //   price: artDetail?.price,
+      //   product_type: "Art",
+      //   product_image: artDetail?.art[0].secure_url,
+      // });
+      // console.log('Response:', response.data);
+      // // Redirect to Stripe checkout URL
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
-      console.error('Error processing payment:', error);
+      console.error("Error processing payment:", error);
     }
   };
- 
-
-  
 
   return (
     <div className="w-screen   overflow-y-hidden">
+      {modalOpen && (
+        <ModalComponent
+          open={modalOpen}
+          handleClose={() => {
+            setModalOpen(false);
+          }}
+        />
+      )}
       <div className="py-2">
         <Header />
       </div>
@@ -100,11 +98,7 @@ function ArtPayment() {
             </div>
           </div>
           <div>
-          <button onClick={handleCheckout}>Checkout</button>
-
-        
-              
-            
+            <button onClick={handleCheckout}>Checkout</button>
           </div>
         </div>
       </div>
@@ -113,5 +107,3 @@ function ArtPayment() {
 }
 
 export default ArtPayment;
-
-
