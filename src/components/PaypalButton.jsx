@@ -2,7 +2,8 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+const BACKEND_URL = "http://localhost:5001/api"
+// const BACKEND_URL = "https://hammerhead-app-4du5b.ondigitalocean.app/api"
 const PayPalButton = () => {
   const[paid,setPaid] = useState(false)
   console.log("paid===>",paid)
@@ -24,7 +25,7 @@ const PayPalButton = () => {
   async function createOrder() {
     console.log("payingPrice=->", payingPrice);
     return axios
-      .post("http://localhost:5001/api/orders", {
+      .post(`${BACKEND_URL}/orders`, {
         price: payingPrice,
       })
       // .then((response) => response.json())
@@ -38,7 +39,7 @@ const PayPalButton = () => {
   }
 
   function onApprove(data) {
-    return fetch(`http://localhost:5001/api/orders/${data.orderID}/capture`, {
+    return fetch(`${BACKEND_URL}/orders/${data.orderID}/capture`, {
       method: "POST",
     })
       .then((response) => response.json())
