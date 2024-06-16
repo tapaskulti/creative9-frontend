@@ -6,7 +6,8 @@ import {
   getAllArtsAction,
   getArtByIdAction,
 } from "../api/artAction";
-import { getAllArts, getArtDetails } from "../redux/art/artSlice";
+import { getAllArts, getArtDetails, getArtReviews } from "../redux/art/artSlice";
+import { createArtsReviewsAction, getAllArtReviewsAction } from "../api/reviewAction";
 
 function* createArtSaga(actions) {
   try {
@@ -69,9 +70,30 @@ function* deleteArtSaga(action) {
 
 }
 
+
+function* createArtReviewSaga(action) {
+  const response = yield call(createArtsReviewsAction, action.payload);
+
+}
+
+
+function* getArtReviewByIdSaga(action) {
+  const response = yield call(getAllArtReviewsAction, action.payload);
+  console.log(response)
+  if (response.status === 200) {
+    yield put(
+      getArtReviews({
+        artReview: response.data,
+      })
+    );
+  }
+}
+
 export function* watchAsyncArt() {
   yield takeEvery("CREATE_ART", createArtSaga);
   yield takeEvery("GET_ALL_ART", getAllArtSaga);
   yield takeEvery("GET_ART_BY_ID", getArtByIdSaga);
   yield takeEvery("DELETE_ART", deleteArtSaga);
+  yield takeEvery("CREATE_REVIEW", createArtReviewSaga);
+  yield takeEvery("GET_ART_REVIEW_BY_ID", getArtReviewByIdSaga);
 }

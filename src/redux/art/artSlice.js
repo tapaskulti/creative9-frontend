@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   arts: [],
   artDetail: {},
+  artReview:[],
+  payingPrice:""
 };
 
 const artSlice = createSlice({
@@ -15,9 +17,15 @@ const artSlice = createSlice({
     getArtDetails(state, action) {
       state.artDetail = action.payload.artDetail;
     },
+    getArtReviews(state, action) {
+      state.artReview = action.payload.artReview;
+    },
+    getPayingPrice(state, action) {
+      state.payingPrice = action.payload.payingPrice;
+    },
   },
 });
 
-export const { getAllArts, getArtDetails } = artSlice.actions;
+export const { getAllArts, getArtDetails,getArtReviews,getPayingPrice } = artSlice.actions;
 
 export const artSliceReducer = artSlice.reducer;

@@ -32,3 +32,11 @@ export const paidArtOrderAction = async (payload) => {
 
   return response;
 }
+
+export const capturePaypalTokenAction = async (payload) => {
+  const response = await axios.post(
+    `${import.meta.env.VITE_APP_BASE_URL}/order/captureOrder?orderID=${payload.orderID}`
+  );
+
+  return response;
+}

@@ -23,6 +23,8 @@ import {
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import PayPalButton from "../../components/PaypalButton";
+import { getPayingPrice } from "../../redux/art/artSlice";
+import ModalComponent from "../../components/Modal";
 
 const IllustrationDetail = () => {
   const dispatch = useDispatch();
@@ -116,6 +118,9 @@ const ServiceCard = ({ service, type }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedPriceSection, setSelectedPriceSection] = useState(type);
   const {user} = useSelector((state) => state.user);
+  const dispatch = useDispatch()
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
 
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
@@ -124,15 +129,15 @@ const ServiceCard = ({ service, type }) => {
   const handleIllustrationPay = async (service) => {
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-        const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
-        i: service._id,
-        price: selectedPriceSection === "basic" ? service?.basicPrice : selectedPriceSection === "standard" ? service?.standardPrice : service?.premiumPrice,
-        product_type: "Illustration",
-        product_image: Object.values(service.picture)[selectedImageIndex]
-        .secure_url
-      });
+      //   // const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
+      //   i: service._id,
+      //   price: selectedPriceSection === "basic" ? service?.basicPrice : selectedPriceSection === "standard" ? service?.standardPrice : service?.premiumPrice,
+      //   product_type: "Illustration",
+      //   product_image: Object.values(service.picture)[selectedImageIndex]
+      //   .secure_url
+      // });
 
-      console.log('Response:', response.data);
+      // console.log('Response:', response.data);
 
       let illustrationOrder = {
         orderType: "Illustration",
@@ -143,11 +148,14 @@ const ServiceCard = ({ service, type }) => {
         illustrationPaid: true,
       }
 
+      dispatch(getPayingPrice({ payingPrice: selectedPriceSection === "basic" ? service?.basicPrice : selectedPriceSection === "standard" ? service?.standardPrice : service?.premiumPrice }));
+      handleOpen();
+
       localStorage.setItem("illustrationOrder", JSON.stringify(illustrationOrder));
       localStorage.setItem("userid", user?._id);
 
       // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
       console.error('Error processing payment:', error);
     }
@@ -155,6 +163,9 @@ const ServiceCard = ({ service, type }) => {
 
   return (
     <div className="py-5 flex flex-col space-y-5 border-b">
+      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
+        setModalOpen(false)
+      }} />}
       <div className="text-center lg:text-left">
         {/* <div className="text-xl font-semibold capitalize">{service.title}</div> */}
         {/* <div className="flex space-x-2 font-semibold">
@@ -423,7 +434,9 @@ const DetailsWithCard = ({ serviceType, currency, price, sectionName, handleIllu
       <div onClick={handleIllustrationPay} className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize">
         Choose {sectionName}
       </div>
-      <PayPalButton />
+      {/* <PayPalButton
+      
+      /> */}
     </div>
   );
 };

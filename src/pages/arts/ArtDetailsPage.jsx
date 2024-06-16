@@ -8,18 +8,23 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faAnglesRight,
   faCircleChevronLeft,
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { addToCart } from "../../redux/cart/cartSlice";
+import { getPayingPrice } from "../../redux/art/artSlice";
+import ModalComponent from "../../components/Modal";
 
 function ArtDetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-
+  const [review, setReview] = useState("");
   const { artDetail } = useSelector((state) => state.art);
-  const { user } = useSelector((state) => state.user);
+  const { user, artReview } = useSelector((state) => state.user);
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
 
   useEffect(() => {
     dispatch({
@@ -28,43 +33,70 @@ function ArtDetailsPage() {
         id,
       },
     });
+    dispatch({
+      type: "GET_ART_REVIEW_BY_ID",
+      payload: {
+        artId: id,
+      },
+    });
   }, []);
+
+  const sendMessageHandler = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "CREATE_REVIEW",
+      payload: {
+        body: {
+          art: id,
+          username: user?._id,
+          reviewTitle: review,
+        },
+      },
+    });
+  };
 
   const handleCheckout = async (e) => {
     e.preventDefault();
 
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-        const response = await axios.post('https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent', {
-        artId: id,
-        price: artDetail?.price,
-        product_type: "Art",
-        product_image: artDetail?.art[0].secure_url,
-      });
+      // const response = await axios.post(
+      //   "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+      //   {
+      //     artId: id,
+      //     price: artDetail?.price,
+      //     product_type: "Art",
+      //     product_image: artDetail?.art[0].secure_url,
+      //   }
+      // );
 
-      let cartItems = [{
-        id: artDetail?._id,
-        title: artDetail?.title,
-        price: artDetail?.price,
-        quantity: 1,
-        image: artDetail?.art[0].secure_url,
-        totalPrice: artDetail?.price,
-        year: artDetail?.year,
-        artistName: artDetail?.artistName,
-        medium: artDetail?.categoryMedium,
-        width: artDetail?.width,
-        height: artDetail?.height,
-      }];
+      dispatch(getPayingPrice({ payingPrice: artDetail?.price }));
+      handleOpen();
+
+      let cartItems = [
+        {
+          id: artDetail?._id,
+          title: artDetail?.title,
+          price: artDetail?.price,
+          quantity: 1,
+          image: artDetail?.art[0].secure_url,
+          totalPrice: artDetail?.price,
+          year: artDetail?.year,
+          artistName: artDetail?.artistName,
+          medium: artDetail?.categoryMedium,
+          width: artDetail?.width,
+          height: artDetail?.height,
+        },
+      ];
 
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       localStorage.setItem("userid", user?._id);
 
-
       // console.log('Response:', response.data);
       // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
-      console.error('Error processing payment:', error);
+      console.error("Error processing payment:", error);
     }
   };
 
@@ -72,6 +104,10 @@ function ArtDetailsPage() {
 
   return (
     <div className="overflow-y-hidden">
+      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
+        setModalOpen(false)
+      }} />}
+
       <div className="py-2">
         <Header />
       </div>
@@ -136,30 +172,36 @@ function ArtDetailsPage() {
             <div className="flex px-2 space-x-2 text-xl">
               <div className=" text-stone-700">Price:</div>
               <div className="text-2xl font-semibold text-orange-600 uppercase">
-                INR {artDetail?.price}
+                USD {artDetail?.price}
               </div>
             </div>
             <div className="w-1/2 py-10 mx-auto space-y-6 md:w-1/3">
-              <div onClick={()=>{
-                dispatch(
-                  addToCart({
-                    id: id,
-                    title: artDetail?.title,
-                    artistName: artDetail?.artistName,
-                    image: artDetail?.art[0]?.secure_url,
-                    medium: artDetail?.categoryMedium,
-                    width: artDetail?.width,
-                    height: artDetail?.height,
-                    year: artDetail?.year,
-                    price: artDetail?.price,
-                    quantity: 1,
-                    totalPrice: artDetail?.price,
-                  })
-                )
-              }} className="border border-[#FF6B00] text-lg text-center rounded-full text-[#a04403] hover:bg-[#FF6B00] cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00]">
+              <div
+                onClick={() => {
+                  dispatch(
+                    addToCart({
+                      id: id,
+                      title: artDetail?.title,
+                      artistName: artDetail?.artistName,
+                      image: artDetail?.art[0]?.secure_url,
+                      medium: artDetail?.categoryMedium,
+                      width: artDetail?.width,
+                      height: artDetail?.height,
+                      year: artDetail?.year,
+                      price: artDetail?.price,
+                      quantity: 1,
+                      totalPrice: artDetail?.price,
+                    })
+                  );
+                }}
+                className="border border-[#FF6B00] text-lg text-center rounded-full text-[#a04403] hover:bg-[#FF6B00] cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00]"
+              >
                 Add to Cart
               </div>
-              <div onClick={handleCheckout} className="bg-gradient-to-r from-[#FF6B00] text-center to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00] text-lg cursor-pointer px-5 md:px-3 h-8 py-0.5 rounded-full text-white font-bold">
+              <div
+                onClick={handleCheckout}
+                className="bg-gradient-to-r from-[#FF6B00] text-center to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00] text-lg cursor-pointer px-5 md:px-3 h-8 py-0.5 rounded-full text-white font-bold"
+              >
                 Buy Now
               </div>
             </div>
@@ -180,11 +222,32 @@ function ArtDetailsPage() {
             <div className="font-sans text-xl border-b border-[#f45c02]">
               Reviews{" "}
             </div>
-
+            <div className="flex">
+              <textarea
+                className="bg-slate-50 border-stone-200 "
+                onChange={(e) => {
+                  setReview(e.target.value);
+                }}
+              />
+              <FontAwesomeIcon
+                icon={faAnglesRight}
+                className="text-slate-100 w-9 h-9 bg-slate-700 cursor-pointer"
+                onClick={sendMessageHandler}
+              />
+            </div>
             <div className="px-0 pt-5 space-y-5 font-sans sm:px-10">
-              <ReviewCard />
-              <ReviewCard />
-              <ReviewCard />
+              {artReview?.map((singleReview) => {
+                console.log("singleReview=====>",singleReview)
+                return (
+                  <>
+                    <ReviewCard
+                      date={singleReview?.createdAt}
+                      username={singleReview?.username?.name}
+                      review={singleReview?.reviewTitle}
+                    />
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -195,19 +258,18 @@ function ArtDetailsPage() {
 
 export default ArtDetailsPage;
 
-export const ReviewCard = () => {
+export const ReviewCard = ({ date, username, review }) => {
   return (
     <div className="px-5 py-3 border rounded-md shadow-sm bg-slate-50 border-stone-200">
       <div className="flex space-x-20 border-b border-stone-300">
-        <div className="text-base sm:text-base text-stone-800">Username:</div>
         <div className="text-base sm:text-base text-stone-800">
-          Date & Time:
+          Username:{username}
+        </div>
+        <div className="text-base sm:text-base text-stone-800">
+          Date & Time:{date}
         </div>
       </div>
-      <div className="py-3 text-base sm:text-lg font-normal">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos officiis
-        vel aspernatur deleniti ut voluptatum minus totam dicta! Iure, enim.
-      </div>
+      <div className="py-3 text-base sm:text-lg font-normal">{review}</div>
     </div>
   );
 };

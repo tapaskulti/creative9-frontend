@@ -1,11 +1,13 @@
 import moment from "moment";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getPayingPrice } from "../redux/art/artSlice";
 
 const SuccessPayment = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (localStorage.getItem("cartItems")) {
@@ -46,6 +48,7 @@ const SuccessPayment = () => {
         },
       });
       localStorage.removeItem("offer_single");
+      dispatch(getPayingPrice({payingPrice:""}))
     }
 
     if (localStorage.getItem("offer_milestone")) {
@@ -74,6 +77,7 @@ const SuccessPayment = () => {
 
       localStorage.removeItem("milestone_key");
       localStorage.removeItem("offer_milestone");
+      dispatch(getPayingPrice({payingPrice:""}))
     }
 
     if (localStorage.getItem("artId")) {

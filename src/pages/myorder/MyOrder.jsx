@@ -11,6 +11,8 @@ import {
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { getPayingPrice } from "../../redux/art/artSlice";
+import ModalComponent from "../../components/Modal";
 
 function MyOrder() {
   const dispatch = useDispatch();
@@ -171,7 +173,7 @@ function MyOrder() {
                     <div className="flex space-x-1 text-sm font-semibold">
                       <div className="text-gray-500">Price:</div>
                       <div className="flex space-x-2 ">
-                        <div>INR {illustration?.singlePaymentPrice}</div>
+                        <div>USD {illustration?.singlePaymentPrice}</div>
                         {illustration.illustrationPaid ? (
                           <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
                             {" "}
@@ -216,26 +218,31 @@ const OrderPaintCard = ({
   id,
   qty,
 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(true);
+
   const dispatch = useDispatch();
   const handleArtPay = async ({ id, price, image }) => {
+    dispatch(getPayingPrice({ payingPrice: price }));
+      handleOpen();
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
-      const response = await axios.post(
-        "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
-        {
-          artId: id,
-          price: price,
-          product_type: "Art",
-          product_image: image,
-        }
-      );
+      // const response = await axios.post(
+      //   // "https://hammerhead-app-4du5b.ondigitalocean.app/create-payment-intent",
+      //   {
+      //     artId: id,
+      //     price: price,
+      //     product_type: "Art",
+      //     product_image: image,
+      //   }
+      // );
 
-      localStorage.setItem("artId", id);
+      // localStorage.setItem("artId", id);
 
-      console.log("Response:", response);
+      // console.log("Response:", response);
 
-      // Redirect to Stripe checkout URL
-      window.location.href = response.data.checkoutUrl;
+      // // Redirect to Stripe checkout URL
+      // window.location.href = response.data.checkoutUrl;
     } catch (error) {
       console.error("Error processing payment:", error);
     }
@@ -243,6 +250,9 @@ const OrderPaintCard = ({
 
   return (
     <div className="bg-[#f8f7f7] w-full h-min rounded-md hover:shadow-sm px-4 py-3 my-3">
+      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
+        setModalOpen(false)
+      }} />}
       <div className="flex justify-between items-center">
         <div>{title}</div>
         {isPainting ? (
@@ -298,15 +308,15 @@ const OrderPaintCard = ({
                   <div className="grid grid-cols-2 gap-x-10 gap-y-4 items-center text-sm">
                     <div className="flex space-x-2 ">
                       <div>Jul 30, 2022</div>
-                      <div className="font-semibold">INR 120</div>
+                      <div className="font-semibold">USD 120</div>
                     </div>
                     <div className="flex space-x-2 ">
                       <div>Jul 30, 2022</div>
-                      <div className="font-semibold">INR 120</div>
+                      <div className="font-semibold">USD 120</div>
                     </div>
                     <div className="flex space-x-2 ">
                       <div>Jul 30, 2022</div>
-                      <div className="font-semibold">INR 120</div>
+                      <div className="font-semibold">USD 120</div>
                     </div>
                   </div>
                 </div>
@@ -320,7 +330,7 @@ const OrderPaintCard = ({
           <div className="text-gray-500">Price:</div>
           <div className="flex items-center space-x-2">
             <div>
-              INR {price} * {qty} = {price * qty}
+              USD {price} * {qty} = {price * qty}
             </div>
             {isPaintingPaid ? (
               <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
