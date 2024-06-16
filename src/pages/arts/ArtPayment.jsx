@@ -93,7 +93,7 @@ function ArtPayment() {
             <div className="flex space-x-2 text-base">
               <div className=" text-stone-700">Price:</div>
               <div className="font-sans text-xl font-semibold text-orange-600">
-                INR {artDetail?.price}
+                USD {artDetail?.price}
               </div>
             </div>
           </div>

@@ -173,7 +173,7 @@ function MyOrder() {
                     <div className="flex space-x-1 text-sm font-semibold">
                       <div className="text-gray-500">Price:</div>
                       <div className="flex space-x-2 ">
-                        <div>INR {illustration?.singlePaymentPrice}</div>
+                        <div>USD {illustration?.singlePaymentPrice}</div>
                         {illustration.illustrationPaid ? (
                           <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
                             {" "}
@@ -308,15 +308,15 @@ const OrderPaintCard = ({
                   <div className="grid grid-cols-2 gap-x-10 gap-y-4 items-center text-sm">
                     <div className="flex space-x-2 ">
                       <div>Jul 30, 2022</div>
-                      <div className="font-semibold">INR 120</div>
+                      <div className="font-semibold">USD 120</div>
                     </div>
                     <div className="flex space-x-2 ">
                       <div>Jul 30, 2022</div>
-                      <div className="font-semibold">INR 120</div>
+                      <div className="font-semibold">USD 120</div>
                     </div>
                     <div className="flex space-x-2 ">
                       <div>Jul 30, 2022</div>
-                      <div className="font-semibold">INR 120</div>
+                      <div className="font-semibold">USD 120</div>
                     </div>
                   </div>
                 </div>
@@ -330,7 +330,7 @@ const OrderPaintCard = ({
           <div className="text-gray-500">Price:</div>
           <div className="flex items-center space-x-2">
             <div>
-              INR {price} * {qty} = {price * qty}
+              USD {price} * {qty} = {price * qty}
             </div>
             {isPaintingPaid ? (
               <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">

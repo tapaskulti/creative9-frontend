@@ -62,15 +62,15 @@ const IllustrationCreatePage = () => {
     useState(premiumPayload);
 
   const [basicPriceDetail, setbasicPriceDetail] = useState({
-    currency: "INR",
+    currency: "USD",
     price: "",
   });
   const [standardPriceDetail, setstandardPriceDetail] = useState({
-    currency: "INR",
+    currency: "USD",
     price: "",
   });
   const [premiumPriceDetail, setpremiumPriceDetail] = useState({
-    currency: "INR",
+    currency: "USD",
     price: "",
   });
   const [description, setdescription] = useState();

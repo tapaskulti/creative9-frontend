@@ -225,7 +225,7 @@ function Header() {
                       {cartTotalQuantity} Items
                     </span>
                     <span className="text-info">
-                      Subtotal: INR {cartTotalAmount}
+                      Subtotal: USD {cartTotalAmount}
                     </span>
                     <div className="card-actions">
                       <button
@@ -397,7 +397,7 @@ function Header() {
                             {cartTotalQuantity} Items
                           </span>
                           <span className="text-info">
-                            Subtotal: INR {cartTotalAmount}
+                            Subtotal: USD {cartTotalAmount}
                           </span>
                           <div className="card-actions">
                             <button className="btn btn-primary btn-block">
