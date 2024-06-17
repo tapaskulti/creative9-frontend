@@ -6,13 +6,22 @@ const BACKEND_URL = "http://localhost:5001/api"
 // const BACKEND_URL = "https://hammerhead-app-4du5b.ondigitalocean.app/api"
 const PayPalButton = () => {
   const[paid,setPaid] = useState(false)
-  console.log("paid===>",paid)
+  const[paymentErr,setPaymentErr] = useState(false)
+  
 
   useEffect(()=>{
     if(paid){
     window.location.href = `http://localhost:5173/success`
+    // window.location.href = `https://www.creativevalley9.com/success`
     }
   },[paid])
+
+  useEffect(()=>{
+    if(paymentErr){
+    window.location.href = `http://localhost:5173/cancel`
+    // window.location.href = `https://www.creativevalley9.com/success`
+    }
+  },[paymentErr])
 
   const { payingPrice } = useSelector((state) => state.art);
   const initialOptions = {
@@ -46,7 +55,7 @@ const PayPalButton = () => {
       .then((orderData) => {
         // Successful capture!
         setPaid(true)        
-        console.log(orderData);
+        // console.log(orderData);
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +63,7 @@ const PayPalButton = () => {
   }
 
   function onError(error) {
-   
+    setPaymentErr(true)      
   }
 
   return (
