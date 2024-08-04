@@ -10,9 +10,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
 
-const stripePromise = loadStripe(
-  "pk_test_51OFdnTSCz4KZaFaZMZhZE8QOzCkhdmrIwiorwXg1QcxSHjaVt6z5gBEInJA5uFCNI5lKGexExCzn45Fi3wUUOkuP00GtUyHfLX"
-);
+// const stripePromise = loadStripe(
+//   "pk_test_51OFdnTSCz4KZaFaZMZhZE8QOzCkhdmrIwiorwXg1QcxSHjaVt6z5gBEInJA5uFCNI5lKGexExCzn45Fi3wUUOkuP00GtUyHfLX"
+// );
 
 function ArtPayment() {
   const dispatch = useDispatch();

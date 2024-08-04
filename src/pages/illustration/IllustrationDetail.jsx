@@ -429,7 +429,7 @@ const DetailsWithCard = ({ serviceType, currency, price, sectionName, handleIllu
         </div>
       </div>
       <div className="text-stone-900 font-bold border-t mt-5 py-3">
-        Price: {currency} {price}
+        Price: USD {price}
       </div>
       <div onClick={handleIllustrationPay} className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize">
         Choose {sectionName}
