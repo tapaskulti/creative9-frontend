@@ -21,8 +21,8 @@ function ArtDetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [review, setReview] = useState("");
-  const { artDetail } = useSelector((state) => state.art);
-  const { user, artReview } = useSelector((state) => state.user);
+  const { artDetail, artReview } = useSelector((state) => state.art);
+  const { user } = useSelector((state) => state.user);
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
 
@@ -37,6 +37,12 @@ function ArtDetailsPage() {
       type: "GET_ART_REVIEW_BY_ID",
       payload: {
         artId: id,
+      },
+    });
+    dispatch({
+      type: "GET_ART_REVIEWS_BY_ART_ID",
+      payload: {
+        id,
       },
     });
   }, []);
@@ -104,9 +110,14 @@ function ArtDetailsPage() {
 
   return (
     <div className="overflow-y-hidden">
-      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
-        setModalOpen(false)
-      }} />}
+      {modalOpen && (
+        <ModalComponent
+          open={modalOpen}
+          handleClose={() => {
+            setModalOpen(false);
+          }}
+        />
+      )}
 
       <div className="py-2">
         <Header />
@@ -237,7 +248,7 @@ function ArtDetailsPage() {
             </div>
             <div className="px-0 pt-5 space-y-5 font-sans sm:px-10">
               {artReview?.map((singleReview) => {
-                console.log("singleReview=====>",singleReview)
+                console.log("singleReview=====>", singleReview);
                 return (
                   <>
                     <ReviewCard
