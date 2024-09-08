@@ -2,12 +2,21 @@ import { toast } from "react-toastify";
 import { call, put, takeEvery } from "redux-saga/effects";
 import {
   createArtAction,
+  createArtReviewsAction,
   deleteArtAction,
   getAllArtsAction,
   getArtByIdAction,
 } from "../api/artAction";
-import { getAllArts, getArtDetails, getArtReviews } from "../redux/art/artSlice";
-import { createArtsReviewsAction, getAllArtReviewsAction } from "../api/reviewAction";
+import {
+  getAllArts,
+  getArtDetails,
+  getArtReviews,
+} from "../redux/art/artSlice";
+import {
+  createArtsReviewsAction,
+  getAllArtReviewsAction,
+  getArtReviewsByIdAction,
+} from "../api/reviewAction";
 
 function* createArtSaga(actions) {
   try {
@@ -56,30 +65,45 @@ function* deleteArtSaga(action) {
   const response = yield call(deleteArtAction, action.payload);
 
   if (response.status == 200) {
-    yield put(
-      {
-        type:"GET_ALL_ART"
-      }
-    );
+    yield put({
+      type: "GET_ALL_ART",
+    });
 
     toast.success("Art deleted");
-
   }
-
-  
-
 }
-
 
 function* createArtReviewSaga(action) {
   const response = yield call(createArtsReviewsAction, action.payload);
-
 }
-
 
 function* getArtReviewByIdSaga(action) {
   const response = yield call(getAllArtReviewsAction, action.payload);
-  console.log(response)
+  console.log(response);
+  if (response.status === 200) {
+    yield put(
+      getArtReviews({
+        artReview: response.data,
+      })
+    );
+  }
+}
+
+function* createArtReviewsSaga(actions) {
+  try {
+    const response = yield call(createArtReviewsAction, actions.payload);
+
+    if (response.status === 200) {
+      toast.success("Review added");
+    }
+  } catch (error) {
+    toast.error(error.message);
+  }
+}
+
+function* getArtReviewsByArtIdSaga(action) {
+  const response = yield call(getArtReviewsByIdAction, action.payload);
+
   if (response.status === 200) {
     yield put(
       getArtReviews({
@@ -96,4 +120,6 @@ export function* watchAsyncArt() {
   yield takeEvery("DELETE_ART", deleteArtSaga);
   yield takeEvery("CREATE_REVIEW", createArtReviewSaga);
   yield takeEvery("GET_ART_REVIEW_BY_ID", getArtReviewByIdSaga);
+  yield takeEvery("GET_ART_REVIEWS_BY_ART_ID", getArtReviewsByArtIdSaga);
+  yield takeEvery("CREATE_ART_REVIEWS", createArtReviewsSaga);
 }
