@@ -5,12 +5,12 @@ import {
   ArrowBack,
   Check,
   Close,
-  Event,
-  Repeat,
+  // Event, 09.09.24
+  // Repeat, 09.09.24
   Star,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios"; 09.09.24
 
 import "react-quill/dist/quill.snow.css";
 
@@ -22,7 +22,7 @@ import {
   faCircleChevronLeft,
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import PayPalButton from "../../components/PaypalButton";
+// import PayPalButton from "../../components/PaypalButton"; 09.09.24
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
 
@@ -362,7 +362,7 @@ const ServiceCard = ({ service, type }) => {
 
 const DetailsWithCard = ({
   serviceType,
-  currency,
+  // currency, 09.09.24
   price,
   sectionName,
   handleIllustrationPay,
