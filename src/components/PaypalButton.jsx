@@ -55,7 +55,7 @@ const PayPalButton = () => {
       .then((orderData) => {
         // Successful capture!
         setPaid(true)        
-        // console.log(orderData);
+        console.log(orderData);
       })
       .catch((err) => {
         console.log(err);
@@ -77,6 +77,7 @@ const PayPalButton = () => {
         }}
         createOrder={createOrder}
         onApprove={onApprove}
+        onError={onError}
       />
     </PayPalScriptProvider>
   );
