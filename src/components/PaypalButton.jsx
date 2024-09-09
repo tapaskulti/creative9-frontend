@@ -62,7 +62,7 @@ const PayPalButton = () => {
       });
   }
 
-  function onError(error) {
+  function onError() {
     setPaymentErr(true)      
   }
 
