@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { Link, useLocation, useParams } from "react-router-dom";
 import Header from "../../components/Header";
@@ -30,17 +31,17 @@ const IllustrationDetail = () => {
   const dispatch = useDispatch();
   const search = useLocation().search;
 
-  const { id, portfolioid } = useParams();
+  const { id } = useParams();
   const { adminView } = useSelector((state) => state.user);
   const { services } = useSelector((state) => state.category);
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  // const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   console.log(services, "services");
   console.log(search.split("=")[1], "searchParams");
 
-  const handleImageClick = (index) => {
-    setSelectedImageIndex(index);
-  };
+  // const handleImageClick = (index) => {
+  //   setSelectedImageIndex(index);
+  // };
 
   useEffect(() => {
     dispatch({
@@ -49,7 +50,7 @@ const IllustrationDetail = () => {
         categoryId: id,
       },
     });
-  }, []);
+  }, [id]);
 
   console.log(services, "services");
 
@@ -78,7 +79,7 @@ const IllustrationDetail = () => {
         </div>
 
         {/* SMALL SCREEN */}
-        <div className="md:hidden md:flex px-5 md:px-10 pt-10 justify-between">
+        <div className="md:flex px-5 md:px-10 pt-10 justify-between">
           <div className="flex space-x-3">
             <Link to="/illustration">
               <ArrowBack className="" />
