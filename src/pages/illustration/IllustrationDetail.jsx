@@ -23,7 +23,7 @@ import {
   faCircleChevronLeft,
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import PayPalButton from "../../components/PaypalButton";
+
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
 
@@ -465,7 +465,6 @@ const DetailsWithCard = ({
       >
         Choose {sectionName}
       </div>
-     <PayPalButton />
     </div>
   );
 };
