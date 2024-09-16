@@ -2,7 +2,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-const BACKEND_URL = "http://localhost:8080/api"
+const BACKEND_URL = "http://localhost:5001/api"
 // const BACKEND_URL = "https://hammerhead-app-4du5b.ondigitalocean.app/api"
 const PayPalButton = () => {
   const[paid,setPaid] = useState(false)
@@ -11,15 +11,15 @@ const PayPalButton = () => {
 
   useEffect(()=>{
     if(paid){
-    window.location.href = `http://localhost:5173/success`
-    // window.location.href = `https://www.creativevalley9.com/success`
+    // window.location.href = `http://localhost:5173/success`
+    window.location.href = `https://www.creativevalley9.in/success`
     }
   },[paid])
 
   useEffect(()=>{
     if(paymentErr){
-    window.location.href = `http://localhost:5173/cancel`
-    // window.location.href = `https://www.creativevalley9.com/success`
+    // window.location.href = `http://localhost:5173/cancel`
+    window.location.href = `https://www.creativevalley9.in/success`
     }
   },[paymentErr])
 
