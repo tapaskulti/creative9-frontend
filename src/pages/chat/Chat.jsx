@@ -24,7 +24,7 @@ const initialOptions = {
   intent: "capture",
 };
 
-const socket = io("http://localhost:5001");
+const socket = io("https://creativevalley9.in");
 // const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
 
 const Chat = () => {
