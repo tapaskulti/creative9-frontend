@@ -12,14 +12,14 @@ const PayPalButton = () => {
   useEffect(()=>{
     if(paid){
     // window.location.href = `http://localhost:5173/success`
-    window.location.href = `https://www.creativevalley9.in/success`
+    window.location.href = `https://www.creativevalley9.com/success`
     }
   },[paid])
 
   useEffect(()=>{
     if(paymentErr){
     // window.location.href = `http://localhost:5173/cancel`
-    window.location.href = `https://www.creativevalley9.in/success`
+    window.location.href = `https://www.creativevalley9.com/success`
     }
   },[paymentErr])
 
