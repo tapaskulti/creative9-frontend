@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { Link, useLocation, useParams } from "react-router-dom";
 import Header from "../../components/Header";
@@ -5,12 +6,12 @@ import {
   ArrowBack,
   Check,
   Close,
-  Event,
-  Repeat,
+  // Event, 09.09.24
+  // Repeat, 09.09.24
   Star,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios"; 09.09.24
 
 import "react-quill/dist/quill.snow.css";
 
@@ -22,7 +23,7 @@ import {
   faCircleChevronLeft,
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import PayPalButton from "../../components/PaypalButton";
+
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
 
@@ -30,18 +31,17 @@ const IllustrationDetail = () => {
   const dispatch = useDispatch();
   const search = useLocation().search;
 
-  const { id, portfolioid } = useParams();
+  const { id } = useParams();
   const { adminView } = useSelector((state) => state.user);
   const { services } = useSelector((state) => state.category);
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  // const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   console.log(services, "services");
   console.log(search.split("=")[1], "searchParams");
 
-  const handleImageClick = (index) => {
-    setSelectedImageIndex(index);
-  };
-
+  // const handleImageClick = (index) => {
+  //   setSelectedImageIndex(index);
+  // };
 
   useEffect(() => {
     dispatch({
@@ -50,7 +50,7 @@ const IllustrationDetail = () => {
         categoryId: id,
       },
     });
-  }, []);
+  }, [id]);
 
   console.log(services, "services");
 
@@ -79,7 +79,7 @@ const IllustrationDetail = () => {
         </div>
 
         {/* SMALL SCREEN */}
-        <div className="md:hidden md:flex px-5 md:px-10 pt-10 justify-between">
+        <div className="md:flex px-5 md:px-10 pt-10 justify-between">
           <div className="flex space-x-3">
             <Link to="/illustration">
               <ArrowBack className="" />
@@ -89,7 +89,10 @@ const IllustrationDetail = () => {
             </div>
           </div>
           {adminView ? (
-            <Link to={`/Illustration/${id}/create`} className="flex justify-end">
+            <Link
+              to={`/Illustration/${id}/create`}
+              className="flex justify-end"
+            >
               <div className=" bg-teal-700 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer text-center w-40 mt-3">
                 Create Illustration
               </div>
@@ -117,8 +120,8 @@ export default IllustrationDetail;
 const ServiceCard = ({ service, type }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedPriceSection, setSelectedPriceSection] = useState(type);
-  const {user} = useSelector((state) => state.user);
-  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
 
@@ -143,29 +146,51 @@ const ServiceCard = ({ service, type }) => {
         orderType: "Illustration",
         user: user?._id,
         illustration: service,
-        singlePaymentPrice: selectedPriceSection === "basic" ? service?.basicPrice : selectedPriceSection === "standard" ? service?.standardPrice : service?.premiumPrice,
+        singlePaymentPrice:
+          selectedPriceSection === "basic"
+            ? service?.basicPrice
+            : selectedPriceSection === "standard"
+            ? service?.standardPrice
+            : service?.premiumPrice,
         qty: 1,
         illustrationPaid: true,
-      }
+      };
 
-      dispatch(getPayingPrice({ payingPrice: selectedPriceSection === "basic" ? service?.basicPrice : selectedPriceSection === "standard" ? service?.standardPrice : service?.premiumPrice }));
+      dispatch(
+        getPayingPrice({
+          payingPrice:
+            selectedPriceSection === "basic"
+              ? service?.basicPrice
+              : selectedPriceSection === "standard"
+              ? service?.standardPrice
+              : service?.premiumPrice,
+        })
+      );
       handleOpen();
 
-      localStorage.setItem("illustrationOrder", JSON.stringify(illustrationOrder));
+      localStorage.setItem(
+        "illustrationOrder",
+        JSON.stringify(illustrationOrder)
+      );
       localStorage.setItem("userid", user?._id);
 
       // Redirect to Stripe checkout URL
       // window.location.href = response.data.checkoutUrl;
     } catch (error) {
-      console.error('Error processing payment:', error);
+      console.error("Error processing payment:", error);
     }
-  }
+  };
 
   return (
     <div className="py-5 flex flex-col space-y-5 border-b">
-      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
-        setModalOpen(false)
-      }} />}
+      {modalOpen && (
+        <ModalComponent
+          open={modalOpen}
+          handleClose={() => {
+            setModalOpen(false);
+          }}
+        />
+      )}
       <div className="text-center lg:text-left">
         {/* <div className="text-xl font-semibold capitalize">{service.title}</div> */}
         {/* <div className="flex space-x-2 font-semibold">
@@ -236,7 +261,7 @@ const ServiceCard = ({ service, type }) => {
                   className="text-slate-500 w-6 md:w-9 h-6 md:h-9 absolute right-1 sm:relative sm:right-0"
                 />
               </button>
-            </div>            
+            </div>
           </div>
 
           {/* rating and reviews */}
@@ -296,35 +321,33 @@ const ServiceCard = ({ service, type }) => {
             {selectedPriceSection === "basic" && (
               <>
                 <DetailsWithCard
-                id={service._id}
+                  id={service._id}
                   serviceType={service.basicDetails}
                   currency={service?.basicPriceCurrency}
                   price={service?.basicPrice}
                   sectionName={selectedPriceSection}
-
-                handleIllustrationPay={()=>handleIllustrationPay(service)}
+                  handleIllustrationPay={() => handleIllustrationPay(service)}
                 />
               </>
             )}
             {selectedPriceSection === "standard" && (
               <DetailsWithCard
-              id={service._id}
+                id={service._id}
                 serviceType={service.standardDetails}
                 currency={service?.standardPriceCurrency}
                 price={service?.standardPrice}
                 sectionName={selectedPriceSection}
-
-                handleIllustrationPay={()=>handleIllustrationPay(service)}
+                handleIllustrationPay={() => handleIllustrationPay(service)}
               />
             )}
             {selectedPriceSection === "premium" && (
               <DetailsWithCard
-              id={service._id}
+                id={service._id}
                 serviceType={service.premiumDetails}
                 currency={service?.premiumPriceCurrency}
                 price={service?.premiumPrice}
                 sectionName={selectedPriceSection}
-                handleIllustrationPay={()=>handleIllustrationPay(service)}
+                handleIllustrationPay={() => handleIllustrationPay(service)}
               />
             )}
           </div>
@@ -338,9 +361,15 @@ const ServiceCard = ({ service, type }) => {
   );
 };
 
-const DetailsWithCard = ({ serviceType, currency, price, sectionName, handleIllustrationPay }) => {
+const DetailsWithCard = ({
+  serviceType,
+  // currency, 09.09.24
+  price,
+  sectionName,
+  handleIllustrationPay,
+}) => {
   console.log(serviceType, "serviceType");
-  
+
   // const handleIllustrationPay = async (e) => {
   //   try {
   //     const response = await axios.post('http://localhost:5001/create-payment-intent', {
@@ -358,7 +387,6 @@ const DetailsWithCard = ({ serviceType, currency, price, sectionName, handleIllu
   //     console.error('Error processing payment:', error);
   //   }
   // }
-
 
   return (
     <div className="py-3 mt-6">
@@ -429,14 +457,14 @@ const DetailsWithCard = ({ serviceType, currency, price, sectionName, handleIllu
         </div>
       </div>
       <div className="text-stone-900 font-bold border-t mt-5 py-3">
-        Price: {currency} {price}
+        Price: USD {price}
       </div>
-      <div onClick={handleIllustrationPay} className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize">
+      <div
+        onClick={handleIllustrationPay}
+        className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize"
+      >
         Choose {sectionName}
       </div>
-      {/* <PayPalButton
-      
-      /> */}
     </div>
   );
 };

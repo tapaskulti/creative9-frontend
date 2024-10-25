@@ -28,6 +28,7 @@ import PortfolioImageUpload from "./pages/illustration/PortfolioImageUpload";
 import ContactUs from "./pages/contactUs";
 import SuccessPayment from "./pages/SuccessPayment";
 import CancelPayment from "./pages/CancelPayment";
+import ReviewEntry from "./pages/ReviewEntry";
 
 function App() {
   const dispatch = useDispatch();
@@ -69,7 +70,11 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/user/activate/:activationCode" element={<AccountActivation />} />
+          <Route path="/reviewEntry/:orderid" element={<ReviewEntry />} />
+          <Route
+            path="/user/activate/:activationCode"
+            element={<AccountActivation />}
+          />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/cancellation-refund" element={<CancellationRefund />} />
@@ -77,6 +82,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/cancel" element={<CancelPayment />} />
+
           <Route element={<PrivateRoutes token={token} />}>
             <Route path="/Painting" element={<ArtsPage />} />
             <Route path="/Painting/create" element={<ArtCreatePage />} />
@@ -86,7 +92,10 @@ function App() {
             <Route path="/Illustration" element={<Illustration />} />
             <Route path="/Illustration/:id" element={<IllustrationDetail />} />
             <Route path="/Illustration/:id/Portfolio" element={<Portfolio />} />
-            <Route path="/Illustration/:id/PortfolioImageUpload" element={<PortfolioImageUpload />} />
+            <Route
+              path="/Illustration/:id/PortfolioImageUpload"
+              element={<PortfolioImageUpload />}
+            />
             <Route
               path="/Illustration/:id/create"
               element={<IllustrationCreatePage />}

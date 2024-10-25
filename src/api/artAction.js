@@ -36,4 +36,15 @@ export const deleteArtAction = async (payload) => {
   );
 
   return response;
-}
+};
+
+export const createArtReviewsAction = async (payload) => {
+  const response = await axios.post(
+    `${import.meta.env.VITE_APP_BASE_URL}/art/createArtReviews?orderId=${
+      payload.orderId
+    }`,
+    { reviewTitle: payload.reviewTitle }
+  );
+
+  return response;
+};

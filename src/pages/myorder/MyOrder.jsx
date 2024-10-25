@@ -224,7 +224,7 @@ const OrderPaintCard = ({
   const dispatch = useDispatch();
   const handleArtPay = async ({ id, price, image }) => {
     dispatch(getPayingPrice({ payingPrice: price }));
-      handleOpen();
+    handleOpen();
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
       // const response = await axios.post(
@@ -236,11 +236,8 @@ const OrderPaintCard = ({
       //     product_image: image,
       //   }
       // );
-
       // localStorage.setItem("artId", id);
-
       // console.log("Response:", response);
-
       // // Redirect to Stripe checkout URL
       // window.location.href = response.data.checkoutUrl;
     } catch (error) {
@@ -250,9 +247,14 @@ const OrderPaintCard = ({
 
   return (
     <div className="bg-[#f8f7f7] w-full h-min rounded-md hover:shadow-sm px-4 py-3 my-3">
-      {modalOpen && <ModalComponent open={modalOpen} handleClose={()=>{
-        setModalOpen(false)
-      }} />}
+      {modalOpen && (
+        <ModalComponent
+          open={modalOpen}
+          handleClose={() => {
+            setModalOpen(false);
+          }}
+        />
+      )}
       <div className="flex justify-between items-center">
         <div>{title}</div>
         {isPainting ? (
@@ -358,6 +360,14 @@ const OrderPaintCard = ({
                   </div>
                 </div>
               </>
+            )}
+            {isPaintingPaid && (
+              <div
+                href={`localhost:5174/reviewEntry/${id}`}
+                className="bg-green-700 cursor-pointer ho border w-max px-2 text-xs text-center rounded-md text-white"
+              >
+                localhost:5174/reviewEntry/{id}
+              </div>
             )}
           </div>
         </div>

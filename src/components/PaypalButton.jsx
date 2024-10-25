@@ -11,15 +11,15 @@ const PayPalButton = () => {
 
   useEffect(()=>{
     if(paid){
-    window.location.href = `http://localhost:5173/success`
-    // window.location.href = `https://www.creativevalley9.com/success`
+    // window.location.href = `http://localhost:5173/success`
+    window.location.href = `https://www.creativevalley9.com/success`
     }
   },[paid])
 
   useEffect(()=>{
     if(paymentErr){
-    window.location.href = `http://localhost:5173/cancel`
-    // window.location.href = `https://www.creativevalley9.com/success`
+    // window.location.href = `http://localhost:5173/cancel`
+    window.location.href = `https://www.creativevalley9.com/success`
     }
   },[paymentErr])
 
@@ -55,14 +55,14 @@ const PayPalButton = () => {
       .then((orderData) => {
         // Successful capture!
         setPaid(true)        
-        // console.log(orderData);
+        console.log(orderData);
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  function onError(error) {
+  function onError() {
     setPaymentErr(true)      
   }
 
@@ -77,6 +77,7 @@ const PayPalButton = () => {
         }}
         createOrder={createOrder}
         onApprove={onApprove}
+        onError={onError}
       />
     </PayPalScriptProvider>
   );
