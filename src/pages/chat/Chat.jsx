@@ -24,7 +24,11 @@ const initialOptions = {
   intent: "capture",
 };
 
-const socket = io("https://creativevalley9.com");
+const socket = io("https://creativevalley9.com", {
+  path: "/api/socket.io",
+  transports: ["websocket", "polling"],
+  withCredentials: true
+});
 // const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
 
 const Chat = () => {
@@ -88,6 +92,9 @@ const Chat = () => {
   //     },0)
   //     console.log("totalValue====>",totalValue)
   //   }
+
+  console.log(user,"check to connect socket");
+  
 
   useEffect(() => {
     // if(offerselection.milestone!==undefined){
@@ -199,7 +206,8 @@ const Chat = () => {
 
   useEffect(() => {
     if (user?._id && receiver !== undefined) {
-      socket.emit("user-connected", user?._id);
+      console.log(user?._id,"check user id for socket")
+      socket.emit("user-connected", user._id);
       dispatch({
         type: "GET_CHAT",
         payload: {
@@ -208,7 +216,7 @@ const Chat = () => {
         },
       });
     }
-  }, [user?._id, receiver, dispatch]);
+  }, [user?._id, receiver]);
 
   // get all users list
   useEffect(() => {
@@ -225,8 +233,6 @@ const Chat = () => {
     });
   }, []);
 
-  console.log(selectedImages, "selectedImages");
-  console.log(offerIllustration, "offer illustration");
 
   const handleSendMessage = () => {
     if (message.trim() !== "" && selectedImages.length === 0) {
@@ -235,7 +241,7 @@ const Chat = () => {
       socket.emit("send-message", {
         msg: {
           message,
-          sender: user._id,
+          sender: user?._id,
           receiver: receiver?._id,
           images: selectedImages,
         },
