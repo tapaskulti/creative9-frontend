@@ -87,6 +87,18 @@ function Header() {
         {/* navbar */}
         {/* <div className="flex font-sans tracking-wider space-x-10 bg-gradient-to-t from-[#FF000070] to-[#FF6B002B] px-10 py-2 rounded-full "> */}
         <div className="flex font-sans tracking-wider space-x-5 pl-10 ">
+        <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/"
+          >
+            <div className="py-1 cursor-pointer">Home</div>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/AboutUs"
+          >
+            <div className="py-1 cursor-pointer">About Us</div>
+          </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/Painting"

@@ -29,6 +29,7 @@ import ContactUs from "./pages/contactUs";
 import SuccessPayment from "./pages/SuccessPayment";
 import CancelPayment from "./pages/CancelPayment";
 import ReviewEntry from "./pages/ReviewEntry";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const dispatch = useDispatch();
@@ -79,6 +80,7 @@ function App() {
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/cancellation-refund" element={<CancellationRefund />} />
           <Route path="/shipping-delivery" element={<ShippingDelivery />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/cancel" element={<CancelPayment />} />
