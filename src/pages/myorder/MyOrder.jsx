@@ -363,10 +363,10 @@ const OrderPaintCard = ({
             )}
             {isPaintingPaid && (
               <div
-                href={`localhost:5174/reviewEntry/${id}`}
+                href={`https://creativevalley9.com/reviewEntry/${id}`}
                 className="bg-green-700 cursor-pointer ho border w-max px-2 text-xs text-center rounded-md text-white"
               >
-                localhost:5174/reviewEntry/{id}
+                https://creativevalley9.com/reviewEntry/{id}
               </div>
             )}
           </div>
