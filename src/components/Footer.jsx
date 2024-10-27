@@ -7,7 +7,7 @@ import {
   Twitter,
   YouTube,
 } from "@mui/icons-material";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

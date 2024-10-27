@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 const ContactUs = () => {
   return (
     <div className="overflow-y-hidden">
-      <div className="py-2">
+      <div className="">
         <Header />
       </div>
 
@@ -44,7 +44,7 @@ const ContactUs = () => {
                     <h2 className="font-bold uppercase">Drop a Line</h2>
                   </div>
                   <h2 className="text-sm font-normal leading-7">
-                    Drop me a line at - sarkarprabir03@gmail.com - <br />
+                    Drop me a line at - creativevalley9@gmail.com - <br />
                     and I'll get back soon
                   </h2>
                 </div>
@@ -68,7 +68,7 @@ const ContactUs = () => {
                   <input
                     type="text"
                     name="c_name"
-                    className="w-full border-b border-slate-300 outline-none bg-transparent"
+                    className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Enter your Name"
                   />
                 </div>
@@ -76,23 +76,23 @@ const ContactUs = () => {
                   <input
                     type="text"
                     name="c_email"
-                    className="w-full border-b border-slate-300 outline-none bg-transparent text-base"
-                    placeholder="Enter a valid email address"
+                    className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
+                    placeholder="Enter a valid email ID"
                   />
                 </div>
-                <div>
+                {/* <div>
                   <input
                     type="text"
                     name="c_phone"
                     className="w-full border-b border-slate-300 outline-none bg-transparent"
                     placeholder="Enter your phone no."
                   />
-                </div>
+                </div> */}
                 <div>
                   <textarea
                     type="textarea"
                     name="c_phone"
-                    className="w-full border-b border-slate-300 outline-none bg-transparent text-gray-500"
+                    className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Your message"
                   />
                 </div>

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { setAdminView } from "../redux/user/user";
 import { Chat } from "@mui/icons-material";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import axios from "axios";
 import { useState } from "react";
 import { getPayingPrice } from "../redux/art/artSlice";
@@ -78,7 +78,7 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-5 py-2 bg-slate-50 md:flex lg:px-10 left-10 right-10">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-40 py-3 bg-slate-50 md:flex lg:px-10 left-10 right-10">
         <div className="text-2xl logotext">
           <Link to="/">
             <img src={logo} alt="logo" className="md:w-28 lg:w-32" />
@@ -95,9 +95,15 @@ function Header() {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
-            to="/AboutUs"
+            to="/About-us"
           >
             <div className="py-1 cursor-pointer">About Us</div>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/Contact-us"
+          >
+            <div className="py-1 cursor-pointer">Contact Us</div>
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
@@ -109,7 +115,7 @@ function Header() {
             to="/Illustration"
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
           >
-            <div className="px-3 py-1 cursor-pointer">Illustration</div>
+            <div className="py-1 cursor-pointer">Illustration</div>
           </NavLink>
           {adminView && (
             <NavLink
