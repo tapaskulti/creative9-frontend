@@ -10,11 +10,8 @@ import Footer from "../components/Footer";
 
 const ContactUs = () => {
   return (
-    <div className="overflow-y-hidden">
-      <div className="">
+    <div className="">      
         <Header />
-      </div>
-
       <div className="">
       <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-32 py-10 text-center text-white text-4xl">Get in Touch</div>
         <div className="mx-6 mt-32 md:mx-20 lg:mx-32 2xl:mx-60 font-sans mb-60">
@@ -64,7 +61,7 @@ const ContactUs = () => {
                   </h2>
                 </div>
               </div>
-              <div className="w-1/2 px-6 rounded-md border border-slate-200 py-10 space-y-6">
+              <div className="w-1/2 px-6 rounded-xl border border-slate-200 py-10 space-y-6">
                 <div>
                   <input
                     type="text"
@@ -106,9 +103,9 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div>
+      
         <Footer />
-      </div>
+      
     </div>
   );
 };

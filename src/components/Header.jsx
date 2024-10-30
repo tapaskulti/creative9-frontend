@@ -78,7 +78,7 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-40 py-5 bg-slate-50 md:flex lg:px-10 left-10 right-10">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 lg:px-64 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
             <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40" />
