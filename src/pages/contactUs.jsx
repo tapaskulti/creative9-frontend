@@ -16,10 +16,11 @@ const ContactUs = () => {
       </div>
 
       <div className="">
+      <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-32 py-10 text-center text-white text-4xl">Get in Touch</div>
         <div className="mx-6 mt-32 md:mx-20 lg:mx-32 2xl:mx-60 font-sans mb-60">
-          <h2 className="pb-10 text-4xl text-center uppercase text-slate-900">
+          {/* <h2 className="pb-10 text-4xl text-center uppercase text-slate-900">
             Get in Touch
-          </h2>
+          </h2> */}
           <div className=" flex justify-center">
             <div className="flex w-2/3 px-6 py-3">
               <div className="w-1/2">
@@ -63,7 +64,7 @@ const ContactUs = () => {
                   </h2>
                 </div>
               </div>
-              <div className="w-1/2  px-6 rounded-md border border-slate-200 py-16 space-y-6">
+              <div className="w-1/2 px-6 rounded-md border border-slate-200 py-10 space-y-6">
                 <div>
                   <input
                     type="text"
@@ -92,6 +93,7 @@ const ContactUs = () => {
                   <textarea
                     type="textarea"
                     name="c_phone"
+                    rows={4}
                     className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Your message"
                   />

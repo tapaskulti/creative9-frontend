@@ -78,44 +78,44 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-40 py-3 bg-slate-50 md:flex lg:px-10 left-10 right-10">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-40 py-5 bg-slate-50 md:flex lg:px-10 left-10 right-10">
         <div className="text-2xl logotext">
           <Link to="/">
-            <img src={logo} alt="logo" className="md:w-28 lg:w-32" />
+            <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40" />
           </Link>
         </div>
         {/* navbar */}
         {/* <div className="flex font-sans tracking-wider space-x-10 bg-gradient-to-t from-[#FF000070] to-[#FF6B002B] px-10 py-2 rounded-full "> */}
-        <div className="flex font-sans tracking-wider space-x-5 pl-10 ">
+        <div className="flex font-sans tracking-wider space-x-10 pl-10 ">
         <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/"
           >
-            <div className="py-1 cursor-pointer">Home</div>
+            <div className="py-1 cursor-pointer font-semibold">Home</div>
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/About-us"
           >
-            <div className="py-1 cursor-pointer">About Us</div>
+            <div className="py-1 cursor-pointer font-semibold">About Us</div>
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/Contact-us"
           >
-            <div className="py-1 cursor-pointer">Contact Us</div>
+            <div className="py-1 cursor-pointer font-semibold">Contact Us</div>
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/Painting"
           >
-            <div className="py-1 cursor-pointer">Painting</div>
+            <div className="py-1 cursor-pointer font-semibold">Painting</div>
           </NavLink>
           <NavLink
             to="/Illustration"
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
           >
-            <div className="py-1 cursor-pointer">Illustration</div>
+            <div className="py-1 cursor-pointer font-semibold">Illustration</div>
           </NavLink>
           {adminView && (
             <NavLink

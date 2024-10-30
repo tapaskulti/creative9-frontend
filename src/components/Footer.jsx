@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="flex space-x-5 justify-between text-slate-600">
           <div>
             <Link to="/">
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40" />
             </Link>
             <h2 className="w-80 text-sm leading-6 pt-3">We have more than 9 years of experience in Graphics Design and
                 illustration Field: Any art related graphics design job and we
