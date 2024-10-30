@@ -130,7 +130,7 @@ function Header() {
             <div>
               {!adminView ? (
                 <div
-                  className="py-1 cursor-pointer"
+                  className="py-1 cursor-pointer font-semibold"
                   onClick={() => {
                     dispatch(
                       setAdminView({
@@ -143,7 +143,7 @@ function Header() {
                 </div>
               ) : (
                 <div
-                  className="px-3 py-1 cursor-pointer"
+                  className="px-3 py-1 cursor-pointer font-semibold"
                   onClick={() => {
                     dispatch(
                       setAdminView({
@@ -473,7 +473,7 @@ function Header() {
           <div>
             {!adminView ? (
               <div
-                className="cursor-pointer"
+                className="cursor-pointer font-semibold"
                 onClick={() => {
                   dispatch(
                     setAdminView({
@@ -486,7 +486,7 @@ function Header() {
               </div>
             ) : (
               <div
-                className="cursor-pointer"
+                className="cursor-pointer font-semibold"
                 onClick={() => {
                   dispatch(
                     setAdminView({
