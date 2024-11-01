@@ -1,5 +1,5 @@
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faLocationArrow, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   FacebookSharp,
@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import Whatsapp from "../assets/whatsapp.png";
 
 const Footer = () => {
   return (
@@ -108,7 +109,7 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="text-lg font-light border-b border-white/20 pb-1">
-            Our Freelancing - <span className="font-semibold">Website links</span>
+            Our Freelancing - <span className="font-semibold">Profile links</span>
             </h2>
             <div className="flex items-start">
               <ul className="text-sm text-slate-600 space-y-1.5 mt-5">
@@ -146,7 +147,7 @@ const Footer = () => {
             <div className="space-y-3 pt-5">
               <ul>
                 <li className="flex items-center space-x-3 text-sm">
-                  <FontAwesomeIcon icon={faPhone} />
+                   <span><img src={Whatsapp} alt="" className="w-3.5 h-3.5" /></span>
                   <h2>+91 78722 49293</h2>
                 </li>
               </ul>
