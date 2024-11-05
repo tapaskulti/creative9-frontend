@@ -98,24 +98,18 @@ function Header() {
             to="/About-us"
           >
             <div className="py-1 cursor-pointer font-semibold">About Us</div>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
-            to="/Contact-us"
-          >
-            <div className="py-1 cursor-pointer font-semibold">Contact Us</div>
-          </NavLink>
+          </NavLink>          
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/Painting"
           >
-            <div className="py-1 cursor-pointer font-semibold">Painting</div>
+            <div className="py-1 cursor-pointer font-semibold text-base">Painting</div>
           </NavLink>
           <NavLink
             to="/Illustration"
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
           >
-            <div className="py-1 cursor-pointer font-semibold">Illustration</div>
+            <div className="py-1 cursor-pointer font-semibold text-base">Illustration</div>
           </NavLink>
           {adminView && (
             <NavLink
@@ -125,6 +119,12 @@ function Header() {
               <div className="py-1 cursor-pointer">My orders</div>
             </NavLink>
           )}
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/Contact-us"
+          >
+            <div className="py-1 cursor-pointer font-semibold">Contact Us</div>
+          </NavLink>
 
           {token && user?.role === "ADMIN" && (
             <div>

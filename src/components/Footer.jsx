@@ -14,7 +14,7 @@ import Whatsapp from "../assets/whatsapp.png";
 const Footer = () => {
   return (
     <>
-      <div className="text-slate-600 text-left bg-slate-100 w-full py-10 px-3 md:px-10">
+      <div className="text-slate-600 text-left bg-slate-100 w-full py-10 px-3 md:px-10 border-t-[12px] border-orange-400">
         <div className="flex space-x-5 justify-between text-slate-600">
           <div>
             <Link to="/">
@@ -106,6 +106,19 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+          <div>
+            <h2 className="text-lg font-light border-b border-white/20 pb-1">
+              Quick Links - <span className="font-semibold">Painting</span>
+            </h2>
+            <div className="text-sm text-slate-600 space-y-1.5 mt-5">
+            <a
+                  href="https://www.creativevalley9.com/Illustration/653ea116c883168c94fc8a80/Portfolio"
+                  className="hover:text-slate-400"
+                >
+                  Painting
+                </a>
+            </div>
           </div>
           <div>
             <h2 className="text-lg font-light border-b border-white/20 pb-1">

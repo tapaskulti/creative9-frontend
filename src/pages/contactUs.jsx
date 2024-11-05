@@ -2,11 +2,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../components/Header";
 import {
-  faEnvelope,
   faLocation,
-  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer";
+// import WhatsApp from "../assets/whatsapp.png";
+import WhatsAppIcon from "../assets/whatsapp-icon.png";
 
 const ContactUs = () => {
   return (
@@ -23,14 +23,10 @@ const ContactUs = () => {
               <div className="w-1/2">
                 <div className="mt-2">
                   <div className="flex items-center space-x-3 mb-2">
-                    <FontAwesomeIcon
-                      icon={faPhone}
-                      className="text-lg text-orange-600"
-                    />
+                    <img src={WhatsAppIcon} alt="" className="w-5 h-5" />
                     <h2 className="font-bold uppercase">Call me now</h2>
                   </div>
                   <h2 className="text-sm font-normal leading-7">
-                    {/* Call me now - +91 9681190458 */}
                     Call me now - +91 7872249293
                   </h2>
                 </div>
@@ -53,7 +49,7 @@ const ContactUs = () => {
                   </div>
                   <h2 className="text-sm font-normal leading-7">
                     Drop me a line at - creativevalley9@gmail.com - <br />
-                    and I'll get back soon
+                    and I'll get back to you soon!
                   </h2>
                 </div>
                 <div className="mt-10">
@@ -71,7 +67,7 @@ const ContactUs = () => {
                   </h2>
                 </div>
               </div>
-              <div className="w-1/2 px-6 rounded-xl border border-slate-200 py-10 space-y-6">
+              <div className="w-1/2 px-8 rounded-xl border border-slate-200 py-8 space-y-6">
                 <div>
                   <input
                     type="text"
@@ -100,7 +96,7 @@ const ContactUs = () => {
                   <textarea
                     type="textarea"
                     name="c_phone"
-                    rows={6}
+                    rows={9}
                     className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Your message"
                   />
