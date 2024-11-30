@@ -13,7 +13,7 @@ const ContactUs = () => {
     <div className="">      
         <Header />
       <div className="">
-      <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-32 py-10 text-center text-white text-4xl">Get in Touch</div>
+      <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-32 py-10 text-center text-white text-4xl">Get in Touch!</div>
         <div className="mx-6 mt-32 md:mx-20 lg:mx-32 2xl:mx-60 font-sans mb-60">
           {/* <h2 className="pb-10 text-4xl text-center uppercase text-slate-900">
             Get in Touch
