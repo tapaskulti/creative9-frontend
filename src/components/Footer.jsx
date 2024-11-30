@@ -199,7 +199,7 @@ const Footer = () => {
       </div>
       <div className=" bg-slate-200 border-t border-slate-300">
         <div className="flex items-center justify-between px-3 py-3 md:px-10 text-slate-600 text-xs">
-          <h2>Copyright © 2024 Creativevalley9.com.</h2>
+          <h2>Copyright © 2025 Creativevalley9.com.</h2>
           <ul className="flex items-center space-x-5">
             <li>
               <Link to="/TermsConditions">Terms & Conditions</Link>
