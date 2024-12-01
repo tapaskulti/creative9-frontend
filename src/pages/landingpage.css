@@ -16,3 +16,6 @@
   width: 361px;
   height: 51px;
 }
+
+.carousel .thumb {display: none!important;}
+.carousel .carousel-status {display: none!important;}
