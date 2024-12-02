@@ -152,7 +152,7 @@ const ContactUs = () => {
                   />
                 </div>
                 <button
-                  type="submit"
+           
                   className="bg-orange-600 rounded-full w-full px-6 py-2 text-white font-semibold"
                   onClick={handleSubmit}
                 >
