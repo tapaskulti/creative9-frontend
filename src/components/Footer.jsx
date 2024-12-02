@@ -1,5 +1,5 @@
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faLocationArrow, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   FacebookSharp,
@@ -7,17 +7,18 @@ import {
   Twitter,
   YouTube,
 } from "@mui/icons-material";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import Whatsapp from "../assets/whatsapp.png";
 
 const Footer = () => {
   return (
     <>
-      <div className="text-slate-600 text-left bg-slate-100 w-full py-10 px-3 md:px-10">
+      <div className="text-slate-600 text-left bg-slate-100 w-full py-10 px-3 md:px-10 border-t-[12px] border-orange-400">
         <div className="flex space-x-5 justify-between text-slate-600">
           <div>
             <Link to="/">
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40" />
             </Link>
             <h2 className="w-80 text-sm leading-6 pt-3">We have more than 9 years of experience in Graphics Design and
                 illustration Field: Any art related graphics design job and we
@@ -108,7 +109,20 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="text-lg font-light border-b border-white/20 pb-1">
-            Our Freelancing - <span className="font-semibold">Website links</span>
+              Quick Links - <span className="font-semibold">Painting</span>
+            </h2>
+            <div className="text-sm text-slate-600 space-y-1.5 mt-5">
+            <a
+                  href="https://www.creativevalley9.com/Illustration/653ea116c883168c94fc8a80/Portfolio"
+                  className="hover:text-slate-400"
+                >
+                  Painting
+                </a>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-lg font-light border-b border-white/20 pb-1">
+            Our Freelancing - <span className="font-semibold">Profile links</span>
             </h2>
             <div className="flex items-start">
               <ul className="text-sm text-slate-600 space-y-1.5 mt-5">
@@ -146,7 +160,7 @@ const Footer = () => {
             <div className="space-y-3 pt-5">
               <ul>
                 <li className="flex items-center space-x-3 text-sm">
-                  <FontAwesomeIcon icon={faPhone} />
+                   <span><img src={Whatsapp} alt="" className="w-3.5 h-3.5" /></span>
                   <h2>+91 78722 49293</h2>
                 </li>
               </ul>
@@ -185,7 +199,7 @@ const Footer = () => {
       </div>
       <div className=" bg-slate-200 border-t border-slate-300">
         <div className="flex items-center justify-between px-3 py-3 md:px-10 text-slate-600 text-xs">
-          <h2>Copyright © 2024 Creativevalley9.com.</h2>
+          <h2>Copyright © 2025 Creativevalley9.com.</h2>
           <ul className="flex items-center space-x-5">
             <li>
               <Link to="/TermsConditions">Terms & Conditions</Link>

@@ -29,6 +29,7 @@ import ContactUs from "./pages/contactUs";
 import SuccessPayment from "./pages/SuccessPayment";
 import CancelPayment from "./pages/CancelPayment";
 import ReviewEntry from "./pages/ReviewEntry";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ function App() {
 
   return (
     <>
-      <div className="h-screen overflow-y-hidden">
+      <div className="hoverflow-y-hidden">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -79,7 +80,8 @@ function App() {
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/cancellation-refund" element={<CancellationRefund />} />
           <Route path="/shipping-delivery" element={<ShippingDelivery />} />
-          <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/cancel" element={<CancelPayment />} />
 

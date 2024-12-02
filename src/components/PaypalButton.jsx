@@ -2,7 +2,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-const BACKEND_URL = "http://localhost:5001/api"
+const BACKEND_URL = "https://creativevalley9.com/api"
 // const BACKEND_URL = "https://hammerhead-app-4du5b.ondigitalocean.app/api"
 const PayPalButton = () => {
   const[paid,setPaid] = useState(false)

@@ -10,9 +10,9 @@ import io from "socket.io-client";
 import moment from "moment";
 import { setMessages, setReceiver } from "../redux/chat/chat";
 
-// const socket = io("http://localhost:5000");
 
-const socket = io("http://localhost:5001");
+
+const socket = io("https://creativevalley9.com/api/");
 
 function Chat() {
   const dispatch = useDispatch();

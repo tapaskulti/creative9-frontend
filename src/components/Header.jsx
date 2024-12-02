@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { setAdminView } from "../redux/user/user";
 import { Chat } from "@mui/icons-material";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import axios from "axios";
 import { useState } from "react";
 import { getPayingPrice } from "../redux/art/artSlice";
@@ -78,26 +78,38 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-5 py-2 bg-slate-50 md:flex lg:px-10 left-10 right-10">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 lg:px-64 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
-            <img src={logo} alt="logo" className="md:w-28 lg:w-32" />
+            <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40" />
           </Link>
         </div>
         {/* navbar */}
         {/* <div className="flex font-sans tracking-wider space-x-10 bg-gradient-to-t from-[#FF000070] to-[#FF6B002B] px-10 py-2 rounded-full "> */}
-        <div className="flex font-sans tracking-wider space-x-5 pl-10 ">
+        <div className="flex font-sans tracking-wider space-x-10 pl-10 ">
+        <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/"
+          >
+            <div className="py-1 cursor-pointer font-semibold">Home</div>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/About-us"
+          >
+            <div className="py-1 cursor-pointer font-semibold">About Us</div>
+          </NavLink>          
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
             to="/Painting"
           >
-            <div className="py-1 cursor-pointer">Painting</div>
+            <div className="py-1 cursor-pointer font-semibold text-base">Painting</div>
           </NavLink>
           <NavLink
             to="/Illustration"
             className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
           >
-            <div className="px-3 py-1 cursor-pointer">Illustration</div>
+            <div className="py-1 cursor-pointer font-semibold text-base">Illustration</div>
           </NavLink>
           {adminView && (
             <NavLink
@@ -107,12 +119,18 @@ function Header() {
               <div className="py-1 cursor-pointer">My orders</div>
             </NavLink>
           )}
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            to="/Contact-us"
+          >
+            <div className="py-1 cursor-pointer font-semibold">Contact Us</div>
+          </NavLink>
 
           {token && user?.role === "ADMIN" && (
             <div>
               {!adminView ? (
                 <div
-                  className="py-1 cursor-pointer"
+                  className="py-1 cursor-pointer font-semibold"
                   onClick={() => {
                     dispatch(
                       setAdminView({
@@ -125,7 +143,7 @@ function Header() {
                 </div>
               ) : (
                 <div
-                  className="px-3 py-1 cursor-pointer"
+                  className="px-3 py-1 cursor-pointer font-semibold"
                   onClick={() => {
                     dispatch(
                       setAdminView({
@@ -455,7 +473,7 @@ function Header() {
           <div>
             {!adminView ? (
               <div
-                className="cursor-pointer"
+                className="cursor-pointer font-semibold"
                 onClick={() => {
                   dispatch(
                     setAdminView({
@@ -468,7 +486,7 @@ function Header() {
               </div>
             ) : (
               <div
-                className="cursor-pointer"
+                className="cursor-pointer font-semibold"
                 onClick={() => {
                   dispatch(
                     setAdminView({
