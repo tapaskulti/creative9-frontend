@@ -84,7 +84,7 @@ function ArtsPage() {
           </div>
         </Dialog>
       </Transition>
-      <div className="w-screen ">
+      <div className="">
         <div className="  overflow-y-hidden">
           <Header />
           <div className="pt-10">

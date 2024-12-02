@@ -97,7 +97,7 @@ function Illustration() {
           </button>
         </div>
       </div>
-      <div className="h-screen w-screen">
+      <div className="h-screen">
         <Header />
         <div className="pt-10">
           {/* card */}
