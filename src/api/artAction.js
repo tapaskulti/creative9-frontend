@@ -48,3 +48,13 @@ export const createArtReviewsAction = async (payload) => {
 
   return response;
 };
+
+export const contactUsMailAction = async (payload) => {
+  console.log("ContactUsMailActionrst",payload)
+  const response = await axios.post(
+    `${import.meta.env.VITE_APP_BASE_URL}/art/contactUsMail`,
+    payload
+  );
+    console.log(response.data)
+  return response;
+};
