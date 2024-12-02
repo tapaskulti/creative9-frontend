@@ -31,17 +31,17 @@ function LandingPage() {
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (token) {
-        navigate("/Painting", { replace: true });
-      } else {
-        navigate("/", { replace: true });
-      }
-    }, 500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (token) {
+  //       navigate("/Painting", { replace: true });
+  //     } else {
+  //       navigate("/", { replace: true });
+  //     }
+  //   }, 500);
 
-    return () => clearTimeout(timer);
-  }, [token]);
+  //   return () => clearTimeout(timer);
+  // }, [token]);
 
   return (
     <div className="relative h-screen overflow-x-hidden overflow-y-scroll">
