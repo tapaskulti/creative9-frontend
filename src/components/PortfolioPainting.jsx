@@ -5,20 +5,21 @@ import portfolio01 from "../assets/portfolio01.jpg";
 import portfolio02 from "../assets/portfolio02.jpg";
 import portfolio03 from "../assets/portfolio03.jpg";
 import portfolio04 from "../assets/portfolio04.jpg";
-import portfolio05 from "../assets/portfolio05.jpg";
-import portfolio06 from "../assets/portfolio06.jpg";
-import portfolio07 from "../assets/portfolio07.jpg";
-import portfolio08 from "../assets/portfolio08.jpg";
+import { Link } from "react-router-dom";
+// import portfolio05 from "../assets/portfolio05.jpg";
+// import portfolio06 from "../assets/portfolio06.jpg";
+// import portfolio07 from "../assets/portfolio07.jpg";
+// import portfolio08 from "../assets/portfolio08.jpg";
 
 const items = [
   { image: portfolio01, title: "Title 1", description: "Description 1" },
   { image: portfolio02, title: "Title 2", description: "Description 2" },
   { image: portfolio03, title: "Title 3", description: "Description 3" },
   { image: portfolio04, title: "Title 4", description: "Description 4" },
-  { image: portfolio05, title: "Title 5", description: "Description 5" },
-  { image: portfolio06, title: "Title 6", description: "Description 6" },
-  { image: portfolio07, title: "Title 7", description: "Description 7" },
-  { image: portfolio08, title: "Title 8", description: "Description 8" },
+  // { image: portfolio05, title: "Title 5", description: "Description 5" },
+  // { image: portfolio06, title: "Title 6", description: "Description 6" },
+  // { image: portfolio07, title: "Title 7", description: "Description 7" },
+  // { image: portfolio08, title: "Title 8", description: "Description 8" },
 ];
 
   
@@ -53,6 +54,7 @@ const PortfolioPainting = () => {
           </motion.div>
         ))}
       </div>
+      <div className="flex justify-center"><Link className="w-36 bg-orange-500 px-6 py-2 text-base text-white rounded-md text-center mt-6">See More</Link></div>
     </div>
   );
 };
