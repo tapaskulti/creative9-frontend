@@ -54,7 +54,9 @@ const PortfolioPainting = () => {
           </motion.div>
         ))}
       </div>
-      <div className="flex justify-center"><Link className="w-36 bg-orange-500 px-6 py-2 text-base text-white rounded-md text-center mt-6">See More</Link></div>
+      <div className="flex justify-center">
+        <Link to="/Painting" className="w-36 bg-orange-500 px-6 py-2 text-base text-white rounded-md text-center mt-6">See More</Link>
+      </div>
     </div>
   );
 };
