@@ -29,8 +29,15 @@ const Footer = () => {
           <div>
             <h2 className="text-lg font-light border-b border-white/20 pb-1">
               Quick Links - <span className="font-semibold">Illustration</span>
-            </h2>
-            <ul className="text-sm text-slate-600 space-y-1.5 mt-5">
+            </h2><div className="text-sm text-slate-600 space-y-1.5 mt-5">
+            <a
+                  href="https://www.creativevalley9.com/Illustration"
+                  className="hover:text-slate-400"
+                >
+                  Illustration
+                </a>
+            </div>
+            {/* <ul className="text-sm text-slate-600 space-y-1.5 mt-5">
               <li>
                 <a
                   href="https://www.creativevalley9.com/Illustration/653ea116c883168c94fc8a80/Portfolio"
@@ -105,7 +112,7 @@ const Footer = () => {
                   Logo Design
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div>
             <h2 className="text-lg font-light border-b border-white/20 pb-1">
@@ -113,7 +120,7 @@ const Footer = () => {
             </h2>
             <div className="text-sm text-slate-600 space-y-1.5 mt-5">
             <a
-                  href="https://www.creativevalley9.com/Illustration/653ea116c883168c94fc8a80/Portfolio"
+                  href="https://www.creativevalley9.com/Painting"
                   className="hover:text-slate-400"
                 >
                   Painting

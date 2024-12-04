@@ -24,7 +24,7 @@ function SignupPage() {
   };
 
   return (
-    <div className="relative w-screen overflow-x-hidden overflow-y-hidden">
+    <div className="relative overflow-x-hidden overflow-y-hidden">
       <div className=" bg-gradient-to-t from-[#FF6B0000] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
       <div className="pt-0">
         {/* header */}

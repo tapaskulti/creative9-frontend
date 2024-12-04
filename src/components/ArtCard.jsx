@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Delete, Person } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { addToCart } from "../redux/cart/cartSlice";
@@ -92,15 +92,16 @@ function ArtCard({
         <div>
           <div className="">
             <div className="flex justify-center text-center h-80 w-full">
-              <Link to={`/Painting/${id}`}>
+              
                 {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
                 <img
                   src={image}
                   className="rounded-lg object-cover w-full h-full"
                 />
-              </Link>
+              
             </div>
-            <div className="mt-2 font-bold text-center"><button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">VIEW IN DETAIL</button></div>
+            <div className="mt-2 font-bold text-center">
+              <Link to={`/Painting/${id}`}><button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">VIEW IN DETAIL</button></Link></div>
             <div className="mt-2 pt-1 font-sans tracking-wider md:pt-1 overflow-y-auto scrollbar h-20">
               <div className="flex space-x-1">
                 <div className="text-stone-500">Title:</div>
