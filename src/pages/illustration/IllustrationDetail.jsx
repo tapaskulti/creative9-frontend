@@ -79,7 +79,7 @@ const IllustrationDetail = () => {
         </div>
 
         {/* SMALL SCREEN */}
-        <div className="md:flex px-5 md:px-10 pt-10 justify-between">
+        <div className="md:hidden px-5 md:px-10 pt-10 justify-between">
           <div className="flex space-x-3">
             <Link to="/illustration">
               <ArrowBack className="" />
