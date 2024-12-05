@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { call, put, takeEvery } from "redux-saga/effects";
 import {
+  contactUsMailAction,
   createArtAction,
   createArtReviewsAction,
   deleteArtAction,
@@ -113,6 +114,19 @@ function* getArtReviewsByArtIdSaga(action) {
   }
 }
 
+function* contactUsMail(action) {
+  console.log(action,"action contactUsMail")
+  const response = yield call(contactUsMailAction, action.payload);
+
+  if (response.status === 200) {
+    yield put(
+      getArtReviews({
+        artReview: response.data,
+      })
+    );
+  }
+}
+
 export function* watchAsyncArt() {
   yield takeEvery("CREATE_ART", createArtSaga);
   yield takeEvery("GET_ALL_ART", getAllArtSaga);
@@ -122,4 +136,5 @@ export function* watchAsyncArt() {
   yield takeEvery("GET_ART_REVIEW_BY_ID", getArtReviewByIdSaga);
   yield takeEvery("GET_ART_REVIEWS_BY_ART_ID", getArtReviewsByArtIdSaga);
   yield takeEvery("CREATE_ART_REVIEWS", createArtReviewsSaga);
+  yield takeEvery("CONTACT_US_MAIL", contactUsMail);
 }
