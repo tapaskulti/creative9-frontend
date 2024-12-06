@@ -25,6 +25,10 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.warning('All fields are required!');
+      return; // Prevent form submission
+    }
     toast.success('Form submitted successfully!');
     dispatch({
       type: "CONTACT_US_MAIL",
@@ -129,6 +133,7 @@ const ContactUs = () => {
                     onChange={handleChange}
                     className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Enter your Name"
+                    required                    
                   />
                 </div>
                 <div>
@@ -139,6 +144,7 @@ const ContactUs = () => {
                     onChange={handleChange}
                     className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Enter a valid email ID"
+                    required
                   />
                 </div>
                 {/* <div>
@@ -157,11 +163,12 @@ const ContactUs = () => {
                     onChange={handleChange}
                     className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Your message"
+                    required
                   />
                 </div>
                 <button
            
-                  className="bg-orange-600 rounded-full w-full px-6 py-2 text-white font-semibold"
+                  className="bg-orange-600 hover:bg-orange-500 rounded-full w-full px-6 py-2 text-white font-semibold"
                   onClick={handleSubmit}
                 >
                   SUBMIT
