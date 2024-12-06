@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import WhatsAppIcon from "../assets/whatsapp-icon.png";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const ContactUs = () => {
   const dispatch = useDispatch();
@@ -24,9 +25,16 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    toast.success('Form submitted successfully!');
     dispatch({
       type: "CONTACT_US_MAIL",
       payload: formData,
+    });
+    // Clear the fields
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
     });
   };
 
