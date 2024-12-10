@@ -47,18 +47,18 @@ const ContactUs = () => {
     <div className="">
       <Header />
       <div className="">
-        <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-32 py-10 text-center text-white text-4xl">
+        <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-10 lg:px-32 py-10 text-center text-white text-xl lg:text-4xl">
           Get in Touch!
         </div>
-        <div className="mx-6 mt-32 md:mx-20 lg:mx-32 2xl:mx-60 font-sans mb-60">
+        <div className="mx-3 mt-5 lg:mt-32 md:mx-20 lg:mx-32 2xl:mx-60 font-sans mb-10 lg:mb-60">
           {/* <h2 className="pb-10 text-4xl text-center uppercase text-slate-900">
             Get in Touch
           </h2> */}
-          <div className=" flex justify-center">
-            <div className="flex w-2/3 px-6 py-3">
-              <div className="w-1/2">
+          <div className="flex justify-center">
+            <div className="lg:flex w-full lg:1/2 xl:w-2/3 px-2 lg:px-6 py-3">
+              <div className="w-full lg:w-1/2">
                 <div className="mt-2">
-                  <div className="flex items-center space-x-3 mb-2">
+                  <div className="flex items-center space-x-3 mb-0 lg:mb-2">
                     <img src={WhatsAppIcon} alt="" className="w-5 h-5" />
                     <h2 className="font-bold uppercase">Call me now</h2>
                   </div>
@@ -66,7 +66,7 @@ const ContactUs = () => {
                     Call me now - +91 7872249293
                   </h2>
                 </div>
-                <div className="mt-10">
+                <div className="mt-5 lg:mt-10">
                   <div className="flex items-center space-x-3 mb-2">
                     <svg
                       className="w-5 h-5"
@@ -79,7 +79,7 @@ const ContactUs = () => {
                     <h2 className="font-bold uppercase">Text me here!</h2>
                   </div>
                 </div>
-                <div className="mt-10">
+                <div className="mt-5 lg:mt-10">
                   <div className="flex items-center space-x-3 mb-2">
                     <svg
                       className="w-5 h-5"
@@ -92,7 +92,7 @@ const ContactUs = () => {
                     <h2 className="font-bold uppercase">Text me here!</h2>
                   </div>
                 </div>
-                <div className="mt-10">
+                <div className="mt-5 lg:mt-10">
                   <div className="flex items-center space-x-3 mb-2">
                     <svg
                       className="w-5 h-5"
@@ -109,7 +109,7 @@ const ContactUs = () => {
                     and I'll get back to you soon!
                   </h2>
                 </div>
-                <div className="mt-10">
+                <div className="mt-5 lg:mt-10">
                   <div className="flex items-center space-x-3 mb-2">
                     <FontAwesomeIcon
                       icon={faLocation}
@@ -124,7 +124,7 @@ const ContactUs = () => {
                   </h2>
                 </div>
               </div>
-              <div className="w-1/2 px-8 rounded-xl border border-slate-200 py-8 space-y-6">
+              <div className="w-full lg:w-1/2 px-4 lg:px-8 rounded-xl border border-slate-200 py-4 lg:py-8 space-y-6 mt-3 lg:mt-0">
                 <div>
                   <input
                     type="text"
