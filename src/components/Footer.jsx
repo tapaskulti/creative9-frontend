@@ -26,10 +26,18 @@ const Footer = () => {
                 is a Socially Responsible Graphics Design Studio based at
                 Kolkata in India.</h2>
           </div>
-          <div className="mt-3 md:mt-0">
+          <div className="mt-3 md:mt-3">
             <div className="flex items-center">
-              <h2 className="text-sm lg:text-lg font-light border-b border-white/20">Quick Links - &nbsp;</h2>
-              <span className="font-semibold hidden lg:flex">Illustration</span>
+              <h2 className="text-sm lg:text-lg font-light border-b border-white/20 pb-1">Quick <span className="font-semibold">Links</span></h2>
+              {/* <span className="font-semibold hidden lg:flex">Illustration</span> */}
+            </div>
+            <div className="text-sm text-slate-600 space-y-1.5 lg:mt-5">
+            <a
+                  href="https://www.creativevalley9.com/Painting"
+                  className="hover:text-slate-400"
+                >
+                  Painting
+                </a>
             </div>
             <div className="text-sm text-slate-600 space-y-1.5 lg:mt-5">
             <a
@@ -116,7 +124,7 @@ const Footer = () => {
               </li>
             </ul> */}
           </div>
-          <div className="mt-3 md:mt-0">
+          {/* <div className="mt-3 md:mt-3">
             <div className="flex items-center">
               <h2 className="text-sm lg:text-lg font-light border-b border-white/20">Quick Links - &nbsp;</h2>
               <span className="font-semibold hidden lg:flex">Painting</span>
@@ -129,8 +137,8 @@ const Footer = () => {
                   Painting
                 </a>
             </div>
-          </div>
-          <div className="mt-3 md:mt-0">
+          </div> */}
+          <div className="mt-3 md:mt-3">
             <h2 className="text-sm lg:text-lg font-light border-b border-white/20 pb-1">
             Our Freelancing - <span className="font-semibold">Profile links</span>
             </h2>

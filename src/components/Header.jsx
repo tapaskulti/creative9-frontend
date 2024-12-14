@@ -78,10 +78,10 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 lg:px-64 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 xl:px-64 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
-            <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40" />
+            <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40 h-auto" />
           </Link>
         </div>
         {/* navbar */}
@@ -306,7 +306,7 @@ function Header() {
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             {/* Page content here */}
-            <label htmlFor="my-drawer" className="">
+            <label htmlFor="my-drawer" className="cursor-pointer">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -328,30 +328,54 @@ function Header() {
             <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {/* navbar */}
               <div className="">
+              <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                  }
+                  to="/"
+                >
+                  <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Home</div>
+                </NavLink>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-orange-600 font-semibold" : ""
+                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                  }
+                  to="/About-us"
+                >
+                  <div className="px-3 py-2 text-base  hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">About Us</div>
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
                   }
                   to="/Painting"
                 >
-                  <div className="px-3 py-1">Painting</div>
+                  <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Painting</div>
                 </NavLink>
                 <NavLink
                   to="/Illustration"
                   className={({ isActive }) =>
-                    isActive ? "text-orange-600 font-semibold" : ""
+                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
                   }
                 >
-                  <div className="px-3 py-1">Illustration</div>
+                  <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Illustration</div>
                 </NavLink>
+                <NavLink
+                    to="/Contact-us"
+                    className={({ isActive }) =>
+                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                    }
+                  >
+                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Contact Us</div>
+                  </NavLink>
                 {adminView && (
                   <NavLink
                     to="/Myorder"
                     className={({ isActive }) =>
-                      isActive ? "px-3 py-1 text-orange-600 font-semibold" : ""
+                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
                     }
                   >
-                    <div className="px-3 py-1">My orders</div>
+                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">My orders</div>
                   </NavLink>
                 )}
               </div>
@@ -362,18 +386,18 @@ function Header() {
                   <Link
                     to="/signup"
                     className={({ isActive }) =>
-                      isActive ? "text-orange-600 font-semibold" : ""
+                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
                     }
                   >
-                    <div className="px-3 py-1">Signup</div>
+                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Signup</div>
                   </Link>
                   <Link
                     to="/login"
                     className={({ isActive }) =>
-                      isActive ? "text-orange-600 font-semibold" : ""
+                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
                     }
                   >
-                    <div className="px-3 py-1">Login</div>
+                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Login</div>
                   </Link>
                 </div>
               ) : (
