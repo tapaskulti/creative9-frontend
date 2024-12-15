@@ -17,7 +17,7 @@ import slid5 from "./../assets/slid5.jpg";
 
 import Header from "../components/Header";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Footer from "../components/Footer";
 
@@ -127,7 +127,7 @@ function LandingPage() {
 
           <div className="w-full py-20 lg:px-64">            
             <div className="font-sans text-2xl font-semibold lg:text-5xl">
-              Best Graphics Studio
+              Best Paintings and Illustrations Studio
             </div>
             <h2 className="text-lg font-semibold py-4">We&apos;re trusted by more than 730 clients</h2>
             <div>
@@ -138,7 +138,7 @@ function LandingPage() {
               From visually striking designs and effective SEO to compelling content and strategic guidance, 
               our team is committed to delivering exceptional results. Reach out to us to explore how we can help your business thrive.
               </div>
-              <button className="text-white bg-orange-500 mt-4 px-4 py-2 rounded-md">Read More</button>
+              <Link to="/About-us"><button className="text-white bg-orange-500 mt-4 px-4 py-2 rounded-md">Read More</button></Link>
             </div>
 
             

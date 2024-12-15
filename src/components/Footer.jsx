@@ -220,10 +220,10 @@ const Footer = () => {
           <h2>Copyright © 2025 Creativevalley9.com.</h2>
           <ul className="flex items-center space-x-5 justify-between mt-2 lg:mt-0">
             <li>
-              <Link to="/TermsConditions">Terms & Conditions</Link>
+              <Link to="/terms-conditions">Terms & Conditions</Link>
             </li>
             <li>
-              <Link to="/PrivacyPolicy">Privacy Policy</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
           </ul>
         </div>
