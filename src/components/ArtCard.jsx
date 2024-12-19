@@ -130,7 +130,7 @@ function ArtCard({
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-between mt-1.5 mb-2">
+            <div className="flex items-center justify-between mt-1.5">
             <button
                   onClick={() => {
                     if (!token) {
@@ -170,6 +170,7 @@ function ArtCard({
                 Add to Cart
               </button>
             </div>
+            <div>&nbsp;</div>
           </div>
           {/* <img src={image} className="border rounded-lg" /> */}
           <div className="relative pt-2 bottom-2 md:pt-3">
