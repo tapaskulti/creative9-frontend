@@ -131,7 +131,7 @@ function ArtCard({
               </div>
             </div>
             <div className="flex items-center justify-between mt-1.5">
-            <button
+            {/* <button
                   onClick={() => {
                     if (!token) {
                       toast.error("Please Login to Buy");
@@ -141,7 +141,7 @@ function ArtCard({
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
-                </button>
+                </button> */}
               <button
                 onClick={() => {
                   if (!token) {
