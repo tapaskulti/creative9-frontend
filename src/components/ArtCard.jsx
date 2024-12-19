@@ -102,7 +102,7 @@ function ArtCard({
             </div>
             <div className="mt-2 font-bold text-center">
               <Link to={`/Painting/${id}`}><button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">VIEW IN DETAIL</button></Link></div>
-            <div className="mt-2 pt-1 font-sans tracking-wider md:pt-1 overflow-y-auto scrollbar h-20">
+            <div className="mt-2 pt-1 font-sans tracking-wider md:pt-1">
               <div className="flex space-x-1">
                 <div className="text-stone-500">Title:</div>
                 <div>{title}</div>
@@ -137,7 +137,7 @@ function ArtCard({
                       toast.error("Please Login to Buy");
                     }
                   }}
-                  className="btn bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
+                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
