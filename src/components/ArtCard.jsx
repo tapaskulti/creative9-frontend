@@ -130,7 +130,7 @@ function ArtCard({
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-between mt-1">
+            <div className="flex items-center justify-between my-1.5">
             <button
                   onClick={() => {
                     if (!token) {
@@ -164,7 +164,7 @@ function ArtCard({
                     )
                   }
                 }}
-                className="px-3 py-1.5 rounded-md bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
+                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
               >
                 <FontAwesomeIcon icon={faCartPlus} className="pr-1.5" />
                 Add to Cart
