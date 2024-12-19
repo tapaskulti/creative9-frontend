@@ -130,7 +130,7 @@ function ArtCard({
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-between my-1.5">
+            <div className="flex items-center justify-between mt-1.5 mb-2">
             <button
                   onClick={() => {
                     if (!token) {
