@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { addToCart } from "../redux/cart/cartSlice";
@@ -123,14 +123,25 @@ function ArtCard({
                   <div>{year}</div>
                 </div>
               </div>
-            </div>
-            <div className="flex items-center justify-between mt-1">
               <div className="flex items-center space-x-1 mt-0">
                 <div className="text-stone-500">Price:</div>
                 <div className="text-xl font-semibold text-orange-600">
                   USD {price}
                 </div>
               </div>
+            </div>
+            <div className="flex items-center justify-between mt-1">
+            <button
+                  onClick={() => {
+                    if (!token) {
+                      toast.error("Please Login to Buy");
+                    }
+                  }}
+                  className="btn bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
+                >
+                  <FontAwesomeIcon icon={faMoneyBill} />
+                  Buy Now
+                </button>
               <button
                 onClick={() => {
                   if (!token) {

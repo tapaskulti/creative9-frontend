@@ -1,10 +1,13 @@
 import "./landingpage.css";
 
-import slid1 from "./../assets/slid1.jpg";
-import slid2 from "./../assets/slid2.jpg";
-import slid3 from "./../assets/slid3.jpg";
-import slid4 from "./../assets/slid4.jpg";
-import slid5 from "./../assets/slid5.jpg";
+import slide1 from "./../assets/slide1.jpg";
+import slide2 from "./../assets/slide2.jpg";
+import slide3 from "./../assets/slide3.jpg";
+import slide4 from "./../assets/slide4.jpg";
+import slide5 from "./../assets/slide5.jpg";
+import slide6 from "./../assets/slide6.jpg";
+import slide7 from "./../assets/slide7.jpg";
+import slide8 from "./../assets/slide8.jpg";
 
 // import {
 //   Facebook,
@@ -16,7 +19,7 @@ import slid5 from "./../assets/slid5.jpg";
 // } from "@mui/icons-material";
 
 import Header from "../components/Header";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Footer from "../components/Footer";
@@ -51,81 +54,131 @@ function LandingPage() {
         <Header />
         <Carousel autoPlay infiniteLoop>
           <div>
-            <div className="relative"><img src={slid1} alt="" />
+            <div className="relative">
+              <img src={slide1} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
-            <h3 className="text-base py-4 leading-7">
+            <h3 className="text-lg py-4 leading-7">
             Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
             Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
             </h3>
-              <button className="text-sm bg-blue-500 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
               </div>
             </div>
             {/* <p className="legend">730+ Trusted Clients</p> */}
             
           </div>
           <div>
-            <div><img src={slid2} alt="" />
+            <div>
+              <img src={slide2} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
-            <h3 className="text-base py-4 leading-7">
+            <h3 className="text-lg py-4 leading-7">
             Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
             Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
             </h3>
-              <button className="text-sm bg-blue-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
               </div>
             </div>
             {/* <p className="legend">9 years of experience in Graphics Design</p> */}
           </div>
           <div>
-            <div><img src={slid3} alt="" />
+            <div>
+              <img src={slide3} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
-            <h3 className="text-base py-4 leading-7">
+            <h3 className="text-lg py-4 leading-7">
             Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
             Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
             </h3>
-              <button className="text-sm bg-blue-500 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
               </div>
             </div>
             {/* <p className="legend">620+ Project Completed</p> */}
           </div>
           <div>
-            <div><img src={slid4} alt="" />
+            <div>
+              <img src={slide4} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
-            <h3 className="text-base py-4 leading-7">
+            <h3 className="text-lg py-4 leading-7">
             Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
             Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
             </h3>
-              <button className="text-sm bg-purple-500 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
               </div>
             </div>
             {/* <p className="legend">71119+ Users visited</p> */}
           </div>
           <div>
             <div>
-              <img src={slid5} alt="" />
+              <img src={slide5} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
-            <h3 className="text-base py-4 leading-7">
+            <h3 className="text-lg py-4 leading-7">
             Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
             Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
             </h3>
-              <button className="text-sm bg-blue-700 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
               </div>
             </div>
             {/* <p className="legend">Responsibillity, Honesty, Reliability</p> */}
           </div>
-          {/* <div>
-            <img src={slid6} alt="" />
-            <p className="legend">We look forward to starting new relationships!</p>
-          </div> */}
+          <div>
+            <div>
+              <img src={slide6} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+            <h2 className="text-4xl font-semibold">Painting</h2>
+            <h3 className="text-lg py-4 leading-7">
+            Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
+            Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
+            </h3>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              </div>
+            </div>
+            {/* <p className="legend">71119+ Users visited</p> */}
+          </div>
+          <div>
+            <div>
+              <img src={slide7} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+            <h2 className="text-4xl font-semibold">Painting</h2>
+            <h3 className="text-lg py-4 leading-7">
+            Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
+            Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
+            </h3>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              </div>
+            </div>
+            {/* <p className="legend">71119+ Users visited</p> */}
+          </div>
+          <div>
+            <div>
+              <img src={slide8} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+            <h2 className="text-4xl font-semibold">Painting</h2>
+            <h3 className="text-lg py-4 leading-7">
+            Transform your online presence with visually stunning, user-friendly web designs that reflect your brand&apos;s unique identity. 
+            Our team creates intuitive interfaces and engaging experiences that keep your audience connected and drive conversions.
+            </h3>
+              <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">VIEW PORTFOLIO</button>
+              </div>
+            </div>
+            {/* <p className="legend">71119+ Users visited</p> */}
+          </div>
         </Carousel>
         {/* content */} {/* Snaps */}
         <div className="z-0 overflow-x-hidden">
 
-          <div className="w-full py-20 lg:px-64">            
+          <div className="w-full pt-10 pb-20 lg:px-64">            
             <div className="font-sans text-2xl font-semibold lg:text-5xl">
               Best Paintings and Illustrations Studio
             </div>

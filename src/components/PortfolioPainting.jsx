@@ -1,10 +1,10 @@
 // import React from "react";
 import { motion } from "framer-motion";
 
-import portfolio01 from "../assets/portfolio01.jpg";
-import portfolio02 from "../assets/portfolio02.jpg";
-import portfolio03 from "../assets/portfolio03.jpg";
-import portfolio04 from "../assets/portfolio04.jpg";
+import portfolio01 from "../assets/painting-portfolio01.jpg";
+import portfolio02 from "../assets/painting-portfolio02.jpg";
+import portfolio03 from "../assets/painting-portfolio03.jpg";
+import portfolio04 from "../assets/painting-portfolio04.jpg";
 import { Link } from "react-router-dom";
 // import portfolio05 from "../assets/portfolio05.jpg";
 // import portfolio06 from "../assets/portfolio06.jpg";
