@@ -56,7 +56,7 @@ function LandingPage() {
           <div>
             <div className="relative">
               <img src={slide1} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -72,7 +72,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide2} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -87,7 +87,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide3} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -102,7 +102,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide4} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -117,7 +117,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide5} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -132,7 +132,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide6} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -147,7 +147,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide7} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">
@@ -162,7 +162,7 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide8} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
             <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
             <h2 className="text-4xl font-semibold">Painting</h2>
             <h3 className="text-lg py-4 leading-7">

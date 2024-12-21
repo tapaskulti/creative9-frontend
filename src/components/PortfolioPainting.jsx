@@ -37,7 +37,7 @@ const PortfolioPainting = () => {
         {items.map((item, index) => (
           <motion.div
             key={index}
-            className="text-center p-4 bg-white shadow rounded"
+            className="text-center p-3 bg-white shadow rounded"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -47,15 +47,15 @@ const PortfolioPainting = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-40 object-cover rounded"
+              className="w-full h-auto object-cover rounded"
             />
-            <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-            <p className="text-gray-500 mt-2">{item.description}</p>
+            <h3 className="mt-0 text-lg font-semibold">{item.title}</h3>
+            <p className="text-gray-500 mt-1.5">{item.description}</p>
           </motion.div>
         ))}
       </div>
       <div className="flex justify-center">
-        <Link to="/Painting" className="w-36 bg-orange-500 px-6 py-2 text-base text-white rounded-md text-center mt-6">See More</Link>
+        <Link to="/Painting" className="w-36 bg-orange-500 px-6 py-2 text-base text-white rounded-md text-center mt-10">See More</Link>
       </div>
     </div>
   );
