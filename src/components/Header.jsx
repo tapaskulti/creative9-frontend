@@ -30,10 +30,10 @@ function Header() {
             unit_amount: item.price * 100,
             product_data: {
               name: "Art",
-              images: [item.image],
-            },
+              images: [item.image]
+            }
           },
-          quantity: item.quantity,
+          quantity: item.quantity
         };
       });
 
@@ -81,46 +81,54 @@ function Header() {
       <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 xl:px-64 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
-            <img src={logo} alt="logo" className="md:w-28 lg:w-32 xl:w-40 h-auto" />
+            <img
+              src={logo}
+              alt="logo"
+              className="md:w-28 lg:w-32 xl:w-40 h-auto"
+            />
           </Link>
         </div>
         {/* navbar */}
         {/* <div className="flex font-sans tracking-wider space-x-10 bg-gradient-to-t from-[#FF000070] to-[#FF6B002B] px-10 py-2 rounded-full "> */}
         <div className="flex font-sans tracking-wider space-x-10 pl-10 ">
-        <NavLink
-            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/"
           >
             <div className="py-1 cursor-pointer font-semibold">Home</div>
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/About-us"
           >
             <div className="py-1 cursor-pointer font-semibold">About Us</div>
-          </NavLink>          
+          </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/Painting"
           >
-            <div className="py-1 cursor-pointer font-semibold text-base">Painting</div>
+            <div className="py-1 cursor-pointer font-semibold text-base">
+              Painting
+            </div>
           </NavLink>
           <NavLink
             to="/Illustration"
-            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
           >
-            <div className="py-1 cursor-pointer font-semibold text-base">Illustration</div>
+            <div className="py-1 cursor-pointer font-semibold text-base">
+              Illustration
+            </div>
           </NavLink>
           {adminView && (
             <NavLink
               to="/Myorder"
-              className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+              className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             >
               <div className="py-1 cursor-pointer">My orders</div>
             </NavLink>
           )}
           <NavLink
-            className={({ isActive }) => (isActive ? "text-[#ff6a00]" : "")}
+            className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/Contact-us"
           >
             <div className="py-1 cursor-pointer font-semibold">Contact Us</div>
@@ -134,7 +142,7 @@ function Header() {
                   onClick={() => {
                     dispatch(
                       setAdminView({
-                        adminView: true,
+                        adminView: true
                       })
                     );
                   }}
@@ -147,7 +155,7 @@ function Header() {
                   onClick={() => {
                     dispatch(
                       setAdminView({
-                        adminView: false,
+                        adminView: false
                       })
                     );
                   }}
@@ -194,12 +202,12 @@ function Header() {
         {!token ? (
           <div className="z-10 flex space-x-6 font-sans tracking-wider">
             <Link to="/signup">
-              <div className="border-2 text-[#FF6B00] border-[#FF6B00] font-semibold rounded-full px-6 py-1 cursor-pointer hover:bg-[#FF6B00] hover:text-white">
+              <div className="border-2 text-[#0363af] border-[#0363af] font-semibold rounded-full px-6 py-1 cursor-pointer hover:bg-[#0363af] hover:text-white">
                 Signup
               </div>
             </Link>
             <Link to="/login">
-              <div className="bg-gradient-to-t from-[#FF6B00] to-[#D70000] text-white font-semibold rounded-full px-6 py-1.5 cursor-pointer">
+              <div className="bg-[#0363af] text-white font-semibold rounded-full px-6 py-1.5 cursor-pointer">
                 Login
               </div>
             </Link>
@@ -284,8 +292,8 @@ function Header() {
                         type: "LOGOUT",
                         payload: {
                           email: localStorage.getItem("email"),
-                          navigate,
-                        },
+                          navigate
+                        }
                       });
                     }}
                     className="py-2"
@@ -328,54 +336,68 @@ function Header() {
             <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {/* navbar */}
               <div className="">
-              <NavLink
+                <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                    isActive ? "text-[#0363af] font-semibold" : "text-gray-500"
                   }
                   to="/"
                 >
-                  <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Home</div>
+                  <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                    Home
+                  </div>
                 </NavLink>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                    isActive ? "text-[#0363af] font-semibold" : "text-gray-500"
                   }
                   to="/About-us"
                 >
-                  <div className="px-3 py-2 text-base  hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">About Us</div>
+                  <div className="px-3 py-2 text-base  hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                    About Us
+                  </div>
                 </NavLink>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                    isActive ? "text-[#0363af] font-semibold" : "text-gray-500"
                   }
                   to="/Painting"
                 >
-                  <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Painting</div>
+                  <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                    Painting
+                  </div>
                 </NavLink>
                 <NavLink
                   to="/Illustration"
                   className={({ isActive }) =>
-                    isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                    isActive ? "text-[#0363af] font-semibold" : "text-gray-500"
                   }
                 >
-                  <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Illustration</div>
+                  <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                    Illustration
+                  </div>
                 </NavLink>
                 <NavLink
-                    to="/Contact-us"
-                    className={({ isActive }) =>
-                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
-                    }
-                  >
-                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Contact Us</div>
-                  </NavLink>
+                  to="/Contact-us"
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0363af] font-semibold" : "text-gray-500"
+                  }
+                >
+                  <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                    Contact Us
+                  </div>
+                </NavLink>
                 {adminView && (
                   <NavLink
                     to="/Myorder"
                     className={({ isActive }) =>
-                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                      isActive
+                        ? "text-[#0363af] font-semibold"
+                        : "text-gray-500"
                     }
                   >
-                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">My orders</div>
+                    <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                      My orders
+                    </div>
                   </NavLink>
                 )}
               </div>
@@ -386,18 +408,26 @@ function Header() {
                   <Link
                     to="/signup"
                     className={({ isActive }) =>
-                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                      isActive
+                        ? "text-[#0363af] font-semibold"
+                        : "text-gray-500"
                     }
                   >
-                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Signup</div>
+                    <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                      Signup
+                    </div>
                   </Link>
                   <Link
                     to="/login"
                     className={({ isActive }) =>
-                      isActive ? "text-orange-600 font-semibold" : "text-gray-500"
+                      isActive
+                        ? "text-[#0363af] font-semibold"
+                        : "text-gray-500"
                     }
                   >
-                    <div className="px-3 py-2 text-base hover:text-orange-600 hover:bg-gray-200 rounded-r-xl">Login</div>
+                    <div className="px-3 py-2 text-base hover:text-[#0363af] hover:bg-gray-200 rounded-r-xl">
+                      Login
+                    </div>
                   </Link>
                 </div>
               ) : (
@@ -477,8 +507,8 @@ function Header() {
                               type: "LOGOUT",
                               payload: {
                                 email: localStorage.getItem("email"),
-                                navigate,
-                              },
+                                navigate
+                              }
                             });
                           }}
                         >
@@ -501,7 +531,7 @@ function Header() {
                 onClick={() => {
                   dispatch(
                     setAdminView({
-                      adminView: true,
+                      adminView: true
                     })
                   );
                 }}
@@ -514,7 +544,7 @@ function Header() {
                 onClick={() => {
                   dispatch(
                     setAdminView({
-                      adminView: false,
+                      adminView: false
                     })
                   );
                 }}

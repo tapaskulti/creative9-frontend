@@ -13,7 +13,7 @@ function LoginPage() {
   const [passwordShow, setpasswordShow] = useState(false);
   const [loginPayload, setloginPayload] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   useEffect(() => {
@@ -29,14 +29,14 @@ function LoginPage() {
     dispatch({
       type: "LOGIN",
       payload: {
-        body: loginPayload,
-      },
+        body: loginPayload
+      }
     });
   };
 
   return (
     <div className="relative w-screen overflow-x-hidden overflow-y-hidden">
-      <div className="hidden md:flex bg-gradient-to-t from-[#FF6B0000] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
+      <div className="hidden md:flex bg-gradient-to-t from-[#0363af00] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
       <div className="pt-0">
         {/* header */}
         <Header />
@@ -52,7 +52,7 @@ function LoginPage() {
                   onChange={(e) => {
                     setloginPayload({
                       ...loginPayload,
-                      email: e.target.value,
+                      email: e.target.value
                     });
                   }}
                   placeholder="Enter your username"
@@ -66,7 +66,7 @@ function LoginPage() {
                     onChange={(e) => {
                       setloginPayload({
                         ...loginPayload,
-                        password: e.target.value,
+                        password: e.target.value
                       });
                     }}
                     placeholder="Enter your password"
@@ -92,14 +92,16 @@ function LoginPage() {
               </div>
               <div className="flex items-center justify-center space-x-1 font-sans">
                 <div>Don&apos;t have an Account?</div>
-                <Link to="/signup" className="text-orange-500">Sign up</Link>
+                <Link to="/signup" className="text-[#0363af]">
+                  Sign up
+                </Link>
               </div>
               {/* <span className="loading loading-spinner loading-sm"></span> */}
-              {/* bg-[#ff6b00] */}
+              {/* bg-[#0363af] */}
               <button
                 onClick={handleLogin}
                 disabled={loading}
-                className="btn btn-accent w-full text-white bg-orange-500 hover:bg-orange-400 border-orange-500"
+                className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-[#0363af] border-[#0363af]"
               >
                 {loading ? (
                   <span className="loading loading-spinner loading-md"></span>
@@ -108,7 +110,7 @@ function LoginPage() {
                 )}
               </button>
             </div>
-            {/* <div className="flex justify-center font-sans underline text-[#ff6b00]">
+            {/* <div className="flex justify-center font-sans underline text-[#0363af]">
               <Link to="/signup">Forgot password?</Link>
             </div> */}
           </div>
@@ -117,19 +119,19 @@ function LoginPage() {
             <img
               src={imageLandingPage}
               alt=""
-              className="rounded-full size-60 2md:size-72 border-4 border-[#FF6B00] shadow-2xl shadow-[#e16d3c]   transform -translate-x-20"
+              className="rounded-full size-60 2md:size-72 border-4 border-[#0363af] shadow-2xl shadow-[#0363af]   transform -translate-x-20"
             />
             <img
               src={imageLandingPage}
               alt=""
-              className="rounded-full size-44 2md:size-52 border-4 border-[#FF6B00]  transform -translate-x-10
+              className="rounded-full size-44 2md:size-52 border-4 border-[#0363af]  transform -translate-x-10
         "
             />
 
             <img
               src={imageLandingPage}
               alt=""
-              className="rounded-full size-32 2md:size-40 border-4 border-[#FF6B00] transform translate-x-40 -translate-y-72"
+              className="rounded-full size-32 2md:size-40 border-4 border-[#0363af] transform translate-x-40 -translate-y-72"
             />
           </div>
         </div>

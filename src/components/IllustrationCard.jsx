@@ -11,7 +11,7 @@ function IllustrationCard() {
   const [priceSction, setpriceSction] = useState({
     basic: true,
     standard: false,
-    premium: false,
+    premium: false
   });
   return (
     <div className="flex justify-between space-x-10">
@@ -50,10 +50,10 @@ function IllustrationCard() {
         <div className="flex items-center space-x-3">
           <div className="text-stone-500 font-semibold">Ratings:</div>
           <div>
-            <Star className="text-orange-500" />
-            <Star className="text-orange-500" />
-            <Star className="text-orange-500" />
-            <Star className="text-orange-500" />
+            <Star className="text-[#0363af]/50" />
+            <Star className="text-[#0363af]/50" />
+            <Star className="text-[#0363af]/50" />
+            <Star className="text-[#0363af]/50" />
           </div>
         </div>
         <div className="">
@@ -61,7 +61,7 @@ function IllustrationCard() {
           <div className="space-y-2">
             <div className="border  px-2 py-2 rounded-lg shadow-lg">
               <div className="flex items-center space-x-3">
-                <Person className="text-orange-500" />
+                <Person className="text-[#0363af]/50" />
                 <div className="text-stone-500">User name</div>
               </div>
               <div className="truncate">
@@ -72,7 +72,7 @@ function IllustrationCard() {
             </div>
             <div className="border  px-2 py-2 rounded-lg shadow-lg">
               <div className="flex items-center space-x-3">
-                <Person className="text-orange-500" />
+                <Person className="text-[#0363af]/50" />
                 <div className="text-stone-500">User name</div>
               </div>
               <div className="truncate">
@@ -96,7 +96,7 @@ function IllustrationCard() {
               setpriceSction({
                 basic: true,
                 standard: false,
-                premium: false,
+                premium: false
               });
             }}
           >
@@ -111,7 +111,7 @@ function IllustrationCard() {
               setpriceSction({
                 basic: false,
                 standard: true,
-                premium: false,
+                premium: false
               });
             }}
           >
@@ -126,7 +126,7 @@ function IllustrationCard() {
               setpriceSction({
                 basic: false,
                 standard: false,
-                premium: true,
+                premium: true
               });
             }}
           >

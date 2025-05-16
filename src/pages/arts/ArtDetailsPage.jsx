@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAnglesRight,
   faCircleChevronLeft,
-  faCircleChevronRight,
+  faCircleChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { addToCart } from "../../redux/cart/cartSlice";
@@ -30,20 +30,20 @@ function ArtDetailsPage() {
     dispatch({
       type: "GET_ART_BY_ID",
       payload: {
-        id,
-      },
+        id
+      }
     });
     dispatch({
       type: "GET_ART_REVIEW_BY_ID",
       payload: {
-        artId: id,
-      },
+        artId: id
+      }
     });
     dispatch({
       type: "GET_ART_REVIEWS_BY_ART_ID",
       payload: {
-        id,
-      },
+        id
+      }
     });
   }, []);
 
@@ -55,9 +55,9 @@ function ArtDetailsPage() {
         body: {
           art: id,
           username: user?._id,
-          reviewTitle: review,
-        },
-      },
+          reviewTitle: review
+        }
+      }
     });
   };
 
@@ -91,8 +91,8 @@ function ArtDetailsPage() {
           artistName: artDetail?.artistName,
           medium: artDetail?.categoryMedium,
           width: artDetail?.width,
-          height: artDetail?.height,
-        },
+          height: artDetail?.height
+        }
       ];
 
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -201,7 +201,7 @@ function ArtDetailsPage() {
                       year: artDetail?.year,
                       price: artDetail?.price,
                       quantity: 1,
-                      totalPrice: artDetail?.price,
+                      totalPrice: artDetail?.price
                     })
                   );
                 }}
@@ -298,7 +298,7 @@ export const ArtCarousel = ({ arts }) => {
           <div
             key={index}
             className={`w-12 h-12 p-1 border cursor-pointer ${
-              selectedImageIndex === index ? "border-orange-500" : ""
+              selectedImageIndex === index ? "border-[#0363af]" : ""
             }`}
             onClick={() => handleImageClick(index)}
           >

@@ -13,19 +13,19 @@ function SignupPage() {
     const payload = {
       name: newUser.firstName + " " + newUser.lastName,
       email: newUser.email,
-      password: newUser.password,
+      password: newUser.password
     };
     dispatch({
       type: "SIGNUP",
       payload: {
-        body: payload,
-      },
+        body: payload
+      }
     });
   };
 
   return (
     <div className="relative overflow-x-hidden overflow-y-hidden">
-      <div className="hidden md:flex bg-gradient-to-t from-[#FF6B0000] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
+      <div className="hidden md:flex bg-gradient-to-t from-[#0363af00] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
       <div className="pt-0">
         {/* header */}
         <Header />
@@ -34,7 +34,9 @@ function SignupPage() {
           <div className="flex justify-around overflow-x-hidden">
             {/* content */}
             <div className="w-full px-5 space-y-6 pt-28 sm:w-4/5 md:w-1/2 xl:w-2/5 2xl:w-2/6 z-20">
-              <div className="font-sans text-4xl font-semibold pb-5">Signup</div>
+              <div className="font-sans text-4xl font-semibold pb-5">
+                Signup
+              </div>
               <div className="py-1 space-y-5">
                 <div className="flex items-center space-x-5">
                   <div className="space-y-1 grow">
@@ -43,7 +45,7 @@ function SignupPage() {
                       onChange={(e) => {
                         setnewUser({
                           ...newUser,
-                          firstName: e.target.value,
+                          firstName: e.target.value
                         });
                       }}
                       placeholder="Enter your first name"
@@ -56,7 +58,7 @@ function SignupPage() {
                       onChange={(e) => {
                         setnewUser({
                           ...newUser,
-                          lastName: e.target.value,
+                          lastName: e.target.value
                         });
                       }}
                       placeholder="Enter your last name"
@@ -70,7 +72,7 @@ function SignupPage() {
                     onChange={(e) => {
                       setnewUser({
                         ...newUser,
-                        email: e.target.value,
+                        email: e.target.value
                       });
                     }}
                     placeholder="Enter your email"
@@ -83,7 +85,7 @@ function SignupPage() {
                     onChange={(e) => {
                       setnewUser({
                         ...newUser,
-                        password: e.target.value,
+                        password: e.target.value
                       });
                     }}
                     placeholder="Enter your password"
@@ -92,12 +94,14 @@ function SignupPage() {
                 </div>
                 <div className="flex items-center justify-center space-x-1 font-sans">
                   <div> Have an Account?</div>
-                  <Link to="/login" className="text-[#ff6b00]">Login</Link>
+                  <Link to="/login" className="text-[#0363af]">
+                    Login
+                  </Link>
                 </div>
                 <button
                   onClick={handleSignup}
                   disabled={loading}
-                  className="btn btn-accent w-full text-white bg-orange-500 hover:bg-orange-400 border-orange-500"
+                  className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-orange-400 border-[#0363af]"
                 >
                   {loading ? (
                     <span className="loading loading-spinner loading-md"></span>
@@ -112,18 +116,18 @@ function SignupPage() {
               <img
                 src={imageLandingPage}
                 alt=""
-                className="rounded-full size-60 2md:size-72 border-4 border-[#FF6B00] shadow-2xl shadow-[#e16d3c]   transform -translate-x-20"
+                className="rounded-full size-60 2md:size-72 border-4 border-[#0363af] shadow-2xl shadow-[#e16d3c]   transform -translate-x-20"
               />
               <img
                 src={imageLandingPage}
                 alt=""
-                className="rounded-full size-44 2md:size-52 border-4 border-[#FF6B00]  transform -translate-x-10"
+                className="rounded-full size-44 2md:size-52 border-4 border-[#0363af]  transform -translate-x-10"
               />
 
               <img
                 src={imageLandingPage}
                 alt=""
-                className="rounded-full size-32 2md:size-40 border-4 border-[#FF6B00] transform translate-x-40 -translate-y-72"
+                className="rounded-full size-32 2md:size-40 border-4 border-[#0363af] transform translate-x-40 -translate-y-72"
               />
             </div>
           </div>

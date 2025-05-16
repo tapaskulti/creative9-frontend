@@ -10,8 +10,6 @@ import io from "socket.io-client";
 import moment from "moment";
 import { setMessages, setReceiver } from "../redux/chat/chat";
 
-
-
 const socket = io("https://creativevalley9.com/api/");
 
 function Chat() {
@@ -33,7 +31,7 @@ function Chat() {
     if (messages.length) {
       bottomRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "end"
       });
     }
   }, [messages]);
@@ -45,8 +43,8 @@ function Chat() {
         type: "GET_CHAT",
         payload: {
           sender: user._id,
-          receiver: receiver?._id,
-        },
+          receiver: receiver?._id
+        }
       });
     }
   }, [user?._id, receiver, dispatch]);
@@ -59,7 +57,7 @@ function Chat() {
       console.log(message, "message fromsocket");
       dispatch(
         setMessages({
-          message: message,
+          message: message
         })
       );
       // receiveSoundplay();
@@ -72,7 +70,7 @@ function Chat() {
       socket.emit("send-message", {
         message,
         sender: user._id,
-        receiver: receiver?._id,
+        receiver: receiver?._id
       });
 
       setMessage("");
@@ -87,7 +85,7 @@ function Chat() {
       } w-96 shadow-2xl border rounded-t-md px-5 py-5 font-sans`}
     >
       <div
-        className="flex justify-between transform -translate-y-2 items-center border-b border-orange-500"
+        className="flex justify-between transform -translate-y-2 items-center border-b border-[#0363af]"
         onClick={() => {
           setopenChatWindow(!openChatWindow);
         }}

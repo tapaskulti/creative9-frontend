@@ -14,40 +14,39 @@ const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  console.log("formData=====>",formData)
+  console.log("formData=====>", formData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      toast.warning('All fields are required!');
+      toast.warning("All fields are required!");
       return; // Prevent form submission
     }
-    toast.success('Form submitted successfully!');
+    toast.success("Form submitted successfully!");
     dispatch({
       type: "CONTACT_US_MAIL",
-      payload: formData,
+      payload: formData
     });
     // Clear the fields
     setFormData({
-      name: '',
-      email: '',
-      message: ''
+      name: "",
+      email: "",
+      message: ""
     });
   };
-
 
   return (
     <div className="">
       <Header />
       <div className="">
-        <div className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 h-32 px-10 lg:px-32 py-10 text-center text-white text-xl lg:text-4xl">
+        <div className="bg-gradient-to-r from-[#297cc0] via-[#0363af] to-[#297cc0] h-32 px-10 lg:px-32 py-10 text-center text-white text-xl lg:text-4xl">
           Get in Touch!
         </div>
         <div className="mx-3 mt-5 lg:mt-32 md:mx-20 lg:mx-32 2xl:mx-60 font-sans mb-10 lg:mb-60">
@@ -133,7 +132,7 @@ const ContactUs = () => {
                     onChange={handleChange}
                     className="w-full border border-slate-300 outline-none bg-transparent text-gray-500 rounded-lg text-sm px-3 py-2"
                     placeholder="Enter your Name"
-                    required                    
+                    required
                   />
                 </div>
                 <div>
@@ -167,8 +166,7 @@ const ContactUs = () => {
                   />
                 </div>
                 <button
-           
-                  className="bg-orange-600 hover:bg-orange-500 rounded-full w-full px-6 py-2 text-white font-semibold"
+                  className="bg-orange-600 hover:bg-[#0363af] rounded-full w-full px-6 py-2 text-white font-semibold"
                   onClick={handleSubmit}
                 >
                   SUBMIT

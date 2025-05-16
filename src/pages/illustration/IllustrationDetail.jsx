@@ -8,7 +8,7 @@ import {
   Close,
   // Event, 09.09.24
   // Repeat, 09.09.24
-  Star,
+  Star
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 // import axios from "axios"; 09.09.24
@@ -21,7 +21,7 @@ import ReactQuill from "react-quill";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleChevronLeft,
-  faCircleChevronRight,
+  faCircleChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 
 import { getPayingPrice } from "../../redux/art/artSlice";
@@ -47,8 +47,8 @@ const IllustrationDetail = () => {
     dispatch({
       type: "GET_ALL_SERVICES",
       payload: {
-        categoryId: id,
-      },
+        categoryId: id
+      }
     });
   }, [id]);
 
@@ -153,7 +153,7 @@ const ServiceCard = ({ service, type }) => {
             ? service?.standardPrice
             : service?.premiumPrice,
         qty: 1,
-        illustrationPaid: true,
+        illustrationPaid: true
       };
 
       dispatch(
@@ -163,7 +163,7 @@ const ServiceCard = ({ service, type }) => {
               ? service?.basicPrice
               : selectedPriceSection === "standard"
               ? service?.standardPrice
-              : service?.premiumPrice,
+              : service?.premiumPrice
         })
       );
       handleOpen();
@@ -226,7 +226,7 @@ const ServiceCard = ({ service, type }) => {
                 <div
                   key={index}
                   className={`w-12 h-12 p-1 border cursor-pointer ${
-                    selectedImageIndex === index ? "border-orange-500" : ""
+                    selectedImageIndex === index ? "border-[#0363af]" : ""
                   }`}
                   onClick={() => handleImageClick(index)}
                 >
@@ -366,7 +366,7 @@ const DetailsWithCard = ({
   // currency, 09.09.24
   price,
   sectionName,
-  handleIllustrationPay,
+  handleIllustrationPay
 }) => {
   console.log(serviceType, "serviceType");
 

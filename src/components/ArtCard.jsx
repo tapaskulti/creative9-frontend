@@ -19,7 +19,7 @@ function ArtCard({
   height,
   year,
   price,
-  id,
+  id
 }) {
   const dispatch = useDispatch();
   const { adminView, token } = useSelector((state) => state.user);
@@ -75,8 +75,8 @@ function ArtCard({
                       dispatch({
                         type: "DELETE_ART",
                         payload: {
-                          id: id,
-                        },
+                          id: id
+                        }
                       });
                       setisDelete(false);
                     }}
@@ -92,16 +92,19 @@ function ArtCard({
         <div>
           <div className="">
             <div className="flex justify-center text-center h-80 w-full">
-              
-                {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
-                <img
-                  src={image}
-                  className="rounded-lg object-cover w-full h-full"
-                />
-              
+              {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
+              <img
+                src={image}
+                className="rounded-lg object-cover w-full h-full"
+              />
             </div>
             <div className="mt-2 font-bold text-center">
-              <Link to={`/Painting/${id}`}><button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">VIEW IN DETAIL</button></Link></div>
+              <Link to={`/Painting/${id}`}>
+                <button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">
+                  VIEW IN DETAIL
+                </button>
+              </Link>
+            </div>
             <div className="mt-2 pt-1 font-sans tracking-wider md:pt-1">
               <div className="flex space-x-1">
                 <div className="text-stone-500">Title:</div>
@@ -116,7 +119,9 @@ function ArtCard({
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="text-stone-500">Size: </div>
-                  <div>{width} * {height} inch</div>
+                  <div>
+                    {width} * {height} inch
+                  </div>
                 </div>
                 <div className="flex items-center space-x-1">
                   <div className="text-stone-500">Year:</div>
@@ -125,14 +130,14 @@ function ArtCard({
               </div>
               <div className="flex items-center space-x-1 mt-0">
                 <div className="text-stone-500">Price:</div>
-                <div className="text-xl font-semibold text-orange-600">
+                <div className="text-xl font-semibold text-[#0363af]">
                   USD {price}
                 </div>
               </div>
             </div>
             <div className="flex items-center justify-between mt-1.5">
-            <Link to={`/Painting/${id}`}>
-            <button
+              <Link to={`/Painting/${id}`}>
+                <button
                   onClick={() => {
                     if (!token) {
                       toast.error("Please Login to Buy");
@@ -142,7 +147,8 @@ function ArtCard({
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
-                </button></Link>
+                </button>
+              </Link>
               <button
                 onClick={() => {
                   if (!token) {
@@ -160,9 +166,9 @@ function ArtCard({
                         year: year,
                         price: price,
                         quantity: 1,
-                        totalPrice: price,
+                        totalPrice: price
                       })
-                    )
+                    );
                   }
                   {
                     toast.success("Painting added in your cart");
@@ -192,7 +198,7 @@ function ArtCard({
                       toast.error("Please Login to add to cart");
                     }
                   }}
-                  // className="border-2 border-orange-600 btn btn-circle"
+                  // className="border-2 border-[#0363af] btn btn-circle"
                   className="border border-[#FF6B00] text-lg rounded-full text-[#a04403] hover:to-[#FF6B00] px-2 h-9 py-0.5"
                 >
                   <FontAwesomeIcon
