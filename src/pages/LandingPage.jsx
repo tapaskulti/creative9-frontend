@@ -66,7 +66,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -86,7 +86,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -106,7 +106,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -126,7 +126,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -146,7 +146,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -166,7 +166,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -186,7 +186,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>
@@ -206,7 +206,7 @@ function LandingPage() {
                   engaging experiences that keep your audience connected and
                   drive conversions.
                 </h3>
-                <button className="text-sm bg-orange-600 rounded-md text-white px-6 py-2.5">
+                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
                   VIEW PORTFOLIO
                 </button>
               </div>

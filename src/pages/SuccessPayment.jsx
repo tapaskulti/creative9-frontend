@@ -8,7 +8,6 @@ const SuccessPayment = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     if (localStorage.getItem("cartItems")) {
       const cartItems = JSON.parse(localStorage.getItem("cartItems"));
@@ -22,9 +21,9 @@ const SuccessPayment = () => {
               art: item,
               singlePaymentPrice: item.price,
               qty: item.quantity,
-              artPaid: true,
-            },
-          },
+              artPaid: true
+            }
+          }
         });
       });
       localStorage.removeItem("cartItems");
@@ -37,18 +36,18 @@ const SuccessPayment = () => {
         offer: {
           ...JSON.parse(localStorage.getItem("offer_single")).offer,
           isPaid: true,
-          paidTime: moment().format("YYYY-MM-DD HH:mm"),
-        },
+          paidTime: moment().format("YYYY-MM-DD HH:mm")
+        }
       };
       dispatch({
         type: "UPDATE_CHAT",
         payload: {
           id: JSON.parse(localStorage.getItem("offer_single"))?._id,
-          body,
-        },
+          body
+        }
       });
       localStorage.removeItem("offer_single");
-      dispatch(getPayingPrice({payingPrice:""}))
+      dispatch(getPayingPrice({ payingPrice: "" }));
     }
 
     if (localStorage.getItem("offer_milestone")) {
@@ -56,36 +55,38 @@ const SuccessPayment = () => {
         ...JSON.parse(localStorage.getItem("offer_milestone")),
         offer: {
           ...JSON.parse(localStorage.getItem("offer_milestone")).offer,
-          milestone:{
-            ...JSON.parse(localStorage.getItem("offer_milestone")).offer.milestone,
+          milestone: {
+            ...JSON.parse(localStorage.getItem("offer_milestone")).offer
+              .milestone,
             [localStorage.getItem("milestone_key")]: {
-              ...JSON.parse(localStorage.getItem("offer_milestone")).offer.milestone[localStorage.getItem("milestone_key")],
+              ...JSON.parse(localStorage.getItem("offer_milestone")).offer
+                .milestone[localStorage.getItem("milestone_key")],
               isPaid: true,
-              paidTime: moment().format("YYYY-MM-DD HH:mm"),
-            },
+              paidTime: moment().format("YYYY-MM-DD HH:mm")
+            }
           }
-        },
+        }
       };
-         
+
       dispatch({
         type: "UPDATE_CHAT",
         payload: {
           id: JSON.parse(localStorage.getItem("offer_milestone"))?._id,
-          body,
-        },
+          body
+        }
       });
 
       localStorage.removeItem("milestone_key");
       localStorage.removeItem("offer_milestone");
-      dispatch(getPayingPrice({payingPrice:""}))
+      dispatch(getPayingPrice({ payingPrice: "" }));
     }
 
     if (localStorage.getItem("artId")) {
       dispatch({
         type: "PAID_ART_ORDER",
         payload: {
-          id: localStorage.getItem("artId"),
-        },
+          id: localStorage.getItem("artId")
+        }
       });
       localStorage.removeItem("artId");
     }
@@ -94,8 +95,8 @@ const SuccessPayment = () => {
       dispatch({
         type: "CREATE_ORDER",
         payload: {
-          body: JSON.parse(localStorage.getItem("illustrationOrder")),
-        },
+          body: JSON.parse(localStorage.getItem("illustrationOrder"))
+        }
       });
       localStorage.removeItem("illustrationOrder");
       localStorage.removeItem("userid");
@@ -104,7 +105,7 @@ const SuccessPayment = () => {
 
   return (
     <div className="py-52">
-      <h1 className="text-center font-bold leading-snug text-teal-600 text-2xl flex justify-center">
+      <h1 className="text-center font-bold leading-snug text-[#0363af] text-2xl flex justify-center">
         Your Payment is successful {localStorage.getItem("artId")}
       </h1>
       <h1 className="pt-10 text-center font-normal leading-snug text-black text-lg flex justify-center">
@@ -114,7 +115,7 @@ const SuccessPayment = () => {
         onClick={() => {
           navigate("/Painting");
         }}
-        className="bg-teal-600 hover:bg-teal-700 text-white flex justify-center px-2 py-2 text-center mx-auto mt-10"
+        className="bg-[#0363af] hover:bg-[#0363af]/80 text-white flex justify-center px-2 py-2 text-center mx-auto mt-10"
       >
         Continue Browsing art
       </button>

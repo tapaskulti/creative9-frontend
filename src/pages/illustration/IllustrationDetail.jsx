@@ -69,7 +69,7 @@ const IllustrationDetail = () => {
           </div>
           {adminView ? (
             <Link to={`/Illustration/${id}/create`}>
-              <div className="bg-teal-700 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer">
+              <div className="bg-[#0363af] text-white px-2 py-1 rounded-md hover:bg-[#0363af]/80 cursor-pointer">
                 Create Illustration
               </div>
             </Link>
@@ -93,7 +93,7 @@ const IllustrationDetail = () => {
               to={`/Illustration/${id}/create`}
               className="flex justify-end"
             >
-              <div className=" bg-teal-700 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer text-center w-40 mt-3">
+              <div className=" bg-[#0363af]/80 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer text-center w-40 mt-3">
                 Create Illustration
               </div>
             </Link>
@@ -268,11 +268,11 @@ const ServiceCard = ({ service, type }) => {
           <div className=" flex space-x-2 md:px-10 lg:px-0 pt-6 sm:pt-10 items-center">
             <div className="text-stone-500 font-semibold">Ratings:</div>
             <div className="flex space-x-0 font-semibold">
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
             </div>
             <div className="space-y-2">{/* Reviews go here */}</div>
           </div>
@@ -288,7 +288,7 @@ const ServiceCard = ({ service, type }) => {
             <div
               className={`hover:border-b-2 ${
                 selectedPriceSection === "basic"
-                  ? "border-b-2 border-orange-600 text-orange-700"
+                  ? "border-b-2 border-[#0363af] text-[#0363af]/20"
                   : "hover:border-b-2 "
               } cursor-pointer `}
               onClick={() => setSelectedPriceSection("basic")}
@@ -298,7 +298,7 @@ const ServiceCard = ({ service, type }) => {
             <div
               className={`hover:border-b-2 ${
                 selectedPriceSection === "standard"
-                  ? "border-b-2 border-orange-600 text-orange-700"
+                  ? "border-b-2 border-[#0363af] text-[#0363af]/20"
                   : "hover:border-b-2 "
               } cursor-pointer `}
               onClick={() => setSelectedPriceSection("standard")}
@@ -308,7 +308,7 @@ const ServiceCard = ({ service, type }) => {
             <div
               className={`hover:border-b-2 ${
                 selectedPriceSection === "premium"
-                  ? "border-b-2 border-orange-600 text-orange-700"
+                  ? "border-b-2 border-[#0363af] text-[#0363af]/20"
                   : "hover:border-b-2 "
               } cursor-pointer `}
               onClick={() => setSelectedPriceSection("premium")}
@@ -461,7 +461,7 @@ const DetailsWithCard = ({
       </div>
       <div
         onClick={handleIllustrationPay}
-        className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize"
+        className="flex justify-center bg-[#0363af]/80 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize"
       >
         Choose {sectionName}
       </div>

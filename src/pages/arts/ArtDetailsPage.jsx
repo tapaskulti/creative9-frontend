@@ -182,7 +182,7 @@ function ArtDetailsPage() {
             </div>
             <div className="flex px-2 space-x-2 text-xl">
               <div className=" text-stone-700">Price:</div>
-              <div className="text-2xl font-semibold text-orange-600 uppercase">
+              <div className="text-2xl font-semibold text-[#0363af] uppercase">
                 USD {artDetail?.price}
               </div>
             </div>

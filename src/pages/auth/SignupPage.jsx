@@ -25,7 +25,7 @@ function SignupPage() {
 
   return (
     <div className="relative overflow-x-hidden overflow-y-hidden">
-      <div className="hidden md:flex bg-gradient-to-t from-[#0363af00] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
+      <div className="hidden md:flex bg-gradient-to-t from-[#0363af00] to-[#0363af]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
       <div className="pt-0">
         {/* header */}
         <Header />
@@ -101,7 +101,7 @@ function SignupPage() {
                 <button
                   onClick={handleSignup}
                   disabled={loading}
-                  className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-orange-400 border-[#0363af]"
+                  className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-[#0363af]/80 border-[#0363af]"
                 >
                   {loading ? (
                     <span className="loading loading-spinner loading-md"></span>
@@ -116,7 +116,7 @@ function SignupPage() {
               <img
                 src={imageLandingPage}
                 alt=""
-                className="rounded-full size-60 2md:size-72 border-4 border-[#0363af] shadow-2xl shadow-[#e16d3c]   transform -translate-x-20"
+                className="rounded-full size-60 2md:size-72 border-4 border-[#0363af] shadow-2xl shadow-[#0363af]   transform -translate-x-20"
               />
               <img
                 src={imageLandingPage}

@@ -36,7 +36,7 @@ function LoginPage() {
 
   return (
     <div className="relative w-screen overflow-x-hidden overflow-y-hidden">
-      <div className="hidden md:flex bg-gradient-to-t from-[#0363af00] to-[#feb861]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
+      <div className="hidden md:flex bg-gradient-to-t from-[#0363af00] to-[#0363af]  w-full absolute h-full px-52 py-52  rounded-full transform translate-x-2/3 -translate-y-20 "></div>
       <div className="pt-0">
         {/* header */}
         <Header />
@@ -101,7 +101,7 @@ function LoginPage() {
               <button
                 onClick={handleLogin}
                 disabled={loading}
-                className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-[#0363af] border-[#0363af]"
+                className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-[#0363af]/80 border-[#0363af]"
               >
                 {loading ? (
                   <span className="loading loading-spinner loading-md"></span>

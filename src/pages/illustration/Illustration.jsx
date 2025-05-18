@@ -21,7 +21,7 @@ function Illustration() {
 
   useEffect(() => {
     dispatch({
-      type: "GET_ALL_CATEGORY",
+      type: "GET_ALL_CATEGORY"
     });
   }, []);
 
@@ -32,8 +32,8 @@ function Illustration() {
     dispatch({
       type: "CREATE_CATEGORY",
       payload: {
-        body: formData,
-      },
+        body: formData
+      }
     });
     setOpenModal(false);
   };
@@ -91,7 +91,7 @@ function Illustration() {
           </button>
           <button
             onClick={handleCategoryCreate}
-            className="px-2 text-white bg-teal-700 rounded-lg "
+            className="px-2 text-white bg-[#0363af]/80 rounded-lg "
           >
             Save
           </button>
@@ -136,8 +136,8 @@ function Illustration() {
                             dispatch({
                               type: "DELETE_CATEGORY",
                               payload: {
-                                categoryId: category._id,
-                              },
+                                categoryId: category._id
+                              }
                             });
                             setdeleteConfirmationModalCategory(true);
                           }}
@@ -170,12 +170,9 @@ function Illustration() {
               <div className="pt-10">
                 <Footer />
               </div>
-              
             </div>
-            
           </div>
         </div>
-        
       </div>
     </>
   );

@@ -89,7 +89,7 @@ function IllustrationCard() {
           <div
             className={`hover:border-b-2 ${
               priceSction?.basic
-                ? "border-b-2 border-orange-600 text-orange-700"
+                ? "border-b-2 border-[#0363af] text-[#0363af]"
                 : "hover:border-b-2 "
             } cursor-pointer `}
             onClick={() => {
@@ -105,7 +105,7 @@ function IllustrationCard() {
           <div
             className={`hover:border-b-2 ${
               priceSction?.standard &&
-              "border-b-2 border-orange-600 text-orange-700"
+              "border-b-2 border-[#0363af] text-[#0363af]"
             } cursor-pointer `}
             onClick={() => {
               setpriceSction({
@@ -120,7 +120,7 @@ function IllustrationCard() {
           <div
             className={`hover:border-b-2 ${
               priceSction?.premium &&
-              "border-b-2 border-orange-600 text-orange-700"
+              "border-b-2 border-[#0363af] text-[#0363af]"
             } cursor-pointer `}
             onClick={() => {
               setpriceSction({
@@ -139,19 +139,19 @@ function IllustrationCard() {
             <div className="py-3">
               <div className="text-stone-500">You'll get</div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>{" "}
             </div>
@@ -160,19 +160,19 @@ function IllustrationCard() {
             <div className="py-3">
               <div className="text-stone-500">You'll get</div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>{" "}
             </div>
@@ -181,19 +181,19 @@ function IllustrationCard() {
             <div className="py-3">
               <div className="text-stone-500">You'll get</div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>{" "}
             </div>
@@ -201,11 +201,11 @@ function IllustrationCard() {
         </div>
 
         {!adminView ? (
-          <div className="items-end align-bottom flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white justify-items-end">
+          <div className="items-end align-bottom flex justify-center bg-[#0363af] hover:bg-[#0363af]/80 cursor-pointer rounded-md text-white justify-items-end">
             Chooose & Pay
           </div>
         ) : (
-          <div className="items-end align-bottom flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white justify-items-end">
+          <div className="items-end align-bottom flex justify-center bg-[#0363af] hover:bg-[#0363af]/80 cursor-pointer rounded-md text-white justify-items-end">
             Update
           </div>
         )}
