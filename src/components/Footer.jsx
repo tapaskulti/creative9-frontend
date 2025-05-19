@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
           <div className="mt-3 md:mt-3">
             <div className="flex items-center">
-              <h2 className="text-sm lg:text-lg font-light border-b border-white/20 pb-1">
+              <h2 className="font-semibold text-sm lg:text-lg lg:font-light border-b border-white/20 pb-1">
                 Quick <span className="font-semibold">Links</span>
               </h2>
               {/* <span className="font-semibold hidden lg:flex">Illustration</span> */}
@@ -147,9 +147,8 @@ const Footer = () => {
             </div>
           </div> */}
           <div className="mt-3 md:mt-3">
-            <h2 className="text-sm lg:text-lg font-light border-b border-white/20 pb-1">
-              Our Freelancing -{" "}
-              <span className="font-semibold">Profile links</span>
+            <h2 className="font-semibold text-sm lg:text-lg lg:font-light border-b border-white/20 pb-1">
+              Freelancing - <span className="font-semibold">Profile links</span>
             </h2>
             <div className="flex items-start">
               <ul className="text-sm text-slate-600 space-y-1.5 mt-0 lg:mt-5">
@@ -181,7 +180,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="pt-5 lg:pt-0 space-y-2">
-            <h2 className="text-sm lg:text-lg font-light border-b border-white/20 pb-0 lg:pb-1">
+            <h2 className="font-semibold text-sm lg:text-lg lg:font-light border-b border-white/20 pb-0 lg:pb-1">
               Our - <span className="font-semibold">Location</span>
             </h2>
             <div className="lg:space-y-3 pt-0 lg:pt-5">

@@ -49,7 +49,7 @@ function ArtCard({
                     type="button"
                     className="text-center  text-sm cursor-pointer py-1"
                   >
-                    <Delete className="text-red-500" />
+                    <Delete className="text-red-600" />
                   </button>
                 </div>
               </>
@@ -58,7 +58,7 @@ function ArtCard({
           {isDelete && (
             <div className="absolute top-0 right-0 bg-white h-32 w-full shadow-xl px-1 py-4">
               <div className="flex flex-col space-y-2">
-                <div className="text-sm text-[#D70000] font-semibold">
+                <div className="text-sm text-red-600 font-semibold">
                   Are you sure you want to delete this art?
                 </div>
                 <div className="flex space-x-2">
@@ -66,7 +66,7 @@ function ArtCard({
                     onClick={() => {
                       setisDelete(false);
                     }}
-                    className="px-2 py-1 text-sm rounded-md border border-[#D70000] text-[#D70000] hover:bg-[#D70000] hover:text-white cursor-pointer"
+                    className="px-2 py-1 text-sm rounded-md border border-[#0363af] text-[#0363af] hover:bg-[#0363af] hover:text-white cursor-pointer"
                   >
                     No
                   </div>
@@ -80,7 +80,7 @@ function ArtCard({
                       });
                       setisDelete(false);
                     }}
-                    className="px-2 py-1 text-sm rounded-md bg-gradient-to-r text-white from-[#D70000] to-[#FF6B00] hover:from-[#FF6B00] hover:to-[#D70000] cursor-pointer"
+                    className="px-2 py-1 text-sm rounded-md bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/80 hover:from-[#0363af]/90 hover:to-[#0363af] cursor-pointer"
                   >
                     Yes
                   </div>
@@ -143,7 +143,7 @@ function ArtCard({
                       toast.error("Please Login to Buy");
                     }
                   }}
-                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
+                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80"
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
@@ -174,7 +174,7 @@ function ArtCard({
                     toast.success("Painting added in your cart");
                   }
                 }}
-                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white from-[#ff974c] to-[#ff4e3e] hover:from-[#D70000] hover:to-[#FF6B00]"
+                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80"
               >
                 <FontAwesomeIcon icon={faCartPlus} className="pr-1.5" />
                 Add to Cart
@@ -224,7 +224,7 @@ function ArtCard({
                 <div>
                   <Link
                     to="/Painting/12/update"
-                    className="bg-gradient-to-r text-center from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00] text-sm cursor-pointer px-5 py-1.5 rounded-full text-white font-semibold"
+                    className="bg-gradient-to-r text-center  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 text-sm cursor-pointer px-5 py-1.5 rounded-full text-white font-semibold"
                   >
                     Update
                   </Link>
