@@ -32,7 +32,7 @@ const PortfolioCard = ({ id, pictue, price, path }) => {
                     });
                     setdeleteConfirmationModal(false);
                   }}
-                  className="px-3 py-1 text-white bg-green-700 rounded-md"
+                  className="px-3 py-1 text-white bg-[#0363af] rounded-md"
                 >
                   Yes
                 </button>
@@ -77,7 +77,7 @@ const PortfolioCard = ({ id, pictue, price, path }) => {
           </div>
           <Link
             to={path}
-            className="px-3 py-1 text-sm text-white bg-green-600 rounded-full md:text-sm"
+            className="px-3 py-1 text-sm text-white bg-[#0363af] rounded-full md:text-sm"
           >
             Buy Now
           </Link>

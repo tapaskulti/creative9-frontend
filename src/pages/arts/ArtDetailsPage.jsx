@@ -205,13 +205,13 @@ function ArtDetailsPage() {
                     })
                   );
                 }}
-                className="border border-[#FF6B00] text-lg text-center rounded-full text-[#a04403] hover:bg-[#FF6B00] cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00]"
+                className="border border-[#0363af] text-lg text-center rounded-full text-[#a04403] hover:bg-[#0363af]/80 cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#0363af] to-[#0363af] hover:from-[#0363af] hover:to-[#0363af]/80"
               >
                 Add to Cart
               </div>
               <div
                 onClick={handleCheckout}
-                className="bg-gradient-to-r from-[#FF6B00] text-center to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00] text-lg cursor-pointer px-5 md:px-3 h-8 py-0.5 rounded-full text-white font-bold"
+                className="bg-gradient-to-r from-[#0363af] text-center to-[#0363af] hover:from-[#0363af] hover:to-[#0363af]/80 text-lg cursor-pointer px-5 md:px-3 h-8 py-0.5 rounded-full text-white font-bold"
               >
                 Buy Now
               </div>
@@ -230,7 +230,7 @@ function ArtDetailsPage() {
             <div className="text-xl font-semibold">10+</div>
           </div>
           <div>
-            <div className="font-sans text-xl border-b border-[#f45c02]">
+            <div className="font-sans text-xl border-b border-[#0363af]">
               Reviews{" "}
             </div>
             <div className="flex">

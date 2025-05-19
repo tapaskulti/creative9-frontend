@@ -156,7 +156,7 @@ function Illustration() {
                     </Link>
                     <div className="text-center">
                       <button
-                        className="bg-gradient-to-r text-center from-[#FF6B00] to-[#d71d00f3] hover:from-[#d71d00f3] hover:to-[#FF6B00] text-lg rounded-md text-white px-12 py-1 mt-3 uppercase font-semibold"
+                        className="bg-gradient-to-r text-center from-[#0363af]/80 to-[#0363af] hover:from-[#0363af]/90 hover:to-[#0363af]/80 text-lg rounded-md text-white px-12 py-1 mt-3 uppercase font-semibold"
                         onClick={() => {
                           navigate(`/Illustration/${category._id}/Portfolio`);
                         }}
