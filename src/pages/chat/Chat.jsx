@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
   faCircleXmark,
-  faClose
+  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -21,14 +21,33 @@ const initialOptions = {
   clientId:
     "AcA2KJ9ftu-JsUUx95Sx8P2DVdbMGzMXYTcqGNPbbSnNgiLJ0_suCdwJIdX3D_SkHEAzhNEtBL0_xy1k",
   currency: "USD",
-  intent: "capture"
+  intent: "capture",
 };
 
 const socket = io("https://creativevalley9.com", {
   path: "/api/socket.io",
   transports: ["websocket", "polling"],
-  withCredentials: true
+  withCredentials: true,
 });
+// const socket = io("http://localhost:5001", {
+//   path: "/api/socket.io",
+//   transports: ["websocket", "polling"],
+//   withCredentials: true,
+// });
+
+// Add debugging for localhost
+socket.on('connect', () => {
+  console.log('✅ Connected to backend server:', socket.id);
+});
+
+socket.on('disconnect', (reason) => {
+  console.log('❌ Disconnected from backend:', reason);
+});
+
+socket.on('connect_error', (error) => {
+  console.log('🔥 Connection error:', error);
+});
+
 // const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
 
 const Chat = () => {
@@ -56,8 +75,8 @@ const Chat = () => {
         price: null,
         startPage: null,
         title: "M1",
-        total: null
-      }
+        total: null,
+      },
     },
     singlePaymentPrice: "",
     revisions: "",
@@ -80,7 +99,7 @@ const Chat = () => {
     withFrame: false,
     withoutFrame: false,
     medium: "",
-    totalPainting: ""
+    totalPainting: "",
   });
   // let totalValue
   console.log("offerselection==========>", offerselection);
@@ -109,7 +128,7 @@ const Chat = () => {
             return (acc += offerselection.milestone[curr]["total"]);
           },
           0
-        )
+        ),
       });
     }
   }, [offerselection.milestone]);
@@ -121,7 +140,7 @@ const Chat = () => {
     price,
     product_image,
     product_type,
-    msg
+    msg,
   }) => {
     try {
       console.log("price===>", price);
@@ -155,7 +174,7 @@ const Chat = () => {
     product_image,
     product_type,
     msg,
-    keyOfMilestone
+    keyOfMilestone,
   }) => {
     try {
       console.log("price===>", price);
@@ -188,17 +207,17 @@ const Chat = () => {
     if (messages.length) {
       bottomRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "end"
+        block: "end",
       });
     }
   }, [messages]);
 
   useEffect(() => {
     dispatch({
-      type: "GET_ALL_ART"
+      type: "GET_ALL_ART",
     });
     dispatch({
-      type: "GET_ALL_SERVICES_OFFER"
+      type: "GET_ALL_SERVICES_OFFER",
     });
   }, []);
 
@@ -210,8 +229,8 @@ const Chat = () => {
         type: "GET_CHAT",
         payload: {
           sender: user._id,
-          receiver: receiver?._id
-        }
+          receiver: receiver?._id,
+        },
       });
     }
   }, [user?._id, receiver]);
@@ -224,7 +243,7 @@ const Chat = () => {
       console.log(message, "message fromsocket");
       dispatch(
         setMessages({
-          message: message
+          message: message,
         })
       );
       // receiveSoundplay();
@@ -232,18 +251,21 @@ const Chat = () => {
   }, []);
 
   const handleSendMessage = () => {
+    console.log("🚀 Attempting to send message");
     if (message.trim() !== "" && selectedImages.length === 0) {
       // Emit the message to the server
 
-      socket.emit("send-message", {
+     const messageData =  socket.emit("send-message", {
         msg: {
           message,
           sender: user?._id,
           receiver: receiver?._id,
-          images: selectedImages
-        }
+          images: selectedImages,
+        },
       });
-
+      console.log("📤 Emitting to backend:", messageData);
+    socket.emit("send-message", messageData);
+    console.log("✅ Message sent to backend");
       setMessage("");
       // sendSoundplay();
       setopenEmojiPicker(false);
@@ -256,8 +278,8 @@ const Chat = () => {
           message,
           sender: user._id,
           receiver: receiver?._id,
-          images: selectedImages
-        }
+          images: selectedImages,
+        },
       });
 
       setMessage("");
@@ -319,7 +341,7 @@ const Chat = () => {
                     onClick={() => {
                       setofferselection({
                         ...offerselection,
-                        offerCreate: "Painting"
+                        offerCreate: "Painting",
                       });
                     }}
                     className="border h-32 w-32 rounded-md text-xl hover:bg-slate-100 hover:text-black"
@@ -330,7 +352,7 @@ const Chat = () => {
                     onClick={() => {
                       setofferselection({
                         ...offerselection,
-                        offerCreate: "Illustration"
+                        offerCreate: "Illustration",
                       });
                     }}
                     className="border h-32 w-32 rounded-md text-xl hover:bg-slate-100 hover:text-black"
@@ -349,7 +371,7 @@ const Chat = () => {
                     onClick={() => {
                       setofferselection({
                         ...offerselection,
-                        paymentType: "single_payment"
+                        paymentType: "single_payment",
                       });
                     }}
                     className="border h-32 w-32 rounded-md text-xl hover:bg-slate-100 hover:text-black"
@@ -360,7 +382,7 @@ const Chat = () => {
                     onClick={() => {
                       setofferselection({
                         ...offerselection,
-                        paymentType: "milestone"
+                        paymentType: "milestone",
                       });
                     }}
                     className="border h-32 w-32 rounded-md text-xl hover:bg-slate-100 hover:text-black"
@@ -385,7 +407,7 @@ const Chat = () => {
                           onClick={() => {
                             setofferselection({
                               ...offerselection,
-                              art: art
+                              art: art,
                             });
                           }}
                           key={art._id}
@@ -417,7 +439,7 @@ const Chat = () => {
                           onClick={() => {
                             setofferselection({
                               ...offerselection,
-                              illustration: illustration
+                              illustration: illustration,
                             });
                           }}
                           key={illustration._id}
@@ -447,7 +469,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        description: e.target.value
+                        description: e.target.value,
                       });
                     }}
                   />
@@ -462,7 +484,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        deliveryDays: e.target.value
+                        deliveryDays: e.target.value,
                       });
                     }}
                   />
@@ -477,7 +499,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        revisions: e.target.value
+                        revisions: e.target.value,
                       });
                     }}
                   />
@@ -491,7 +513,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        pageSize: e.target.value
+                        pageSize: e.target.value,
                       });
                     }}
                   />
@@ -504,7 +526,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        canvasSize: e.target.value
+                        canvasSize: e.target.value,
                       });
                     }}
                   />
@@ -518,7 +540,7 @@ const Chat = () => {
                       console.log(e.target.checked);
                       setofferselection({
                         ...offerselection,
-                        withFrame: e.target.checked
+                        withFrame: e.target.checked,
                       });
                     }}
                   />
@@ -533,7 +555,7 @@ const Chat = () => {
                       console.log(e.target.checked);
                       setofferselection({
                         ...offerselection,
-                        withoutFrame: e.target.checked
+                        withoutFrame: e.target.checked,
                       });
                     }}
                   />
@@ -547,7 +569,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        medium: e.target.value
+                        medium: e.target.value,
                       });
                     }}
                   />
@@ -599,7 +621,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        totalPainting: e.target.value
+                        totalPainting: e.target.value,
                       });
                     }}
                   />
@@ -618,7 +640,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        description: e.target.value
+                        description: e.target.value,
                       });
                     }}
                   />
@@ -652,9 +674,9 @@ const Chat = () => {
                                                     ...offerselection.milestone[
                                                       milestonek
                                                     ],
-                                                    title: e.target.value
-                                                  }
-                                                }
+                                                    title: e.target.value,
+                                                  },
+                                                },
                                               });
                                             }}
                                             type="text"
@@ -674,9 +696,9 @@ const Chat = () => {
                                                     ...offerselection.milestone[
                                                       milestonek
                                                     ],
-                                                    startPage: e.target.value
-                                                  }
-                                                }
+                                                    startPage: e.target.value,
+                                                  },
+                                                },
                                               });
                                             }}
                                           />
@@ -693,9 +715,9 @@ const Chat = () => {
                                                     ...offerselection.milestone[
                                                       milestonek
                                                     ],
-                                                    lastPage: e.target.value
-                                                  }
-                                                }
+                                                    lastPage: e.target.value,
+                                                  },
+                                                },
                                               });
                                             }}
                                           />
@@ -723,9 +745,9 @@ const Chat = () => {
                                                           milestonek
                                                         ]["startPage"] +
                                                         1),
-                                                    isPaid: false
-                                                  }
-                                                }
+                                                    isPaid: false,
+                                                  },
+                                                },
                                               });
                                             }}
                                           />
@@ -756,7 +778,7 @@ const Chat = () => {
                                               } = offerselection.milestone;
                                               setofferselection({
                                                 ...offerselection,
-                                                milestone: newObject
+                                                milestone: newObject,
                                               });
                                             }}
                                           >
@@ -797,8 +819,8 @@ const Chat = () => {
                                       ...offerselection,
                                       milestone: {
                                         ...offerselection.milestone,
-                                        [newKey]: {}
-                                      }
+                                        [newKey]: {},
+                                      },
                                     });
                                   }}
                                   className="text-right  cursor-pointer py-2"
@@ -834,7 +856,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        deliveryDays: e.target.value
+                        deliveryDays: e.target.value,
                       });
                     }}
                   />
@@ -849,7 +871,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        revisions: e.target.value
+                        revisions: e.target.value,
                       });
                     }}
                   />
@@ -863,7 +885,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        numberOfFigures: e.target.value
+                        numberOfFigures: e.target.value,
                       });
                     }}
                   />
@@ -877,7 +899,7 @@ const Chat = () => {
                       console.log(e.target.checked);
                       setofferselection({
                         ...offerselection,
-                        sourceFile: e.target.checked
+                        sourceFile: e.target.checked,
                       });
                     }}
                   />
@@ -902,7 +924,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        colourIllustration: e.target.checked
+                        colourIllustration: e.target.checked,
                       });
                     }}
                   />
@@ -927,7 +949,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        blackAndWhiteIllustration: e.target.checked
+                        blackAndWhiteIllustration: e.target.checked,
                       });
                     }}
                   />
@@ -952,7 +974,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        backgroundScene: e.target.checked
+                        backgroundScene: e.target.checked,
                       });
                     }}
                   />
@@ -1004,7 +1026,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        totalIllustration: e.target.value
+                        totalIllustration: e.target.value,
                       });
                     }}
                   />
@@ -1018,7 +1040,7 @@ const Chat = () => {
                     onChange={(e) => {
                       setofferselection({
                         ...offerselection,
-                        pricePerIllustration: e.target.value
+                        pricePerIllustration: e.target.value,
                       });
                     }}
                   />
@@ -1051,17 +1073,17 @@ const Chat = () => {
                           singlePaymentPrice: offerselection.singlePaymentPrice,
                           milestone: offerselection.milestone,
                           totalMileStonePrice:
-                            offerselection.totalMileStonePrice
-                        }
-                      }
+                            offerselection.totalMileStonePrice,
+                        },
+                      },
                     });
                     socket.emit("send-message", {
                       msg: {
                         message,
                         offer: offerselection,
                         sender: user._id,
-                        receiver: receiver?._id
-                      }
+                        receiver: receiver?._id,
+                      },
                     });
 
                     setMessage("");
@@ -1089,7 +1111,7 @@ const Chat = () => {
                       onChange={(e) => {
                         setofferselection({
                           ...offerselection,
-                          singlePaymentPrice: e.target.value
+                          singlePaymentPrice: e.target.value,
                         });
                       }}
                       type="number"
@@ -1129,14 +1151,14 @@ const Chat = () => {
                                 year: offerselection.art?.year,
                                 price: offerselection.art?.price,
                                 quantity: 1,
-                                totalPrice: offerselection.art?.price
+                                totalPrice: offerselection.art?.price,
                               },
                               illustration: offerselection.illustration,
                               singlePaymentPrice:
                                 offerselection.singlePaymentPrice,
-                              milestone: offerselection.milestone
-                            }
-                          }
+                              milestone: offerselection.milestone,
+                            },
+                          },
                         });
 
                         socket.emit("send-message", {
@@ -1144,8 +1166,8 @@ const Chat = () => {
                             message,
                             offer: offerselection,
                             sender: user._id,
-                            receiver: receiver?._id
-                          }
+                            receiver: receiver?._id,
+                          },
                         });
 
                         setMessage("");
@@ -1174,7 +1196,7 @@ const Chat = () => {
                 paymentType: "",
                 art: undefined,
                 milestone: undefined,
-                singlePaymentPrice: ""
+                singlePaymentPrice: "",
               });
             }}
           >
@@ -1714,7 +1736,7 @@ const Chat = () => {
                                                           msg?.offer?.art
                                                             ?.art[0]
                                                             ?.secure_url,
-                                                        keyOfMilestone: m
+                                                        keyOfMilestone: m,
                                                       });
                                                     }}
                                                     className="bg-[#0363af] hover:bg-[#0363af]/90 px-1 py-2 w-20 mt-1  rounded-full cursor-pointer"
@@ -1771,7 +1793,7 @@ const Chat = () => {
                                                 msg?.offer?.offerCreate,
                                               product_image:
                                                 msg?.offer?.art?.art[0]
-                                                  ?.secure_url
+                                                  ?.secure_url,
                                             });
                                           }}
                                           className="bg-[#0363af] hover:bg-[#0363af]/80 px-1 py-1 text-white w-20 mt-1 text-sm text-center rounded-full cursor-pointer"
