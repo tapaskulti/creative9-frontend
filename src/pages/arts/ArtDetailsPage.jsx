@@ -16,13 +16,14 @@ import axios from "axios";
 import { addToCart } from "../../redux/cart/cartSlice";
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
+import { toast } from "react-toastify";
 
 function ArtDetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [review, setReview] = useState("");
   const { artDetail, artReview } = useSelector((state) => state.art);
-  const { user } = useSelector((state) => state.user);
+  const { user,token } = useSelector((state) => state.user);
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
 
@@ -63,6 +64,12 @@ function ArtDetailsPage() {
 
   const handleCheckout = async (e) => {
     e.preventDefault();
+
+    if(token===""){
+      // alert(`Cannot Buy.Login First`);
+      toast.error(`Cannot Buy.Login First`)
+      return
+    }
 
     try {
       // const response = await axios.post('http://localhost:5001/create-payment-intent', {
