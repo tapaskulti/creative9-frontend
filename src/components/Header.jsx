@@ -255,7 +255,10 @@ function Header() {
                     </span>
                     <div className="card-actions">
                       <button
-                        onClick={handlePay}
+                        // onClick={handlePay}
+                        onClick={()=>{
+                          navigate(`/cart`)
+                        }}
                         className="btn btn-primary btn-block"
                       >
                         View cart

@@ -30,6 +30,7 @@ import SuccessPayment from "./pages/SuccessPayment";
 import CancelPayment from "./pages/CancelPayment";
 import ReviewEntry from "./pages/ReviewEntry";
 import AboutUs from "./components/AboutUs";
+import CartPage from "./pages/Cart";
 
 function App() {
   const dispatch = useDispatch();
@@ -84,6 +85,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/cancel" element={<CancelPayment />} />
+          <Route path="/cart" element={<CartPage />} />
 
           <Route element={<PrivateRoutes token={token} />}>
             <Route path="/Painting" element={<ArtsPage />} />
