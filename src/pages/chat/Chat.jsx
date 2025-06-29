@@ -14,15 +14,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import ModalComponent from "../../components/Modal";
 import { getPayingPrice } from "../../redux/art/artSlice";
-const initialOptions = {
-  clientId:
-    "AcA2KJ9ftu-JsUUx95Sx8P2DVdbMGzMXYTcqGNPbbSnNgiLJ0_suCdwJIdX3D_SkHEAzhNEtBL0_xy1k",
-  currency: "USD",
-  intent: "capture",
-};
+
 
 const socket = io("https://creativevalley9.com", {
   path: "/api/socket.io",
@@ -251,11 +245,10 @@ const Chat = () => {
   }, []);
 
   const handleSendMessage = () => {
-    console.log("🚀 Attempting to send message");
     if (message.trim() !== "" && selectedImages.length === 0) {
       // Emit the message to the server
 
-     const messageData =  socket.emit("send-message", {
+     socket.emit("send-message", {
         msg: {
           message,
           sender: user?._id,
@@ -263,9 +256,7 @@ const Chat = () => {
           images: selectedImages,
         },
       });
-      console.log("📤 Emitting to backend:", messageData);
-    socket.emit("send-message", messageData);
-    console.log("✅ Message sent to backend");
+   
       setMessage("");
       // sendSoundplay();
       setopenEmojiPicker(false);
@@ -1092,6 +1083,7 @@ const Chat = () => {
 
                     setimages();
                     setSelectedImages([]);
+                    window.my_modal_2.close();
                   }}
                   className="bg-teal-500 hover:bg-[#0363af]/80 cursor-pointer px-5 py-2 text-center text-white rounded-md font-semibold"
                 >
@@ -1171,12 +1163,13 @@ const Chat = () => {
                         });
 
                         setMessage("");
+                         window.my_modal_2.close();
                         // sendSoundplay();
                         setopenEmojiPicker(false);
 
                         setimages();
                         setSelectedImages([]);
-                        window.my_modal_2.hideModal();
+                       
                       }}
                       className="bg-teal-500 hover:bg-[#0363af]/80 cursor-pointer px-5 py-2 text-center text-white rounded-md font-semibold"
                     >
