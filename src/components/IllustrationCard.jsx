@@ -11,7 +11,7 @@ function IllustrationCard() {
   const [priceSction, setpriceSction] = useState({
     basic: true,
     standard: false,
-    premium: false,
+    premium: false
   });
   return (
     <div className="flex justify-between space-x-10">
@@ -50,10 +50,10 @@ function IllustrationCard() {
         <div className="flex items-center space-x-3">
           <div className="text-stone-500 font-semibold">Ratings:</div>
           <div>
-            <Star className="text-orange-500" />
-            <Star className="text-orange-500" />
-            <Star className="text-orange-500" />
-            <Star className="text-orange-500" />
+            <Star className="text-[#0363af]/50" />
+            <Star className="text-[#0363af]/50" />
+            <Star className="text-[#0363af]/50" />
+            <Star className="text-[#0363af]/50" />
           </div>
         </div>
         <div className="">
@@ -61,7 +61,7 @@ function IllustrationCard() {
           <div className="space-y-2">
             <div className="border  px-2 py-2 rounded-lg shadow-lg">
               <div className="flex items-center space-x-3">
-                <Person className="text-orange-500" />
+                <Person className="text-[#0363af]/50" />
                 <div className="text-stone-500">User name</div>
               </div>
               <div className="truncate">
@@ -72,7 +72,7 @@ function IllustrationCard() {
             </div>
             <div className="border  px-2 py-2 rounded-lg shadow-lg">
               <div className="flex items-center space-x-3">
-                <Person className="text-orange-500" />
+                <Person className="text-[#0363af]/50" />
                 <div className="text-stone-500">User name</div>
               </div>
               <div className="truncate">
@@ -89,14 +89,14 @@ function IllustrationCard() {
           <div
             className={`hover:border-b-2 ${
               priceSction?.basic
-                ? "border-b-2 border-orange-600 text-orange-700"
+                ? "border-b-2 border-[#0363af] text-[#0363af]"
                 : "hover:border-b-2 "
             } cursor-pointer `}
             onClick={() => {
               setpriceSction({
                 basic: true,
                 standard: false,
-                premium: false,
+                premium: false
               });
             }}
           >
@@ -105,13 +105,13 @@ function IllustrationCard() {
           <div
             className={`hover:border-b-2 ${
               priceSction?.standard &&
-              "border-b-2 border-orange-600 text-orange-700"
+              "border-b-2 border-[#0363af] text-[#0363af]"
             } cursor-pointer `}
             onClick={() => {
               setpriceSction({
                 basic: false,
                 standard: true,
-                premium: false,
+                premium: false
               });
             }}
           >
@@ -120,13 +120,13 @@ function IllustrationCard() {
           <div
             className={`hover:border-b-2 ${
               priceSction?.premium &&
-              "border-b-2 border-orange-600 text-orange-700"
+              "border-b-2 border-[#0363af] text-[#0363af]"
             } cursor-pointer `}
             onClick={() => {
               setpriceSction({
                 basic: false,
                 standard: false,
-                premium: true,
+                premium: true
               });
             }}
           >
@@ -139,19 +139,19 @@ function IllustrationCard() {
             <div className="py-3">
               <div className="text-stone-500">You'll get</div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
               </div>{" "}
             </div>
@@ -160,19 +160,19 @@ function IllustrationCard() {
             <div className="py-3">
               <div className="text-stone-500">You'll get</div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
               </div>{" "}
             </div>
@@ -181,19 +181,19 @@ function IllustrationCard() {
             <div className="py-3">
               <div className="text-stone-500">You'll get</div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>
               <div className="flex items-center space-x-2 px-10">
-                <div className=" rounded-full bg-orange-700 w-3 h-3"></div>
+                <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>
               </div>{" "}
             </div>
@@ -201,11 +201,11 @@ function IllustrationCard() {
         </div>
 
         {!adminView ? (
-          <div className="items-end align-bottom flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white justify-items-end">
+          <div className="items-end align-bottom flex justify-center bg-[#0363af] hover:bg-[#0363af]/80 cursor-pointer rounded-md text-white justify-items-end">
             Chooose & Pay
           </div>
         ) : (
-          <div className="items-end align-bottom flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white justify-items-end">
+          <div className="items-end align-bottom flex justify-center bg-[#0363af] hover:bg-[#0363af]/80 cursor-pointer rounded-md text-white justify-items-end">
             Update
           </div>
         )}

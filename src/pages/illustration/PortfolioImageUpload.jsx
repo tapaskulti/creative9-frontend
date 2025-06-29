@@ -7,17 +7,16 @@ import Select from "react-select";
 const options = [
   { value: "Basic", label: "Basic" },
   { value: "Standard", label: "Standard" },
-  { value: "Premium", label: "Premium" },
+  { value: "Premium", label: "Premium" }
 ];
 
 const ImageUpload = () => {
-  const {id} = useParams()
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [images, setImages] = useState([]);
   const [selectedOption, setSelectedOption] = useState();
-  const [price, setprice] = useState()
-
+  const [price, setprice] = useState();
 
   console.log(selectedOption, "selectedOption");
 
@@ -25,7 +24,6 @@ const ImageUpload = () => {
     // data for submit
     console.log(imageList[0]);
     setImages(imageList);
-    
   };
 
   const handleSubmit = () => {
@@ -33,16 +31,16 @@ const ImageUpload = () => {
     formData.append("portfolioImage", images[0].file);
     formData.append("package", selectedOption);
     formData.append("price", price);
-    formData.append("category",id)
+    formData.append("category", id);
     dispatch({
       type: "CREATEPORTFOLIO",
       payload: {
-       body: formData,
-      },
+        body: formData
+      }
     });
 
-    navigate(`/Illustration/${id}/Portfolio`)
-  }
+    navigate(`/Illustration/${id}/Portfolio`);
+  };
 
   return (
     <div className="px-3 md:px-6 lg:px-10 py-16">
@@ -61,7 +59,7 @@ const ImageUpload = () => {
             onImageUpdate,
             onImageRemove,
             isDragging,
-            dragProps,
+            dragProps
           }) => (
             // write your building UI
             <div className="upload__image-wrapper">
@@ -87,14 +85,17 @@ const ImageUpload = () => {
                 </div>
                 <div>
                   <input
-                  onChange={(e) => setprice(e.target.value)}
+                    onChange={(e) => setprice(e.target.value)}
                     type="text"
                     placeholder="Input Price"
                     className="w-full xs:w-40 md:w-52 bg-white border border-gray-300 px-3 py-1.5 text-gray-900 rounded-[0.250rem]"
                   />
                 </div>
-                <button onClick={handleSubmit} className="w-24 xs:w-20 text-white bg-teal-700 px-2 py-1 rounded-md">
-                 Save
+                <button
+                  onClick={handleSubmit}
+                  className="w-24 xs:w-20 text-white bg-[#0363af]/80 px-2 py-1 rounded-md"
+                >
+                  Save
                 </button>
               </div>
               <div className="grid justify-between grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">

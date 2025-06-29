@@ -47,7 +47,7 @@ function* loginSaga(action) {
       })
     );
     const response = yield call(loginAction, action.payload);
-
+console.log("Login Response>>>>>>>>>>>>>>>>>>>>>>>>>>>", response)
     if (response.status === 200) {
       yield put({
         type: "ACCESS_TOKEN",
@@ -57,6 +57,7 @@ function* loginSaga(action) {
       });
     }
   } catch (error) {
+    console.log("error===================>>>>", error)
     toast.error(error?.response?.data?.msg);
   } finally {
     yield put(
@@ -70,7 +71,7 @@ function* loginSaga(action) {
 function* accessTokenSaga(action) {
   try {
     const resopnse = yield call(accessTokenAction, action.payload);
-
+console.log("accessTokenSaga===>", action.payload)
     if (resopnse.status === 200) {
       localStorage.setItem("email", action.payload.email);
       yield put(
@@ -80,7 +81,7 @@ function* accessTokenSaga(action) {
       );
     }
   } catch (error) {
-    console.log(error);
+    console.log("accessTokenSaga===========>>>>",error);
   }
 }
 

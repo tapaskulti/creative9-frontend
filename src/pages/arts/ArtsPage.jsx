@@ -18,7 +18,7 @@ function ArtsPage() {
 
   useEffect(() => {
     dispatch({
-      type: "GET_ALL_ART",
+      type: "GET_ALL_ART"
     });
   }, []);
 
@@ -70,7 +70,7 @@ function ArtsPage() {
                   <div className="mt-4">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-[#0363af] hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={() => {
                         setopenModal(false);
                       }}
@@ -84,7 +84,7 @@ function ArtsPage() {
           </div>
         </Dialog>
       </Transition>
-      <div className="w-screen ">
+      <div className="">
         <div className="  overflow-y-hidden">
           <Header />
           <div className="pt-10">
@@ -96,7 +96,7 @@ function ArtsPage() {
                 {adminView && (
                   <Link
                     to="/Painting/create"
-                    className="rounded-md text-center bg-teal-600 text-white hover:bg-teal-700 px-2 py-1 cursor-pointer"
+                    className="rounded-md text-center bg-[#0363af] text-white hover:bg-[#0363af]/80 px-2 py-1 cursor-pointer"
                   >
                     Upload New Paintings
                   </Link>
@@ -122,10 +122,10 @@ function ArtsPage() {
                   );
                 })}
               </div>
-              <div className="pt-10"><Footer /></div>
+              <div className="pt-10">
+                <Footer />
+              </div>
             </div>
-
-            
           </div>
         </div>
       </div>

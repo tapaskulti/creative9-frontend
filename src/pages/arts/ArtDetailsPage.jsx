@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAnglesRight,
   faCircleChevronLeft,
-  faCircleChevronRight,
+  faCircleChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { addToCart } from "../../redux/cart/cartSlice";
@@ -30,20 +30,20 @@ function ArtDetailsPage() {
     dispatch({
       type: "GET_ART_BY_ID",
       payload: {
-        id,
-      },
+        id
+      }
     });
     dispatch({
       type: "GET_ART_REVIEW_BY_ID",
       payload: {
-        artId: id,
-      },
+        artId: id
+      }
     });
     dispatch({
       type: "GET_ART_REVIEWS_BY_ART_ID",
       payload: {
-        id,
-      },
+        id
+      }
     });
   }, []);
 
@@ -55,9 +55,9 @@ function ArtDetailsPage() {
         body: {
           art: id,
           username: user?._id,
-          reviewTitle: review,
-        },
-      },
+          reviewTitle: review
+        }
+      }
     });
   };
 
@@ -91,8 +91,8 @@ function ArtDetailsPage() {
           artistName: artDetail?.artistName,
           medium: artDetail?.categoryMedium,
           width: artDetail?.width,
-          height: artDetail?.height,
-        },
+          height: artDetail?.height
+        }
       ];
 
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -182,7 +182,7 @@ function ArtDetailsPage() {
             </div>
             <div className="flex px-2 space-x-2 text-xl">
               <div className=" text-stone-700">Price:</div>
-              <div className="text-2xl font-semibold text-orange-600 uppercase">
+              <div className="text-2xl font-semibold text-[#0363af] uppercase">
                 USD {artDetail?.price}
               </div>
             </div>
@@ -201,17 +201,17 @@ function ArtDetailsPage() {
                       year: artDetail?.year,
                       price: artDetail?.price,
                       quantity: 1,
-                      totalPrice: artDetail?.price,
+                      totalPrice: artDetail?.price
                     })
                   );
                 }}
-                className="border border-[#FF6B00] text-lg text-center rounded-full text-[#a04403] hover:bg-[#FF6B00] cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00]"
+                className="border border-[#0363af] text-lg text-center rounded-full text-[#a04403] hover:bg-[#0363af]/80 cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#0363af] to-[#0363af] hover:from-[#0363af] hover:to-[#0363af]/80"
               >
                 Add to Cart
               </div>
               <div
                 onClick={handleCheckout}
-                className="bg-gradient-to-r from-[#FF6B00] text-center to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00] text-lg cursor-pointer px-5 md:px-3 h-8 py-0.5 rounded-full text-white font-bold"
+                className="bg-gradient-to-r from-[#0363af] text-center to-[#0363af] hover:from-[#0363af] hover:to-[#0363af]/80 text-lg cursor-pointer px-5 md:px-3 h-8 py-0.5 rounded-full text-white font-bold"
               >
                 Buy Now
               </div>
@@ -230,7 +230,7 @@ function ArtDetailsPage() {
             <div className="text-xl font-semibold">10+</div>
           </div>
           <div>
-            <div className="font-sans text-xl border-b border-[#f45c02]">
+            <div className="font-sans text-xl border-b border-[#0363af]">
               Reviews{" "}
             </div>
             <div className="flex">
@@ -298,7 +298,7 @@ export const ArtCarousel = ({ arts }) => {
           <div
             key={index}
             className={`w-12 h-12 p-1 border cursor-pointer ${
-              selectedImageIndex === index ? "border-orange-500" : ""
+              selectedImageIndex === index ? "border-[#0363af]" : ""
             }`}
             onClick={() => handleImageClick(index)}
           >

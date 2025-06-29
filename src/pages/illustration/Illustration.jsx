@@ -21,7 +21,7 @@ function Illustration() {
 
   useEffect(() => {
     dispatch({
-      type: "GET_ALL_CATEGORY",
+      type: "GET_ALL_CATEGORY"
     });
   }, []);
 
@@ -32,8 +32,8 @@ function Illustration() {
     dispatch({
       type: "CREATE_CATEGORY",
       payload: {
-        body: formData,
-      },
+        body: formData
+      }
     });
     setOpenModal(false);
   };
@@ -91,13 +91,13 @@ function Illustration() {
           </button>
           <button
             onClick={handleCategoryCreate}
-            className="px-2 text-white bg-teal-700 rounded-lg "
+            className="px-2 text-white bg-[#0363af]/80 rounded-lg "
           >
             Save
           </button>
         </div>
       </div>
-      <div className="h-screen w-screen">
+      <div className="h-screen">
         <Header />
         <div className="pt-10">
           {/* card */}
@@ -136,8 +136,8 @@ function Illustration() {
                             dispatch({
                               type: "DELETE_CATEGORY",
                               payload: {
-                                categoryId: category._id,
-                              },
+                                categoryId: category._id
+                              }
                             });
                             setdeleteConfirmationModalCategory(true);
                           }}
@@ -156,7 +156,7 @@ function Illustration() {
                     </Link>
                     <div className="text-center">
                       <button
-                        className="bg-gradient-to-r text-center from-[#FF6B00] to-[#d71d00f3] hover:from-[#d71d00f3] hover:to-[#FF6B00] text-lg rounded-md text-white px-12 py-1 mt-3 uppercase font-semibold"
+                        className="bg-gradient-to-r text-center from-[#0363af]/80 to-[#0363af] hover:from-[#0363af]/90 hover:to-[#0363af]/80 text-lg rounded-md text-white px-12 py-1 mt-3 uppercase font-semibold"
                         onClick={() => {
                           navigate(`/Illustration/${category._id}/Portfolio`);
                         }}
@@ -170,12 +170,9 @@ function Illustration() {
               <div className="pt-10">
                 <Footer />
               </div>
-              
             </div>
-            
           </div>
         </div>
-        
       </div>
     </>
   );

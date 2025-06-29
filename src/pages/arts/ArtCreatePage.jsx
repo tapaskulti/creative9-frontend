@@ -58,8 +58,8 @@ const ArtCreatePage = () => {
       type: "CREATE_ART",
       payload: {
         body: formData,
-        navigate,
-      },
+        navigate
+      }
     });
   };
 
@@ -86,7 +86,7 @@ const ArtCreatePage = () => {
                     onClick={() => {
                       imageRef.current.click();
                     }}
-                    className="w-80 cursor-pointer h-20 border-2 border-dotted   border-yellow-500  text-yellow-800 text-center justify-center flex items-center"
+                    className="w-80 cursor-pointer h-20 border-2 border-dotted   border-[#0363af]/80  text-[#0363af] text-center justify-center flex items-center"
                   >
                     Add images
                   </button>
@@ -103,7 +103,7 @@ const ArtCreatePage = () => {
               )}
 
               {selectedImages.length > 0 && (
-                <div className="grid grid-cols-3 gap-2 py-2 border-2 p-5 border-dotted   border-yellow-500">
+                <div className="grid grid-cols-3 gap-2 py-2 border-2 p-5 border-dotted   border-[#0363af]/80">
                   {selectedImages.map((image, index) => (
                     <img key={index} src={image} alt={`Image ${index}`} />
                   ))}
@@ -133,7 +133,7 @@ const ArtCreatePage = () => {
                 onChange={(e) => {
                   setnewArt({
                     ...newArt,
-                    title: e.target.value,
+                    title: e.target.value
                   });
                 }}
                 type="text"
@@ -146,7 +146,7 @@ const ArtCreatePage = () => {
                 onChange={(e) => {
                   setnewArt({
                     ...newArt,
-                    description: e.target.value,
+                    description: e.target.value
                   });
                 }}
                 type="text"
@@ -159,7 +159,7 @@ const ArtCreatePage = () => {
                 onChange={(e) => {
                   setnewArt({
                     ...newArt,
-                    artistName: e.target.value,
+                    artistName: e.target.value
                   });
                 }}
                 type="text"
@@ -173,7 +173,7 @@ const ArtCreatePage = () => {
                   onChange={(e) => {
                     setnewArt({
                       ...newArt,
-                      categoryMedium: e.target.value,
+                      categoryMedium: e.target.value
                     });
                   }}
                   type="text"
@@ -186,7 +186,7 @@ const ArtCreatePage = () => {
                   onChange={(e) => {
                     setnewArt({
                       ...newArt,
-                      width: e.target.value,
+                      width: e.target.value
                     });
                   }}
                   type="Number"
@@ -199,7 +199,7 @@ const ArtCreatePage = () => {
                   onChange={(e) => {
                     setnewArt({
                       ...newArt,
-                      height: e.target.value,
+                      height: e.target.value
                     });
                   }}
                   type="Number"
@@ -212,7 +212,7 @@ const ArtCreatePage = () => {
                   onChange={(e) => {
                     setnewArt({
                       ...newArt,
-                      year: e.target.value,
+                      year: e.target.value
                     });
                   }}
                   type="text"
@@ -225,7 +225,7 @@ const ArtCreatePage = () => {
                   onChange={(e) => {
                     setnewArt({
                       ...newArt,
-                      price: e.target.value,
+                      price: e.target.value
                     });
                   }}
                   type="Number"
@@ -235,7 +235,7 @@ const ArtCreatePage = () => {
             </div>
             <div
               onClick={createArt}
-              className="text-lg cursor-pointer rounded-lg font-sans bg-teal-700 hover:bg-teal-600 w-min px-5 py-1 text-white font-medium uppercase"
+              className="text-lg cursor-pointer rounded-lg font-sans bg-[#0363af] hover:bg-[#0363af]/80 w-min px-5 py-1 text-white font-medium uppercase"
             >
               Save
             </div>

@@ -107,7 +107,7 @@ const ArtUpdatePage = () => {
                 />
               </div>
             </div>
-            <div className="text-xl cursor-pointer  font-sans bg-teal-700 hover:bg-teal-600 w-min px-5 text-white font-semibold">
+            <div className="text-xl cursor-pointer  font-sans bg-[#0363af]/80 hover:bg-[#0363af] w-min px-5 text-white font-semibold">
               Save
             </div>
           </div>

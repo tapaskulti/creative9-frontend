@@ -11,7 +11,7 @@ function AccountActivation() {
     const response = await axios.post(
       `${import.meta.env.VITE_APP_BASE_URL}/user/activation`,
       {
-        activation_token: activationCode,
+        activation_token: activationCode
       }
     );
 
@@ -20,8 +20,15 @@ function AccountActivation() {
 
   return (
     <div className="h-screen w-screen">
-      <h1 className="text-center pt-20 text-xl">Click button to activate your accounts </h1>
-      <button className="bg-teal-600 hover:bg-teal-700 text-white flex justify-center px-2 py-2 text-center mx-auto" onClick={accountActivation}>Activate</button>
+      <h1 className="text-center pt-20 text-xl">
+        Click button to activate your accounts{" "}
+      </h1>
+      <button
+        className="bg-[#0363af] hover:bg-[#0363af]/80 text-white flex justify-center px-2 py-2 text-center mx-auto"
+        onClick={accountActivation}
+      >
+        Activate
+      </button>
       {activationMsg && <h1>{activationMsg}</h1>}
     </div>
   );

@@ -20,7 +20,7 @@ const IllustrationCreatePage = () => {
     colourIllusion: false,
     printReady: false,
     sourceFile: false,
-    price: "",
+    price: ""
   };
 
   let standardPayload = {
@@ -33,7 +33,7 @@ const IllustrationCreatePage = () => {
     colourIllusion: false,
     printReady: false,
     sourceFile: false,
-    price: "",
+    price: ""
   };
 
   let premiumPayload = {
@@ -46,7 +46,7 @@ const IllustrationCreatePage = () => {
     colourIllusion: false,
     printReady: false,
     sourceFile: false,
-    price: "",
+    price: ""
   };
 
   const dispatch = useDispatch();
@@ -63,15 +63,15 @@ const IllustrationCreatePage = () => {
 
   const [basicPriceDetail, setbasicPriceDetail] = useState({
     currency: "USD",
-    price: "",
+    price: ""
   });
   const [standardPriceDetail, setstandardPriceDetail] = useState({
     currency: "USD",
-    price: "",
+    price: ""
   });
   const [premiumPriceDetail, setpremiumPriceDetail] = useState({
     currency: "USD",
-    price: "",
+    price: ""
   });
   const [description, setdescription] = useState();
   const [title, settitle] = useState();
@@ -119,8 +119,8 @@ const IllustrationCreatePage = () => {
       type: "CREATE_SERVICE_SAGA",
       payload: {
         body: formData,
-        categoryId: id,
-      },
+        categoryId: id
+      }
     });
   };
 
@@ -138,7 +138,7 @@ const IllustrationCreatePage = () => {
                 className="flex space-x-2 btn btn-sm"
                 onClick={createIllustration}
               >
-                <Save className="text-teal-700" />
+                <Save className="text-[#0363af]/80" />
                 <div>Save</div>
               </button>
               <Link to={`/Illustration/${id}/Portfolio`}>
@@ -245,7 +245,7 @@ const IllustrationCreatePage = () => {
                           onChange={(e) => {
                             setbasicFeatureDetail({
                               ...basicFeatureDetail,
-                              description: e.target.value,
+                              description: e.target.value
                             });
                           }}
                         />
@@ -257,7 +257,7 @@ const IllustrationCreatePage = () => {
                           onChange={(e) => {
                             setstandardFetureDetail({
                               ...standardFetureDetail,
-                              description: e.target.value,
+                              description: e.target.value
                             });
                           }}
                         />
@@ -269,7 +269,7 @@ const IllustrationCreatePage = () => {
                           onChange={(e) => {
                             setpremiumFetureDetail({
                               ...premiumFetureDetail,
-                              description: e.target.value,
+                              description: e.target.value
                             });
                           }}
                         />
@@ -288,7 +288,7 @@ const IllustrationCreatePage = () => {
                           onChange={(e) => {
                             setbasicFeatureDetail({
                               ...basicFeatureDetail,
-                              daysOfDelivery: e.target.value,
+                              daysOfDelivery: e.target.value
                             });
                           }}
                         />
@@ -301,7 +301,7 @@ const IllustrationCreatePage = () => {
                           onChange={(e) => {
                             setstandardFetureDetail({
                               ...standardFetureDetail,
-                              daysOfDelivery: e.target.value,
+                              daysOfDelivery: e.target.value
                             });
                           }}
                         />
@@ -322,7 +322,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          revisions: e.target.value,
+                          revisions: e.target.value
                         });
                       }}
                       isTextAreaStandard={false}
@@ -331,7 +331,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          revisions: e.target.value,
+                          revisions: e.target.value
                         });
                       }}
                       isTextAreaPremium={false}
@@ -340,7 +340,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          revisions: e.target.value,
+                          revisions: e.target.value
                         });
                       }}
                     />
@@ -352,7 +352,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          illustrationCount: e.target.value,
+                          illustrationCount: e.target.value
                         });
                       }}
                       isTextAreaStandard={false}
@@ -361,7 +361,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          illustrationCount: e.target.value,
+                          illustrationCount: e.target.value
                         });
                       }}
                       isTextAreaPremium={false}
@@ -370,7 +370,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          illustrationCount: e.target.value,
+                          illustrationCount: e.target.value
                         });
                       }}
                     />
@@ -382,7 +382,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          characterCount: e.target.value,
+                          characterCount: e.target.value
                         });
                       }}
                       isTextAreaStandard={false}
@@ -391,7 +391,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          characterCount: e.target.value,
+                          characterCount: e.target.value
                         });
                       }}
                       isTextAreaPremium={false}
@@ -400,7 +400,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          characterCount: e.target.value,
+                          characterCount: e.target.value
                         });
                       }}
                     />
@@ -411,7 +411,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          backgroundScene: e.target.checked,
+                          backgroundScene: e.target.checked
                         });
                       }}
                       isTextAreaStandard={false}
@@ -419,7 +419,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          backgroundScene: e.target.checked,
+                          backgroundScene: e.target.checked
                         });
                       }}
                       isTextAreaPremium={false}
@@ -427,7 +427,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          backgroundScene: e.target.checked,
+                          backgroundScene: e.target.checked
                         });
                       }}
                     />
@@ -438,7 +438,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          colourIllusion: e.target.checked,
+                          colourIllusion: e.target.checked
                         });
                       }}
                       isTextAreaStandard={false}
@@ -446,7 +446,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          colourIllusion: e.target.checked,
+                          colourIllusion: e.target.checked
                         });
                       }}
                       isTextAreaPremium={false}
@@ -454,7 +454,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          colourIllusion: e.target.checked,
+                          colourIllusion: e.target.checked
                         });
                       }}
                     />
@@ -465,7 +465,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          printReady: e.target.checked,
+                          printReady: e.target.checked
                         });
                       }}
                       isTextAreaStandard={false}
@@ -473,7 +473,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          printReady: e.target.checked,
+                          printReady: e.target.checked
                         });
                       }}
                       isTextAreaPremium={false}
@@ -481,7 +481,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          printReady: e.target.checked,
+                          printReady: e.target.checked
                         });
                       }}
                     />
@@ -492,7 +492,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicFeatureDetail({
                           ...basicFeatureDetail,
-                          sourceFile: e.target.checked,
+                          sourceFile: e.target.checked
                         });
                       }}
                       isTextAreaStandard={false}
@@ -500,7 +500,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardFetureDetail({
                           ...standardFetureDetail,
-                          sourceFile: e.target.checked,
+                          sourceFile: e.target.checked
                         });
                       }}
                       isTextAreaPremium={false}
@@ -508,7 +508,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumFetureDetail({
                           ...premiumFetureDetail,
-                          sourceFile: e.target.checked,
+                          sourceFile: e.target.checked
                         });
                       }}
                     />
@@ -520,7 +520,7 @@ const IllustrationCreatePage = () => {
                       basicOnchange={(e) => {
                         setbasicPriceDetail({
                           ...basicPriceDetail,
-                          price: e.target.value,
+                          price: e.target.value
                         });
                       }}
                       isTextAreaStandard={false}
@@ -529,7 +529,7 @@ const IllustrationCreatePage = () => {
                       standardOnchange={(e) => {
                         setstandardPriceDetail({
                           ...standardPriceDetail,
-                          price: e.target.value,
+                          price: e.target.value
                         });
                       }}
                       isTextAreaPremium={false}
@@ -538,7 +538,7 @@ const IllustrationCreatePage = () => {
                       premiumOnchange={(e) => {
                         setpremiumPriceDetail({
                           ...premiumPriceDetail,
-                          price: e.target.value,
+                          price: e.target.value
                         });
                       }}
                     />
@@ -568,7 +568,7 @@ const IllustrationCreateRow = ({
   isTextAreaPremium,
   premiumInputType,
   premiumPlaceHolder,
-  premiumOnchange,
+  premiumOnchange
 }) => {
   return (
     <tr className="w-[40%]">

@@ -25,20 +25,19 @@ const PortfolioCard = ({ id, pictue, price, path }) => {
                 <button
                   onClick={() => {
                     dispatch({
-                        type: "DELETE_PORTFOLIO",
-                        payload: {
-                          portfolioId: id,
-                        },
-                      });
+                      type: "DELETE_PORTFOLIO",
+                      payload: {
+                        portfolioId: id
+                      }
+                    });
                     setdeleteConfirmationModal(false);
                   }}
-                  className="px-3 py-1 text-white bg-green-700 rounded-md"
+                  className="px-3 py-1 text-white bg-[#0363af] rounded-md"
                 >
                   Yes
                 </button>
                 <button
                   onClick={() => {
-                    
                     setdeleteConfirmationModal(false);
                   }}
                   className="px-3 py-1 text-white bg-red-700 rounded-md"
@@ -73,12 +72,12 @@ const PortfolioCard = ({ id, pictue, price, path }) => {
         </div>
         <div className="flex items-center justify-between mt-2 w-full">
           <div className="text-base font-bold">
-            Price: <span className="text-sm text-orange-600">USD</span>{" "}
-            <span className="font-semibold text-orange-600">{price}</span>
+            Price: <span className="text-sm text-[#0363af]">USD</span>{" "}
+            <span className="font-semibold text-[#0363af]">{price}</span>
           </div>
           <Link
             to={path}
-            className="px-3 py-1 text-sm text-white bg-green-600 rounded-full md:text-sm"
+            className="px-3 py-1 text-sm text-white bg-[#0363af] rounded-full md:text-sm"
           >
             Buy Now
           </Link>

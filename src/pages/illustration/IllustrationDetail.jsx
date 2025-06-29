@@ -8,7 +8,7 @@ import {
   Close,
   // Event, 09.09.24
   // Repeat, 09.09.24
-  Star,
+  Star
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 // import axios from "axios"; 09.09.24
@@ -21,7 +21,7 @@ import ReactQuill from "react-quill";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleChevronLeft,
-  faCircleChevronRight,
+  faCircleChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 
 import { getPayingPrice } from "../../redux/art/artSlice";
@@ -47,8 +47,8 @@ const IllustrationDetail = () => {
     dispatch({
       type: "GET_ALL_SERVICES",
       payload: {
-        categoryId: id,
-      },
+        categoryId: id
+      }
     });
   }, [id]);
 
@@ -69,7 +69,7 @@ const IllustrationDetail = () => {
           </div>
           {adminView ? (
             <Link to={`/Illustration/${id}/create`}>
-              <div className="bg-teal-700 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer">
+              <div className="bg-[#0363af] text-white px-2 py-1 rounded-md hover:bg-[#0363af]/80 cursor-pointer">
                 Create Illustration
               </div>
             </Link>
@@ -79,7 +79,7 @@ const IllustrationDetail = () => {
         </div>
 
         {/* SMALL SCREEN */}
-        <div className="md:flex px-5 md:px-10 pt-10 justify-between">
+        <div className="md:hidden px-5 md:px-10 pt-10 justify-between">
           <div className="flex space-x-3">
             <Link to="/illustration">
               <ArrowBack className="" />
@@ -93,7 +93,7 @@ const IllustrationDetail = () => {
               to={`/Illustration/${id}/create`}
               className="flex justify-end"
             >
-              <div className=" bg-teal-700 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer text-center w-40 mt-3">
+              <div className=" bg-[#0363af]/80 text-white px-2 py-1 rounded-md hover:bg-teal-800 cursor-pointer text-center w-40 mt-3">
                 Create Illustration
               </div>
             </Link>
@@ -153,7 +153,7 @@ const ServiceCard = ({ service, type }) => {
             ? service?.standardPrice
             : service?.premiumPrice,
         qty: 1,
-        illustrationPaid: true,
+        illustrationPaid: true
       };
 
       dispatch(
@@ -163,7 +163,7 @@ const ServiceCard = ({ service, type }) => {
               ? service?.basicPrice
               : selectedPriceSection === "standard"
               ? service?.standardPrice
-              : service?.premiumPrice,
+              : service?.premiumPrice
         })
       );
       handleOpen();
@@ -226,7 +226,7 @@ const ServiceCard = ({ service, type }) => {
                 <div
                   key={index}
                   className={`w-12 h-12 p-1 border cursor-pointer ${
-                    selectedImageIndex === index ? "border-orange-500" : ""
+                    selectedImageIndex === index ? "border-[#0363af]" : ""
                   }`}
                   onClick={() => handleImageClick(index)}
                 >
@@ -268,11 +268,11 @@ const ServiceCard = ({ service, type }) => {
           <div className=" flex space-x-2 md:px-10 lg:px-0 pt-6 sm:pt-10 items-center">
             <div className="text-stone-500 font-semibold">Ratings:</div>
             <div className="flex space-x-0 font-semibold">
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
-              <Star className="text-orange-500 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
+              <Star className="text-[#0363af]/60 text-xl" />
             </div>
             <div className="space-y-2">{/* Reviews go here */}</div>
           </div>
@@ -288,7 +288,7 @@ const ServiceCard = ({ service, type }) => {
             <div
               className={`hover:border-b-2 ${
                 selectedPriceSection === "basic"
-                  ? "border-b-2 border-orange-600 text-orange-700"
+                  ? "border-b-2 border-[#0363af] text-[#0363af]/20"
                   : "hover:border-b-2 "
               } cursor-pointer `}
               onClick={() => setSelectedPriceSection("basic")}
@@ -298,7 +298,7 @@ const ServiceCard = ({ service, type }) => {
             <div
               className={`hover:border-b-2 ${
                 selectedPriceSection === "standard"
-                  ? "border-b-2 border-orange-600 text-orange-700"
+                  ? "border-b-2 border-[#0363af] text-[#0363af]/20"
                   : "hover:border-b-2 "
               } cursor-pointer `}
               onClick={() => setSelectedPriceSection("standard")}
@@ -308,7 +308,7 @@ const ServiceCard = ({ service, type }) => {
             <div
               className={`hover:border-b-2 ${
                 selectedPriceSection === "premium"
-                  ? "border-b-2 border-orange-600 text-orange-700"
+                  ? "border-b-2 border-[#0363af] text-[#0363af]/20"
                   : "hover:border-b-2 "
               } cursor-pointer `}
               onClick={() => setSelectedPriceSection("premium")}
@@ -366,7 +366,7 @@ const DetailsWithCard = ({
   // currency, 09.09.24
   price,
   sectionName,
-  handleIllustrationPay,
+  handleIllustrationPay
 }) => {
   console.log(serviceType, "serviceType");
 
@@ -461,7 +461,7 @@ const DetailsWithCard = ({
       </div>
       <div
         onClick={handleIllustrationPay}
-        className="flex justify-center bg-teal-700 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize"
+        className="flex justify-center bg-[#0363af]/80 hover:bg-teal-800 cursor-pointer rounded-md text-white py-1.5 capitalize"
       >
         Choose {sectionName}
       </div>

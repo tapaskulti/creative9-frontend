@@ -20,5 +20,15 @@ export default {
     },
   },
   // eslint-disable-next-line no-undef
-  plugins: [require("daisyui")],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        'input:-webkit-autofill': {
+          'background-color': '#ffffff !important',
+          'box-shadow': '0 0 0px 1000px #ffffff inset !important',
+        },
+      });
+    },
+    require("daisyui")
+  ],
 };

@@ -27,8 +27,8 @@ function ArtPayment() {
     dispatch({
       type: "GET_ART_BY_ID",
       payload: {
-        id,
-      },
+        id
+      }
     });
   }, []);
 
@@ -92,7 +92,7 @@ function ArtPayment() {
             </div>
             <div className="flex space-x-2 text-base">
               <div className=" text-stone-700">Price:</div>
-              <div className="font-sans text-xl font-semibold text-orange-600">
+              <div className="font-sans text-xl font-semibold text-[#0363af]">
                 USD {artDetail?.price}
               </div>
             </div>
