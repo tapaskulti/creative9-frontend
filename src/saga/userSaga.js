@@ -14,6 +14,7 @@ import {
   setLoading,
 } from "../redux/user/user";
 import { toast } from "react-toastify";
+import { setReceiver } from "../redux/chat/chat";
 
 function* signUpSaga(action) {
   try {
@@ -130,6 +131,10 @@ function* getUserListSaga(action) {
           userList: response.data,
         })
       );
+      yield put(
+        setReceiver({ receiver: response.data[0] })
+      );
+     
     }
   } catch (error) {
     console.log(error);
