@@ -45,8 +45,8 @@ function App() {
       type: "ACCESS_TOKEN",
       payload: {
         email: email,
-        navigate,
-      },
+        navigate
+      }
     });
   }, []);
 
@@ -55,12 +55,12 @@ function App() {
       dispatch({
         type: "USER_DETAILS",
         payload: {
-          email: localStorage.getItem("email"),
-        },
+          email: localStorage.getItem("email")
+        }
       });
       dispatch({
         type: "USER_LIST",
-        payload: {},
+        payload: {}
       });
     }
   }, [token]);
@@ -86,14 +86,15 @@ function App() {
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/cancel" element={<CancelPayment />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/Painting" element={<ArtsPage />} />
+          <Route path="/Illustration" element={<Illustration />} />
 
           <Route element={<PrivateRoutes token={token} />}>
-            <Route path="/Painting" element={<ArtsPage />} />
             <Route path="/Painting/create" element={<ArtCreatePage />} />
             <Route path="/Painting/:id/update" element={<ArtUpdatePage />} />
             <Route path="/Painting/:id" element={<ArtDetailsPage />} />
             <Route path="/Painting/:id/Payment" element={<ArtPayment />} />
-            <Route path="/Illustration" element={<Illustration />} />
+
             <Route path="/Illustration/:id" element={<IllustrationDetail />} />
             <Route path="/Illustration/:id/Portfolio" element={<Portfolio />} />
             <Route
