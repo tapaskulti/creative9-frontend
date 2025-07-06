@@ -78,36 +78,40 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 xl:px-64 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 xl:px-10 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
             <img
               src={logo}
               alt="logo"
-              className="md:w-28 lg:w-32 xl:w-40 h-auto"
+              className="w-24 md:w-24 lg:w-36 xl:w-40 2xl:w-40 h-auto"
             />
           </Link>
         </div>
         {/* navbar */}
         {/* <div className="flex font-sans tracking-wider space-x-10 bg-gradient-to-t from-[#FF000070] to-[#FF6B002B] px-10 py-2 rounded-full "> */}
-        <div className="flex font-sans tracking-wider space-x-10 pl-10 ">
+        <div className="flex font-sans tracking-wider space-x-6 lg:space-x-10 pl-10 ">
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/"
           >
-            <div className="py-1 cursor-pointer font-semibold">Home</div>
+            <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
+              Home
+            </div>
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/About-us"
           >
-            <div className="py-1 cursor-pointer font-semibold">About Us</div>
+            <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
+              About Us
+            </div>
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/Painting"
           >
-            <div className="py-1 cursor-pointer font-semibold text-base">
+            <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
               Painting
             </div>
           </NavLink>
@@ -115,7 +119,7 @@ function Header() {
             to="/Illustration"
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
           >
-            <div className="py-1 cursor-pointer font-semibold text-base">
+            <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
               Illustration
             </div>
           </NavLink>
@@ -131,14 +135,16 @@ function Header() {
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/Contact-us"
           >
-            <div className="py-1 cursor-pointer font-semibold">Contact Us</div>
+            <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
+              Contact Us
+            </div>
           </NavLink>
 
           {token && user?.role === "ADMIN" && (
             <div>
               {!adminView ? (
                 <div
-                  className="py-1 cursor-pointer font-semibold"
+                  className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold"
                   onClick={() => {
                     dispatch(
                       setAdminView({
@@ -151,7 +157,7 @@ function Header() {
                 </div>
               ) : (
                 <div
-                  className="px-3 py-1 cursor-pointer font-semibold"
+                  className="px-3 py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold"
                   onClick={() => {
                     dispatch(
                       setAdminView({
@@ -200,14 +206,14 @@ function Header() {
 
         {/* Auth buttons */}
         {!token ? (
-          <div className="z-10 flex space-x-6 font-sans tracking-wider">
+          <div className="z-10 flex space-x-6 font-sans tracking-wider mt-1">
             <Link to="/signup">
-              <div className="border-2 text-[#0363af] border-[#0363af] font-semibold rounded-full px-6 py-1 cursor-pointer hover:bg-[#0363af] hover:text-white">
+              <div className="lg:border-2 text-black lg:text-[#0363af] lg:border-[#0363af] font-semibold rounded-full px-0 text-sm md:text-sm xl:text-base lg:px-6 py-0.5 lg:py-1 cursor-pointer lg:hover:bg-[#0363af] lg:hover:text-white">
                 Signup
               </div>
             </Link>
             <Link to="/login">
-              <div className="bg-[#0363af] text-white font-semibold rounded-full px-6 py-1.5 cursor-pointer">
+              <div className="lg:bg-[#0363af] text-black lg:text-white text-sm md:text-sm xl:text-base font-semibold rounded-full px-3 lg:px-6 py-1 lg:py-1.5 cursor-pointer">
                 Login
               </div>
             </Link>
@@ -256,8 +262,8 @@ function Header() {
                     <div className="card-actions">
                       <button
                         // onClick={handlePay}
-                        onClick={()=>{
-                          navigate(`/cart`)
+                        onClick={() => {
+                          navigate(`/cart`);
                         }}
                         className="btn btn-primary btn-block"
                       >

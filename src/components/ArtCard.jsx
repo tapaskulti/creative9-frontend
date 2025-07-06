@@ -31,11 +31,9 @@ function ArtCard({
       <div className="w-full h-[575px] sm:h-[575px] md:w-80 md:h-[575px] lg:w-72 lg:h-[575px] xl:w-80 xl:h-[575px] 2xl:w-80 2xl:h-[575px] 3xl:w-96 3xl:h-[575px] shadow-lg px-4 py-1 rounded-lg hover:shadow-xl border border-slate-200 relative">
         <div className="relative">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-1 py-2">
-              <h2 className="text-base">Artist:</h2>
-              <div className="font-sans text-base font-bold capitalize">
-                {artistName}
-              </div>
+            <div className="flex items-center space-x-1 py-2 text-sm">
+              <h2 className="">Artist:</h2>
+              <div className="font-sans font-bold capitalize">{artistName}</div>
             </div>
             {!adminView ? (
               <div></div>
@@ -100,37 +98,37 @@ function ArtCard({
             </div>
             <div className="mt-2 font-bold text-center">
               <Link to={`/Painting/${id}`}>
-                <button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">
+                <button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md hover:shadow-lg text-base">
                   VIEW IN DETAIL
                 </button>
               </Link>
             </div>
             <div className="mt-2 pt-1 font-sans tracking-wider md:pt-1">
-              <div className="flex space-x-1">
+              <div className="flex space-x-1 text-sm">
                 <div className="text-stone-500">Title:</div>
-                <div>{title}</div>
+                <div className="font-semibold text-black">{title}</div>
               </div>
               <div className="">
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 text-sm">
                   <div className="text-stone-500">Medium:</div>
-                  <div>{medium}</div>
+                  <div className="font-semibold text-black">{medium}</div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex items-center">
+                <div className="flex items-centertext-sm text-sm">
                   <div className="text-stone-500">Size: </div>
-                  <div>
+                  <div className="font-semibold text-black">
                     {width} * {height} inch
                   </div>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 text-sm">
                   <div className="text-stone-500">Year:</div>
-                  <div>{year}</div>
+                  <div className="font-semibold text-black">{year}</div>
                 </div>
               </div>
               <div className="flex items-center space-x-1 mt-0">
-                <div className="text-stone-500">Price:</div>
-                <div className="text-xl font-semibold text-[#0363af]">
+                <div className="text-stone-500 text-sm">Price:</div>
+                <div className="text-base font-bold text-[#0363af]">
                   USD {price}
                 </div>
               </div>
