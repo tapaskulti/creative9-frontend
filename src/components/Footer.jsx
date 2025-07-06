@@ -165,20 +165,20 @@ const Footer = () => {
                     <img
                       src={Upwork}
                       alt=""
-                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-24 h-auto"
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.fiverr.com/creativevalley9?up_rollout=true"
+                    href="https://www.fiverr.com/creativevalley9"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img
                       src={Fiverr}
                       alt=""
-                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-24 h-auto"
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
                 </li>
@@ -193,7 +193,7 @@ const Footer = () => {
                     <img
                       src={Etsy}
                       alt=""
-                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-24 h-auto"
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
                 </li>
@@ -202,7 +202,7 @@ const Footer = () => {
                     <img
                       src={Freelancer}
                       alt=""
-                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-24 h-auto"
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
                 </li>
