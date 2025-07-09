@@ -1,12 +1,7 @@
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  FacebookSharp,
-  Instagram,
-  Twitter,
-  YouTube
-} from "@mui/icons-material";
+import { FacebookSharp, Instagram, LinkedIn } from "@mui/icons-material";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Whatsapp from "../assets/whatsapp.png";
@@ -43,7 +38,7 @@ const Footer = () => {
               </h2>
               {/* <span className="font-semibold hidden lg:flex">Illustration</span> */}
             </div>
-            <div className="text-sm text-slate-600 space-y-1.5 lg:mt-3">
+            <div className="text-base text-slate-600 space-y-1.5 lg:mt-3">
               <a
                 href="https://www.creativevalley9.com/Painting"
                 className="hover:text-slate-400"
@@ -51,7 +46,7 @@ const Footer = () => {
                 Painting
               </a>
             </div>
-            <div className="text-sm text-slate-600 space-y-1.5 lg:mt-3">
+            <div className="text-base text-slate-600 space-y-1.5 lg:mt-3">
               <a
                 href="https://www.creativevalley9.com/Illustration"
                 className="hover:text-slate-400"
@@ -154,8 +149,8 @@ const Footer = () => {
             <h2 className="font-semibold text-sm lg:text-lg lg:font-light border-b border-white/20 pb-1">
               Freelancing - <span className="font-semibold">Profile links</span>
             </h2>
-            <div className="space-y-2">
-              <ul className="flex items-center space-x-2 text-sm text-slate-600">
+            <div className="space-y-4">
+              <ul className="flex items-center space-x-4 text-sm text-slate-600">
                 <li>
                   <a
                     href="https://www.upwork.com/freelancers/creativevalley9"
@@ -183,7 +178,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-              <ul className="flex items-center space-x-2 text-sm text-slate-600">
+              <ul className="flex items-center space-x-4 text-sm text-slate-600">
                 <li>
                   <a
                     href="https://www.etsy.com/in-en/shop/creativevalley9?ref=seller-platform-mcnav"
@@ -237,18 +232,26 @@ const Footer = () => {
                   </h2>
                 </li>
               </ul>
-              <ul className="flex items-center space-x-3 pl-4 pt-2">
+              <ul className="flex items-center space-x-6 pl-4 pt-2">
                 <li>
-                  <FacebookSharp />
+                  <a href="https://www.facebook.com/creativevalley9graphicstudio">
+                    <FacebookSharp className="size-9" />
+                  </a>
+                </li>
+                {/* <li>
+                  <a href="">
+                    <Twitter className="size-9" />
+                  </a>
+                </li> */}
+                <li>
+                  <a href="https://www.instagram.com/creative.valley9/">
+                    <Instagram className="size-9" />
+                  </a>
                 </li>
                 <li>
-                  <Twitter />
-                </li>
-                <li>
-                  <Instagram />
-                </li>
-                <li>
-                  <YouTube />
+                  <a href="https://www.linkedin.com/in/prabir-sarkar-579a5387/">
+                    <LinkedIn className="size-9" />
+                  </a>
                 </li>
               </ul>
             </div>

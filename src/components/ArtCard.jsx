@@ -87,7 +87,7 @@ function ArtCard({
             </div>
           )}
         </div>
-        <div>
+        <div className="relative">
           <div className="">
             <div className="flex justify-center text-center h-80 w-full">
               {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
@@ -141,7 +141,7 @@ function ArtCard({
                       toast.error("Please Login to Buy");
                     }
                   }}
-                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80"
+                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 h-12"
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
@@ -172,7 +172,7 @@ function ArtCard({
                     toast.success("Painting added in your cart");
                   }
                 }}
-                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80"
+                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-36 h-12"
               >
                 <FontAwesomeIcon icon={faCartPlus} className="pr-1.5" />
                 Add to Cart
@@ -181,7 +181,7 @@ function ArtCard({
             <div>&nbsp;</div>
           </div>
           {/* <img src={image} className="border rounded-lg" /> */}
-          <div className="relative pt-2 bottom-2 md:pt-3">
+          <div className="absolute pt-2 left-[1px] bottom-[1.5rem] md:pt-3">
             {!adminView ? (
               <div className="flex justify-between">
                 {/* <div className="border border-[#FF6B00] text-lg rounded-full text-[#a04403] hover:bg-[#FF6B00] cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00]">
@@ -219,14 +219,14 @@ function ArtCard({
               <>
                 {/* create a modal for confirming delete art */}
 
-                <div>
+                <button>
                   <Link
                     to="/Painting/12/update"
-                    className="bg-gradient-to-r text-center  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 text-sm cursor-pointer px-5 py-1.5 rounded-full text-white font-semibold"
+                    className="px-3 py-[4px] btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 h-12"
                   >
                     Update
                   </Link>
-                </div>
+                </button>
               </>
             )}
           </div>
