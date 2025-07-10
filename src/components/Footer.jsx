@@ -1,7 +1,13 @@
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FacebookSharp, Instagram, LinkedIn } from "@mui/icons-material";
+import {
+  FacebookSharp,
+  Instagram,
+  LinkedIn,
+  Twitter,
+  YouTube
+} from "@mui/icons-material";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Whatsapp from "../assets/whatsapp.png";
@@ -238,11 +244,11 @@ const Footer = () => {
                     <FacebookSharp className="size-9" />
                   </a>
                 </li>
-                {/* <li>
-                  <a href="">
+                <li>
+                  <a href="https://x.com/sarkarprabir03">
                     <Twitter className="size-9" />
                   </a>
-                </li> */}
+                </li>
                 <li>
                   <a href="https://www.instagram.com/creative.valley9/">
                     <Instagram className="size-9" />
@@ -251,6 +257,11 @@ const Footer = () => {
                 <li>
                   <a href="https://www.linkedin.com/in/prabir-sarkar-579a5387/">
                     <LinkedIn className="size-9" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@creativevalley9">
+                    <YouTube className="size-9" />
                   </a>
                 </li>
               </ul>

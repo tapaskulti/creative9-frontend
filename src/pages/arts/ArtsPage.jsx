@@ -88,7 +88,7 @@ function ArtsPage() {
         <div className="  overflow-y-hidden">
           <Header />
           <div className="pt-10">
-            <div className="sm:flex sm:justify-between items-center mx-3 md:mx-10  mb-2 border-b">
+            <div className="sm:flex sm:justify-between items-center mx-3 md:mx-10 mb-2 border-b">
               <div className="text-xl sm:text-2xl lg:text-3xl font-sans tracking-wider font-bold text-stone-700 pb-3">
                 Explore Exclusive Paintings
               </div>
@@ -103,7 +103,7 @@ function ArtsPage() {
                 )}
               </div>
             </div>
-            <div className="h-[80vh] overflow-y-auto">
+            <div className="h-[80vh] overflow-y-auto scrollbar-none">
               <div className="px-2 mr-2 md:mr-0 md:px-10 pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-y-10">
                 {arts?.map((art) => {
                   return (
