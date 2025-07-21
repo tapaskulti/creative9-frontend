@@ -289,9 +289,9 @@ function Header() {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content mt-3 z-[1] px-2 py-2 bg-gray-100 shadow-lg rounded-box w-52"
                 >
-                  <li className="border-b border-slate-300 py-2">
+                  {/* <li className="border-b border-slate-300 py-2">
                     <a className="justify-between">Profile</a>
-                  </li>
+                  </li> */}
                   {/* <li>
                     <a>Settings</a>
                   </li> */}

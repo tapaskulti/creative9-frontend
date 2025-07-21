@@ -12,7 +12,7 @@ import {
   faCircleChevronLeft,
   faCircleChevronRight
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+// import axios from "axios";
 import { addToCart } from "../../redux/cart/cartSlice";
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
@@ -23,7 +23,7 @@ function ArtDetailsPage() {
   const { id } = useParams();
   const [review, setReview] = useState("");
   const { artDetail, artReview } = useSelector((state) => state.art);
-  const { user,token } = useSelector((state) => state.user);
+  const { user, token } = useSelector((state) => state.user);
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
 
@@ -65,10 +65,10 @@ function ArtDetailsPage() {
   const handleCheckout = async (e) => {
     e.preventDefault();
 
-    if(token===""){
-      // alert(`Cannot Buy.Login First`);
-      toast.error(`Cannot Buy.Login First`)
-      return
+    if (token === "") {
+      // alert(`Please login to buy!`);
+      toast.error(`Please login to buy!`);
+      return;
     }
 
     try {

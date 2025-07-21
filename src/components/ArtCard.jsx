@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartPlus,
+  faMoneyBill,
+  faPenToSquare
+} from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { addToCart } from "../redux/cart/cartSlice";
@@ -39,7 +43,7 @@ function ArtCard({
               <div></div>
             ) : (
               <>
-                <div className="mt-2">
+                <div className="">
                   <button
                     onClick={() => {
                       setisDelete(!isDelete);
@@ -89,16 +93,19 @@ function ArtCard({
         </div>
         <div className="relative">
           <div className="">
-            <div className="flex justify-center text-center h-80 w-full">
+            <Link
+              to={`/Painting/${id}`}
+              className="flex justify-center text-center h-80 w-full"
+            >
               {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
               <img
                 src={image}
-                className="rounded-lg object-cover w-full h-full"
+                className="rounded-t-lg object-cover w-full h-full"
               />
-            </div>
-            <div className="mt-2 font-bold text-center">
+            </Link>
+            <div className=" font-bold text-center">
               <Link to={`/Painting/${id}`}>
-                <button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md hover:shadow-lg text-base">
+                <button className="w-full border-l border-r border-b bg-slate-100 border-slate-300 px-10 py-1 rounded-b-lg shadow-md hover:shadow-lg text-base">
                   VIEW IN DETAIL
                 </button>
               </Link>
@@ -224,6 +231,7 @@ function ArtCard({
                     to="/Painting/12/update"
                     className="px-3 py-[4px] btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 h-12"
                   >
+                    <FontAwesomeIcon icon={faPenToSquare} />
                     Update
                   </Link>
                 </button>

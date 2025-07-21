@@ -241,27 +241,27 @@ const Footer = () => {
               <ul className="flex items-center space-x-6 pl-4 pt-2">
                 <li>
                   <a href="https://www.facebook.com/creativevalley9graphicstudio">
-                    <FacebookSharp className="size-9" />
+                    <FacebookSharp className="size-7" />
                   </a>
                 </li>
                 <li>
                   <a href="https://x.com/sarkarprabir03">
-                    <Twitter className="size-9" />
+                    <Twitter className="size-7" />
                   </a>
                 </li>
                 <li>
                   <a href="https://www.instagram.com/creative.valley9/">
-                    <Instagram className="size-9" />
+                    <Instagram className="size-7" />
                   </a>
                 </li>
                 <li>
                   <a href="https://www.linkedin.com/in/prabir-sarkar-579a5387/">
-                    <LinkedIn className="size-9" />
+                    <LinkedIn className="size-7" />
                   </a>
                 </li>
                 <li>
                   <a href="https://www.youtube.com/@creativevalley9">
-                    <YouTube className="size-9" />
+                    <YouTube className="size-7" />
                   </a>
                 </li>
               </ul>
