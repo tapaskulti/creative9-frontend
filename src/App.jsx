@@ -105,7 +105,7 @@ function App() {
               path="/Illustration/:id/create"
               element={<IllustrationCreatePage />}
             />
-            <Route path="/Myorder" element={<MyOrder />} />
+            <Route path="/Myorder/:id" element={<MyOrder />} />
             <Route path="/chat" element={<Chat />} />
           </Route>
         </Routes>
