@@ -56,19 +56,22 @@ function LandingPage() {
           <div>
             <div className="relative">
               <img src={slide1} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">730+ Trusted Clients</p> */}
@@ -76,19 +79,22 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide2} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">9 years of experience in Graphics Design</p> */}
@@ -96,19 +102,22 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide3} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">620+ Project Completed</p> */}
@@ -116,19 +125,22 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide4} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">71119+ Users visited</p> */}
@@ -136,59 +148,67 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide5} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">Responsibillity, Honesty, Reliability</p> */}
           </div>
-          <div>
+          {/* <div>
             <div>
               <img src={slide6} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
-            {/* <p className="legend">71119+ Users visited</p> */}
-          </div>
+          </div> */}
           <div>
             <div>
               <img src={slide7} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Painting</h2>
+                <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">71119+ Users visited</p> */}
@@ -196,19 +216,21 @@ function LandingPage() {
           <div>
             <div>
               <img src={slide8} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Painting</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  Transform your online presence with visually stunning,
-                  user-friendly web designs that reflect your brand&apos;s
-                  unique identity. Our team creates intuitive interfaces and
-                  engaging experiences that keep your audience connected and
-                  drive conversions.
+                  Transform your ideas with visually stunnig Oil, Acrylic,
+                  watercolor or mixed media paintings. Our painters team and I
+                  creates stunning paintings for you. visit our portfolo and
+                  enjoy our recent works.
                 </h3>
-                <button className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5">
+                <Link
+                  to="/painting"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
                   VIEW PORTFOLIO
-                </button>
+                </Link>
               </div>
             </div>
             {/* <p className="legend">71119+ Users visited</p> */}

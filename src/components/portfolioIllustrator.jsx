@@ -39,7 +39,7 @@ const PortfolioIllustrator = () => {
   return (
     <div className="bg-gray-100 lg:px-64 py-10">
       <h2 className="text-4xl text-center font-bold">
-        Have a look at our
+        Have a look at our{" "}
         <span className="text-[#0363af]">Illustrations!</span>
       </h2>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mt-6">

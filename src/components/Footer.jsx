@@ -4,12 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   FacebookSharp,
   Instagram,
+  LinkedIn,
   Twitter,
   YouTube
 } from "@mui/icons-material";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Whatsapp from "../assets/whatsapp.png";
+import Fiverr from "../assets/fiverr.png";
+import Upwork from "../assets/upwork.png";
+import Etsy from "../assets/etsy.png";
+import Freelancer from "../assets/freelancer.png";
 
 const Footer = () => {
   return (
@@ -39,7 +44,7 @@ const Footer = () => {
               </h2>
               {/* <span className="font-semibold hidden lg:flex">Illustration</span> */}
             </div>
-            <div className="text-sm text-slate-600 space-y-1.5 lg:mt-5">
+            <div className="text-base text-slate-600 space-y-1.5 lg:mt-3">
               <a
                 href="https://www.creativevalley9.com/Painting"
                 className="hover:text-slate-400"
@@ -47,7 +52,7 @@ const Footer = () => {
                 Painting
               </a>
             </div>
-            <div className="text-sm text-slate-600 space-y-1.5 lg:mt-5">
+            <div className="text-base text-slate-600 space-y-1.5 lg:mt-3">
               <a
                 href="https://www.creativevalley9.com/Illustration"
                 className="hover:text-slate-400"
@@ -150,30 +155,56 @@ const Footer = () => {
             <h2 className="font-semibold text-sm lg:text-lg lg:font-light border-b border-white/20 pb-1">
               Freelancing - <span className="font-semibold">Profile links</span>
             </h2>
-            <div className="flex items-start">
-              <ul className="text-sm text-slate-600 space-y-1.5 mt-0 lg:mt-5">
+            <div className="space-y-4">
+              <ul className="flex items-center space-x-4 text-sm text-slate-600">
                 <li>
                   <a
                     href="https://www.upwork.com/freelancers/creativevalley9"
-                    className="hover:text-slate-400"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    https://www.upwork.com
+                    <img
+                      src={Upwork}
+                      alt=""
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
+                    />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.fiverr.com/creativevalley9?up_rollout=true"
-                    className="hover:text-slate-400"
+                    href="https://www.fiverr.com/creativevalley9"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    https://www.fiverr.com
+                    <img
+                      src={Fiverr}
+                      alt=""
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
+                    />
                   </a>
                 </li>
+              </ul>
+              <ul className="flex items-center space-x-4 text-sm text-slate-600">
                 <li>
                   <a
                     href="https://www.etsy.com/in-en/shop/creativevalley9?ref=seller-platform-mcnav"
-                    className="hover:text-slate-400"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    https://www.etsy.com
+                    <img
+                      src={Etsy}
+                      alt=""
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.freelancer.com/u/creativevalley9">
+                    <img
+                      src={Freelancer}
+                      alt=""
+                      className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
+                    />
                   </a>
                 </li>
               </ul>
@@ -207,18 +238,31 @@ const Footer = () => {
                   </h2>
                 </li>
               </ul>
-              <ul className="flex items-center space-x-3 pl-4 pt-2">
+              <ul className="flex items-center space-x-6 pl-4 pt-2">
                 <li>
-                  <FacebookSharp />
+                  <a href="https://www.facebook.com/creativevalley9graphicstudio">
+                    <FacebookSharp className="size-7" />
+                  </a>
                 </li>
                 <li>
-                  <Twitter />
+                  <a href="https://x.com/sarkarprabir03">
+                    <Twitter className="size-7" />
+                  </a>
                 </li>
                 <li>
-                  <Instagram />
+                  <a href="https://www.instagram.com/creative.valley9/">
+                    <Instagram className="size-7" />
+                  </a>
                 </li>
                 <li>
-                  <YouTube />
+                  <a href="https://www.linkedin.com/in/prabir-sarkar-579a5387/">
+                    <LinkedIn className="size-7" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@creativevalley9">
+                    <YouTube className="size-7" />
+                  </a>
                 </li>
               </ul>
             </div>

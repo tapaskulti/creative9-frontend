@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartPlus,
+  faMoneyBill,
+  faPenToSquare
+} from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { addToCart } from "../redux/cart/cartSlice";
@@ -31,17 +35,15 @@ function ArtCard({
       <div className="w-full h-[575px] sm:h-[575px] md:w-80 md:h-[575px] lg:w-72 lg:h-[575px] xl:w-80 xl:h-[575px] 2xl:w-80 2xl:h-[575px] 3xl:w-96 3xl:h-[575px] shadow-lg px-4 py-1 rounded-lg hover:shadow-xl border border-slate-200 relative">
         <div className="relative">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-1 py-2">
-              <h2 className="text-base">Artist:</h2>
-              <div className="font-sans text-base font-bold capitalize">
-                {artistName}
-              </div>
+            <div className="flex items-center space-x-1 py-2 text-sm">
+              <h2 className="">Artist:</h2>
+              <div className="font-sans font-bold capitalize">{artistName}</div>
             </div>
             {!adminView ? (
               <div></div>
             ) : (
               <>
-                <div className="mt-2">
+                <div className="">
                   <button
                     onClick={() => {
                       setisDelete(!isDelete);
@@ -89,48 +91,51 @@ function ArtCard({
             </div>
           )}
         </div>
-        <div>
+        <div className="relative">
           <div className="">
-            <div className="flex justify-center text-center h-80 w-full">
+            <Link
+              to={`/Painting/${id}`}
+              className="flex justify-center text-center h-80 w-full"
+            >
               {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
               <img
                 src={image}
-                className="rounded-lg object-cover w-full h-full"
+                className="rounded-t-lg object-cover w-full h-full"
               />
-            </div>
-            <div className="mt-2 font-bold text-center">
+            </Link>
+            <div className=" font-bold text-center">
               <Link to={`/Painting/${id}`}>
-                <button className="border bg-slate-100 border-slate-300 px-10 py-1 rounded-md">
+                <button className="w-full border-l border-r border-b bg-slate-100 border-slate-300 px-10 py-1 rounded-b-lg shadow-md hover:shadow-lg text-base">
                   VIEW IN DETAIL
                 </button>
               </Link>
             </div>
             <div className="mt-2 pt-1 font-sans tracking-wider md:pt-1">
-              <div className="flex space-x-1">
+              <div className="flex space-x-1 text-sm">
                 <div className="text-stone-500">Title:</div>
-                <div>{title}</div>
+                <div className="font-semibold text-black">{title}</div>
               </div>
               <div className="">
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 text-sm">
                   <div className="text-stone-500">Medium:</div>
-                  <div>{medium}</div>
+                  <div className="font-semibold text-black">{medium}</div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex items-center">
+                <div className="flex items-centertext-sm text-sm">
                   <div className="text-stone-500">Size: </div>
-                  <div>
+                  <div className="font-semibold text-black">
                     {width} * {height} inch
                   </div>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 text-sm">
                   <div className="text-stone-500">Year:</div>
-                  <div>{year}</div>
+                  <div className="font-semibold text-black">{year}</div>
                 </div>
               </div>
               <div className="flex items-center space-x-1 mt-0">
-                <div className="text-stone-500">Price:</div>
-                <div className="text-xl font-semibold text-[#0363af]">
+                <div className="text-stone-500 text-sm">Price:</div>
+                <div className="text-base font-bold text-[#0363af]">
                   USD {price}
                 </div>
               </div>
@@ -143,7 +148,7 @@ function ArtCard({
                       toast.error("Please Login to Buy");
                     }
                   }}
-                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80"
+                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 h-12"
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
@@ -174,7 +179,7 @@ function ArtCard({
                     toast.success("Painting added in your cart");
                   }
                 }}
-                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80"
+                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-36 h-12"
               >
                 <FontAwesomeIcon icon={faCartPlus} className="pr-1.5" />
                 Add to Cart
@@ -183,7 +188,7 @@ function ArtCard({
             <div>&nbsp;</div>
           </div>
           {/* <img src={image} className="border rounded-lg" /> */}
-          <div className="relative pt-2 bottom-2 md:pt-3">
+          <div className="absolute pt-2 left-[1px] bottom-[1.5rem] md:pt-3">
             {!adminView ? (
               <div className="flex justify-between">
                 {/* <div className="border border-[#FF6B00] text-lg rounded-full text-[#a04403] hover:bg-[#FF6B00] cursor-pointer hover:text-white px-3 py-0.5 border-gradient-to-r from-[#FF6B00] to-[#D70000] hover:from-[#D70000] hover:to-[#FF6B00]">
@@ -221,14 +226,15 @@ function ArtCard({
               <>
                 {/* create a modal for confirming delete art */}
 
-                <div>
+                <button>
                   <Link
                     to="/Painting/12/update"
-                    className="bg-gradient-to-r text-center  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 text-sm cursor-pointer px-5 py-1.5 rounded-full text-white font-semibold"
+                    className="px-3 py-[4px] btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 h-12"
                   >
+                    <FontAwesomeIcon icon={faPenToSquare} />
                     Update
                   </Link>
-                </div>
+                </button>
               </>
             )}
           </div>

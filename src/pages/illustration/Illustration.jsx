@@ -114,7 +114,7 @@ function Illustration() {
               </div>
             </div>
           )}
-          <div className="space-y-10">
+          <div className="">
             <div className="px-5 sm:px-10 font-sans text-xl sm:text-2xl lg:text-3xl border-b pb-3 font-bold text-stone-700">
               Illustration Categories
             </div>
