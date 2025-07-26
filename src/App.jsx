@@ -94,7 +94,7 @@ function App() {
             <Route path="/Painting/:id/update" element={<ArtUpdatePage />} />
             <Route path="/Painting/:id" element={<ArtDetailsPage />} />
             <Route path="/Painting/:id/Payment" element={<ArtPayment />} />
-
+            <Route path="/Myorder" element={<MyOrder />} />
             <Route path="/Illustration/:id" element={<IllustrationDetail />} />
             <Route path="/Illustration/:id/Portfolio" element={<Portfolio />} />
             <Route
@@ -105,7 +105,7 @@ function App() {
               path="/Illustration/:id/create"
               element={<IllustrationCreatePage />}
             />
-            <Route path="/Myorder" element={<MyOrder />} />
+            {/* <Route path="/Myorder" element={<MyOrder />} /> */}
             <Route path="/chat" element={<Chat />} />
           </Route>
         </Routes>
