@@ -168,7 +168,7 @@ function LandingPage() {
             </div>
             {/* <p className="legend">Responsibillity, Honesty, Reliability</p> */}
           </div>
-          {/* <div>
+          <div>
             <div>
               <img src={slide6} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -189,7 +189,7 @@ function LandingPage() {
                 </Link>
               </div>
             </div>
-          </div> */}
+          </div>
           <div>
             <div>
               <img src={slide7} alt="" />
