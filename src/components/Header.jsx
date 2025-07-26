@@ -123,13 +123,15 @@ function Header() {
               Illustration
             </div>
           </NavLink>
-          {adminView && (
+          {adminView && token ? (
             <NavLink
               to="/Myorder"
               className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             >
               <div className="py-1 cursor-pointer">My orders</div>
             </NavLink>
+          ) : (
+            ""
           )}
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
