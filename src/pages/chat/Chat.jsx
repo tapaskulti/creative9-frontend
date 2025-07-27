@@ -10,12 +10,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
   faCircleXmark,
-  faClose
+  faClose,
+  faXmarkCircle
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import { toast } from "react-toastify";
+// import axios from "axios";
+// import { toast } from "react-toastify";
 import ModalComponent from "../../components/Modal";
 import { getPayingPrice } from "../../redux/art/artSlice";
+import { Circle } from "lucide-react";
 
 const socket = io("https://creativevalley9.com", {
   path: "/api/socket.io",
@@ -94,6 +96,14 @@ const Chat = () => {
     medium: "",
     totalPainting: ""
   });
+
+  const handleRemoveImage = (indexToRemove) => {
+    const updatedImages = selectedImages.filter(
+      (_, index) => index !== indexToRemove
+    );
+    setSelectedImages(updatedImages);
+  };
+
   // let totalValue
   console.log("offerselection==========>", offerselection);
 
@@ -1826,10 +1836,50 @@ const Chat = () => {
                   />
                 </div>
               )}
-              {selectedImages?.length > 0 && (
-                <div className="absolute bottom-10 grid grid-cols-3 gap-2 py-2  p-5  bg-gray-300/50 h-[70vh] overflow-y-auto ">
+              {/* {selectedImages?.length > 0 && (
+                <div className="absolute bottom-16 grid grid-cols-1 gap-2 px-1.5 py-1.5 bg-gray-300/50 h-40 overflow-y-auto group-hover:block">
+                  <div
+                    className="absolute right-2 top-2 text-black bg-white size-6 rounded-full p-0.5 cursor-pointer"
+                    // onClick={setSelectedImages(false)}
+                  >
+                    <FontAwesomeIcon icon={faXmarkCircle} className="size-5" />
+                  </div>
                   {selectedImages?.map((image, index) => (
-                    <img key={index} src={image} alt={`Image ${index}`} />
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`Image ${index}`}
+                      className="w-32 h-32"
+                    />
+                  ))}
+                </div>
+              )} */}
+
+              {selectedImages.length > 0 && (
+                <div className="absolute bottom-16 left-0 right-0 flex gap-2 px-2 py-2 bg-gray-300/50 h-40 overflow-x-auto">
+                  {selectedImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className="relative group w-32 h-32 shrink-0"
+                    >
+                      {/* Image */}
+                      <img
+                        src={image}
+                        alt={`Image ${index}`}
+                        className="w-full h-full object-cover rounded"
+                      />
+
+                      {/* Delete Icon */}
+                      <div
+                        className="absolute top-1 right-1 text-red-500 bg-white rounded-full px-1 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        onClick={() => handleRemoveImage(index)}
+                      >
+                        <FontAwesomeIcon
+                          icon={faXmarkCircle}
+                          className="w-4 h-4"
+                        />
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
