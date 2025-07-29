@@ -133,6 +133,15 @@ function Header() {
           ) : (
             ""
           )}
+
+          <NavLink
+            className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
+            to="/freelancer"
+          >
+            <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
+              Freelancer
+            </div>
+          </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/Contact-us"

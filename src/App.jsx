@@ -30,6 +30,7 @@ import SuccessPayment from "./pages/SuccessPayment";
 import CancelPayment from "./pages/CancelPayment";
 import ReviewEntry from "./pages/ReviewEntry";
 import AboutUs from "./components/AboutUs";
+import Freelancer from "./components/Freelancer";
 import CartPage from "./pages/Cart";
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/cancellation-refund" element={<CancellationRefund />} />
           <Route path="/shipping-delivery" element={<ShippingDelivery />} />
+          <Route path="/freelancer" element={<Freelancer />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/success" element={<SuccessPayment />} />
