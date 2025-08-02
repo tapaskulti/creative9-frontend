@@ -61,7 +61,10 @@ export default function Freelancer() {
             </Link>
           </div>
           <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
-            <Link to="https://www.fiverr.com/creativevalley9" target="_blank">
+            <Link
+              to="https://www.upwork.com/freelancers/creativevalley9"
+              target="_blank"
+            >
               <div className="text-center">
                 {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-96" /> */}
                 <img
@@ -114,7 +117,10 @@ export default function Freelancer() {
             </Link>
           </div>
           <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
-            <Link to="https://www.fiverr.com/creativevalley9" target="_blank">
+            <Link
+              to="https://www.etsy.com/in-en/shop/creativevalley9?ref=seller-platform-mcnav"
+              target="_blank"
+            >
               <div className="text-center px-3">
                 {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-96" /> */}
                 <img src={EtsyLogo} alt="" className="w-auto h-full py-3" />
@@ -147,7 +153,10 @@ export default function Freelancer() {
             </Link>
           </div>
           <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
-            <Link to="https://www.fiverr.com/creativevalley9" target="_blank">
+            <Link
+              to="https://www.freelancer.com/u/creativevalley9"
+              target="_blank"
+            >
               <div className="text-center  px-3">
                 {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-96" /> */}
                 <img
