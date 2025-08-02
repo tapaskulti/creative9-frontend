@@ -199,7 +199,11 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.freelancer.com/u/creativevalley9">
+                  <a
+                    href="https://www.freelancer.com/u/creativevalley9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       src={Freelancer}
                       alt=""
