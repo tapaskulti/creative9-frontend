@@ -1282,12 +1282,38 @@ const Chat = () => {
                         >
                           {msg?.images?.length > 0 &&
                             msg?.images?.map((image, index) => (
-                              <img
+                              <div
                                 key={index}
-                                className="w-32 h-auto rounded-md shadow-lg"
-                                src={image?.secure_url}
-                                alt=""
-                              />
+                                className="relative group w-32 h-auto"
+                              >
+                                <img
+                                  src={image?.secure_url}
+                                  alt={`Sent image ${index}`}
+                                  className="rounded-md shadow-lg w-full"
+                                />
+                                <a
+                                  href={image?.secure_url}
+                                  download={`image-${index}.jpg`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="absolute top-1 right-1 bg-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition"
+                                  title="Download image"
+                                >
+                                  <svg
+                                    className="w-4 h-4 text-gray-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v6m0 0l-3-3m3 3l3-3M12 4v8"
+                                    />
+                                  </svg>
+                                </a>
+                              </div>
                             ))}
                         </div>
 
@@ -1827,7 +1853,7 @@ const Chat = () => {
             {/* messgae input field */}
             <div className="mb-2 px-2 bottom-0 absolute w-full items-center space-y-2">
               {openEmojiPicker && (
-                <div className="absolute bottom-10">
+                <div className="absolute bottom-16">
                   <EmojiPicker
                     onEmojiClick={(e) => {
                       console.log(e, "emoji");
