@@ -1268,6 +1268,12 @@ const Chat = () => {
                         msg?.sender === user?._id ? "chat-end  " : "chat-start"
                       }`}
                     >
+                      {/* Date and Time */}
+                      <div className="text-xs font-semibold text-gray-600 mt-1 text-right">
+                        {msg.createdAt
+                          ? new Date(msg.createdAt).toLocaleString()
+                          : ""}
+                      </div>
                       <div
                         className={`${
                           msg?.sender === user?._id
