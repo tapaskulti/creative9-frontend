@@ -139,7 +139,7 @@ function Header() {
             to="/freelancer"
           >
             <div className="py-1 cursor-pointer text-sm md:text-sm xl:text-base font-semibold">
-              Freelancer
+              Freelancing Profiles
             </div>
           </NavLink>
           <NavLink
