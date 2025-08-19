@@ -12,6 +12,9 @@ function ReviewEntry() {
 
   const [reviewNote, setreviewNote] = useState();
 
+  const [review, setReview] = useState("");
+  const [error, setError] = useState("");
+
   const handleSubmit = () => {
     dispatch({
       type: "CREATE_ART_REVIEWS",
@@ -22,29 +25,43 @@ function ReviewEntry() {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (review.trim().length < 16) {
+      setError("Review must be at least 16 characters.");
+      return;
+    }
+    setError("");
+  };
+
   return (
     <div>
       <Header />
       <div className="overflow-y-hidden grid justify-center my-20">
         <h2 className="text-base font-medium text-left">Add Reviews</h2>
-        <div className="">
+        <form onSubmit={handleSubmit}>
           <textarea
-            type="textarea"
+            name="review"
+            value={review}
+            minLength={16}
+            required
             placeholder="Please write your reviews"
             className="w-96 h-40 border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
             onChange={(e) => {
               setreviewNote(e.target.value);
             }}
-          />
+          ></textarea>
+          {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
           <div>
             <button
+              type="submit"
               onClick={handleSubmit}
               className="bg-green-600 px-10 py-1.5 rounded-md text-white"
             >
               Submit
             </button>
           </div>
-        </div>
+        </form>
       </div>
       <Footer />
     </div>
