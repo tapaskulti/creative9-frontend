@@ -7,12 +7,13 @@ import {
   LocationCity,
   People,
   PeopleAlt,
-  Person,
+  Person
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { getPayingPrice } from "../../redux/art/artSlice";
 import ModalComponent from "../../components/Modal";
+import { Target } from "lucide-react";
 
 function MyOrder() {
   const dispatch = useDispatch();
@@ -23,10 +24,10 @@ function MyOrder() {
 
   useEffect(() => {
     dispatch({
-      type: "GET_ALL_ADMIN_PAINTINGS",
+      type: "GET_ALL_ADMIN_PAINTINGS"
     });
     dispatch({
-      type: "GET_ALL_ADMIN_ILLUSTRATION",
+      type: "GET_ALL_ADMIN_ILLUSTRATION"
     });
   }, []);
 
@@ -86,112 +87,247 @@ function MyOrder() {
           </div>
         ) : (
           <div className="px-10 grid grid-cols-1 xl:grid-cols-2 gap-x-5 h-[80vh] overflow-y-auto">
-            {/* Painting orders */}
-            {adminOrderIllustrations.map((illustration) => (
-              // <OrderPaintCard
-              //   title={illustration?.illustration?.title}
-              //   username={illustration?.user?.name}
-              //   useremail={illustration?.user?.email}
-              //   key={illustration?._id}
-              //   image={illustration?.illustration?.picture[0]?.secure_url}
-              // />
-              <div
-                key={illustration?._id}
-                className="bg-[#f8f7f7] w-full h-min rounded-md hover:shadow-sm px-4 py-3 my-3"
-              >
-                <div className="flex justify-between items-center">
-                  <div>{illustration?.illustration?.title}</div>
-                  <div className="flex space-x-3 text-sm">
-                    <div className="text-stone-500"> Status:</div>
-                    <div>{illustration?.illustration_status}</div>
+            {/* Illustration orders */}
+            {/* {adminOrderIllustrations.map((illustration) => (
+              <div key={illustration?._id}>
+                <OrderPaintCard
+                  title={illustration?.illustration?.title}
+                  username={illustration?.user?.name}
+                  useremail={illustration?.user?.email}
+                  image={illustration?.illustration?.picture[0]?.secure_url}
+                />
+                <div
+                  key={illustration?._id}
+                  className="bg-[#f8f7f7] w-full h-min rounded-md hover:shadow-sm px-4 py-3 my-3"
+                >
+                  <div className="flex justify-between items-center">
+                    <div>{illustration?.illustration?.title}</div>
+                    <div className="flex space-x-3 text-sm">
+                      <div className="text-stone-500"> Status:</div>
+                      <div>{illustration?.illustration_status}</div>
+                    </div>
                   </div>
-                </div>
-                <div className="py-2 ">
-                  {/* image */}
-                  <div className="flex space-x-6 ">
-                    <img
-                      className="w-32 h-32 rounded-md shadow-lg"
-                      src={
-                        illustration?.illustration &&
-                        illustration?.illustration?.picture[0] &&
-                        illustration?.illustration?.picture[0]?.secure_url
-                      }
-                      alt=""
-                    />
-                    <div className="w-full">
-                      <div className="mb-2">
-                        <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full">
-                          User Details
-                        </div>
-                        <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
-                          <div className="flex space-x-2 items-center text-sm">
-                            <Person className="text-gray-400 w-6" />
-                            <div>{illustration?.user?.name}</div>
+                  <div className="py-2 ">
+                    <div className="flex space-x-6 ">
+                      <img
+                        className="w-32 h-32 rounded-md shadow-lg"
+                        src={
+                          illustration?.illustration &&
+                          illustration?.illustration?.picture[0] &&
+                          illustration?.illustration?.picture[0]?.secure_url
+                        }
+                        alt=""
+                      />
+                      <div className="w-full">
+                        <div className="mb-2">
+                          <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full">
+                            User Details
                           </div>
-                          <div className="flex space-x-2 items-center text-sm">
-                            <Email className="text-gray-400 w-6" />
-                            <div>{illustration?.user?.email}</div>
+                          <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
+                            <div className="flex space-x-2 items-center text-sm">
+                              <Person className="text-gray-400 w-6" />
+                              <div>{illustration?.user?.name}</div>
+                            </div>
+                            <div className="flex space-x-2 items-center text-sm">
+                              <Email className="text-gray-400 w-6" />
+                              <div>{illustration?.user?.email}</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      {illustration?.singlePaymentPrice === "" && (
+                        {illustration?.singlePaymentPrice === "" && (
+                          <div>
+                            <div className="text-sm border-b-2 text-gray-600 w-full ">
+                              Milestones
+                            </div>
+                            {Object.keys(illustration?.milestone).map((m) => {
+                              return (
+                                <div key={m} className="flex justify-between">
+                                  <div className="text-sm py-1 text-gray-400">
+                                    {illustration?.milestone[m]["title"]}
+                                  </div>
+                                  <div>
+                                    {" "}
+                                    {illustration?.milestone[m]["price"]}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
                         <div>
-                          <div className="text-sm border-b-2 text-gray-600 w-full ">
-                            Milestones
+                          <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full ">
+                            Transactions
                           </div>
-                          {Object.keys(illustration?.milestone).map((m) => {
-                            return (
-                              <div key={m} className="flex justify-between">
-                                <div className="text-sm py-1 text-gray-400">
-                                  {illustration?.milestone[m]["title"]}
-                                </div>
-                                <div>
-                                  {" "}
-                                  {illustration?.milestone[m]["price"]}
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-                      <div>
-                        <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full ">
-                          Transactions
-                        </div>
-                        <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
-                          <div className="flex space-x-2 items-center text-sm">
-                            <LocationCity className="text-gray-400 w-6" />
-                            <div>300</div>
+                          <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
+                            <div className="flex space-x-2 items-center text-sm">
+                              <LocationCity className="text-gray-400 w-6" />
+                              <div>300</div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div className="flex justify-between my-3">
+                    {illustration?.singlePaymentPrice !== "" && (
+                      <div className="flex space-x-1 text-sm font-semibold">
+                        <div className="text-gray-500">Price:</div>
+                        <div className="flex space-x-2 ">
+                          <div>USD {illustration?.singlePaymentPrice}</div>
+                          {illustration.illustrationPaid ? (
+                            <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
+                              {" "}
+                              Paid
+                            </div>
+                          ) : (
+                            <>
+                              <div className="flex space-x-2">
+                                <div className="border-red-500 border w-max px-2 text-xs text-center rounded-md text-red-600">
+                                  {" "}
+                                  Not Paid
+                                </div>
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="flex justify-between my-3">
-                  {illustration?.singlePaymentPrice !== "" && (
-                    <div className="flex space-x-1 text-sm font-semibold">
-                      <div className="text-gray-500">Price:</div>
-                      <div className="flex space-x-2 ">
-                        <div>USD {illustration?.singlePaymentPrice}</div>
-                        {illustration.illustrationPaid ? (
-                          <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
-                            {" "}
-                            Paid
+              </div>
+            ))} */}
+            {adminOrderIllustrations.map((illustration) => (
+              <div key={illustration?._id}>
+                <OrderPaintCard
+                  title={illustration?.illustration?.title}
+                  username={illustration?.user?.name}
+                  useremail={illustration?.user?.email}
+                  image={illustration?.illustration?.picture[0]?.secure_url}
+                />
+                <div className="bg-[#f8f7f7] w-full h-min rounded-md hover:shadow-sm px-4 py-3 my-3">
+                  <div className="flex justify-between items-center">
+                    <div>{illustration?.illustration?.title}</div>
+                    <div className="flex space-x-3 text-sm">
+                      <div className="text-stone-500"> Status:</div>
+                      <div>{illustration?.illustration_status}</div>
+                    </div>
+                  </div>
+
+                  <div className="py-2">
+                    <div className="flex space-x-6">
+                      <img
+                        className="w-32 h-32 rounded-md shadow-lg"
+                        src={
+                          illustration?.illustration?.picture?.[0]?.secure_url
+                        }
+                        alt=""
+                      />
+                      <div className="w-full">
+                        {/* User Details */}
+                        <div className="mb-2">
+                          <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full">
+                            User Details
                           </div>
-                        ) : (
-                          <>
+                          <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
+                            <div className="flex space-x-2 items-center text-sm">
+                              <Person className="text-gray-400 w-6" />
+                              <div>{illustration?.user?.name}</div>
+                            </div>
+                            <div className="flex space-x-2 items-center text-sm">
+                              <Email className="text-gray-400 w-6" />
+                              <div>{illustration?.user?.email}</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Milestones */}
+                        {illustration?.singlePaymentPrice === "" &&
+                          illustration?.milestone && (
+                            <div>
+                              <div className="text-sm border-b-2 text-gray-600 w-full ">
+                                Milestones
+                              </div>
+                              {Object.keys(illustration.milestone).map((m) => (
+                                <div key={m} className="flex justify-between">
+                                  <div className="text-sm py-1 text-gray-400">
+                                    {illustration.milestone[m]["title"]}
+                                  </div>
+                                  <div>
+                                    {illustration.milestone[m]["price"]}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                        {/* Transactions */}
+                        <div>
+                          <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full ">
+                            Transactions
+                          </div>
+                          <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
+                            <div className="flex space-x-2 items-center text-sm">
+                              <LocationCity className="text-gray-400 w-6" />
+                              <div>300</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Price Section */}
+                  {/* <div className="flex justify-between my-3">
+                    {illustration?.singlePaymentPrice !== "" && (
+                      <div className="flex space-x-1 text-sm font-semibold">
+                        <div className="text-gray-500">Price:</div>
+                        <div className="flex space-x-2 ">
+                          <div>USD {illustration?.singlePaymentPrice}</div>
+                          {illustration.illustrationPaid ? (
+                            <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
+                              Paid
+                            </div>
+                          ) : (
                             <div className="flex space-x-2">
                               <div className="border-red-500 border w-max px-2 text-xs text-center rounded-md text-red-600">
-                                {" "}
                                 Not Paid
                               </div>
                             </div>
-                          </>
-                        )}
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div> */}
+                  <div className="flex justify-between my-3">
+                    {illustration?.singlePaymentPrice !== "" && (
+                      <div className="flex space-x-1 text-sm font-semibold">
+                        <div className="text-gray-500">Price:</div>
+                        <div className="flex space-x-2 items-center">
+                          <div>USD {illustration?.singlePaymentPrice}</div>
+                          {illustration.illustrationPaid ? (
+                            <div className="flex items-center space-x-2">
+                              <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
+                                Paid
+                              </div>
+                              <a
+                                // href={`/illustration/${illustration?._id}/review`}
+                                href={`https://creativevalley9.com/reviewEntry/${illustration?._id}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 text-sm underline hover:text-blue-800"
+                              >
+                                Write Review
+                              </a>
+                            </div>
+                          ) : (
+                            <div className="border-red-500 border w-max px-2 text-xs text-center rounded-md text-red-600">
+                              Not Paid
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -216,7 +352,7 @@ const OrderPaintCard = ({
   title,
   isPaintingPaid,
   id,
-  qty,
+  qty
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(true);
@@ -352,7 +488,7 @@ const OrderPaintCard = ({
                       handleArtPay({
                         id: id,
                         price: price,
-                        image: image,
+                        image: image
                       })
                     }
                   >
@@ -362,12 +498,14 @@ const OrderPaintCard = ({
               </>
             )}
             {isPaintingPaid && (
-              <div
+              <a
                 href={`https://creativevalley9.com/reviewEntry/${id}`}
-                className="bg-green-700 cursor-pointer ho border w-max px-2 text-xs text-center rounded-md text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 text-sm underline hover:text-blue-800"
               >
-                https://creativevalley9.com/reviewEntry/{id}
-              </div>
+                Write Review
+              </a>
             )}
           </div>
         </div>

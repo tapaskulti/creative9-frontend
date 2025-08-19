@@ -119,7 +119,7 @@ function Illustration() {
               Illustration Categories
             </div>
             <div className="h-[80vh] overflow-y-auto">
-              <div className="grid gap-10 place-content-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  px-3 md:px-10">
+              <div className="pt-5 grid gap-10 place-content-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 px-3 md:px-10">
                 {categories.map((category) => (
                   <div
                     className="w-80 lg:w-72 xl:w-80 border border-slate-200 p-5 shadow-lg px-5 md:px-2 py-5 rounded-lg hover:shadow-xl"

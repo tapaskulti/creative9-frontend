@@ -88,7 +88,7 @@ function ArtsPage() {
         <div className="  overflow-y-hidden">
           <Header />
           <div className="pt-10">
-            <div className="sm:flex sm:justify-between items-center mx-3 md:mx-10 mb-2 border-b">
+            <div className="sm:flex sm:justify-between items-center mx-3 md:mx-10 border-b">
               <div className="text-xl sm:text-2xl lg:text-3xl font-sans tracking-normal font-bold text-stone-700 pb-3">
                 Explore Exclusive Paintings
               </div>
