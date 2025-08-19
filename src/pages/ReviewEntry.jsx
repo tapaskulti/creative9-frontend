@@ -31,7 +31,7 @@ function ReviewEntry() {
           <textarea
             type="textarea"
             placeholder="Please write your reviews"
-            className="w-60 border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
+            className="w-96 h-40 border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
             onChange={(e) => {
               setreviewNote(e.target.value);
             }}
