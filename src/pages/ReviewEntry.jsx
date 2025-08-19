@@ -16,24 +16,26 @@ function ReviewEntry() {
       type: "CREATE_ART_REVIEWS",
       payload: {
         orderId: orderId.orderid,
-        reviewTitle: reviewNote,
-      },
+        reviewTitle: reviewNote
+      }
     });
   };
 
   return (
     <div>
-      <div className="overflow-y-hidden">
+      <div className="overflow-y-hidden grid justify-center">
         <div>Add reviews</div>
         <input
           type="text"
           placeholder=""
-          className=""
+          className=" border border-slate-200 px-2 py-1 rounded-md"
           onChange={(e) => {
             setreviewNote(e.target.value);
           }}
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit} className="bg-green-600 px-6 py-1.5">
+          Submit
+        </button>
       </div>
     </div>
   );
