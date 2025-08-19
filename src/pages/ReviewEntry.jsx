@@ -42,6 +42,8 @@ function ReviewEntry() {
   const reviewhandleSubmit = (e) => {
     e.preventDefault();
 
+    console.log("Review value:", JSON.stringify(reviewNote));
+
     if (reviewNote.trim().length === 0) {
       setError("Review cannot be blank.");
       return;
