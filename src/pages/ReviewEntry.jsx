@@ -15,7 +15,7 @@ function ReviewEntry() {
 
   console.log(orderId, "orderId");
 
-  const [reviewNote, setreviewNote] = useState();
+  const [reviewNote, setreviewNote] = useState("");
 
   // const [review, setReview] = useState("");
   const [error, setError] = useState("");
@@ -44,7 +44,7 @@ function ReviewEntry() {
 
     console.log("Review value:", JSON.stringify(reviewNote));
 
-    if (reviewNote.trim().length === 0) {
+    if (!reviewNote || reviewNote.trim().length === 0) {
       setError("Review cannot be blank.");
       return;
     }
