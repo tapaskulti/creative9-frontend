@@ -42,6 +42,11 @@ function ReviewEntry() {
   const reviewhandleSubmit = (e) => {
     e.preventDefault();
 
+    if (!reviewNote.trim()) {
+      setError("Review cannot be blank.");
+      return;
+    }
+
     if (reviewNote.trim().length < 16) {
       setError("Review must be at least 16 characters.");
       return;
