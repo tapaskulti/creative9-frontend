@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
+import Footer from "../components/Footer";
 
 function ReviewEntry() {
   const orderId = useParams();
@@ -23,13 +24,14 @@ function ReviewEntry() {
 
   return (
     <div>
-      <div className="overflow-y-hidden grid justify-center">
-        <h2 className="text-base font-medium text-center">Add Reviews</h2>
-        <div className="flex items-center space-x-3">
+      <Header />
+      <div className="overflow-y-hidden grid justify-center mt-20">
+        <h2 className="text-base font-medium text-left">Add Reviews</h2>
+        <div className="">
           <textarea
-            type="text"
-            placeholder=""
-            className="border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
+            type="textarea"
+            placeholder="Please write your reviews"
+            className="w-60 border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
             onChange={(e) => {
               setreviewNote(e.target.value);
             }}
@@ -42,6 +44,7 @@ function ReviewEntry() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
