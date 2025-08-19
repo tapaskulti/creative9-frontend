@@ -25,7 +25,7 @@ function ReviewEntry() {
   return (
     <div>
       <Header />
-      <div className="overflow-y-hidden grid justify-center mt-20">
+      <div className="overflow-y-hidden grid justify-center my-20">
         <h2 className="text-base font-medium text-left">Add Reviews</h2>
         <div className="">
           <textarea
@@ -36,12 +36,14 @@ function ReviewEntry() {
               setreviewNote(e.target.value);
             }}
           />
-          <button
-            onClick={handleSubmit}
-            className="bg-green-600 px-6 py-1.5 rounded-md text-white"
-          >
-            Submit
-          </button>
+          <div>
+            <button
+              onClick={handleSubmit}
+              className="bg-green-600 px-10 py-1.5 rounded-md text-white"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
       <Footer />
