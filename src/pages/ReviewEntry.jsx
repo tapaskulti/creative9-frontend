@@ -42,7 +42,7 @@ function ReviewEntry() {
   const reviewhandleSubmit = (e) => {
     e.preventDefault();
 
-    if (!reviewNote.trim()) {
+    if (reviewNote.trim().length === 0) {
       setError("Review cannot be blank.");
       return;
     }
