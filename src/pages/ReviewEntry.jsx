@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ function ReviewEntry() {
 
   const [reviewNote, setreviewNote] = useState();
 
-  const [review, setReview] = useState("");
+  // const [review, setReview] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = () => {
@@ -25,9 +25,9 @@ function ReviewEntry() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const reviewhandleSubmit = (e) => {
     e.preventDefault();
-    if (review.trim().length < 16) {
+    if (reviewNote.trim().length < 16) {
       setError("Review must be at least 16 characters.");
       return;
     }
@@ -39,10 +39,10 @@ function ReviewEntry() {
       <Header />
       <div className="overflow-y-hidden grid justify-center my-20">
         <h2 className="text-base font-medium text-left">Add Reviews</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={reviewhandleSubmit}>
           <textarea
             name="review"
-            value={review}
+            value={reviewNote}
             minLength={16}
             required
             placeholder="Please write your reviews"
