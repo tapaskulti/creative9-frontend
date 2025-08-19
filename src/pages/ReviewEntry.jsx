@@ -87,13 +87,13 @@ function ReviewEntry() {
             // minLength={16}
             // required
             placeholder="Please write your reviews"
-            className="w-96 h-40 border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
+            className="w-96 h-40 border border-slate-200 px-2 py-1 rounded-md focus:outline-none mt-2 mb-1"
             onChange={(e) => {
               setreviewNote(e.target.value);
             }}
           ></textarea>
           {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
-          <div>
+          <div className="pt-2">
             <button
               type="submit"
               // onClick={handleSubmit}
