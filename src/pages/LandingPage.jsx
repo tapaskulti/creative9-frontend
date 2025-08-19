@@ -55,7 +55,7 @@ function LandingPage() {
         <Carousel autoPlay infiniteLoop>
           <div>
             <div>
-              <img src={slide8} alt="" />
+              <img src={slide1} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Painting</h2>
@@ -77,51 +77,6 @@ function LandingPage() {
           </div>
           <div>
             <div>
-              <img src={slide6} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src={slide7} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div>
               <img src={slide2} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
@@ -141,7 +96,28 @@ function LandingPage() {
                 </Link>
               </div>
             </div>
-            {/* <p className="legend">9 years of experience in Graphics Design</p> */}
+          </div>
+          <div>
+            <div>
+              <img src={slide3} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+                <h2 className="text-4xl font-semibold">Illustration</h2>
+                <h3 className="text-lg py-4 leading-7">
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
+                </h3>
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
+                  VIEW PORTFOLIO
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div>
@@ -165,55 +141,7 @@ function LandingPage() {
                 </Link>
               </div>
             </div>
-            {/* <p className="legend">71119+ Users visited</p> */}
-          </div>
-
-          <div>
-            <div className="relative">
-              <img src={slide1} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-            {/* <p className="legend">730+ Trusted Clients</p> */}
-          </div>
-
-          <div>
-            <div>
-              <img src={slide3} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-            {/* <p className="legend">620+ Project Completed</p> */}
+            {/* <p className="legend">9 years of experience in Graphics Design</p> */}
           </div>
 
           <div>
@@ -237,8 +165,80 @@ function LandingPage() {
                 </Link>
               </div>
             </div>
-            {/* <p className="legend">Responsibillity, Honesty, Reliability</p> */}
+            {/* <p className="legend">71119+ Users visited</p> */}
           </div>
+
+          <div>
+            <div className="relative">
+              <img src={slide6} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+                <h2 className="text-4xl font-semibold">Illustration</h2>
+                <h3 className="text-lg py-4 leading-7">
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
+                </h3>
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
+                  VIEW PORTFOLIO
+                </Link>
+              </div>
+            </div>
+            {/* <p className="legend">730+ Trusted Clients</p> */}
+          </div>
+
+          {/* <div>
+            <div>
+              <img src={slide3} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+                <h2 className="text-4xl font-semibold">Illustration</h2>
+                <h3 className="text-lg py-4 leading-7">
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
+                </h3>
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
+                  VIEW PORTFOLIO
+                </Link>
+              </div>
+            </div>
+            
+          </div>
+
+          <div>
+            <div>
+              <img src={slide5} alt="" />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+                <h2 className="text-4xl font-semibold">Illustration</h2>
+                <h3 className="text-lg py-4 leading-7">
+                  We'll give a shape of your ideas with a visually stunnig
+                  digital hand drawn illustrations. Our illustrators team and I
+                  creates a unique and beautiful children's book illustrations,
+                  comics, storyboards for you. visit our portfolo and see our
+                  recent works.
+                </h3>
+                <Link
+                  to="/illustration"
+                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
+                >
+                  VIEW PORTFOLIO
+                </Link>
+              </div>
+            </div>
+            
+          </div> */}
 
           {/* <div>
             <div>
