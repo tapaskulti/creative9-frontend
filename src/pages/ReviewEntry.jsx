@@ -24,18 +24,23 @@ function ReviewEntry() {
   return (
     <div>
       <div className="overflow-y-hidden grid justify-center">
-        <div>Add reviews</div>
-        <input
-          type="text"
-          placeholder=""
-          className=" border border-slate-200 px-2 py-1 rounded-md"
-          onChange={(e) => {
-            setreviewNote(e.target.value);
-          }}
-        />
-        <button onClick={handleSubmit} className="bg-green-600 px-6 py-1.5">
-          Submit
-        </button>
+        <h2 className="text-base font-medium text-center">Add Reviews</h2>
+        <div className="flex items-center space-x-3">
+          <textarea
+            type="text"
+            placeholder=""
+            className="border border-slate-200 px-2 py-1 rounded-md focus:outline-none my-2"
+            onChange={(e) => {
+              setreviewNote(e.target.value);
+            }}
+          />
+          <button
+            onClick={handleSubmit}
+            className="bg-green-600 px-6 py-1.5 rounded-md text-white"
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );
