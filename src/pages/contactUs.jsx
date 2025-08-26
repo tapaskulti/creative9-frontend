@@ -89,7 +89,7 @@ const ContactUs = () => {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.instagram.com/direct/inbox/"
+                    href=" https://www.instagram.com/creativevalley9/"
                     className="flex items-center space-x-3 mb-2 hover:text-[#0363af]"
                   >
                     <svg

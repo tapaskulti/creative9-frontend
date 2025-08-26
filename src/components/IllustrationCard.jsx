@@ -37,13 +37,13 @@ function IllustrationCard() {
           <div className="text-stone-500 font-semibold border-b">About</div>
           <div>
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. Lorem Ipsum is simply
-            dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when
-            an unknown printer took a galley of type and scrambled it to make a
-            type specimen book.
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. Lorem Ipsum is
+            simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has been the industry&apos;s standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
           </div>
         </div>
 
@@ -137,7 +137,7 @@ function IllustrationCard() {
           {/* basic */}
           {priceSction?.basic && (
             <div className="py-3">
-              <div className="text-stone-500">You'll get</div>
+              <div className="text-stone-500">You&apos;ll get</div>
               <div className="flex items-center space-x-2 px-10">
                 <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 1</div>
@@ -158,7 +158,7 @@ function IllustrationCard() {
           )}
           {priceSction?.standard && (
             <div className="py-3">
-              <div className="text-stone-500">You'll get</div>
+              <div className="text-stone-500">You&apos;ll get</div>
               <div className="flex items-center space-x-2 px-10">
                 <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 2</div>
@@ -179,7 +179,7 @@ function IllustrationCard() {
           )}
           {priceSction?.premium && (
             <div className="py-3">
-              <div className="text-stone-500">You'll get</div>
+              <div className="text-stone-500">You&apos;ll get</div>
               <div className="flex items-center space-x-2 px-10">
                 <div className=" rounded-full bg-[#0363af] w-3 h-3"></div>
                 <div>Feature 3</div>

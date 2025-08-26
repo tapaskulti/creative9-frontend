@@ -38,16 +38,19 @@ export default function Freelancer() {
                   BEST QUALITY ON TIME AT FARE PRICE
                 </h2>
                 <p className="text-sm leading-[22px]">
-                  hi there, I'm prabir Sarkar. I've done 1100 plus projects with
-                  850+ great reviews. I've completed 4 years degree course on
-                  painting from the Indian college of arts and draftsmanship
-                  from kolkata in India. From 2009 till now i'm working as a
-                  freelance illustrator and painter. I'm Working on children
-                  Book illustration, African American children book
-                  illustration, character illustration, 2d Game Design, Logo
-                  Design, Conceptual Drawing, Background illustration,portrait
-                  illustration, caricature illustration, t-shirt Design.
-                  <h2 className="py-2">Hit me on "creativevalley9".</h2>
+                  hi there, I&apos;m prabir Sarkar. I&apos;ve done 1100 plus
+                  projects with 850+ great reviews. I&apos;ve completed 4 years
+                  degree course on painting from the Indian college of arts and
+                  draftsmanship from kolkata in India. From 2009 till now
+                  i&apos;m working as a freelance illustrator and painter.
+                  I&apos;m Working on children Book illustration, African
+                  American children book illustration, character illustration,
+                  2d Game Design, Logo Design, Conceptual Drawing, Background
+                  illustration,portrait illustration, caricature illustration,
+                  t-shirt Design.
+                  <h2 className="py-2">
+                    Hit me on &quote;creativevalley9&quot;.
+                  </h2>
                 </p>
                 <h2 className="text-sm font-semibold">
                   Thanks,
@@ -84,19 +87,19 @@ export default function Freelancer() {
                   creativevalley9
                 </h3>
                 <h2 className="text-base font-medium py-2">
-                  WE'RE A TOP QUALITY / CHILDREN BOOK / LOGO / CHARACTER DESIGN
-                  / BG ARTISTS
+                  WE&apos;RE A TOP QUALITY / CHILDREN BOOK / LOGO / CHARACTER
+                  DESIGN / BG ARTISTS
                 </h2>
                 <p className="text-sm leading-[22px]">
-                  "I'LL SHAPE YOUR DREAM"
+                  &quote;I&apos;LL SHAPE YOUR DREAM&quote;
                   <br />
                   <h2 className="text-base font-medium py-2">
-                    I'M WORKING ON MY WACOM CINTIQ PRO 16 CINTIQ AND MOBILE
-                    STUDIO PRO 13"
+                    I&apos;M WORKING ON MY WACOM CINTIQ PRO 16 CINTIQ AND MOBILE
+                    STUDIO PRO 13&quote;
                   </h2>
-                  hi, I'm prabir sarkar a Great Skilled painter and illustrator.
-                  I'm working here as a freelance Illustrator, painter, and Logo
-                  Designer.{" "}
+                  hi, I&apos;m prabir sarkar a Great Skilled painter and
+                  illustrator. I&apos;m working here as a freelance Illustrator,
+                  painter, and Logo Designer.{" "}
                   <h2 className="py-2">
                     * Children Picture Book Illustration, <br />* Comics Book
                     Illustration, <br />* Graphic Novel Illustration, <br />*
@@ -133,17 +136,17 @@ export default function Freelancer() {
                 <h3 className="font-bold py-3">About me</h3>
 
                 <p className="text-sm leading-[22px]">
-                  hi, I'm prabir sarkar, specializes in Fine Art, especially
-                  pure fluid Watercolor and acrylic and oil color medium and
-                  custom illustration, character illustration, Background
-                  illustration, children book illustration, comics illustration.
-                  Thank you for visiting creativevalley9 on Etsy! While most of
-                  my works can be found on my website, I decided to return etsy
-                  after many requests from my art lovers. <br />
+                  hi, I&apos;m prabir sarkar, specializes in Fine Art,
+                  especially pure fluid Watercolor and acrylic and oil color
+                  medium and custom illustration, character illustration,
+                  Background illustration, children book illustration, comics
+                  illustration. Thank you for visiting creativevalley9 on Etsy!
+                  While most of my works can be found on my website, I decided
+                  to return etsy after many requests from my art lovers. <br />
                   <br />
                   plz, visit my Etsy shop and{" "}
                   <strong>www.creativevalley9.com</strong> <br />
-                  and enjoy my works. It's all my own creation and original
+                  and enjoy my works. It&apos;s all my own creation and original
                   works.
                 </p>
               </div>
@@ -175,16 +178,17 @@ export default function Freelancer() {
                 <p className="text-sm leading-[22px]">
                   hi there,
                   <br />
-                  i'm prabir Sarkar I've completed 4 years degree course on
-                  painting from the Indian college of arts and draftsmanship
-                  from kolkata in India. From 2009 till now i'm working as a
-                  freelance illustrator, painter and graphics designer. I'm
-                  Working on children Book illustration, African American
-                  children book illustration, character illustration, 2d Game
-                  Design, Logo Design, Conceptual Drawing, Background
-                  illustration,portrait illustration, caricature illustration,
-                  t-shirt Design, website Design, Mobile apps Design Hit me on
-                  "creativevalley9".
+                  i&apos;m prabir Sarkar I&apos;ve completed 4 years degree
+                  course on painting from the Indian college of arts and
+                  draftsmanship from kolkata in India. From 2009 till now
+                  i&apos;m working as a freelance illustrator, painter and
+                  graphics designer. I&apos;m Working on children Book
+                  illustration, African American children book illustration,
+                  character illustration, 2d Game Design, Logo Design,
+                  Conceptual Drawing, Background illustration,portrait
+                  illustration, caricature illustration, t-shirt Design, website
+                  Design, Mobile apps Design Hit me on
+                  &quote;creativevalley9&quote;.
                   <br />
                   <br />
                   Thanks,
@@ -203,7 +207,7 @@ export default function Freelancer() {
                   <br />
                   * Pencil shading work
                   <br />
-                  * Children's book Illustrations
+                  * Children&apos;s book Illustrations
                   <br />
                   * Caricature & Cartoon Designs
                   <br />

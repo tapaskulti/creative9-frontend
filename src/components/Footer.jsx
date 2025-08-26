@@ -165,7 +165,7 @@ const Footer = () => {
                   >
                     <img
                       src={Upwork}
-                      alt=""
+                      alt="Upwork"
                       className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
@@ -178,7 +178,7 @@ const Footer = () => {
                   >
                     <img
                       src={Fiverr}
-                      alt=""
+                      alt="Fiverr"
                       className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
@@ -193,7 +193,7 @@ const Footer = () => {
                   >
                     <img
                       src={Etsy}
-                      alt=""
+                      alt="Etsy"
                       className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
@@ -206,7 +206,7 @@ const Footer = () => {
                   >
                     <img
                       src={Freelancer}
-                      alt=""
+                      alt="Freelancer"
                       className="border border-slate-200 hover:border-slate-300 rounded-lg w-28 h-auto"
                     />
                   </a>
@@ -222,7 +222,11 @@ const Footer = () => {
               <ul>
                 <li className="flex items-center space-x-3 text-sm">
                   <span>
-                    <img src={Whatsapp} alt="" className="w-3.5 h-3.5" />
+                    <img
+                      src={Whatsapp}
+                      alt="Whatsapp"
+                      className="w-3.5 h-3.5"
+                    />
                   </span>
                   <h2>+91 78722 49293</h2>
                 </li>
@@ -230,7 +234,12 @@ const Footer = () => {
               <ul>
                 <li className="flex items-center space-x-3 text-sm">
                   <FontAwesomeIcon icon={faEnvelope} />
-                  <h2>creativevalley9@gmail.com</h2>
+                  <a
+                    href="mailto:creativevalley9@gmail.com"
+                    className="hover:text-slate-600"
+                  >
+                    creativevalley9@gmail.com
+                  </a>
                 </li>
               </ul>
               <ul>
@@ -244,7 +253,11 @@ const Footer = () => {
               </ul>
               <ul className="flex items-center space-x-6 pl-4 pt-2">
                 <li>
-                  <a href="https://www.facebook.com/creativevalley9graphicstudio">
+                  <a
+                    href="https://www.facebook.com/creativevalley9graphicstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FacebookSharp className="size-7" />
                   </a>
                 </li>

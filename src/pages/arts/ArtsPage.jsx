@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { Box, Modal, Typography } from "@mui/material";
 import { useState, Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Chat from "../../components/Chat";
+// import Chat from "../../components/Chat";
 import Footer from "../../components/Footer";
 // import { useSelector } from "react-redux";
 

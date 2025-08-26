@@ -82,11 +82,11 @@ function LandingPage() {
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
+                  We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
+                  creates a unique and beautiful children&apos;s book
+                  illustrations, comics, storyboards for you. visit our portfolo
+                  and see our recent works.
                 </h3>
                 <Link
                   to="/illustration"
@@ -104,11 +104,11 @@ function LandingPage() {
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
+                  We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
+                  creates a unique and beautiful children&apos;s book
+                  illustrations, comics, storyboards for you. visit our portfolo
+                  and see our recent works.
                 </h3>
                 <Link
                   to="/illustration"
@@ -127,11 +127,11 @@ function LandingPage() {
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
+                  We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
+                  creates a unique and beautiful children&apos;s book
+                  illustrations, comics, storyboards for you. visit our portfolo
+                  and see our recent works.
                 </h3>
                 <Link
                   to="/illustration"
@@ -151,11 +151,11 @@ function LandingPage() {
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
+                  We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
+                  creates a unique and beautiful children&apos;s book
+                  illustrations, comics, storyboards for you. visit our portfolo
+                  and see our recent works.
                 </h3>
                 <Link
                   to="/illustration"
@@ -175,11 +175,11 @@ function LandingPage() {
               <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
+                  We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
+                  creates a unique and beautiful children&apos;s book
+                  illustrations, comics, storyboards for you. visit our portfolo
+                  and see our recent works.
                 </h3>
                 <Link
                   to="/illustration"
