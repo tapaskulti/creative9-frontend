@@ -12,8 +12,11 @@ function SignupPage() {
   const handleSignup = () => {
     const payload = {
       name: newUser.firstName + " " + newUser.lastName,
+      phone_number: newUser.phone_number,
       email: newUser.email,
-      password: newUser.password
+      password: newUser.password,
+      state: newUser.state,
+      country: newUser.country
     };
     dispatch({
       type: "SIGNUP",
@@ -38,7 +41,7 @@ function SignupPage() {
                 Signup
               </div>
               <div className="py-1 space-y-5">
-                <div className="flex items-center space-x-5">
+                <div className="flex items-center space-x-2">
                   <div className="space-y-1 grow">
                     <div className="font-sans text-sm">First Name</div>
                     <input
@@ -66,19 +69,63 @@ function SignupPage() {
                     />
                   </div>
                 </div>
-                <div className="space-y-1">
-                  <div className="font-sans text-sm">Email</div>
-                  <input
-                    onChange={(e) => {
-                      setnewUser({
-                        ...newUser,
-                        email: e.target.value
-                      });
-                    }}
-                    placeholder="Enter your email"
-                    className="text-sm border border-gray-300 focus:outline-none w-full font-sans rounded-md px-2 py-2.5 bg-transparent"
-                  />
+                <div className="flex items-center space-x-2">
+                  <div className="space-y-1 grow">
+                    <div className="font-sans text-sm">Phone Number</div>
+                    <input
+                      onChange={(e) => {
+                        setnewUser({
+                          ...newUser,
+                          phone_number: e.target.value // amit fixed here
+                        });
+                      }}
+                      placeholder="Enter your phone number"
+                      className="text-sm border border-gray-300 focus:outline-none w-full font-sans rounded-md px-2 py-2.5 bg-transparent"
+                    />
+                  </div>
+                  <div className="space-y-1 grow">
+                    <div className="font-sans text-sm">Email</div>
+                    <input
+                      onChange={(e) => {
+                        setnewUser({
+                          ...newUser,
+                          email: e.target.value
+                        });
+                      }}
+                      placeholder="Enter your email"
+                      className="text-sm border border-gray-300 focus:outline-none w-full font-sans rounded-md px-2 py-2.5 bg-transparent"
+                    />
+                  </div>
                 </div>
+                <div className="flex items-center space-x-2">
+                  <div className="space-y-1 grow">
+                    <div className="font-sans text-sm">State</div>
+                    <input
+                      onChange={(e) => {
+                        setnewUser({
+                          ...newUser,
+                          state: e.target.value
+                        });
+                      }}
+                      placeholder="Enter your state"
+                      className="text-sm border border-gray-300 focus:outline-none w-full font-sans rounded-md px-2 py-2.5 bg-transparent"
+                    />
+                  </div>
+                  <div className="space-y-1 grow">
+                    <div className="font-sans text-sm">Country</div>
+                    <input
+                      onChange={(e) => {
+                        setnewUser({
+                          ...newUser,
+                          country: e.target.value
+                        });
+                      }}
+                      placeholder="Enter your country"
+                      className="text-sm border border-gray-300 focus:outline-none w-full font-sans rounded-md px-2 py-2.5 bg-transparent"
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-1">
                   <div className="font-sans text-sm">Password</div>
                   <input

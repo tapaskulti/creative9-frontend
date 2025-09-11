@@ -11,16 +11,18 @@ import {
   faCirclePlus,
   faCircleXmark,
   faClose,
-  faLocation,
+  faXmarkCircle,
+  faUser,
+  faEnvelope,
   faPhone,
-  faXmarkCircle
+  faCalendar,
+  faLocation
 } from "@fortawesome/free-solid-svg-icons";
 // import axios from "axios";
 // import { toast } from "react-toastify";
 import ModalComponent from "../../components/Modal";
 import { getPayingPrice } from "../../redux/art/artSlice";
 import { Circle } from "lucide-react";
-import { faCalendar, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 const socket = io("https://creativevalley9.com", {
   path: "/api/socket.io",
@@ -300,7 +302,7 @@ const Chat = () => {
     const images = [];
 
     files.forEach((file) => {
-      const reader = new FileReader();
+      const reader = FileReader();
 
       reader.onloadend = () => {
         images.push(reader.result);
@@ -1209,13 +1211,13 @@ const Chat = () => {
         </form>
       </dialog>
 
-      <div className="px-0 flex w-full">
+      <div className="px-5 flex w-full">
         <div>
           {/* contacts */}
-          <h2 className="bg-gray-100 max-w-80 h-12 flex items-center text-base justify-center text-center font-semibold text-black rounded-t-xl">
+          <div className="bg-gray-100 w-80 h-12 flex items-center justify-center text-center font-semibold text-gray-400 rounded-t-xl">
             Contacts
-          </h2>
-          <div className="space-y-2 h-[78vh] w-80 overflow-y-auto mr-2 scrollbar px-0">
+          </div>
+          <div className="space-y-2 h-[78vh] w-80 overflow-y-auto mr-2 scrollbar">
             {user?.role === "ADMIN" &&
               userList?.map((chatuser) => {
                 return (
@@ -1249,226 +1251,235 @@ const Chat = () => {
 
         {/* For Client Chat Window */}
         {receiver?.name ? (
-          <div className="flex-1 bg-slate-50 relative h-[83vh] border-2 border-slate-400 rounded-xl">
-            {/* chat window header */}
-            <div className="bg-gray-100 w-full h-12 flex items-center text-gray-400 border-b-2 border-slate-400 rounded-t-lg">
-              <div className="px-2 flex space-x-2 items-center">
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
-                />
-                <div>{receiver?.name}</div>
+          <div className="flex-1 bg-slate-50 relative h-[83vh] border-2 border-slate-400 rounded-xl flex">
+            {/* Main chat area */}
+            <div className="flex-1 flex flex-col">
+              {/* chat window header */}
+              <div className="bg-gray-100 w-full h-12 flex items-center text-gray-400 border-b-2 border-slate-400 rounded-t-lg">
+                <div className="px-2 flex space-x-2 items-center">
+                  <img
+                    className="w-10 h-10 rounded-full"
+                    src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
+                  />
+                  <div>{receiver?.name}</div>
+                </div>
               </div>
-            </div>
-            {/* chat box */}
-            <div className="h-[67vh] overflow-y-auto mt-2 scrollbar">
-              {receiver !== undefined &&
-                messages?.map((msg, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className={`mb-2 chat ${
-                        msg?.sender === user?._id ? "chat-end  " : "chat-start"
-                      }`}
-                    >
-                      {/* Date and Time */}
-                      <div className="text-xs font-semibold text-gray-600 mt-1 text-right">
-                        {msg.createdAt
-                          ? new Date(msg.createdAt).toLocaleString()
-                          : ""}
-                      </div>
+              {/* chat box */}
+              <div className="h-[67vh] overflow-y-auto mt-2 scrollbar flex-1">
+                {receiver !== undefined &&
+                  messages?.map((msg, index) => {
+                    return (
                       <div
-                        className={`${
+                        key={index}
+                        className={`mb-2 chat ${
                           msg?.sender === user?._id
-                            ? " chat-bubble bg-slate-100 border border-slate-300 text-black"
-                            : "bg-gray-200 text-black "
-                        } p-2 chat-bubble `}
+                            ? "chat-end  "
+                            : "chat-start"
+                        }`}
                       >
+                        {/* Date and Time */}
+                        <div className="text-xs font-semibold text-gray-600 mt-1 text-right">
+                          {msg.createdAt
+                            ? new Date(msg.createdAt).toLocaleString()
+                            : ""}
+                        </div>
                         <div
                           className={`${
-                            msg?.images?.length >= 2 && "grid grid-cols-2 gap-1"
-                          } `}
+                            msg?.sender === user?._id
+                              ? " chat-bubble bg-slate-100 border border-slate-300 text-black "
+                              : "bg-gray-200 text-black "
+                          } p-2 chat-bubble `}
                         >
-                          {msg?.images?.length > 0 &&
-                            msg?.images?.map((image, index) => (
-                              <div
-                                key={index}
-                                className="relative group w-32 h-auto"
-                              >
-                                <img
-                                  src={image?.secure_url}
-                                  alt={`Sent image ${index}`}
-                                  className="rounded-md shadow-lg w-full"
-                                />
-                                <a
-                                  href={image?.secure_url}
-                                  download={`image-${index}.jpg`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="absolute top-1 right-1 bg-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition"
-                                  title="Download image"
+                          <div
+                            className={`${
+                              msg?.images?.length >= 2 &&
+                              "grid grid-cols-2 gap-1"
+                            } `}
+                          >
+                            {msg?.images?.length > 0 &&
+                              msg?.images?.map((image, index) => (
+                                <div
+                                  key={index}
+                                  className="relative group w-32 h-auto"
                                 >
-                                  <svg
-                                    className="w-4 h-4 text-gray-600"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
+                                  <img
+                                    src={image?.secure_url}
+                                    alt={`Sent image ${index}`}
+                                    className="rounded-md shadow-lg w-full"
+                                  />
+                                  <a
+                                    href={image?.secure_url}
+                                    download={`image-${index}.jpg`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="absolute top-1 right-1 bg-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition"
+                                    title="Download image"
                                   >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v6m0 0l-3-3m3 3l3-3M12 4v8"
-                                    />
-                                  </svg>
-                                </a>
-                              </div>
-                            ))}
-                        </div>
-
-                        {(msg?.offer?.offerCreate === "Painting" ||
-                          msg?.offer?.offerCreate === "Illustration") && (
-                          <div>
-                            <div className="bg-slate-300 text-gray-900 font-semibold rounded-t-xl text-left px-2 py-2 mb-2">
-                              Offer for {msg?.offer?.offerCreate}
-                            </div>
-                            <div>
-                              <div className="flex space-x-2">
-                                <div>
-                                  {msg?.offer?.art && (
-                                    <img
-                                      src={msg?.offer?.art?.art[0]?.secure_url}
-                                      className="w-auto h-32"
-                                    />
-                                  )}
-                                  {msg?.offer?.illustration && (
-                                    <img
-                                      src={
-                                        msg?.offer?.illustration?.picture[0]
-                                          ?.secure_url
-                                      }
-                                      className="w-32 h-20"
-                                    />
-                                  )}
+                                    <svg
+                                      className="w-4 h-4 text-gray-600"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth="2"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v6m0 0l-3-3m3 3l3-3M12 4v8"
+                                      />
+                                    </svg>
+                                  </a>
                                 </div>
+                              ))}
+                          </div>
 
-                                <div>
-                                  <div className="flex space-x-1 items-center">
-                                    <div className="text-sm font-semibold">
-                                      Title:
-                                    </div>
-
-                                    <div className="text-gray-600">
-                                      {msg?.offer?.offerCreate === "Painting"
-                                        ? `${msg?.offer?.art?.title}`
-                                        : `${msg?.offer?.illustration?.title}`}
-                                    </div>
-                                  </div>
-                                  <div className="flex space-x-1 items-center">
-                                    <div className="text-sm font-semibold">
-                                      Description:
-                                    </div>
-
-                                    {msg?.offer?.description && (
-                                      <span className="text-gray-600">
-                                        {msg?.offer?.description}
-                                      </span>
+                          {(msg?.offer?.offerCreate === "Painting" ||
+                            msg?.offer?.offerCreate === "Illustration") && (
+                            <div>
+                              <div className="bg-slate-300 text-gray-900 font-semibold rounded-t-xl text-left px-2 py-2 mb-2">
+                                Offer for {msg?.offer?.offerCreate}
+                              </div>
+                              <div>
+                                <div className="flex space-x-2">
+                                  <div>
+                                    {msg?.offer?.art && (
+                                      <img
+                                        src={
+                                          msg?.offer?.art?.art[0]?.secure_url
+                                        }
+                                        className="w-auto h-32"
+                                      />
+                                    )}
+                                    {msg?.offer?.illustration && (
+                                      <img
+                                        src={
+                                          msg?.offer?.illustration?.picture[0]
+                                            ?.secure_url
+                                        }
+                                        className="w-32 h-20"
+                                      />
                                     )}
                                   </div>
+
+                                  <div>
+                                    <div className="flex space-x-1 items-center">
+                                      <div className="text-sm font-semibold">
+                                        Title:
+                                      </div>
+
+                                      <div className="text-gray-600">
+                                        {msg?.offer?.offerCreate === "Painting"
+                                          ? `${msg?.offer?.art?.title}`
+                                          : `${msg?.offer?.illustration?.title}`}
+                                      </div>
+                                    </div>
+                                    <div className="flex space-x-1 items-center">
+                                      <div className="text-sm font-semibold">
+                                        Description:
+                                      </div>
+
+                                      {msg?.offer?.description && (
+                                        <span className="text-gray-600">
+                                          {msg?.offer?.description}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <br />
-                              <div>
-                                <div className="">
-                                  {msg?.offer.deliveryDays && (
-                                    <span className="text-gray-600">
-                                      Delivery within{" "}
-                                      <b> {msg?.offer?.deliveryDays} days </b>
-                                    </span>
-                                  )}
-                                  <br />
-
-                                  {msg?.offer?.revisions && (
-                                    <span className="text-gray-600">
-                                      {" "}
-                                      {parseInt(msg?.offer?.revisions) > 1
-                                        ? "Revisions"
-                                        : "revision"}{" "}
-                                      <b>{msg?.offer?.revisions} </b>
-                                    </span>
-                                  )}
-                                  <br />
-
-                                  {/* painting Fields  */}
-                                  {msg?.offer?.pageSize && (
-                                    <span className="text-gray-600">
-                                      Page Size <b>{msg?.offer?.pageSize} </b>
-                                    </span>
-                                  )}
-                                  <br />
-
-                                  {msg?.offer?.pageSize && (
-                                    <span className="text-gray-600">
-                                      Canvas Size{" "}
-                                      <b>{msg?.offer?.canvasSize} </b>
-                                    </span>
-                                  )}
-                                  <br />
-
-                                  {msg?.offer?.withFrame === true && (
-                                    <span className="text-gray-600">
-                                      With Frame{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.withFrame === true && (
-                                          <input type="checkbox" checked />
-                                        )}
+                                <br />
+                                <div>
+                                  <div className="">
+                                    {msg?.offer.deliveryDays && (
+                                      <span className="text-gray-600">
+                                        Delivery within{" "}
+                                        <b> {msg?.offer?.deliveryDays} days </b>
                                       </span>
-                                    </span>
-                                  )}
-                                  <br />
-                                  {msg?.offer?.withoutFrame === true && (
-                                    <span className="text-gray-600">
-                                      Without Frame{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.withoutFrame === true && (
-                                          <input type="checkbox" checked />
-                                        )}
+                                    )}
+                                    <br />
+
+                                    {msg?.offer?.revisions && (
+                                      <span className="text-gray-600">
+                                        {" "}
+                                        {parseInt(msg?.offer?.revisions) > 1
+                                          ? "Revisions"
+                                          : "revision"}{" "}
+                                        <b>{msg?.offer?.revisions} </b>
                                       </span>
-                                    </span>
-                                  )}
+                                    )}
+                                    <br />
 
-                                  <br />
-                                  {msg?.offer?.medium && (
-                                    <span className="text-gray-600">
-                                      Medium <b>{msg?.offer?.medium} </b>
-                                    </span>
-                                  )}
-                                  <br />
-
-                                  {msg?.offer?.totalPainting && (
-                                    <span className="text-gray-600">
-                                      Total Painting{" "}
-                                      <b>{msg?.offer?.totalPainting} </b>
-                                    </span>
-                                  )}
-                                  <br />
-
-                                  {/* painting fields */}
-
-                                  {msg?.offer?.numberOfFigures && (
-                                    <span className="text-gray-600">
-                                      {" "}
-                                      {parseInt(msg?.offer?.numberOfFigures) > 1
-                                        ? "Figures"
-                                        : "figure"}{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.numberOfFigures}
+                                    {/* painting Fields  */}
+                                    {msg?.offer?.pageSize && (
+                                      <span className="text-gray-600">
+                                        Page Size <b>{msg?.offer?.pageSize} </b>
                                       </span>
-                                    </span>
-                                  )}
-                                  <br />
+                                    )}
+                                    <br />
 
-                                  {/* {msg?.offer?.sourceFile && (
+                                    {msg?.offer?.pageSize && (
+                                      <span className="text-gray-600">
+                                        Canvas Size{" "}
+                                        <b>{msg?.offer?.canvasSize} </b>
+                                      </span>
+                                    )}
+                                    <br />
+
+                                    {msg?.offer?.withFrame === true && (
+                                      <span className="text-gray-600">
+                                        With Frame{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.withFrame === true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
+                                      </span>
+                                    )}
+                                    <br />
+                                    {msg?.offer?.withoutFrame === true && (
+                                      <span className="text-gray-600">
+                                        Without Frame{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.withoutFrame ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
+                                      </span>
+                                    )}
+
+                                    <br />
+                                    {msg?.offer?.medium && (
+                                      <span className="text-gray-600">
+                                        Medium <b>{msg?.offer?.medium} </b>
+                                      </span>
+                                    )}
+                                    <br />
+
+                                    {msg?.offer?.totalPainting && (
+                                      <span className="text-gray-600">
+                                        Total Painting{" "}
+                                        <b>{msg?.offer?.totalPainting} </b>
+                                      </span>
+                                    )}
+                                    <br />
+
+                                    {/* painting fields */}
+
+                                    {msg?.offer?.numberOfFigures && (
+                                      <span className="text-gray-600">
+                                        {" "}
+                                        {parseInt(msg?.offer?.numberOfFigures) >
+                                        1
+                                          ? "Figures"
+                                          : "figure"}{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.numberOfFigures}
+                                        </span>
+                                      </span>
+                                    )}
+                                    <br />
+
+                                    {/* {msg?.offer?.sourceFile && (
                                     <span className="text-gray-600">
                                       Source file{" "}
                                       <span className="font-bold">
@@ -1477,45 +1488,45 @@ const Chat = () => {
                                     </span>
                                   )} */}
 
-                                  {msg?.offer?.sourceFile === true && (
-                                    <span className="text-gray-600">
-                                      Source file{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.sourceFile === true && (
-                                          <input type="checkbox" checked />
-                                        )}
+                                    {msg?.offer?.sourceFile === true && (
+                                      <span className="text-gray-600">
+                                        Source file{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.sourceFile === true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
                                       </span>
-                                    </span>
-                                  )}
+                                    )}
 
-                                  <br />
-                                  {msg?.offer?.colourIllustration == true && (
-                                    <span className="text-gray-600">
-                                      Colour Illustration{" "}
-                                      <span className="font-bold">
-                                        {console.log(msg?.offer, "test")}
-                                        {msg?.offer?.colourIllustration ===
-                                          true && (
-                                          <input type="checkbox" checked />
-                                        )}
+                                    <br />
+                                    {msg?.offer?.colourIllustration == true && (
+                                      <span className="text-gray-600">
+                                        Colour Illustration{" "}
+                                        <span className="font-bold">
+                                          {console.log(msg?.offer, "test")}
+                                          {msg?.offer?.colourIllustration ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
                                       </span>
-                                    </span>
-                                  )}
-                                  <br />
-                                  {msg?.offer?.blackAndWhiteIllustration ===
-                                    true && (
-                                    <span className="text-gray-600">
-                                      Black & White Illustration{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer
-                                          ?.blackAndWhiteIllustration ===
-                                          true && (
-                                          <input type="checkbox" checked />
-                                        )}
+                                    )}
+                                    <br />
+                                    {msg?.offer?.blackAndWhiteIllustration ===
+                                      true && (
+                                      <span className="text-gray-600">
+                                        Black & White Illustration{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer
+                                            ?.blackAndWhiteIllustration ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
                                       </span>
-                                    </span>
-                                  )}
-                                  {/* <br />
+                                    )}
+                                    {/* <br />
                                   {msg?.offer?.fullColorIllustration ===
                                     true && (
                                     <span className="text-gray-600">
@@ -1528,92 +1539,94 @@ const Chat = () => {
                                       </span>
                                     </span>
                                   )} */}
+                                    <br />
+                                    {msg?.offer?.backgroundScene === true && (
+                                      <span className="text-gray-600">
+                                        Background/Scene{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.backgroundScene ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
+                                      </span>
+                                    )}
+                                    <br />
+                                    {msg?.offer?.blackAndWhitelineDrawing ===
+                                      true && (
+                                      <span className="text-gray-600">
+                                        Black and White Linedrawing{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer
+                                            ?.blackAndWhitelineDrawing ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
+                                      </span>
+                                    )}
+                                    <br />
+                                    {msg?.offer?.copyrightAndOwnership ===
+                                      true && (
+                                      <span className="text-gray-600">
+                                        Copyright and ownership{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.copyrightAndOwnership ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
+                                      </span>
+                                    )}
+                                    <br />
+                                    {msg?.offer?.pricePerIllustration ===
+                                      true && (
+                                      <span className="text-gray-600">
+                                        Price per Illustration{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.pricePerIllustration ===
+                                            true && (
+                                            <input type="checkbox" checked />
+                                          )}
+                                        </span>
+                                      </span>
+                                    )}
+                                    {msg?.offer?.totalIllustration && (
+                                      <span className="text-gray-600">
+                                        Total Illustration{" "}
+                                        <span className="font-bold">
+                                          {msg?.offer?.totalIllustration}
+                                        </span>
+                                      </span>
+                                    )}
+                                  </div>
                                   <br />
-                                  {msg?.offer?.backgroundScene === true && (
-                                    <span className="text-gray-600">
-                                      Background/Scene{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.backgroundScene ===
-                                          true && (
-                                          <input type="checkbox" checked />
-                                        )}
-                                      </span>
-                                    </span>
-                                  )}
-                                  <br />
-                                  {msg?.offer?.blackAndWhitelineDrawing ===
-                                    true && (
-                                    <span className="text-gray-600">
-                                      Black and White Linedrawing{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer
-                                          ?.blackAndWhitelineDrawing ===
-                                          true && (
-                                          <input type="checkbox" checked />
-                                        )}
-                                      </span>
-                                    </span>
-                                  )}
-                                  <br />
-                                  {msg?.offer?.copyrightAndOwnership ===
-                                    true && (
-                                    <span className="text-gray-600">
-                                      Copyright and ownership{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.copyrightAndOwnership ===
-                                          true && (
-                                          <input type="checkbox" checked />
-                                        )}
-                                      </span>
-                                    </span>
-                                  )}
-                                  <br />
-                                  {msg?.offer?.pricePerIllustration ===
-                                    true && (
-                                    <span className="text-gray-600">
-                                      Price per Illustration{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.pricePerIllustration ===
-                                          true && (
-                                          <input type="checkbox" checked />
-                                        )}
-                                      </span>
-                                    </span>
-                                  )}
-                                  {msg?.offer?.totalIllustration && (
-                                    <span className="text-gray-600">
-                                      Total Illustration{" "}
-                                      <span className="font-bold">
-                                        {msg?.offer?.totalIllustration}
-                                      </span>
-                                    </span>
-                                  )}
-                                </div>
-                                <br />
-                                {msg?.offer?.singlePaymentPrice === "" ? (
-                                  <>
-                                    <div className="text-gray-600">
-                                      Your payment milestones:{" "}
-                                    </div>
-                                    <div>
-                                      <div className="text-sm text-[#0363af] border-b border-[#0363af]/70">
-                                        <div className="text-base font-semibold">
-                                          Total Price:
-                                          {msg?.offer?.totalMileStonePrice}
-                                        </div>
-                                        <div className="flex space-x-3 items-center mt-3">
-                                          <h2 className="w-40">
-                                            MileStone Name
-                                          </h2>
-                                          <h2 className="w-20">Page from</h2>
-                                          <h2 className="w-16">Page to</h2>
-                                          <h2 className="w-24">
-                                            Price per page
-                                          </h2>
-                                          <h2 className="w-20">Total price</h2>
-                                        </div>
+                                  {msg?.offer?.singlePaymentPrice === "" ? (
+                                    <>
+                                      <div className="text-gray-600">
+                                        Your payment milestones:{" "}
                                       </div>
-                                      {/* {msg?.offer?.milestone &&
+                                      <div>
+                                        <div className="text-sm text-[#0363af] border-b border-[#0363af]/70">
+                                          <div className="text-base font-semibold">
+                                            Total Price:
+                                            {msg?.offer?.totalMileStonePrice}
+                                          </div>
+                                          <div className="flex space-x-3 items-center mt-3">
+                                            <h2 className="w-40">
+                                              MileStone Name
+                                            </h2>
+                                            <h2 className="w-20">Page from</h2>
+                                            <h2 className="w-16">Page to</h2>
+                                            <h2 className="w-24">
+                                              Price per page
+                                            </h2>
+                                            <h2 className="w-20">
+                                              Total price
+                                            </h2>
+                                          </div>
+                                        </div>
+                                        {/* {msg?.offer?.milestone &&
                                         Object.values(
                                           msg?.offer?.milestone
                                         ).map((m, index) => {
@@ -1699,9 +1712,10 @@ const Chat = () => {
                                           );
                                         })} */}
 
-                                      {msg?.offer?.milestone &&
-                                        Object.keys(msg?.offer?.milestone).map(
-                                          (m) => {
+                                        {msg?.offer?.milestone &&
+                                          Object.keys(
+                                            msg?.offer?.milestone
+                                          ).map((m) => {
                                             return (
                                               <div
                                                 key={m}
@@ -1796,82 +1810,82 @@ const Chat = () => {
                                                 )}
                                               </div>
                                             );
-                                          }
-                                        )}
-                                    </div>
-                                  </>
-                                ) : (
-                                  <>
-                                    <div className="text-gray-600  flex  flex-col">
-                                      <span>
-                                        Total Price{" "}
-                                        <span className="font-bold">
-                                          {msg?.offer?.singlePaymentPrice}
-                                        </span>
-                                      </span>
-                                      {msg?.offer?.isPaid ? (
-                                        <>
-                                          <span className="text-green-600">
-                                            Paid{" "}
-                                            <span className="text-sm text-gray-400 italic">
-                                              {msg?.offer?.paidTime}
-                                            </span>
+                                          })}
+                                      </div>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <div className="text-gray-600  flex  flex-col">
+                                        <span>
+                                          Total Price{" "}
+                                          <span className="font-bold">
+                                            {msg?.offer?.singlePaymentPrice}
                                           </span>
-                                        </>
-                                      ) : (
-                                        <span
-                                          onClick={() => {
-                                            handleCheckout({
-                                              msg: msg,
-                                              price:
-                                                msg?.offer?.singlePaymentPrice,
-                                              product_type:
-                                                msg?.offer?.offerCreate,
-                                              product_image:
-                                                msg?.offer?.art?.art[0]
-                                                  ?.secure_url
-                                            });
-                                          }}
-                                          className="bg-[#0363af] hover:bg-[#0363af]/80 px-1 py-1 text-white w-20 mt-1 text-sm text-center rounded-full cursor-pointer"
-                                        >
-                                          {/* <PayPalScriptProvider
+                                        </span>
+                                        {msg?.offer?.isPaid ? (
+                                          <>
+                                            <span className="text-green-600">
+                                              Paid{" "}
+                                              <span className="text-sm text-gray-400 italic">
+                                                {msg?.offer?.paidTime}
+                                              </span>
+                                            </span>
+                                          </>
+                                        ) : (
+                                          <span
+                                            onClick={() => {
+                                              handleCheckout({
+                                                msg: msg,
+                                                price:
+                                                  msg?.offer
+                                                    ?.singlePaymentPrice,
+                                                product_type:
+                                                  msg?.offer?.offerCreate,
+                                                product_image:
+                                                  msg?.offer?.art?.art[0]
+                                                    ?.secure_url
+                                              });
+                                            }}
+                                            className="bg-[#0363af] hover:bg-[#0363af]/80 px-1 py-1 text-white w-20 mt-1 text-sm text-center rounded-full cursor-pointer"
+                                          >
+                                            {/* <PayPalScriptProvider
                                                         options={initialOptions}
                                                       >
                                                         <PayPalButtons                                                         
                                                         />
                                                       </PayPalScriptProvider> */}
-                                          Pay Now
-                                        </span>
-                                      )}
-                                    </div>
-                                  </>
-                                )}
+                                            Pay Now
+                                          </span>
+                                        )}
+                                      </div>
+                                    </>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        )}
+                          )}
 
-                        <span className="">{msg?.message}</span>
+                          <span className="">{msg?.message}</span>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              <div ref={bottomRef} />
-            </div>
+                    );
+                  })}
+                <div ref={bottomRef} />
+              </div>
 
-            {/* messgae input field */}
-            <div className="mb-2 px-2 bottom-0 absolute w-full items-center space-y-2">
-              {openEmojiPicker && (
-                <div className="absolute bottom-20">
-                  <EmojiPicker
-                    onEmojiClick={(e) => {
-                      console.log(e, "emoji");
-                      setMessage(message + e.emoji);
-                    }}
-                  />
-                </div>
-              )}
-              {/* {selectedImages?.length > 0 && (
+              {/* messgae input field */}
+              <div className="mb-2 px-2 bottom-0 w-full items-center space-y-2">
+                {openEmojiPicker && (
+                  <div className="absolute bottom-16">
+                    <EmojiPicker
+                      onEmojiClick={(e) => {
+                        console.log(e, "emoji");
+                        setMessage(message + e.emoji);
+                      }}
+                    />
+                  </div>
+                )}
+                {/* {selectedImages?.length > 0 && (
                 <div className="absolute bottom-16 grid grid-cols-1 gap-2 px-1.5 py-1.5 bg-gray-300/50 h-40 overflow-y-auto group-hover:block">
                   <div
                     className="absolute right-2 top-2 text-black bg-white size-6 rounded-full p-0.5 cursor-pointer"
@@ -1890,119 +1904,212 @@ const Chat = () => {
                 </div>
               )} */}
 
-              {selectedImages.length > 0 && (
-                <div className="absolute bottom-20 left-0 right-0 flex gap-2 px-2 py-2 bg-gray-300/50 h-40 overflow-x-auto">
-                  {selectedImages.map((image, index) => (
-                    <div
-                      key={index}
-                      className="relative group w-32 h-32 shrink-0"
-                    >
-                      {/* Image */}
-                      <img
-                        src={image}
-                        alt={`Image ${index}`}
-                        className="w-full h-full object-cover rounded"
-                      />
-
-                      {/* Delete Icon */}
+                {selectedImages.length > 0 && (
+                  <div className="absolute bottom-16 left-0 right-0 flex gap-2 px-2 py-2 bg-gray-300/50 h-40 overflow-x-auto">
+                    {selectedImages.map((image, index) => (
                       <div
-                        className="absolute top-1 right-1 text-red-500 bg-white rounded-full px-1 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                        onClick={() => handleRemoveImage(index)}
+                        key={index}
+                        className="relative group w-32 h-32 shrink-0"
                       >
-                        <FontAwesomeIcon
-                          icon={faXmarkCircle}
-                          className="w-4 h-4"
+                        {/* Image */}
+                        <img
+                          src={image}
+                          alt={`Image ${index}`}
+                          className="w-full h-full object-cover rounded"
                         />
+
+                        {/* Delete Icon */}
+                        <div
+                          className="absolute top-1 right-1 text-red-500 bg-white rounded-full px-1 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                          onClick={() => handleRemoveImage(index)}
+                        >
+                          <FontAwesomeIcon
+                            icon={faXmarkCircle}
+                            className="w-4 h-4"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+                    ))}
+                  </div>
+                )}
 
-              <div className="flex">
-                <input
-                  placeholder="Send Message"
-                  onKeyPress={(e) => {
-                    if (e.key === "Enter") {
-                      handleSendMessage();
-                    }
-                  }}
-                  onChange={(e) => {
-                    setMessage(e.target.value);
-                  }}
-                  value={message}
-                  className="relative w-full rounded-md border-2 border-slate-400 px-2 py-1.5 text-sm pr-14"
-                />
-                <button
-                  className={`absolute right-4 border-l border-slate-300 pl-2 ${
-                    setopenEmojiPicker ? " top-1.5 " : "top-1"
-                  }`}
-                  onClick={handleSendMessage}
-                >
-                  <Send />
-                </button>
-              </div>
-              <input
-                type="file"
-                ref={imagePickerRef}
-                className="hidden"
-                multiple
-                onChange={handleImageChange}
-              />
-
-              {selectedImages?.length === 0 ? (
-                <button
-                  onClick={() => {
-                    imagePickerRef.current.click();
-                  }}
-                  className=" "
-                >
-                  <AttachFile className="w-5 text-green-600" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setimages();
-                    setSelectedImages([]);
-                  }}
-                >
-                  <FontAwesomeIcon
-                    icon={faClose}
-                    className="flex justify-end text-right text-red-500"
+                <div className="flex">
+                  <input
+                    placeholder="Send Message"
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        handleSendMessage();
+                      }
+                    }}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
+                    value={message}
+                    className="relative w-full rounded-md border-2 border-slate-400 px-2 py-1.5 text-sm pr-14"
                   />
-                </button>
-              )}
+                  <button
+                    className="absolute right-4 top-1 border-l border-slate-300 pl-2"
+                    onClick={handleSendMessage}
+                  >
+                    <Send />
+                  </button>
+                </div>
+                <input
+                  type="file"
+                  ref={imagePickerRef}
+                  className="hidden"
+                  multiple
+                  onChange={handleImageChange}
+                />
 
-              {openEmojiPicker ? (
-                <button
-                  className="px-3"
-                  onClick={() => {
-                    setopenEmojiPicker(false);
-                  }}
-                >
-                  <span>
-                    <Close />
-                  </span>
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setopenEmojiPicker(true);
-                  }}
-                  className="px-3"
-                >
-                  <span>😀</span>
-                </button>
-              )}
+                {selectedImages?.length === 0 ? (
+                  <button
+                    onClick={() => {
+                      imagePickerRef.current.click();
+                    }}
+                    className=" "
+                  >
+                    <AttachFile className="w-5 text-green-600" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setimages();
+                      setSelectedImages([]);
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faClose}
+                      className="flex justify-end text-right text-red-500"
+                    />
+                  </button>
+                )}
 
-              {user?.role === "ADMIN" && (
-                <button
-                  onClick={() => window.my_modal_2.showModal()}
-                  className="text-sm border border-slate-300 bg-slate-100 px-2 py-1 hover:bg-[#0363af] hover:text-white rounded-lg"
-                >
-                  Create an Offer
-                </button>
-              )}
+                {openEmojiPicker ? (
+                  <button
+                    onClick={() => {
+                      setopenEmojiPicker(false);
+                    }}
+                  >
+                    <span>
+                      <Close />
+                    </span>
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setopenEmojiPicker(true);
+                    }}
+                    className="px-3"
+                  >
+                    <span>😀</span>
+                  </button>
+                )}
+
+                {user?.role === "ADMIN" && (
+                  <button
+                    onClick={() => window.my_modal_2.showModal()}
+                    className="text-sm border border-slate-300 bg-slate-100 px-2 py-1 hover:bg-[#0363af] hover:text-white rounded-lg"
+                  >
+                    Create an Offer
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* User Details Panel on the right side */}
+            <div className="w-80 border-l border-slate-300 bg-gray-50 p-4 overflow-y-auto">
+              <div className="text-lg font-semibold text-gray-700 mb-4">
+                User Details
+              </div>
+
+              <div className="flex flex-col items-center mb-4">
+                <img
+                  className="w-24 h-24 rounded-full border-2 border-white shadow-md mb-3"
+                  src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
+                  alt={receiver?.name}
+                />
+                <h2 className="text-xl font-bold text-gray-800">
+                  {receiver?.name}
+                </h2>
+                <p className="text-sm text-gray-500 capitalize">
+                  {receiver?.role?.toLowerCase()}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="w-4 h-4 text-gray-500 mr-3"
+                  />
+                  <div>
+                    <p className="text-xs text-gray-400">Email</p>
+                    <p className="text-sm text-gray-700">
+                      {receiver?.email || "Not provided"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    className="w-4 h-4 text-gray-500 mr-3"
+                  />
+                  <div>
+                    <p className="text-xs text-gray-400">Phone</p>
+                    <p className="text-sm text-gray-700">
+                      {receiver?.phone_number || "Not provided"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faLocation}
+                    className="w-4 h-4 text-gray-500 mr-3"
+                  />
+                  <div>
+                    <p className="text-xs text-gray-400">Location</p>
+                    <p className="text-sm text-gray-700">
+                      {receiver?.state + ", " + receiver?.country ||
+                        "Not provided"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faCalendar}
+                    className="w-4 h-4 text-gray-500 mr-3"
+                  />
+                  <div>
+                    <p className="text-xs text-gray-400">Member Since</p>
+                    <p className="text-sm text-gray-700">
+                      {receiver?.createdAt
+                        ? new Date(receiver.createdAt).toLocaleDateString()
+                        : "Unknown"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-gray-200">
+                  <h3 className="text-sm font-medium text-gray-600 mb-2">
+                    Recent Activity
+                  </h3>
+                  <div className="text-xs text-gray-500 space-y-1">
+                    <p>• Last seen: Recently</p>
+                    <p>
+                      • Messages sent:{" "}
+                      {
+                        messages.filter((m) => m.sender === receiver?._id)
+                          .length
+                      }
+                    </p>
+                    <p>• Active status: Online</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
@@ -2010,97 +2117,6 @@ const Chat = () => {
             Select a user to chat
           </div>
         )}
-
-        {/* User Details Panel on the right side */}
-        <div>
-          <h2 className="w-80 text-base bg-gray-100 h-12 font-semibold flex items-center justify-center text-center text-black mb-4 rounded-t-xl">
-            User Details
-          </h2>
-
-          <div className="flex flex-col items-center mb-4">
-            <img
-              className="w-24 h-24 rounded-full border-2 border-white shadow-md mb-3"
-              src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
-              alt={receiver?.name}
-            />
-            <h2 className="w-60 truncate text-xl font-bold text-gray-800">
-              {receiver?.name}
-            </h2>
-            <p className="text-sm text-gray-500 capitalize">
-              {receiver?.role?.toLowerCase()}
-            </p>
-          </div>
-
-          <div className="space-y-3 px-5">
-            <div className="flex items-center">
-              <FontAwesomeIcon
-                icon={faEnvelope}
-                className="w-4 h-4 text-gray-500 mr-3"
-              />
-              <div>
-                <p className="text-xs text-gray-400">Email</p>
-                <p className="w-60 truncate text-sm text-gray-700">
-                  {receiver?.email || "Not provided"}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <FontAwesomeIcon
-                icon={faPhone}
-                className="w-4 h-4 text-gray-500 mr-3"
-              />
-              <div>
-                <p className="text-xs text-gray-400">Phone</p>
-                <p className="text-sm text-gray-700">
-                  {receiver?.phone_number || "Not provided"}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <FontAwesomeIcon
-                icon={faLocation}
-                className="w-4 h-4 text-gray-500 mr-3"
-              />
-              <div>
-                <p className="text-xs text-gray-400">Location</p>
-                <p className="text-sm text-gray-700">
-                  {receiver?.state + ", " + receiver?.country || "Not provided"}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <FontAwesomeIcon
-                icon={faCalendar}
-                className="w-4 h-4 text-gray-500 mr-3"
-              />
-              <div>
-                <p className="text-xs text-gray-400">Member Since</p>
-                <p className="text-sm text-gray-700">
-                  {receiver?.createdAt
-                    ? new Date(receiver.createdAt).toLocaleDateString()
-                    : "Unknown"}
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-gray-200">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">
-                Recent Activity
-              </h3>
-              <div className="text-xs text-gray-500 space-y-1">
-                <p>• Last seen: Recently</p>
-                <p>
-                  • Messages sent:{" "}
-                  {messages.filter((m) => m.sender === receiver?._id).length}
-                </p>
-                <p>• Active status: Online</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -2124,7 +2140,7 @@ const Contact = ({ onClick, userName }) => {
               <div className="text-sm text-gray-500">last message</div>
             </div>
           </div>
-          <div className="text-xs text-gray-500">12.04.2022</div>
+          <div className="text-xs text-gray-500"></div>
         </div>
       </div>
     </>
