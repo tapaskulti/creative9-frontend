@@ -2023,7 +2023,7 @@ const Chat = () => {
               src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
               alt={receiver?.name}
             />
-            <h2 className="w-60 truncate text-xl font-bold text-gray-800">
+            <h2 className="w-60 text-center truncate text-xl font-bold text-gray-800">
               {receiver?.name}
             </h2>
             <p className="text-sm text-gray-500 capitalize">
