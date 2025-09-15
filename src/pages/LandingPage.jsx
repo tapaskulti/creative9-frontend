@@ -242,7 +242,7 @@ function LandingPage() {
                   40+ countries and earning 1,600+ positive reviews in
                   Fiverr.com, upwork.com, Freelancer.com and Etsy.com.
                 </div>
-                <Link to="/About-us">
+                <Link to="/About-founder">
                   <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">
                     Read More
                   </button>
