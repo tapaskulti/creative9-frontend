@@ -30,6 +30,7 @@ import SuccessPayment from "./pages/SuccessPayment";
 import CancelPayment from "./pages/CancelPayment";
 import ReviewEntry from "./pages/ReviewEntry";
 import AboutUs from "./components/AboutUs";
+import AboutFounder from "./components/AboutFounder";
 import Freelancer from "./components/Freelancer";
 import CartPage from "./pages/Cart";
 
@@ -84,6 +85,7 @@ function App() {
           <Route path="/shipping-delivery" element={<ShippingDelivery />} />
           <Route path="/freelancer" element={<Freelancer />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/about-founder" element={<AboutFounder />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/success" element={<SuccessPayment />} />
           <Route path="/cancel" element={<CancelPayment />} />
