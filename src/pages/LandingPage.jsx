@@ -20,8 +20,8 @@ import slide6 from "./../assets/slide6.jpg";
 
 import Header from "../components/Header";
 // import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+// import { useSelector } from "react-redux";
 import Footer from "../components/Footer";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -31,8 +31,8 @@ import PortfolioPainting from "../components/PortfolioPainting";
 import PortfolioIllustrator from "../components/portfolioIllustrator";
 
 function LandingPage() {
-  const navigate = useNavigate();
-  const { token } = useSelector((state) => state.user);
+  // const navigate = useNavigate();
+  // const { token } = useSelector((state) => state.user);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -191,108 +191,65 @@ function LandingPage() {
             </div>
             {/* <p className="legend">730+ Trusted Clients</p> */}
           </div>
-
-          {/* <div>
-            <div>
-              <img src={slide3} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-            
-          </div>
-
-          <div>
-            <div>
-              <img src={slide5} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-            
-          </div> */}
-
-          {/* <div>
-            <div>
-              <img src={slide7} alt="" />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
-                <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
-                  We'll give a shape of your ideas with a visually stunnig
-                  digital hand drawn illustrations. Our illustrators team and I
-                  creates a unique and beautiful children's book illustrations,
-                  comics, storyboards for you. visit our portfolo and see our
-                  recent works.
-                </h3>
-                <Link
-                  to="/illustration"
-                  className="text-sm bg-[#0363af] rounded-md text-white px-6 py-2.5"
-                >
-                  VIEW PORTFOLIO
-                </Link>
-              </div>
-            </div>
-
-          </div> */}
         </Carousel>
         {/* content */} {/* Snaps */}
         <div className="z-0 overflow-x-hidden">
-          <div className="w-full pt-10 pb-20 lg:px-64">
-            <div className="font-sans text-2xl font-semibold lg:text-5xl">
-              Best Paintings and Illustrations Studio
-            </div>
-            <h2 className="text-lg font-semibold py-4">
-              We&apos;re trusted by more than 730 clients
-            </h2>
-            <div>
-              <div className="font-sans tracking-wider text-justify text-[#682c02] leading-7">
-                At CreativeValley9, we offer a comprehensive range of services
-                designed to elevate your brand and drive your business forward.
-                Our expertise includes creative design, digital marketing, web
-                development, and brand management. We craft tailored solutions
-                that enhance your online presence, engage your audience, and
-                achieve your goals. From visually striking designs and effective
-                SEO to compelling content and strategic guidance, our team is
-                committed to delivering exceptional results. Reach out to us to
-                explore how we can help your business thrive.
+          <div className="flex justify-between lg:px-10 items-start space-x-10">
+            <div className="w-full pt-10 pb-20 ">
+              <div className="font-sans text-2xl font-semibold lg:text-3xl">
+                Best Paintings and Illustrations Studio
               </div>
-              <Link to="/About-us">
-                <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">
-                  Read More
-                </button>
-              </Link>
+              <h2 className="text-lg font-semibold py-4">
+                We&apos;re trusted by more than 730 clients
+              </h2>
+              <div>
+                <div className="font-sans tracking-wider text-justify text-[#682c02] leading-7">
+                  At CreativeValley9, we offer a comprehensive range of services
+                  designed to elevate your brand and drive your business
+                  forward. Our expertise includes creative design, digital
+                  marketing, web development, and brand management. We craft
+                  tailored solutions that enhance your online presence, engage
+                  your audience, and achieve your goals. From visually striking
+                  designs and effective SEO to compelling content and strategic
+                  guidance, our team is committed to delivering exceptional
+                  results. Reach out to us to explore how we can help your
+                  business thrive.
+                </div>
+                <Link to="/About-us">
+                  <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">
+                    Read More
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="w-full pt-10 pb-20">
+              <div className="font-sans text-2xl font-semibold lg:text-3xl">
+                About the founder.
+              </div>
+              <h2 className="text-lg font-semibold py-4">
+                We&apos;re trusted by more than 730 clients
+              </h2>
+              <div>
+                <div className="font-sans tracking-wider text-justify text-[#682c02] leading-7">
+                  Prabir Sarkar, founder of CreativeValley9, is a professional
+                  painter and illustrator with over 14 years of dedicated
+                  experience in the visual arts. A graduate in Painting from the
+                  Indian College of Arts and Draftsmanship, Kolkata (2011), his
+                  journey has been defined by transforming stories and ideas
+                  into powerful visuals through both commissioned and personal
+                  artworks. Over the years, Prabir has successfully delivered
+                  more than 1,700 projects, collaborating with clients across
+                  40+ countries and earning 1,600+ positive reviews in
+                  Fiverr.com, upwork.com, Freelancer.com and Etsy.com.
+                </div>
+                <Link to="/About-us">
+                  <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">
+                    Read More
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-
           <PortfolioPainting />
           <PortfolioIllustrator />
           <StatsSection />

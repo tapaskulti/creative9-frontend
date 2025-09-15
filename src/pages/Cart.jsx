@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'; 
-import { ShoppingCart, CreditCard, Trash2, Package } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { ShoppingCart, CreditCard, Trash2, Package } from "lucide-react";
 
 const CartPage = () => {
-  const dispatch = useDispatch();
-  const { cartItems, cartTotalQuantity, cartTotalAmount } = useSelector((state) => state.cart);
-  
+  // const dispatch = useDispatch();
+  const { cartItems, cartTotalQuantity, cartTotalAmount } = useSelector(
+    (state) => state.cart
+  );
+
   const [selectedItems, setSelectedItems] = useState(new Set());
   const [paypalLoaded, setPaypalLoaded] = useState(false);
 
-  const YOUR_PAYPAL_CLIENT_ID = import.meta.env.VITE_PAYPAL_CLIENT_ID
+  const YOUR_PAYPAL_CLIENT_ID = import.meta.env.VITE_PAYPAL_CLIENT_ID;
   // Load PayPal SDK
   useEffect(() => {
     const loadPayPalScript = () => {
@@ -18,11 +20,11 @@ const CartPage = () => {
         return;
       }
 
-      const script = document.createElement('script');
+      const script = document.createElement("script");
       script.src = `https://www.paypal.com/sdk/js?client-id=${YOUR_PAYPAL_CLIENT_ID}&currency=USD`;
       script.async = true;
       script.onload = () => setPaypalLoaded(true);
-      script.onerror = () => console.error('PayPal SDK failed to load');
+      script.onerror = () => console.error("PayPal SDK failed to load");
       document.body.appendChild(script);
     };
 
@@ -31,14 +33,14 @@ const CartPage = () => {
     return () => {
       // Cleanup script if component unmounts
       const scripts = document.querySelectorAll('script[src*="paypal.com"]');
-      scripts.forEach(script => script.remove());
+      scripts.forEach((script) => script.remove());
     };
   }, []);
 
   const removeItem = (itemId) => {
     // dispatch(removeFromCart(itemId));
-    
-    setSelectedItems(prev => {
+
+    setSelectedItems((prev) => {
       const newSet = new Set(prev);
       newSet.delete(itemId);
       return newSet;
@@ -46,7 +48,7 @@ const CartPage = () => {
   };
 
   const toggleItemSelection = (itemId) => {
-    setSelectedItems(prev => {
+    setSelectedItems((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(itemId)) {
         newSet.delete(itemId);
@@ -59,7 +61,7 @@ const CartPage = () => {
 
   const getSelectedTotal = () => {
     return cartItems
-      .filter(item => selectedItems.has(item.id))
+      .filter((item) => selectedItems.has(item.id))
       .reduce((sum, item) => sum + item.price, 0);
   };
 
@@ -68,57 +70,64 @@ const CartPage = () => {
       return null;
     }
 
-    const paypalButtonId = `paypal-button-${type}${itemId ? `-${itemId}` : ''}`;
+    const paypalButtonId = `paypal-button-${type}${itemId ? `-${itemId}` : ""}`;
 
     // Clear existing PayPal button
     setTimeout(() => {
       const existingButton = document.getElementById(paypalButtonId);
       if (existingButton) {
-        existingButton.innerHTML = '';
-        
-        window.paypal.Buttons({
-          createOrder: (data, actions) => {
-            return actions.order.create({
-              purchase_units: [{
-                amount: {
-                  value: amount.toString()
-                },
-                description: type === 'individual' 
-                  ? `Artwork: ${cartItems.find(i => i.id === itemId)?.title}`
-                  : type === 'selected' 
-                    ? 'Selected Artworks'
-                    : 'All Cart Items'
-              }]
-            });
-          },
-          onApprove: (data, actions) => {
-            return actions.order.capture().then((details) => {
-              console.log('Payment successful:', details);
-              alert(`Payment successful! Transaction ID: ${details.id}`);
-              
-              // Handle post-payment logic here
-              if (type === 'individual') {
-                // Remove individual item from cart
-                removeItem(itemId);
-              } else if (type === 'selected') {
-                // Remove selected items from cart
-                selectedItems.forEach(id => removeItem(id));
-                setSelectedItems(new Set());
-              } else if (type === 'all') {
-                // Clear entire cart
-                // dispatch(clearCart());
-              }
-            });
-          },
-          onError: (error) => {
-            console.error('PayPal payment error:', error);
-            alert('Payment failed. Please try again.');
-          },
-          onCancel: (data) => {
-            console.log('Payment cancelled:', data);
-            alert('Payment was cancelled.');
-          }
-        }).render(`#${paypalButtonId}`);
+        existingButton.innerHTML = "";
+
+        window.paypal
+          .Buttons({
+            createOrder: (data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: {
+                      value: amount.toString()
+                    },
+                    description:
+                      type === "individual"
+                        ? `Artwork: ${
+                            cartItems.find((i) => i.id === itemId)?.title
+                          }`
+                        : type === "selected"
+                        ? "Selected Artworks"
+                        : "All Cart Items"
+                  }
+                ]
+              });
+            },
+            onApprove: (data, actions) => {
+              return actions.order.capture().then((details) => {
+                console.log("Payment successful:", details);
+                alert(`Payment successful! Transaction ID: ${details.id}`);
+
+                // Handle post-payment logic here
+                if (type === "individual") {
+                  // Remove individual item from cart
+                  removeItem(itemId);
+                } else if (type === "selected") {
+                  // Remove selected items from cart
+                  selectedItems.forEach((id) => removeItem(id));
+                  setSelectedItems(new Set());
+                } else if (type === "all") {
+                  // Clear entire cart
+                  // dispatch(clearCart());
+                }
+              });
+            },
+            onError: (error) => {
+              console.error("PayPal payment error:", error);
+              alert("Payment failed. Please try again.");
+            },
+            onCancel: (data) => {
+              console.log("Payment cancelled:", data);
+              alert("Payment was cancelled.");
+            }
+          })
+          .render(`#${paypalButtonId}`);
       }
     }, 100);
 
@@ -127,8 +136,8 @@ const CartPage = () => {
 
   // eslint-disable-next-line react/prop-types
   const PayPalButton = ({ amount, type, itemId = null, className = "" }) => {
-    const buttonId = `paypal-button-${type}${itemId ? `-${itemId}` : ''}`;
-    
+    const buttonId = `paypal-button-${type}${itemId ? `-${itemId}` : ""}`;
+
     useEffect(() => {
       if (paypalLoaded) {
         createPayPalButtons(amount, type, itemId);
@@ -137,7 +146,10 @@ const CartPage = () => {
 
     if (!paypalLoaded) {
       return (
-        <button className={`${className} opacity-50 cursor-not-allowed`} disabled>
+        <button
+          className={`${className} opacity-50 cursor-not-allowed`}
+          disabled
+        >
           <CreditCard className="h-4 w-4" />
           Loading PayPal...
         </button>
@@ -153,8 +165,12 @@ const CartPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center py-16">
             <Package className="mx-auto h-16 w-16 text-blue-300 mb-4" />
-            <h2 className="text-2xl font-semibold text-gray-600 mb-2">Your cart is empty</h2>
-            <p className="text-gray-500">Add some beautiful artworks to get started!</p>
+            <h2 className="text-2xl font-semibold text-gray-600 mb-2">
+              Your cart is empty
+            </h2>
+            <p className="text-gray-500">
+              Add some beautiful artworks to get started!
+            </p>
           </div>
         </div>
       </div>
@@ -171,7 +187,8 @@ const CartPage = () => {
             <h1 className="text-3xl font-bold text-gray-800">Shopping Cart</h1>
           </div>
           <p className="text-gray-600">
-            {cartTotalQuantity} {cartTotalQuantity === 1 ? 'item' : 'items'} in your cart
+            {cartTotalQuantity} {cartTotalQuantity === 1 ? "item" : "items"} in
+            your cart
           </p>
         </div>
 
@@ -179,7 +196,10 @@ const CartPage = () => {
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
-              <div key={item.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={item.id}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="p-6">
                   <div className="flex gap-6">
                     {/* Checkbox */}
@@ -208,10 +228,16 @@ const CartPage = () => {
                           <h3 className="text-xl font-semibold text-gray-800 mb-1">
                             {item.title}
                           </h3>
-                          <p className="text-blue-600 font-medium mb-2">by {item.artistName}</p>
+                          <p className="text-blue-600 font-medium mb-2">
+                            by {item.artistName}
+                          </p>
                           <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                            <span className="bg-blue-50 px-3 py-1 rounded-full">{item.medium}</span>
-                            <span>{item.width}" × {item.height}"</span>
+                            <span className="bg-blue-50 px-3 py-1 rounded-full">
+                              {item.medium}
+                            </span>
+                            <span>
+                              {item.width} × {item.height}
+                            </span>
                             <span>{item.year}</span>
                           </div>
                         </div>
@@ -235,7 +261,9 @@ const CartPage = () => {
                       {/* Individual PayPal Button */}
                       <div className="mt-4 pt-4 border-t border-gray-100">
                         <div className="w-full">
-                          <p className="text-sm text-gray-600 mb-2">Pay ${item.price} with PayPal:</p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            Pay ${item.price} with PayPal:
+                          </p>
                           <PayPalButton
                             amount={item.price}
                             type="individual"
@@ -254,8 +282,10 @@ const CartPage = () => {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                Order Summary
+              </h2>
+
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between text-gray-600">
                   <span>Items ({cartTotalQuantity})</span>
@@ -287,7 +317,7 @@ const CartPage = () => {
                     />
                   </div>
                 )}
-                
+
                 <div className="border rounded-lg p-4 bg-gradient-to-r from-blue-50 to-blue-100">
                   <p className="text-sm font-medium text-gray-700 mb-3">
                     Pay for All Items (${cartTotalAmount}):
@@ -304,10 +334,13 @@ const CartPage = () => {
               <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                 <div className="flex items-center gap-2 text-blue-700">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium">Secure PayPal Payment</span>
+                  <span className="text-sm font-medium">
+                    Secure PayPal Payment
+                  </span>
                 </div>
                 <p className="text-xs text-blue-600 mt-1">
-                  Your payment information is encrypted and secure through PayPal
+                  Your payment information is encrypted and secure through
+                  PayPal
                 </p>
               </div>
             </div>

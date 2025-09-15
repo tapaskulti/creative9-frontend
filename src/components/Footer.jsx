@@ -44,21 +44,30 @@ const Footer = () => {
               </h2>
               {/* <span className="font-semibold hidden lg:flex">Illustration</span> */}
             </div>
-            <div className="text-base text-slate-600 space-y-1.5 lg:mt-3">
-              <a
-                href="https://www.creativevalley9.com/Painting"
-                className="hover:text-slate-400"
-              >
-                Painting
-              </a>
-            </div>
-            <div className="text-base text-slate-600 space-y-1.5 lg:mt-3">
-              <a
-                href="https://www.creativevalley9.com/Illustration"
-                className="hover:text-slate-400"
-              >
-                Illustration
-              </a>
+            <div>
+              <ul className="text-base text-slate-600 space-y-1.5 lg:mt-3">
+                <li>
+                  <Link to="/Painting" className="hover:text-slate-400">
+                    Painting
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/Illustration" className="hover:text-slate-400">
+                    Illustration
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms-conditions" className="hover:text-slate-400">
+                    Terms & Conditions
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/privacy-policy" className="hover:text-slate-400">
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
             </div>
             {/* <ul className="text-sm text-slate-600 space-y-1.5 mt-5">
               <li>
@@ -287,16 +296,16 @@ const Footer = () => {
         </div>
       </div>
       <div className=" bg-slate-200 border-t border-slate-300">
-        <div className="lg:flex lg:items-center  lg:justify-between px-3 py-3 md:px-10 text-slate-600 text-xs">
+        <div className="lg:items-center px-3 py-3 md:px-10 text-slate-600 text-xs">
           <h2>Copyright © 2025 Creativevalley9.com.</h2>
-          <ul className="flex items-center space-x-5 justify-between mt-2 lg:mt-0">
+          {/* <ul className="flex items-center space-x-5 justify-between mt-2 lg:mt-0">
             <li>
               <Link to="/terms-conditions">Terms & Conditions</Link>
             </li>
             <li>
               <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </>
