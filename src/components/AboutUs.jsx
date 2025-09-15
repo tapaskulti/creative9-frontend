@@ -1,9 +1,4 @@
 import Header from "./Header";
-import Abtus01 from "../assets/abtus-img01.jpg";
-import Abtus02 from "../assets/abtus-img02.jpg";
-import Abtus03 from "../assets/abtus-img03.jpg";
-import Abtus04 from "../assets/abtus-img04.jpg";
-import Abtus05 from "../assets/abtus-img05.jpg";
 import Footer from "./Footer";
 
 export default function AboutUs() {
@@ -83,7 +78,7 @@ export default function AboutUs() {
               just a service provider; we are your partner in this journey,
               committed to exceeding your expectations and creating real value
               for your business. Thank you for considering CreativeValley9.
-              Together, let's create something truly remarkable.
+              Together, let&apos;s create something truly remarkable.
             </h3>
           </div>
         </div>
