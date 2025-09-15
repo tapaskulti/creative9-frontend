@@ -16,27 +16,19 @@ export default function AboutUs() {
         </div>
 
         <div className="px-10 3xl:px-64">
-          <div className="flex flex-col-reverse 2md:flex-row 2md:justify-between 2md:space-x-5 bg-[#0363af]/10 border border-[#0363af]/30 px-8 py-10 my-12 rounded-xl shadow-lg">
-            <div>
-              <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
-                Who We Are
-              </h2>
-              <h3 className="text-base leading-7">
-                CreativeValley9 is a passionate team of designers, developers,
-                and creative professionals dedicated to helping businesses
-                thrive in the digital world. We believe in the power of a
-                well-crafted online presence and are committed to making your
-                brand stand out in the crowded digital landscape.
-              </h3>
-            </div>
-            <img src={Abtus01} alt="about us" className="rounded-xl" />
+          <div className="my-12">
+            <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
+              Who We Are
+            </h2>
+            <h3 className="text-base leading-7">
+              CreativeValley9 is a passionate team of designers, developers, and
+              creative professionals dedicated to helping businesses thrive in
+              the digital world. We believe in the power of a well-crafted
+              online presence and are committed to making your brand stand out
+              in the crowded digital landscape.
+            </h3>
           </div>
-          <div className="2md:flex 2md:justify-between 2md:space-x-5 bg-[#0363af]/10 border border-[#0363af]/30 px-8 py-10 my-12 rounded-xl shadow-lg">
-            <img
-              src={Abtus02}
-              alt="about us"
-              className="rounded-xl w-full 2md:w-auto"
-            />
+          <div className="my-12">
             <div>
               <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
                 Our Services
@@ -53,29 +45,20 @@ export default function AboutUs() {
               </h3>
             </div>
           </div>
-          <div className="flex flex-col-reverse 2md:flex-row 2md:justify-between 2md:space-x-5 bg-[#0363af]/10 border border-[#0363af]/30 px-8 py-10 my-12 rounded-xl shadow-lg">
-            <div>
-              <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
-                Our Expertise
-              </h2>
-              <h3 className="text-base leading-7">
-                We specialize in creating custom solutions that are flexible,
-                scalable, and easy to manage. Our team is experienced in
-                developing WordPress websites, ensuring they are not only
-                visually appealing but also user-friendly and optimized for
-                performance. For e-commerce, our tailored Shopify and
-                WooCommerce websites are designed to maximize sales and
-                efficiency.
-              </h3>
-            </div>
-            <img src={Abtus03} alt="about us" className="rounded-xl" />
+          <div className="my-12">
+            <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
+              Our Expertise
+            </h2>
+            <h3 className="text-base leading-7">
+              We specialize in creating custom solutions that are flexible,
+              scalable, and easy to manage. Our team is experienced in
+              developing WordPress websites, ensuring they are not only visually
+              appealing but also user-friendly and optimized for performance.
+              For e-commerce, our tailored Shopify and WooCommerce websites are
+              designed to maximize sales and efficiency.
+            </h3>
           </div>
-          <div className="2md:flex 2md:justify-between 2md:space-x-5 bg-[#0363af]/10 border border-[#0363af]/30 px-8 py-10 my-12 rounded-xl shadow-lg">
-            <img
-              src={Abtus04}
-              alt="about us"
-              className="rounded-xl w-full 2md:w-auto"
-            />
+          <div className="my-12">
             <div>
               <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
                 Our Approach
@@ -90,22 +73,18 @@ export default function AboutUs() {
               </h3>
             </div>
           </div>
-          <div className="flex flex-col-reverse 2md:flex-row 2md:justify-between 2md:space-x-5 bg-[#0363af]/10 border border-[#0363af]/30 px-8 py-10 my-12 rounded-xl shadow-lg">
-            <div>
-              <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
-                Our Mission
-              </h2>
-              <h3 className="text-base leading-7">
-                Our mission is to empower businesses by delivering top-notch
-                digital services that lead to growth and success. We are more
-                than just a service provider; we are your partner in this
-                journey, committed to exceeding your expectations and creating
-                real value for your business. Thank you for considering
-                CreativeValley9. Together, let's create something truly
-                remarkable.
-              </h3>
-            </div>
-            <img src={Abtus05} alt="about us" className="rounded-xl" />
+          <div className="my-12">
+            <h2 className="text-[#0363af] text-2xl pb-5 mt-10 font-semibold">
+              Our Mission
+            </h2>
+            <h3 className="text-base leading-7">
+              Our mission is to empower businesses by delivering top-notch
+              digital services that lead to growth and success. We are more than
+              just a service provider; we are your partner in this journey,
+              committed to exceeding your expectations and creating real value
+              for your business. Thank you for considering CreativeValley9.
+              Together, let's create something truly remarkable.
+            </h3>
           </div>
         </div>
       </div>
