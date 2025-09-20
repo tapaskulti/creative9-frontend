@@ -47,7 +47,7 @@ function LoginPage() {
             <div className="font-sans text-4xl font-semibold pb-5">Login</div>
             <div className="py-1 space-y-5">
               <div className="space-y-1">
-                <div className="font-sans text-sm">Username</div>
+                <h2 className="font-sans text-sm">Username</h2>
                 <input
                   onChange={(e) => {
                     setloginPayload({
@@ -110,9 +110,9 @@ function LoginPage() {
                 )}
               </button>
             </div>
-            {/* <div className="flex justify-center font-sans underline text-[#0363af]">
-              <Link to="/signup">Forgot password?</Link>
-            </div> */}
+            <div className="flex justify-center font-sans underline text-[#0363af]">
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
           </div>
           {/* snaps */}
           <div className="relative hidden pt-5 space-y-2 md:block z-0">

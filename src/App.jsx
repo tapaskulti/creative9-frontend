@@ -33,6 +33,8 @@ import AboutUs from "./components/AboutUs";
 import AboutFounder from "./components/AboutFounder";
 import Freelancer from "./components/Freelancer";
 import CartPage from "./pages/Cart";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +76,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/reviewEntry/:orderid" element={<ReviewEntry />} />
           <Route
             path="/user/activate/:activationCode"
