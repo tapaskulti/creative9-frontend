@@ -19,31 +19,37 @@ import {
 // import { toast } from "react-toastify";
 import ModalComponent from "../../components/Modal";
 import { getPayingPrice } from "../../redux/art/artSlice";
-import { Circle } from "lucide-react";
+// import { Circle } from "lucide-react";
 import { faCalendar, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
-const socket = io("https://creativevalley9.com", {
+const backendURL =
+  import.meta.env.MODE === "development"
+    ? import.meta.env.VITE_BACKEND_URL_LOCAL
+    : import.meta.env.VITE_BACKEND_URL_PROD;
+
+// const socket = io("https://creativevalley9.com", {
+//   path: "/api/socket.io",
+//   transports: ["websocket", "polling"],
+//   withCredentials: true
+// });
+
+const socket = io(backendURL, {
   path: "/api/socket.io",
   transports: ["websocket", "polling"],
   withCredentials: true
 });
-// const socket = io("http://localhost:5001", {
-//   path: "/api/socket.io",
-//   transports: ["websocket", "polling"],
-//   withCredentials: true,
-// });
 
 // Add debugging for localhost
 socket.on("connect", () => {
-  console.log("✅ Connected to backend server:", socket.id);
+  console.log("Connected to backend server:", socket.id);
 });
 
 socket.on("disconnect", (reason) => {
-  console.log("❌ Disconnected from backend:", reason);
+  console.log("Disconnected from backend:", reason);
 });
 
 socket.on("connect_error", (error) => {
-  console.log("🔥 Connection error:", error);
+  console.log("Connection error:", error);
 });
 
 // const socket = io("https://hammerhead-app-4du5b.ondigitalocean.app");
@@ -144,8 +150,8 @@ const Chat = () => {
 
   const handleCheckout = async ({
     price,
-    product_image,
-    product_type,
+    // product_image,
+    // product_type,
     msg
   }) => {
     try {
@@ -177,8 +183,8 @@ const Chat = () => {
 
   const handleCheckoutMilestone = async ({
     price,
-    product_image,
-    product_type,
+    // product_image,
+    // product_type,
     msg,
     keyOfMilestone
   }) => {
@@ -279,7 +285,7 @@ const Chat = () => {
       socket.emit("send-message", {
         msg: {
           message,
-          sender: user._id,
+          sender: user?._id,
           receiver: receiver?._id,
           images: selectedImages
         }

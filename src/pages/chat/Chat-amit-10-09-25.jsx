@@ -12,7 +12,7 @@ import {
   faCircleXmark,
   faClose,
   faXmarkCircle,
-  faUser,
+  // faUser,
   faEnvelope,
   faPhone,
   faCalendar,
@@ -22,7 +22,7 @@ import {
 // import { toast } from "react-toastify";
 import ModalComponent from "../../components/Modal";
 import { getPayingPrice } from "../../redux/art/artSlice";
-import { Circle } from "lucide-react";
+// import { Circle } from "lucide-react";
 
 const socket = io("https://creativevalley9.com", {
   path: "/api/socket.io",
@@ -146,8 +146,8 @@ const Chat = () => {
 
   const handleCheckout = async ({
     price,
-    product_image,
-    product_type,
+    // product_image,
+    // product_type,
     msg
   }) => {
     try {
@@ -179,8 +179,8 @@ const Chat = () => {
 
   const handleCheckoutMilestone = async ({
     price,
-    product_image,
-    product_type,
+    // product_image,
+    // product_type,
     msg,
     keyOfMilestone
   }) => {
