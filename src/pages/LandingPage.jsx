@@ -194,7 +194,7 @@ function LandingPage() {
         </Carousel>
         {/* content */} {/* Snaps */}
         <div className="z-0 overflow-x-hidden">
-          <div className="flex justify-between lg:px-10 items-start space-x-10">
+          <div className="flex justify-between lg:px-64 items-start space-x-12">
             <div className="w-full pt-10 pb-20 ">
               <div className="font-sans text-2xl font-semibold lg:text-3xl">
                 Best Paintings and Illustrations Studio
@@ -203,17 +203,13 @@ function LandingPage() {
                 We&apos;re trusted by more than 730 clients
               </h2>
               <div>
-                <div className="font-sans tracking-wider text-justify text-[#682c02] leading-7">
+                <div className="font-sans text-justify text-[#682c02] leading-7">
                   At CreativeValley9, we offer a comprehensive range of services
                   designed to elevate your brand and drive your business
                   forward. Our expertise includes creative design, digital
                   marketing, web development, and brand management. We craft
                   tailored solutions that enhance your online presence, engage
-                  your audience, and achieve your goals. From visually striking
-                  designs and effective SEO to compelling content and strategic
-                  guidance, our team is committed to delivering exceptional
-                  results. Reach out to us to explore how we can help your
-                  business thrive.
+                  your audience, and achieve your goals.
                 </div>
                 <Link to="/About-us">
                   <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">
@@ -230,17 +226,14 @@ function LandingPage() {
                 We&apos;re trusted by more than 730 clients
               </h2>
               <div>
-                <div className="font-sans tracking-wider text-justify text-[#682c02] leading-7">
+                <div className="font-sans text-justify text-[#682c02] leading-7">
                   Prabir Sarkar, founder of CreativeValley9, is a professional
                   painter and illustrator with over 14 years of dedicated
                   experience in the visual arts. A graduate in Painting from the
                   Indian College of Arts and Draftsmanship, Kolkata (2011), his
                   journey has been defined by transforming stories and ideas
                   into powerful visuals through both commissioned and personal
-                  artworks. Over the years, Prabir has successfully delivered
-                  more than 1,700 projects, collaborating with clients across
-                  40+ countries and earning 1,600+ positive reviews in
-                  Fiverr.com, upwork.com, Freelancer.com and Etsy.com.
+                  artworks.
                 </div>
                 <Link to="/About-founder">
                   <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">
