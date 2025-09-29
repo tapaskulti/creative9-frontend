@@ -57,7 +57,7 @@ function LandingPage() {
             <div>
               <img src={slide1} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Painting</h2>
                 <h3 className="text-lg py-4 leading-7">
                   Transform your ideas with visually stunnig Oil, Acrylic,
@@ -79,7 +79,7 @@ function LandingPage() {
             <div>
               <img src={slide2} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
@@ -101,7 +101,7 @@ function LandingPage() {
             <div>
               <img src={slide3} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
@@ -124,7 +124,7 @@ function LandingPage() {
             <div>
               <img src={slide4} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
@@ -148,7 +148,7 @@ function LandingPage() {
             <div>
               <img src={slide5} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
@@ -172,7 +172,7 @@ function LandingPage() {
             <div className="relative">
               <img src={slide6} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-64 top-1/3 transform -translate-y-1/2 w-1/4 text-white text-left mt-10">
+              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
                 <h3 className="text-lg py-4 leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
@@ -194,7 +194,7 @@ function LandingPage() {
         </Carousel>
         {/* content */} {/* Snaps */}
         <div className="z-0 overflow-x-hidden">
-          <div className="flex justify-between lg:px-64 items-start space-x-12">
+          <div className="flex justify-between px-6                   lg:px-32 xl:px-40 2xl:px-64                       items-start space-x-12">
             <div className="w-full pt-10 pb-20 ">
               <div className="font-sans text-2xl font-semibold lg:text-3xl">
                 Best Paintings and Illustrations Studio
@@ -232,8 +232,7 @@ function LandingPage() {
                   experience in the visual arts. A graduate in Painting from the
                   Indian College of Arts and Draftsmanship, Kolkata (2011), his
                   journey has been defined by transforming stories and ideas
-                  into powerful visuals through both commissioned and personal
-                  artworks.
+                  into powerful visuals.
                 </div>
                 <Link to="/About-founder">
                   <button className="text-white bg-[#0363af] mt-4 px-4 py-2 rounded-md">

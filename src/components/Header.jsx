@@ -78,19 +78,19 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-10 xl:px-10 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-6 xl:px-10 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
             <img
               src={logo}
               alt="logo"
-              className="w-24 md:w-24 lg:w-36 xl:w-40 2xl:w-40 h-auto"
+              className="w-24 lg:w-28 xl:w-36 2xl:w-40 h-auto"
             />
           </Link>
         </div>
         {/* navbar */}
         {/* <div className="flex font-sans tracking-wider space-x-10 bg-gradient-to-t from-[#FF000070] to-[#FF6B002B] px-10 py-2 rounded-full "> */}
-        <div className="flex font-sans tracking-wider space-x-6 lg:space-x-10 pl-10 ">
+        <div className="flex font-sans tracking-wider space-x-6 xl:space-x-8 2xl:space-x-10 pl-6 xl:pl-10 ">
           <NavLink
             className={({ isActive }) => (isActive ? "text-[#0363af]" : "")}
             to="/"
@@ -217,14 +217,14 @@ function Header() {
 
         {/* Auth buttons */}
         {!token ? (
-          <div className="z-10 flex space-x-6 font-sans tracking-wider mt-1">
+          <div className="z-10 flex space-x-6 xl:space-x-4 2xl:space-x-6 font-sans tracking-wider mt-1">
             <Link to="/signup">
-              <div className="lg:border-2 text-black lg:text-[#0363af] lg:border-[#0363af] font-semibold rounded-full px-0 text-sm md:text-sm xl:text-base lg:px-6 py-0.5 lg:py-1 cursor-pointer lg:hover:bg-[#0363af] lg:hover:text-white">
+              <div className="xl:border-2 text-black xl:text-[#0363af] xl:border-[#0363af] font-semibold rounded-full px-0 text-sm md:text-sm xl:text-base xl:px-5 2xl:px-6 py-0.5 2xl:py-1 cursor-pointer xl:hover:bg-[#0363af] xl:hover:text-white">
                 Signup
               </div>
             </Link>
             <Link to="/login">
-              <div className="lg:bg-[#0363af] text-black lg:text-white text-sm md:text-sm xl:text-base font-semibold rounded-full px-3 lg:px-6 py-1 lg:py-1.5 cursor-pointer">
+              <div className="xl:bg-[#0363af] text-black xl:text-white text-sm md:text-sm xl:text-base font-semibold rounded-full px-3 xl:px-5 2xl:px-6 py-1 2xl:py-1.5 cursor-pointer">
                 Login
               </div>
             </Link>

@@ -37,12 +37,12 @@ const fadeIn = {
 
 const PortfolioIllustrator = () => {
   return (
-    <div className="bg-gray-100 lg:px-64 py-10">
+    <div className="bg-gray-100 px-6 lg:px-32 xl:px-40 2xl:px-64 py-10">
       <h2 className="text-4xl text-center font-bold">
         Have a look at our{" "}
         <span className="text-[#0363af]">Illustrations!</span>
       </h2>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mt-6">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-8 xl:gap-10 2xl:gap-12 mt-6">
         {items.map((item, index) => (
           <motion.div
             key={index}
@@ -66,7 +66,7 @@ const PortfolioIllustrator = () => {
       <div className="flex justify-center">
         <Link
           to="/Illustration"
-          className="w-36 bg-[#0363af] px-6 py-2 text-base text-white rounded-md text-center mt-10"
+          className="w-36 bg-[#0363af] px-6 py-2 text-base text-white rounded-md text-center mt-6 lg:mt-10"
         >
           See More
         </Link>

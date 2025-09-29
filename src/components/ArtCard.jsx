@@ -32,7 +32,7 @@ function ArtCard({
 
   return (
     <>
-      <div className="w-full h-[575px] sm:h-[575px] md:w-80 md:h-[575px] lg:w-72 lg:h-[575px] xl:w-80 xl:h-[575px] 2xl:w-80 2xl:h-[575px] 3xl:w-96 3xl:h-[575px] shadow-lg px-4 py-1 rounded-lg hover:shadow-xl border border-slate-200 relative">
+      <div className="w-full h-[575px] px-5 md:px-2 md:h-[575px] lg:w-72 lg:h-[575px] xl:w-80 xl:h-[575px] 2xl:w-80 2xl:h-[575px] 3xl:w-96 3xl:h-[575px] shadow-lg py-1 rounded-lg hover:shadow-xl border border-slate-200 relative">
         <div className="relative">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-1 py-2 text-sm">
