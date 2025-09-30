@@ -78,7 +78,7 @@ function Header() {
         />
       )}
       {/* FOR DESKTOP HEADER */}
-      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-6 xl:px-10 py-5 bg-slate-50 md:flex  left-10 right-10 shadow-md">
+      <div className="sticky top-0 z-30 font-sans items-center justify-between hidden px-6 xl:px-10 py-5 bg-slate-50 2md:flex  left-10 right-10 shadow-md">
         <div className="text-2xl logotext">
           <Link to="/">
             <img
@@ -329,7 +329,7 @@ function Header() {
       </div>
 
       {/* FOR MOBILE HEADER */}
-      <div className="sticky top-0 z-30 flex items-center justify-between px-5 py-2 bg-slate-50 md:hidden lg:px-10 left-10 right-10">
+      <div className="sticky top-0 z-30 flex items-center justify-between px-5 py-5 bg-slate-50 2md:hidden lg:px-10 left-10 right-10">
         <div className="drawer w-10">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">

@@ -57,9 +57,9 @@ function LandingPage() {
             <div>
               <img src={slide1} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
+              <div className="hidden sm:block absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/3 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Painting</h2>
-                <h3 className="text-lg py-4 leading-7">
+                <h3 className="text-base xl:text-lg py-4 xl:leading-7">
                   Transform your ideas with visually stunnig Oil, Acrylic,
                   watercolor or mixed media paintings. Our painters team and I
                   creates stunning paintings for you. visit our portfolo and
@@ -79,9 +79,9 @@ function LandingPage() {
             <div>
               <img src={slide2} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
+              <div className="hidden sm:block absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/3 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
+                <h3 className="text-base xl:text-lg py-4 xl:leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
                   creates a unique and beautiful children&apos;s book
@@ -101,9 +101,9 @@ function LandingPage() {
             <div>
               <img src={slide3} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
+              <div className="hidden sm:block absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/3 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
+                <h3 className="text-base xl:text-lg py-4 xl:leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
                   creates a unique and beautiful children&apos;s book
@@ -124,9 +124,9 @@ function LandingPage() {
             <div>
               <img src={slide4} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
+              <div className="hidden sm:block absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/3 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
+                <h3 className="text-base xl:text-lg py-4 xl:leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
                   creates a unique and beautiful children&apos;s book
@@ -148,9 +148,9 @@ function LandingPage() {
             <div>
               <img src={slide5} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
+              <div className="hidden sm:block absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/3 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
+                <h3 className="text-base xl:text-lg py-4 xl:leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
                   creates a unique and beautiful children&apos;s book
@@ -172,9 +172,9 @@ function LandingPage() {
             <div className="relative">
               <img src={slide6} alt="" />
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-              <div className="absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/2 xl:w-1/4 text-white text-left mt-10">
+              <div className="hidden sm:block absolute left-10 lg:left-32 xl:left-40 2xl:left-64 top-1/3 transform -translate-y-1/2 w-[90%] lg:w-1/3 xl:w-1/4 text-white text-left mt-10">
                 <h2 className="text-4xl font-semibold">Illustration</h2>
-                <h3 className="text-lg py-4 leading-7">
+                <h3 className="text-base xl:text-lg py-4 xl:leading-7">
                   We&apos;ll give a shape of your ideas with a visually stunnig
                   digital hand drawn illustrations. Our illustrators team and I
                   creates a unique and beautiful children&apos;s book
@@ -194,12 +194,12 @@ function LandingPage() {
         </Carousel>
         {/* content */} {/* Snaps */}
         <div className="z-0 overflow-x-hidden">
-          <div className="flex justify-between px-6                   lg:px-32 xl:px-40 2xl:px-64                       items-start space-x-12">
-            <div className="w-full pt-10 pb-20 ">
-              <div className="font-sans text-2xl font-semibold lg:text-3xl">
+          <div className="grid sm:grid-cols-2 gap-12 justify-between px-6 lg:px-32 xl:px-40 2xl:px-64">
+            <div className="w-full sm:pt-10 sm:pb-20 ">
+              <div className="font-sans text-xl lg:text-2xl font-semibold xl:text-3xl">
                 Best Paintings and Illustrations Studio
               </div>
-              <h2 className="text-lg font-semibold py-4">
+              <h2 className="text-slate-500 text-base lg:text-lg font-semibold py-4">
                 We&apos;re trusted by more than 730 clients
               </h2>
               <div>
@@ -218,11 +218,11 @@ function LandingPage() {
                 </Link>
               </div>
             </div>
-            <div className="w-full pt-10 pb-20">
-              <div className="font-sans text-2xl font-semibold lg:text-3xl">
-                About the founder.
+            <div className="w-full sm:pt-10 pb-20">
+              <div className="font-sans text-xl lg:text-2xl font-semibold xl:text-3xl">
+                About the founder
               </div>
-              <h2 className="text-lg font-semibold py-4">
+              <h2 className="text-slate-500 text-base lg:text-lg font-semibold py-4">
                 We&apos;re trusted by more than 730 clients
               </h2>
               <div>

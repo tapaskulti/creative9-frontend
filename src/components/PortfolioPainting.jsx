@@ -33,7 +33,7 @@ const PortfolioPainting = () => {
       <h2 className="text-4xl text-center font-bold">
         Have a look at our <span className="text-[#0363af]">Paintings!</span>
       </h2>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-8 xl:gap-10 2xl:gap-12 mt-6">
+      <div className="mx-auto grid md:grid-cols-4 gap-4 lg:gap-8 xl:gap-10 2xl:gap-12 mt-6">
         {items.map((item, index) => (
           <motion.div
             key={index}
