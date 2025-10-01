@@ -82,6 +82,7 @@ function ReviewEntry() {
         <h2 className="text-base font-medium text-left">
           Add Reviews ({type})
         </h2>
+        {/* <div>image={illustration?.illustration?.picture[0]?.secure_url}</div> */}
         <form onSubmit={reviewhandleSubmit}>
           <textarea
             name="review"
@@ -89,7 +90,7 @@ function ReviewEntry() {
             // minLength={16}
             // required
             placeholder="Please write your reviews"
-            className="w-96 h-40 border border-slate-200 px-2 py-1 rounded-md focus:outline-none mt-2 mb-1"
+            className="w-[40rem] h-40 border border-slate-200 px-2 py-1 rounded-md focus:outline-none mt-2 mb-1"
             onChange={(e) => {
               setreviewNote(e.target.value);
             }}

@@ -19,9 +19,9 @@ import Freelancer from "../assets/freelancerLogo.png";
 const Footer = () => {
   return (
     <>
-      <div className="text-slate-600 text-left bg-slate-100 w-full py-10 px-3 md:px-6 border-t-[12px] border-[#0363af]">
+      <div className="text-slate-600 text-left bg-slate-100 w-full py-10 px-6 lg:px-32 xl:px-40 2xl:px-64 border-t-[12px] border-[#0363af]">
         <div className="lg:flex lg:space-x-5 lg:justify-between text-slate-600">
-          <div>
+          {/* <div>
             <Link to="/">
               <img
                 src={logo}
@@ -36,7 +36,7 @@ const Footer = () => {
               Socially Responsible Graphics Design Studio based at Kolkata in
               India.
             </h2>
-          </div>
+          </div> */}
           <div className="mt-3 md:mt-3">
             <div className="flex items-center">
               <h2 className="font-semibold text-base xl:text-lg lg:font-semibold border-b border-white/20 pb-1">
@@ -214,7 +214,7 @@ const Footer = () => {
         </div>
       </div>
       <div className=" bg-slate-200 border-t border-slate-300">
-        <div className="lg:items-center px-3 py-3 md:px-6 text-slate-600 text-xs">
+        <div className="lg:items-center px-6 lg:px-32 xl:px-40 2xl:px-64 py-3 text-slate-600 text-xs">
           <h2>Copyright © 2025 Creativevalley9.com.</h2>
           {/* <ul className="flex items-center space-x-5 justify-between mt-2 lg:mt-0">
             <li>

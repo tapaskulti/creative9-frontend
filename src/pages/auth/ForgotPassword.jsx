@@ -36,7 +36,7 @@ export default function ForgotPassword() {
             </div>
             <div className="py-1 space-y-5">
               <div className="space-y-1">
-                <h2 className="font-sans text-sm">Forgot Password</h2>
+                <h2 className="font-sans text-sm">Enter your email</h2>
                 <form onSubmit={handleSubmit}>
                   <input
                     type="email"

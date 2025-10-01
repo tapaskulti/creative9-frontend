@@ -2017,10 +2017,10 @@ const Chat = () => {
           </div>
         )}
 
-        {/* User Details Panel on the right side */}
+        {/* Client Details Panel on the right side */}
         <div>
           <h2 className="w-80 text-base bg-gray-100 h-12 font-semibold flex items-center justify-center text-center text-black mb-4 rounded-t-xl">
-            User Details
+            Client Details
           </h2>
 
           <div className="flex flex-col items-center mb-4">

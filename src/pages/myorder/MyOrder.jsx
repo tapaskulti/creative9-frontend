@@ -38,7 +38,7 @@ function MyOrder() {
       <Header />
       <div>
         {/* Buutons */}
-        <div className="px-10 py-6">
+        <div className="px-5 lg:px-10 pt-6">
           <button
             onClick={() => {
               setisPainting(true);
@@ -62,7 +62,7 @@ function MyOrder() {
         </div>
 
         {isPainting ? (
-          <div className="px-10 grid grid-cols-1 xl:grid-cols-2 gap-x-5 h-[80vh] overflow-y-auto">
+          <div className="px-5 lg:px-10 grid grid-cols-1 xl:grid-cols-2 gap-x-5 h-[80vh] overflow-y-auto">
             {/* Painting orders */}
             {adminOrdersPaintings?.map((painting) => (
               <OrderPaintCard
@@ -223,10 +223,10 @@ function MyOrder() {
                         alt=""
                       />
                       <div className="w-full">
-                        {/* User Details */}
+                        {/* Client Details */}
                         <div className="mb-2">
                           <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black w-full">
-                            User Details
+                            Client Details
                           </div>
                           <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
                             <div className="flex space-x-2 items-center text-sm">
@@ -268,7 +268,7 @@ function MyOrder() {
                           <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
                             <div className="flex space-x-2 items-center text-sm">
                               <LocationCity className="text-gray-400 w-6" />
-                              <div>300</div>
+                              <div>USD 120</div>
                             </div>
                           </div>
                         </div>
@@ -407,12 +407,16 @@ const OrderPaintCard = ({
       </div>
       <div className="py-2 ">
         {/* image */}
-        <div className="flex space-x-6  ">
-          <img className="w-32 h-32 rounded-md shadow-lg" src={image} alt="" />
+        <div className="sm:flex sm:space-x-6 space-y-5  sm:space-y-0">
+          <img
+            className="w-full sm:w-32 sm:h-32 rounded-md shadow-lg"
+            src={image}
+            alt=""
+          />
           <div className="w-full">
             <div className="mb-2">
               <div className="text-sm bg-slate-200 rounded-t-md px-2 py-1 text-black">
-                User Details
+                Client Details
               </div>
               <div className="px-2 py-2 flex space-x-10 border border-slate-200 rounded-b-md">
                 <div className="flex space-x-2 items-center text-sm">
@@ -468,7 +472,8 @@ const OrderPaintCard = ({
           <div className="text-gray-500">Price:</div>
           <div className="flex items-center space-x-2">
             <div>
-              USD {price} * {qty} = {price * qty}
+              USD {Number(price) || 0} * {Number(qty) || 0} ={" "}
+              {Number(price) * Number(qty) || 0}
             </div>
             {isPaintingPaid ? (
               <div className="border-green-500 border w-max px-2 text-xs text-center rounded-md text-green-600">
