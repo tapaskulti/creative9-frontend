@@ -261,6 +261,11 @@ const Chat = () => {
       );
       // receiveSoundplay();
     });
+    // Cleanup on unmount
+    return () => {
+      console.log("Cleaning up socket listeners");
+      socket.off("receive-message");
+    };
   }, []);
 
   const handleSendMessage = () => {
