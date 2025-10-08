@@ -32,7 +32,7 @@ function ArtCard({
 
   return (
     <>
-      <div className="w-full h-[575px] px-5 md:px-2 md:h-[575px] lg:w-72 lg:h-[575px] xl:w-80 xl:h-[575px] 2xl:w-80 2xl:h-[575px] 3xl:w-96 3xl:h-[575px] shadow-lg py-1 rounded-lg hover:shadow-xl border border-slate-200 relative">
+      <div className="w-full h-[48rem] px-5 md:px-2 md:h-[575px] lg:w-72 lg:h-[575px] xl:w-80 xl:h-[575px] 2xl:w-80 2xl:h-[575px] 3xl:w-96 3xl:h-[575px] shadow-lg py-1 rounded-lg hover:shadow-xl border border-slate-200 relative">
         <div className="relative">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-1 py-2 text-sm">
@@ -95,7 +95,7 @@ function ArtCard({
           <div className="">
             <Link
               to={`/Painting/${id}`}
-              className="flex justify-center text-center h-80 w-full"
+              className="flex justify-center text-center h-[33rem] md:h-80 w-full"
             >
               {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-80" /> */}
               <img

@@ -3,10 +3,11 @@ import { Close, AttachFile, Send } from "@mui/icons-material";
 import Header from "../../components/Header";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import { setMessages, setReceiver } from "../../redux/chat/chat";
 import EmojiPicker from "emoji-picker-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { socket } from "../../components/Socket";
 import {
   faCirclePlus,
   faCircleXmark,
@@ -22,10 +23,10 @@ import { getPayingPrice } from "../../redux/art/artSlice";
 // import { Circle } from "lucide-react";
 import { faCalendar, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
-const backendURL =
-  import.meta.env.MODE === "development"
-    ? import.meta.env.VITE_BACKEND_URL_LOCAL
-    : import.meta.env.VITE_BACKEND_URL_PROD;
+// const backendURL =
+//   import.meta.env.MODE === "development"
+//     ? import.meta.env.VITE_BACKEND_URL_LOCAL
+//     : import.meta.env.VITE_BACKEND_URL_PROD;
 
 // const socket = io("https://creativevalley9.com", {
 //   path: "/api/socket.io",
@@ -33,11 +34,11 @@ const backendURL =
 //   withCredentials: true
 // });
 
-const socket = io(backendURL, {
-  path: "/api/socket.io",
-  transports: ["websocket", "polling"],
-  withCredentials: true
-});
+// const socket = io(backendURL, {
+//   path: "/api/socket.io",
+//   transports: ["websocket", "polling"],
+//   withCredentials: true
+// });
 
 // Add debugging for localhost
 socket.on("connect", () => {
@@ -1267,7 +1268,7 @@ const Chat = () => {
               </div>
             </div>
             {/* chat box */}
-            <div className="h-[67vh] overflow-y-auto mt-2 scrollbar">
+            <div className="h-[65vh] overflow-y-auto mt-2 scrollbar">
               {receiver !== undefined &&
                 messages?.map((msg, index) => {
                   return (

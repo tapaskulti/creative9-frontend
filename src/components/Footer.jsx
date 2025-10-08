@@ -5,10 +5,10 @@ import {
   FacebookSharp,
   Instagram,
   LinkedIn,
-  Twitter,
   YouTube
 } from "@mui/icons-material";
-import logo from "../assets/logo.png";
+import Twitter from "@mui/icons-material/X";
+// import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Whatsapp from "../assets/whatsapp.png";
 import Fiverr from "../assets/fiverrLogo.png";

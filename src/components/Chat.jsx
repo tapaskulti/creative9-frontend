@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { ArrowBack, ChatBubble, Close, Send } from "@mui/icons-material";
-import ReceiverCard from "./ReceiverCard";
-import SenderCard from "./SenderCard";
+// import ReceiverCard from "./ReceiverCard";
+// import SenderCard from "./SenderCard";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ScrollToBottom from "react-scroll-to-bottom";
-import { css } from "@emotion/react";
+// import ScrollToBottom from "react-scroll-to-bottom";
+// import { css } from "@emotion/react";
 import io from "socket.io-client";
 import moment from "moment";
 import { setMessages, setReceiver } from "../redux/chat/chat";
@@ -17,11 +17,11 @@ function Chat() {
   const { user, userList } = useSelector((state) => state.user);
   const { messages, receiver } = useSelector((state) => state.chat);
   const [openChatWindow, setopenChatWindow] = useState(false);
-  const [chatInput, setchatInput] = useState();
+  // const [chatInput, setchatInput] = useState();
 
   const [message, setMessage] = useState("");
   // const [messages, setMessages] = useState([]);
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
 
   //   6496ce0afd365ce69b53bdc3 - receiver
 
