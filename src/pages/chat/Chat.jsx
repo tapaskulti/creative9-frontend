@@ -293,7 +293,8 @@ const Chat = () => {
           message,
           sender: user?._id,
           receiver: receiver?._id,
-          images: selectedImages
+          images: selectedImages,
+          createdAt: new Date().toISOString()
         }
       });
 
