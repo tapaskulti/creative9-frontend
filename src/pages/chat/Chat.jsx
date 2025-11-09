@@ -9,6 +9,7 @@ import EmojiPicker from "emoji-picker-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { socket } from "../../components/Socket";
 import {
+  faCheckDouble,
   faCirclePlus,
   faCircleXmark,
   faClose,
@@ -105,6 +106,43 @@ const Chat = () => {
     withoutFrame: false,
     medium: "",
     totalPainting: ""
+  });
+
+  // State to track last message data for each user
+  const [lastMessageData, setLastMessageData] = useState({});
+
+  // Update last message data when messages change
+  useEffect(() => {
+    const newMessageData = { ...lastMessageData };
+    let changed = false;
+
+    messages.forEach((msg) => {
+      const otherUserId = msg.sender === user?._id ? msg.receiver : msg.sender;
+      const msgTime = new Date(msg.createdAt || Date.now()).getTime();
+
+      if (
+        !newMessageData[otherUserId] ||
+        msgTime > newMessageData[otherUserId].timestamp
+      ) {
+        newMessageData[otherUserId] = {
+          timestamp: msgTime,
+          content: msg.message || (msg.offer ? "Offer sent" : "Attachment"),
+          isOffer: !!msg.offer
+        };
+        changed = true;
+      }
+    });
+
+    if (changed) {
+      setLastMessageData(newMessageData);
+    }
+  }, [messages]);
+
+  // Sort user list based on last message timestamp (most recent first)
+  const sortedUserList = [...userList].sort((a, b) => {
+    const timeA = lastMessageData[a._id]?.timestamp || 0;
+    const timeB = lastMessageData[b._id]?.timestamp || 0;
+    return timeB - timeA;
   });
 
   const handleRemoveImage = (indexToRemove) => {
@@ -248,63 +286,47 @@ const Chat = () => {
     }
   }, [user?._id, receiver]);
 
-  // get all users list
+  // get all users list - added new code (handleReceiveMessage and handleSendMessage) on 18-10-25
+  //====================================
   useEffect(() => {
-    // Event listener for receiving new messages
-    socket.on("receive-message", (message) => {
-      // setMessages((prevMessages) => [...prevMessages, message]);
-      console.log(message, "message fromsocket");
-      dispatch(
-        setMessages({
-          message: message
-        })
-      );
-      // receiveSoundplay();
-    });
-    // Cleanup on unmount
+    const handleReceiveMessage = (message) => {
+      console.log("Received from socket:", message);
+
+      // Avoid duplicates: only add if message not already in list
+      dispatch(setMessages({ message }));
+    };
+
+    socket.off("receive-message"); // remove any previous listener
+    socket.on("receive-message", handleReceiveMessage);
+
     return () => {
       console.log("Cleaning up socket listeners");
-      socket.off("receive-message");
+      socket.off("receive-message", handleReceiveMessage);
     };
-  }, []);
+  }, [dispatch]);
 
   const handleSendMessage = () => {
-    if (message.trim() !== "" && selectedImages.length === 0) {
-      // Emit the message to the server
+    if (!message.trim() && selectedImages.length === 0) return;
 
-      socket.emit("send-message", {
-        msg: {
-          message,
-          sender: user?._id,
-          receiver: receiver?._id,
-          images: selectedImages
-        }
-      });
+    const newMessage = {
+      message,
+      sender: user?._id,
+      receiver: receiver?._id,
+      images: selectedImages,
+      createdAt: new Date().toISOString()
+    };
 
-      setMessage("");
-      // sendSoundplay();
-      setopenEmojiPicker(false);
+    // Do NOT add to Redux here — server will emit back instantly
+    socket.emit("send-message", { msg: newMessage });
 
-      setimages();
-      setSelectedImages([]);
-    } else if (message.trim() !== "" && selectedImages.length > 0) {
-      socket.emit("send-message", {
-        msg: {
-          message,
-          sender: user?._id,
-          receiver: receiver?._id,
-          images: selectedImages,
-          createdAt: new Date().toISOString()
-        }
-      });
-
-      setMessage("");
-      // sendSoundplay();
-      setopenEmojiPicker(false);
-      setimages();
-      setSelectedImages([]);
-    }
+    // Reset input
+    setMessage("");
+    setopenEmojiPicker(false);
+    setimages();
+    setSelectedImages([]);
   };
+
+  //========================
 
   const handleImageChange = (e) => {
     setimages(e.target.files);
@@ -1230,28 +1252,90 @@ const Chat = () => {
           </h2>
           <div className="space-y-2 h-[78vh] w-80 overflow-y-auto mr-2 scrollbar px-0">
             {user?.role === "ADMIN" &&
-              userList?.map((chatuser) => {
+              // userList?.map((chatuser) => {
+              //   return (
+              //     user?._id !== chatuser?._id && (
+              //       <Contact
+              //         key={chatuser?._id}
+              //         userName={chatuser?.name}
+              //         onClick={() => {
+              //           dispatch(setReceiver({ receiver: chatuser }));
+              //         }}
+              //       />
+              //     )
+              //   );
+              // })}
+              sortedUserList?.map((chatuser) => {
+                // Only count unread messages (where read status is false or undefined)
+                const unreadCount = messages.filter(
+                  (m) =>
+                    m.sender === chatuser._id &&
+                    (m.read === false || m.read === undefined)
+                ).length;
+
                 return (
                   user?._id !== chatuser?._id && (
                     <Contact
                       key={chatuser?._id}
-                      userName={chatuser?.name}
+                      user={chatuser}
+                      isSelected={receiver?._id === chatuser?._id}
+                      lastMessageData={lastMessageData[chatuser._id]}
+                      unreadCount={unreadCount}
                       onClick={() => {
                         dispatch(setReceiver({ receiver: chatuser }));
+                        // Mark messages as read when selecting a user
+                        dispatch({
+                          type: "MARK_MESSAGES_AS_READ",
+                          payload: {
+                            sender: chatuser._id,
+                            receiver: user._id
+                          }
+                        });
                       }}
                     />
                   )
                 );
               })}
             {user?.role === "USER" &&
-              userList?.map((chatuser) => {
+              // userList?.map((chatuser) => {
+              //   return (
+              //     chatuser?.role === "ADMIN" && (
+              //       <Contact
+              //         key={chatuser?._id}
+              //         userName={chatuser?.name}
+              //         onClick={() => {
+              //           dispatch(setReceiver({ receiver: chatuser }));
+              //         }}
+              //       />
+              //     )
+              //   );
+              // })}
+              sortedUserList?.map((chatuser) => {
+                // Only count unread messages (where read status is false or undefined)
+                const unreadCount = messages.filter(
+                  (m) =>
+                    m.sender === chatuser._id &&
+                    (m.read === false || m.read === undefined)
+                ).length;
+
                 return (
                   chatuser?.role === "ADMIN" && (
                     <Contact
                       key={chatuser?._id}
-                      userName={chatuser?.name}
+                      user={chatuser}
+                      isSelected={receiver?._id === chatuser?._id}
+                      lastMessageData={lastMessageData[chatuser._id]}
+                      unreadCount={unreadCount}
                       onClick={() => {
                         dispatch(setReceiver({ receiver: chatuser }));
+                        // Mark messages as read when selecting a user
+                        dispatch({
+                          type: "MARK_MESSAGES_AS_READ",
+                          payload: {
+                            sender: chatuser._id,
+                            receiver: user._id
+                          }
+                        });
                       }}
                     />
                   )
@@ -2121,23 +2205,95 @@ const Chat = () => {
 
 export default Chat;
 
-const Contact = ({ onClick, userName }) => {
+const Contact = ({
+  onClick,
+  user,
+  isSelected,
+  lastMessageData,
+  unreadCount
+  // userName
+}) => {
+  // Format last message time
+  const formatTime = (timestamp) => {
+    if (!timestamp) return "";
+
+    const now = new Date();
+    const messageTime = new Date(timestamp);
+    const diffInHours = (now - messageTime) / (1000 * 60 * 60);
+
+    if (diffInHours < 24) {
+      return messageTime.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    } else if (diffInHours < 48) {
+      return "Yesterday";
+    } else {
+      return messageTime.toLocaleDateString();
+    }
+  };
+
+  // Get last message preview
+  const getLastMessagePreview = () => {
+    if (!lastMessageData) return "No messages yet";
+
+    if (lastMessageData.isOffer) {
+      return "Offer received";
+    }
+
+    return lastMessageData.content || "No messages yet";
+  };
   return (
     <>
-      <div onClick={onClick} className="w-72 justify-between hover:bg-gray-100">
+      <div
+        onClick={onClick}
+        className={`w-72 justify-between hover:bg-gray-100 transition-colors duration-200 ${
+          isSelected ? "bg-blue-50 border-l-4 border-blue-500" : ""
+        }`}
+      >
         <div className="flex space-x-2 py-1 px-2 rounded-sm justify-between">
           <div className="flex space-x-3">
-            <img
-              className="w-10 h-10 border border-[#ffffff] rounded-full"
-              src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
-              alt=""
-            />
-            <div>
+            <div className="relative">
+              <img
+                className="w-10 h-10 border border-[#ffffff] rounded-full"
+                src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
+                alt=""
+              />
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {unreadCount}
+                </span>
+              )}
+            </div>
+            <div className="max-w-[180px]">
+              <div
+                className={`text-base font-medium ${
+                  isSelected ? "text-blue-600" : "text-gray-800"
+                }`}
+              >
+                {user.name}
+              </div>
+              <div className="text-sm text-gray-500 truncate">
+                {getLastMessagePreview()}
+              </div>
+            </div>
+            {/* <div>
               <div className="tex-base">{userName}</div>
               <div className="text-sm text-gray-500">last message</div>
+            </div> */}
+            \
+            <div className="flex flex-col items-end">
+              <div className="text-xs text-gray-500">
+                {formatTime(lastMessageData?.timestamp)}
+              </div>
+              {isSelected && (
+                <div className="mt-1 text-blue-500">
+                  <FontAwesomeIcon icon={faCheckDouble} className="text-xs" />
+                </div>
+              )}
             </div>
           </div>
-          <div className="text-xs text-gray-500">12.04.2022</div>
+          {/* <div className="text-xs text-gray-500">12.04.2022</div> */}
         </div>
       </div>
     </>
