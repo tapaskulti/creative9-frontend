@@ -3,22 +3,38 @@ import { useState } from "react";
 
 import Header from "../../components/Header";
 import imageLandingPage from "./../../assets/wide_16x9.jpg";
+import { toast } from "react-toastify";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    const response = await fetch("/api/auth/forgot-password", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email })
-    });
+    try {
+      const response = await fetch("/pages/auth/ForgotPassword", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
 
-    const data = await response.json();
-    setMessage(data.message || "Check your email for reset instructions.");
+      const data = await response.json();
+      if (response.ok) {
+        toast.success(
+          data.message || "Check your email for reset instructions."
+        );
+      } else {
+        toast.error(data.message || "Something went wrong.");
+      }
+      // setMessage(data.message || "Check your email for reset instructions.");
+    } catch (err) {
+      toast.error("Server error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -50,10 +66,10 @@ export default function ForgotPassword() {
                     type="submit"
                     className="btn btn-accent w-full text-white bg-[#0363af] hover:bg-[#0363af]/80 border-[#0363af] mt-5"
                   >
-                    Send Reset Link
+                    {loading ? "Sending..." : "Send Reset Link"}
                   </button>
                 </form>
-                {message && <p>{message}</p>}
+                {loading && <p>{loading}</p>}
               </div>
             </div>
           </div>
