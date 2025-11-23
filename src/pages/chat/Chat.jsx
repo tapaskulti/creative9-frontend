@@ -1350,11 +1350,17 @@ const Chat = () => {
             {/* chat window header */}
             <div className="bg-gray-100 w-full h-12 flex items-center text-gray-400 border-b-2 border-slate-400 rounded-t-lg">
               <div className="px-2 flex space-x-2 items-center">
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
-                />
-                <div>{receiver?.name}</div>
+                <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-white font-semibold">
+                  {receiver?.name
+                    ?.split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .substring(0, 2)
+                    .toUpperCase()}
+                </div>
+                <div className="text-sm text-gray-500 font-semibold">
+                  {receiver?.name}
+                </div>
               </div>
             </div>
             {/* chat box */}
@@ -2115,11 +2121,19 @@ const Chat = () => {
           </h2>
 
           <div className="flex flex-col items-center mb-4">
-            <img
+            {/* <img
               className="w-24 h-24 rounded-full border-2 border-white shadow-md mb-3"
               src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
               alt={receiver?.name}
-            />
+            /> */}
+            <div className="size-20 text-2xl rounded-full border-2 border-white shadow-md mb-3 bg-gray-300 flex items-center justify-center text-white font-semibold">
+              {receiver?.name
+                ?.split(" ")
+                .map((n) => n[0])
+                .join("")
+                .substring(0, 2)
+                .toUpperCase()}
+            </div>
             <h2 className="w-60 text-center truncate text-xl font-bold text-gray-800">
               {receiver?.name}
             </h2>
@@ -2247,13 +2261,13 @@ const Contact = ({
     <>
       <div
         onClick={onClick}
-        className={`w-72 justify-between hover:bg-gray-100 transition-colors duration-200 ${
+        className={`w-full justify-between hover:bg-gray-100 transition-colors duration-200 mt-3 ${
           isSelected ? "bg-blue-50 border-l-4 border-blue-500" : ""
         }`}
       >
-        <div className="flex space-x-2 py-1 px-2 rounded-sm justify-between">
+        <div className="flex space-x-2 py-2 px-2 rounded-sm justify-between">
           <div className="flex space-x-3">
-            <div className="relative">
+            {/* <div className="relative">
               <img
                 className="w-10 h-10 border border-[#ffffff] rounded-full"
                 src="https://res.cloudinary.com/dfrtdfw3l/image/upload/v1632130040/servicecreativevally/fbekl0jh9xsw1oodopuh.avif"
@@ -2264,10 +2278,36 @@ const Contact = ({
                   {unreadCount}
                 </span>
               )}
+            </div> */}
+
+            <div className="relative">
+              {user?.image ? (
+                <img
+                  className="w-10 h-10 border border-[#ffffff] rounded-full object-cover"
+                  src={user.image}
+                  alt={user.name}
+                />
+              ) : (
+                // 👇 Show initials if no image
+                <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-white font-semibold">
+                  {user?.name
+                    ?.split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .substring(0, 2)
+                    .toUpperCase()}
+                </div>
+              )}
+
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {unreadCount}
+                </span>
+              )}
             </div>
-            <div className="max-w-[180px]">
+            <div className="max-w-[180px] truncate">
               <div
-                className={`text-base font-medium ${
+                className={`text-sm font-medium ${
                   isSelected ? "text-blue-600" : "text-gray-800"
                 }`}
               >
@@ -2277,22 +2317,18 @@ const Contact = ({
                 {getLastMessagePreview()}
               </div>
             </div>
-            {/* <div>
-              <div className="tex-base">{userName}</div>
-              <div className="text-sm text-gray-500">last message</div>
-            </div> */}
-            \
-            <div className="flex flex-col items-end">
-              <div className="text-xs text-gray-500">
-                {formatTime(lastMessageData?.timestamp)}
-              </div>
-              {isSelected && (
+          </div>
+          <div className="flex flex-col items-end">
+            <div className="text-xs text-gray-500">
+              {formatTime(lastMessageData?.timestamp)}
+            </div>
+            {/* {isSelected && (
                 <div className="mt-1 text-blue-500">
                   <FontAwesomeIcon icon={faCheckDouble} className="text-xs" />
                 </div>
-              )}
-            </div>
+              )} */}
           </div>
+
           {/* <div className="text-xs text-gray-500">12.04.2022</div> */}
         </div>
       </div>
