@@ -148,7 +148,7 @@ function ArtCard({
                       toast.error("Please Login to Buy");
                     }
                   }}
-                  className="px-3 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 h-12"
+                  className="text-sm px-3 lg:px-2 py-1.5 btn bg-gradient-to-r text-white from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-32 lg:w-28 xl:w-32 h-12"
                 >
                   <FontAwesomeIcon icon={faMoneyBill} />
                   Buy Now
@@ -179,7 +179,7 @@ function ArtCard({
                     toast.success("Painting added in your cart");
                   }
                 }}
-                className="px-3 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-36 h-12"
+                className="text-sm px-3 lg:px-2 py-2.5 rounded-md bg-gradient-to-r text-white  from-[#0363af] to-[#0363af]/90 hover:from-[#0363af] hover:to-[#0363af]/80 border-transparent w-36 lg:w-32 xl:w-36 h-12"
               >
                 <FontAwesomeIcon icon={faCartPlus} className="pr-1.5" />
                 Add to Cart

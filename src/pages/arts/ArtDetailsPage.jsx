@@ -131,10 +131,10 @@ function ArtDetailsPage() {
       </div>
 
       <div className="pt-5 sm:pt-10 overflow-y-auto h-[90vh]">
-        <Link to="/Painting" className="px-10">
+        <Link to="/Painting" className="px-6 lg:px-10">
           <ArrowBack />
         </Link>
-        <div className="px-6 mt-5 sm:flex md:px-10 sm:space-x-10">
+        <div className="px-6 mt-5 2md:flex md:px-10 sm:space-x-10">
           {/* <div className="w-5/6 ">
             <ul className="">
               <Carousel className="w-full h-80 ">
@@ -152,11 +152,11 @@ function ArtDetailsPage() {
               </Carousel>
             </ul>
           </div> */}
-          <div className="w-2/3">
+          <div className="w-full lg:w-2/3">
             {artDetail?.art && <ArtCarousel arts={artDetail?.art} />}
             {/* rating and review */}
           </div>
-          <div className="w-1/2 mt-10 font-sans sm:mt-0">
+          <div className="w-full lg:w-1/2 mt-10 font-sans sm:mt-0">
             <div className="flex items-center space-x-2 text-xl sm:text-2xl bg-slate-300 px-2 py-1 rounded-md text-black">
               <div className="text-base">Artist:</div>
               <div className="text-base font-bold">{artDetail?.artistName}</div>
@@ -226,7 +226,7 @@ function ArtDetailsPage() {
           </div>
         </div>
         <div className="px-6 pt-6 space-y-5 sm:pt-10 md:px-10">
-          <div className="flex items-center space-x-3">
+          {/* <div className="flex items-center space-x-3">
             <div className="font-sans text-xl text-green-600">Ratings: </div>
             <div className="flex">
               <Star className="text-[#f45c02]" />
@@ -235,12 +235,12 @@ function ArtDetailsPage() {
               <Star className="text-[#f45c02]" />
             </div>
             <div className="text-xl font-semibold">10+</div>
-          </div>
+          </div> */}
           <div>
             <div className="font-sans text-xl border-b border-[#0363af]">
               Reviews{" "}
             </div>
-            <div className="flex">
+            {/* <div className="flex">
               <textarea
                 className="bg-slate-50 border-stone-200 "
                 onChange={(e) => {
@@ -252,8 +252,8 @@ function ArtDetailsPage() {
                 className="text-slate-100 w-9 h-9 bg-slate-700 cursor-pointer"
                 onClick={sendMessageHandler}
               />
-            </div>
-            <div className="px-0 pt-5 space-y-5 font-sans sm:px-10">
+            </div> */}
+            <div className="px-0 pt-5 space-y-5 font-sans">
               {artReview?.map((singleReview) => {
                 console.log("singleReview=====>", singleReview);
                 return (
@@ -278,16 +278,16 @@ export default ArtDetailsPage;
 
 export const ReviewCard = ({ date, username, review }) => {
   return (
-    <div className="px-5 py-3 border rounded-md shadow-sm bg-slate-50 border-stone-200">
-      <div className="flex space-x-20 border-b border-stone-300">
-        <div className="text-base sm:text-base text-stone-800">
-          Username:{username}
+    <div className=" border rounded-md shadow-sm  border-stone-200">
+      <div className="px-3 py-3 border-b rounded-tl-md rounded-tr-md border-stone-300 space-y-1.5 md:space-y-0 md:flex md:space-x-20 md:justify-between bg-slate-50 pb-1">
+        <div className="text-sm lg:text-base text-stone-800">
+          Username: {username}
         </div>
-        <div className="text-base sm:text-base text-stone-800">
+        <div className="text-sm lg:text-base text-stone-800">
           Date & Time:{date}
         </div>
       </div>
-      <div className="py-3 text-base sm:text-lg font-normal">{review}</div>
+      <div className="px-3 py-3 text-sm lg:text-base font-normal">{review}</div>
     </div>
   );
 };
@@ -317,11 +317,11 @@ export const ArtCarousel = ({ arts }) => {
           </div>
         ))}
       </div>
-      <div className="flex items-center space-x-4 w-full bg-slate-50 px-5">
+      <div className="flex items-center space-x-2 lg:space-x-4 w-full bg-slate-50 px-1.5 lg:px-5">
         <button>
           <FontAwesomeIcon
             icon={faCircleChevronLeft}
-            className="text-slate-200 w-9 h-9"
+            className="text-slate-200 size-6 size:w-9"
           />
         </button>
         <div className="overflow-hidden w-full h-auto sm:h-[36rem]">
@@ -334,7 +334,7 @@ export const ArtCarousel = ({ arts }) => {
         <button>
           <FontAwesomeIcon
             icon={faCircleChevronRight}
-            className="text-slate-500 w-9 h-9"
+            className="text-slate-500 size-6 size:w-9"
           />
         </button>
       </div>

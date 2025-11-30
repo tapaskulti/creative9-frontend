@@ -6,7 +6,7 @@ export default function AboutUs() {
     <div>
       <Header />
       <div>
-        <div className="bg-gradient-to-r from-[#297cc0] via-[#0363af] to-[#297cc0] h-32 px-32 py-10 text-center text-white text-4xl">
+        <div className="bg-gradient-to-r from-[#297cc0] via-[#0363af] to-[#297cc0] h-24 md:h-28 lg:h-32 xl:px-32 py-7 md:py-10 text-center text-white text-2xl md:text-3xl lg:text-4xl">
           <h1>About Us</h1>
         </div>
 
