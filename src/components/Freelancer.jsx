@@ -14,11 +14,11 @@ export default function Freelancer() {
   return (
     <div>
       <Header />
-      <div className="py-20">
-        <div className="px-10 3xl:px-64 grid grid-cols-4 gap-5">
+      <div className="py-10 xl:py-20">
+        <div className="px-6 lg:px-10 3xl:px-64 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {/* md:w-80 lg:w-72 xl:w-72 2xl:w-60 3xl:w-80 */}
 
-          <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
+          <div className="w-full lg:h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
             <Link to="https://www.fiverr.com/creativevalley9" target="_blank">
               <div className="text-center">
                 {/* <img src={image} className="h-full rounded-lg w-72 sm:w-80 md:w-96 3xl:w-96" /> */}
@@ -32,7 +32,7 @@ export default function Freelancer() {
                   className="rounded-t-lg object-cover w-full h-auto px-2"
                 />
               </div>
-              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 py-3 mt-4">
+              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 xl:py-3 pb-16 mt-6 xl:mt-10">
                 <h3 className="font-bold">About me</h3>
                 <h2 className="text-base font-medium py-2">
                   BEST QUALITY ON TIME AT FARE PRICE
@@ -63,7 +63,7 @@ export default function Freelancer() {
               </div>
             </Link>
           </div>
-          <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
+          <div className="w-full lg:h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
             <Link
               to="https://www.upwork.com/freelancers/creativevalley9"
               target="_blank"
@@ -80,7 +80,7 @@ export default function Freelancer() {
                   className="rounded-t-lg object-cover w-full h-auto px-2"
                 />
               </div>
-              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 py-3 mt-4">
+              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 xl:py-3 pb-20 mt-6 xl:mt-10">
                 <h3 className="font-bold">About me</h3>
                 <h3 className="font-bold pt-2">
                   Children Book illustration I Logo I Oil painting I
@@ -119,7 +119,7 @@ export default function Freelancer() {
               </div>
             </Link>
           </div>
-          <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
+          <div className="w-full lg:h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
             <Link
               to="https://www.etsy.com/in-en/shop/creativevalley9?ref=seller-platform-mcnav"
               target="_blank"
@@ -132,7 +132,7 @@ export default function Freelancer() {
                   className="rounded-t-lg object-cover w-full h-auto "
                 />
               </div>
-              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 py-3 mt-10">
+              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 xl:py-3 pb-10 mt-6 xl:mt-10">
                 <h3 className="font-bold py-3">About me</h3>
 
                 <p className="text-sm leading-[22px]">
@@ -155,7 +155,7 @@ export default function Freelancer() {
               </div>
             </Link>
           </div>
-          <div className="w-full h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
+          <div className="w-full lg:h-[690px]  shadow-lg rounded-lg hover:shadow-xl border border-slate-200 relative cursor-pointer">
             <Link
               to="https://www.freelancer.com/u/creativevalley9"
               target="_blank"
@@ -172,7 +172,7 @@ export default function Freelancer() {
                   className="rounded-t-lg object-cover w-full h-auto"
                 />
               </div>
-              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 py-3 mt-10">
+              <div className="h-[460px] overflow-y-auto scrollbar-hide px-4 xl:py-3 pb-16 mt-6 xl:mt-10">
                 <h3 className="font-bold py-2">About me</h3>
 
                 <p className="text-sm leading-[22px]">
