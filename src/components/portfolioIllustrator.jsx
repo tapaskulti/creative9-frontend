@@ -16,10 +16,26 @@ import { Link } from "react-router-dom";
 // import portfolio012 from "../assets/portfolio012.jpg";
 
 const items = [
-  { image: portfolio01, title: "Title 1", description: "Description 1" },
-  { image: portfolio02, title: "Title 2", description: "Description 2" },
-  { image: portfolio03, title: "Title 3", description: "Description 3" },
-  { image: portfolio04, title: "Title 4", description: "Description 4" }
+  {
+    image: portfolio01,
+    title: "Children book Illustration",
+    description: "Multi cultural children book illustration"
+  },
+  {
+    image: portfolio02,
+    title: "Children book Illustration",
+    description: "Cartoon style children book illustration"
+  },
+  {
+    image: portfolio03,
+    title: "Children book Illustration",
+    description: "African American children book illustration"
+  },
+  {
+    image: portfolio04,
+    title: "Children book Illustration",
+    description: "Animal children book illustration"
+  }
   // { image: portfolio05, title: "Title 5", description: "Description 5" },
   // { image: portfolio06, title: "Title 6", description: "Description 6" },
   // { image: portfolio07, title: "Title 7", description: "Description 7" },
