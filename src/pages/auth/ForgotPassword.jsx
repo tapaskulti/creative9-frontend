@@ -10,14 +10,18 @@ export default function ForgotPassword() {
   // const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Alternative: Direct fetch with correct URL
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch("/pages/auth/ForgotPassword", {
+      const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+      const response = await fetch(`${baseUrl}/user/forgotPassword`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({ email })
       });
 
@@ -29,7 +33,6 @@ export default function ForgotPassword() {
       } else {
         toast.error(data.message || "Something went wrong.");
       }
-      // setMessage(data.message || "Check your email for reset instructions.");
     } catch (err) {
       toast.error("Server error");
     } finally {
@@ -43,7 +46,7 @@ export default function ForgotPassword() {
       <div className="pt-0">
         {/* header */}
         <Header />
-        {/* content */} {/* Snaps */}
+        {/* content /} {/ Snaps */}
         <div className="flex justify-around overflow-x-hidden overflow-y-auto">
           {/* content */}
           <div className="w-full px-5 space-y-6 pt-28 sm:w-4/5 md:w-1/2 xl:w-2/5 2xl:w-2/6 z-20">
@@ -83,8 +86,7 @@ export default function ForgotPassword() {
             <img
               src={imageLandingPage}
               alt=""
-              className="rounded-full size-44 2md:size-52 border-4 border-[#0363af]  transform -translate-x-10
-                      "
+              className="rounded-full size-44 2md:size-52 border-4 border-[#0363af]  transform -translate-x-10"
             />
 
             <img
